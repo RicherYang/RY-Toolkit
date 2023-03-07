@@ -1,0 +1,705 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: RY Tools\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-"
+"ecpay-invoice\n"
+"POT-Creation-Date: 2023-03-06 18:00+0800\n"
+"PO-Revision-Date: 2023-03-06 18:03+0800\n"
+"Last-Translator: Richer Yang\n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SearchPath-0: ./..\n"
+
+#: ../admin/admin.php:79
+msgid "RY Tool"
+msgstr "RY 工具箱"
+
+#: ../admin/html/media/big-size.php:2 ../admin/options.php:22
+msgid "Max size"
+msgstr "最大尺寸"
+
+#: ../admin/html/media/big-size.php:3
+msgid "Max Width / Heigth"
+msgstr "最大寬度 / 高度"
+
+#: ../admin/html/media/medium-large-size.php:2 ../admin/options.php:21
+msgid "Medium large size"
+msgstr "中大型尺寸"
+
+#: ../admin/html/media/medium-large-size.php:3
+msgid "Max Width"
+msgstr "最大寬度"
+
+#: ../admin/html/media/medium-large-size.php:6
+msgid "Max Height"
+msgstr "最大高度"
+
+#: ../admin/options.php:23
+msgid "Disable generated size"
+msgstr "停止生成尺寸"
+
+#: ../admin/options.php:58
+msgid "Thumbnail"
+msgstr "縮圖尺寸"
+
+#: ../admin/options.php:59
+msgid "Medium"
+msgstr "中型尺寸"
+
+#: ../admin/options.php:60
+msgid "Large"
+msgstr "大型尺寸"
+
+#: ../admin/options.php:61
+msgid "Full Size"
+msgstr "完整尺寸"
+
+#: ../admin/page/html/opcache.php:1
+msgid "OPcache status"
+msgstr "OPcache 狀態"
+
+#: ../admin/page/html/opcache.php:8
+msgid "OPcache statistics"
+msgstr "OPcache 統計"
+
+#: ../admin/page/html/opcache.php:12
+msgid "Start time"
+msgstr "開始時間"
+
+#: ../admin/page/html/opcache.php:19
+msgid "Last restart time"
+msgstr "最後重啟時間"
+
+#: ../admin/page/html/opcache.php:26
+msgid "Number of cached files"
+msgstr "快取檔案數"
+
+#: ../admin/page/html/opcache.php:32
+msgid "Number of hits"
+msgstr "命中數"
+
+#: ../admin/page/html/opcache.php:39
+msgid "Number of misses"
+msgstr "未命中數"
+
+#: ../admin/page/html/opcache.php:46
+msgid "blacklist hits"
+msgstr "禁用命中數"
+
+#: ../admin/page/html/opcache.php:59
+msgid "Memory usage"
+msgstr "記憶體使用"
+
+#: ../admin/page/html/opcache.php:63
+msgid "Total memory"
+msgstr "總記憶體"
+
+#: ../admin/page/html/opcache.php:69
+msgid "Used memory"
+msgstr "已使用記憶體"
+
+#: ../admin/page/html/opcache.php:76
+msgid "Free memory"
+msgstr "可用記憶體"
+
+#: ../admin/page/html/opcache.php:83
+msgid "Wasted memory"
+msgstr "浪費的記憶體"
+
+#: ../admin/page/html/opcache.php:96
+msgid "Interned strings usage"
+msgstr ""
+
+#: ../admin/page/html/opcache.php:100
+msgid "Buffer size"
+msgstr "緩衝區大小"
+
+#: ../admin/page/html/opcache.php:106
+msgid "Used buffer"
+msgstr "已使用緩衝區"
+
+#: ../admin/page/html/opcache.php:113
+msgid "Free buffer"
+msgstr "可用緩衝區"
+
+#: ../admin/page/html/opcache.php:120
+msgid "Number of strings"
+msgstr "字串數"
+
+#: ../admin/page/html/opcache.php:132
+msgid "Restart info"
+msgstr "重啟資訊"
+
+#: ../admin/page/html/opcache.php:136
+msgid "Out of memory"
+msgstr "記憶體耗盡"
+
+#: ../admin/page/html/opcache.php:143
+msgid "Out of file"
+msgstr "檔案耗盡"
+
+#: ../admin/page/html/opcache.php:150
+msgid "manual"
+msgstr "手動"
+
+#: ../admin/page/html/opcache.php:160
+msgid "OPcache tool"
+msgstr "OPcache 工具"
+
+#: ../admin/page/html/opcache.php:165 ../admin/page/html/tools.php:33
+msgid "PHP OPcache"
+msgstr "PHP OPcache"
+
+#: ../admin/page/html/opcache.php:171 ../admin/page/html/tools.php:39
+msgid "Flush PHP OPcache"
+msgstr "清除 PHP OPcache"
+
+#: ../admin/page/html/opcache.php:175 ../admin/page/html/tools.php:43
+msgid "Set all cached files under the WordPress root directory to be invalid."
+msgstr "將 WordPress 根目錄底下所有已快取的檔案設定為失效。"
+
+#: ../admin/page/html/opcache.php:181 ../admin/page/html/tools.php:49
+msgid "Restart PHP OPcache"
+msgstr "重啟 PHP OPcache"
+
+#: ../admin/page/html/tools.php:4
+msgid "Database"
+msgstr "資料庫"
+
+#: ../admin/page/html/tools.php:10
+msgid "Analyze tables"
+msgstr "分析資料表"
+
+#: ../admin/page/html/tools.php:13
+msgid "Optimize tables"
+msgstr "最佳化資料表"
+
+#: ../admin/page/html/tools.php:18
+msgid "Clear transient option"
+msgstr "清除暫時性設定"
+
+#: ../admin/page/html/tools.php:22
+msgid ""
+"Transient option are safe to remove. They will be automatically regenerated "
+"when require it."
+msgstr "暫時性設定可以刪除的，將在需要使用到的時候自動生成新的暫時設定值。"
+
+#. translators: %: Number of transient option.
+#: ../admin/page/html/tools.php:25
+#, php-format
+msgid "%s transient in your database."
+msgid_plural "%s transients in your database."
+msgstr[0] "資料庫中有 %s 個暫時性設定。"
+
+#: ../admin/page/opcache.php:18 ../admin/page/opcache.php:33
+msgid "OPcache"
+msgstr "OPcache"
+
+#: ../admin/page/opcache.php:37
+msgid "OPcache disabled."
+msgstr "OPcache 已停用。"
+
+#: ../admin/page/opcache.php:63
+msgid "OPcache flushed successfully."
+msgstr "OPcache 已成功清除。"
+
+#: ../admin/page/opcache.php:66
+msgid "OPcache flush failed."
+msgstr "OPcache 清除失敗。"
+
+#: ../admin/page/opcache.php:75
+msgid "OPcache restarted successfully."
+msgstr "OPcache 已成功重啟。"
+
+#: ../admin/page/opcache.php:77
+msgid "OPcache restart failed."
+msgstr "OPcache 重啟失敗。"
+
+#: ../admin/page/tools.php:16 ../admin/page/tools.php:36
+msgid "Tools"
+msgstr "工具"
+
+#: ../admin/page/tools.php:77
+msgid "Database tables analyzed successfully."
+msgstr "資料表已成功分析。"
+
+#: ../admin/page/tools.php:116
+msgid "Database tables optimized successfully."
+msgstr "資料表已成功最佳化。"
+
+#: ../includes/image.php:26
+msgid "Medium large"
+msgstr "中大型尺寸"
+
+#: ../includes/image.php:27
+msgid "Post thumbnail"
+msgstr "文章縮圖尺寸"
+
+#, php-format
+#~ msgid "%d transient in your database."
+#~ msgid_plural "%d transients in your database."
+#~ msgstr[0] "資料庫中有 %d 暫時性設定。"
+
+#, php-format
+#~ msgid "%d transients in your database."
+#~ msgstr "資料庫中有 %d 臨時設定。"
+
+#~ msgid "OPcache is disabled"
+#~ msgstr "OPcache 已停用。"
+
+#~ msgid "Out of files"
+#~ msgstr "檔案耗盡"
+
+#~ msgid "Set 0 to disable auto scaling large image."
+#~ msgstr "設定為 0 以停用自動縮小大型圖片。"
+
+#~ msgid "Set 0 to disable auto scaling big image."
+#~ msgstr "設定為 0 以停用自動縮小圖片。"
+
+#~ msgid "Set 0 to disabled auto scaling big image."
+#~ msgstr "設定為 0 以停用自動縮小圖片。"
+
+#~ msgid "Set 0 to disabled the scaling image"
+#~ msgstr "設定為 0 以停用縮小圖片"
+
+#~ msgid "Big size"
+#~ msgstr "最大尺寸"
+
+#~ msgid "RY WooCommerce ECPay Invoice"
+#~ msgstr "RY WooCommerce ECPay Invoice"
+
+#~ msgid "https://ry-plugin.com/ry-woocommerce-ecpay-invoice"
+#~ msgstr "https://ry-plugin.com/ry-woocommerce-ecpay-invoice"
+
+#~ msgid "Richer Yang"
+#~ msgstr "Richer Yang"
+
+#~ msgid "https://richer.tw/"
+#~ msgstr "https://richer.tw/"
+
+#~ msgid "Your license is not active!"
+#~ msgstr "你的授權尚未啟動！"
+
+#~ msgid "License key"
+#~ msgstr "授權金鑰"
+
+#~ msgid "License Expiration Date %s"
+#~ msgstr "授權到期日 %s"
+
+#~ msgid "Connect license server failed!"
+#~ msgstr "連結授權伺服器失敗！"
+
+#~ msgid "Verification error: %s"
+#~ msgstr "驗證錯誤：%s"
+
+#~ msgid "Unknown key"
+#~ msgstr "未知的金鑰"
+
+#~ msgid "Locked key"
+#~ msgstr "鎖定的金鑰"
+
+#~ msgid "Unknown target url"
+#~ msgstr "未知的目標網址"
+
+#~ msgid "Used key"
+#~ msgstr "已使用的金鑰"
+
+#~ msgid "Is tried"
+#~ msgstr "已使用過測試版"
+
+#~ msgid "ECPay invoice method failed to enable!"
+#~ msgstr "綠界發票模組啟用失敗！"
+
+#~ msgid "Required PHP function openssl_encrypt and openssl_decrypt."
+#~ msgstr "缺少必要的 PHP 函式 openssl_encrypt 和 openssl_decrypt。"
+
+#~ msgid "Invoice info"
+#~ msgstr "發票資訊"
+
+#~ msgid "Invoice type"
+#~ msgstr "發票類型"
+
+#~ msgctxt "invoice type"
+#~ msgid "personal"
+#~ msgstr "個人"
+
+#~ msgctxt "invoice type"
+#~ msgid "company"
+#~ msgstr "公司"
+
+#~ msgctxt "invoice type"
+#~ msgid "donate"
+#~ msgstr "捐贈"
+
+#~ msgid "Carruer type"
+#~ msgstr "載具類型"
+
+#~ msgctxt "carruer type"
+#~ msgid "none"
+#~ msgstr "紙本發票"
+
+#~ msgctxt "carruer type"
+#~ msgid "ecpay_host"
+#~ msgstr "雲端發票"
+
+#~ msgctxt "carruer type"
+#~ msgid "smilepay_host"
+#~ msgstr "雲端發票 (速買配載具)"
+
+#~ msgctxt "carruer type"
+#~ msgid "MOICA"
+#~ msgstr "自然人憑證"
+
+#~ msgctxt "carruer type"
+#~ msgid "phone_barcode"
+#~ msgstr "手機條碼"
+
+#~ msgid "Carruer number"
+#~ msgstr "載具編號"
+
+#~ msgid "Tax ID number"
+#~ msgstr "統一編號"
+
+#~ msgid "Donate number"
+#~ msgstr "捐贈愛心碼"
+
+#~ msgid "Invoice number"
+#~ msgstr "發票號碼"
+
+#~ msgid "Invoice random number"
+#~ msgstr "發票隨機碼"
+
+#~ msgid "Invoice date"
+#~ msgstr "發票開立時間"
+
+#~ msgid "Zero no invoice"
+#~ msgstr "零元不開立"
+
+#~ msgid "Negative no invoice"
+#~ msgstr "負數不開立"
+
+#~ msgid "Delay get invoice"
+#~ msgstr "延遲開立發票"
+
+#~ msgid "Cancel invoice"
+#~ msgstr "取消發票"
+
+#~ msgid "Invalid invoice"
+#~ msgstr "作廢發票"
+
+#~ msgid "Get invoice"
+#~ msgstr "開立發票"
+
+#~ msgid "h"
+#~ msgstr "時"
+
+#~ msgid "m"
+#~ msgstr "分"
+
+#~ msgid "s"
+#~ msgstr "秒"
+
+#~ msgid "License has auto deactivate at %1$s."
+#~ msgstr "授權於 %1$s 自動終止。"
+
+#~ msgid "License Auto Deactivate!"
+#~ msgstr "授權自動終止！"
+
+#~ msgid "Data transfer"
+#~ msgstr "資料轉移"
+
+#~ msgid "Data transfer & DELET"
+#~ msgstr "資料轉移併<strong>刪除</strong>舊資料"
+
+#~ msgid "Data DELET"
+#~ msgstr "資料刪除"
+
+#~ msgid "version info"
+#~ msgstr "版本資訊"
+
+#~ msgid "Now Version:"
+#~ msgstr "目前版本"
+
+#~ msgid "New Version:"
+#~ msgstr "最新版本"
+
+#~ msgid "update plugin"
+#~ msgstr "升級外掛"
+
+#~ msgid "Zero total fee without invoice"
+#~ msgstr "總額零元不開立發票"
+
+#~ msgid "Negative total fee can't invoice"
+#~ msgstr "總額負數不開立發票"
+
+#~ msgid "Get invoice error: %s"
+#~ msgstr "開立發票號碼失敗：%s"
+
+#~ msgid "Invoice create time"
+#~ msgstr "發票建立時間"
+
+#~ msgid "parcel"
+#~ msgstr "批"
+
+#~ msgid "shipping fee"
+#~ msgstr "運費"
+
+#~ msgid "Discount"
+#~ msgstr "折價"
+
+#~ msgid "Cancel delay invoice error: %s"
+#~ msgstr "取消延遲開立發票失敗：%s"
+
+#~ msgid "Cancel delay invoice"
+#~ msgstr "取消延遲開立"
+
+#~ msgid "Invalid invoice error: %s"
+#~ msgstr "作廢發票號碼失敗：%s"
+
+#~ msgid " (send paper when win)"
+#~ msgstr " (中獎時寄送紙本發票)"
+
+#~ msgid "Company name"
+#~ msgstr "公司名稱"
+
+#~ msgid "Invalid carruer number"
+#~ msgstr "無效的載具編號"
+
+#~ msgid "Invalid tax ID number"
+#~ msgstr "無效的統一編號"
+
+#~ msgid "Invalid donate number"
+#~ msgstr "無效的愛心碼"
+
+#~ msgid "Get invoice.<br>Please wait."
+#~ msgstr "開立發票中。<br>請耐心等待。"
+
+#~ msgid "Invalid invoice.<br>Please wait."
+#~ msgstr "作廢發票中。<br>請耐心等待。"
+
+#~ msgid "Cancel delay invoice data.<br>Please wait."
+#~ msgstr "取消延遲開立發票資訊。<br>請耐心等待。"
+
+#~ msgid "RY Tools"
+#~ msgstr "RY Tools"
+
+#~ msgid "ECPay invoice"
+#~ msgstr "綠界電子發票"
+
+#~ msgid "Not recommended enable two invoice module/plugin at the same time!"
+#~ msgstr "不建議同時啟用兩個發票模組！"
+
+#~ msgid "Order no prefix only letters and numbers allowed"
+#~ msgstr "訂單編號前綴只允許使用英文字母與數字"
+
+#~ msgid "Delay day only can between 1 and 15 days."
+#~ msgstr "延遲天數只可以在 1 到 15 天。"
+
+#~ msgid "Data transfer complated."
+#~ msgstr "完成資料轉移。"
+
+#~ msgid "Data delete complated."
+#~ msgstr "完成資料刪除。"
+
+#~ msgid "Base options"
+#~ msgstr "基本設定"
+
+#~ msgid "Enable/Disable"
+#~ msgstr "啓用/停用"
+
+#~ msgid "Enable ECPay invoice method"
+#~ msgstr "啟用 綠界電子發票 模組"
+
+#~ msgid "Debug log"
+#~ msgstr "除錯記錄"
+
+#~ msgid "Enable logging"
+#~ msgstr "啓用記錄"
+
+#~ msgid "Log API / IPN information, inside %s"
+#~ msgstr "紀錄 API / 服務商通知 等資訊，檔案位於 %s"
+
+#~ msgid "Note: this may log personal information."
+#~ msgstr "注意：本紀錄可能包含個人資料。"
+
+#~ msgid "Order no prefix"
+#~ msgstr "訂單編號前綴字"
+
+#~ msgid "The prefix string of order no. Only letters and numbers allowed."
+#~ msgstr "訂單編號前綴字符串。只允許使用英文字母與數字。"
+
+#~ msgid "Show invoice number"
+#~ msgstr "顯示發票號碼"
+
+#~ msgid "Show invoice number in Frontend order list"
+#~ msgstr "於前台訂單列表中顯示發票號碼"
+
+#~ msgid "Move billing company"
+#~ msgstr "移動帳單公司資訊"
+
+#~ msgid "Move billing company to invoice area"
+#~ msgstr "移動帳單公司資訊到發票資訊區域"
+
+#~ msgid "Invoice options"
+#~ msgstr "電子發票設定"
+
+#~ msgid "support paper type"
+#~ msgstr "支援紙本發票"
+
+#~ msgid "You need print invoice and seed to orderer."
+#~ msgstr "你必須列印出紙本發票並且寄送給購買人。"
+
+#~ msgid "check number with api"
+#~ msgstr "呼叫綠界 API 確認編號正確"
+
+#~ msgid "Use ECPay API to check the carruer number or donate number is right."
+#~ msgstr "呼叫綠界 API 確認載具編號或是捐贈愛心碼輸入正確。"
+
+#~ msgid "user SKU as product name"
+#~ msgstr "使用貨號作為商品名稱"
+
+#~ msgid "If product no SKU, back to use product name"
+#~ msgstr "如果沒有輸入貨號，則回復使用商品名稱"
+
+#~ msgid "Company invoice carruer mode"
+#~ msgstr "公司發票載具類型"
+
+#~ msgctxt "company mode"
+#~ msgid "Cloud host (ecpay carruer)"
+#~ msgstr "雲端發票 (綠界載具)"
+
+#~ msgctxt "company mode"
+#~ msgid "Print"
+#~ msgstr "列印"
+
+#~ msgid "Get mode"
+#~ msgstr "開立發票模式"
+
+#~ msgctxt "get mode"
+#~ msgid "Manual"
+#~ msgstr "手動"
+
+#~ msgctxt "get mode"
+#~ msgid "Auto ( when order paid )"
+#~ msgstr "自動 (當訂單為完成付款)"
+
+#~ msgctxt "get mode"
+#~ msgid "Auto ( when order completed )"
+#~ msgstr "自動 (當訂單狀態為完成)"
+
+#~ msgid "Order paid status: %s"
+#~ msgstr "完成付款訂單狀態：%s"
+
+#~ msgid "Delay get days"
+#~ msgstr "延遲開立天數"
+
+#~ msgid "Invalid mode"
+#~ msgstr "作廢發票模式"
+
+#~ msgctxt "invalid mode"
+#~ msgid "Manual"
+#~ msgstr "手動"
+
+#~ msgctxt "invalid mode"
+#~ msgid "Auto ( when order status cancelled OR refunded )"
+#~ msgstr "自動 (當訂單狀態為取消或退費)"
+
+#~ msgid "Amount abnormal mode"
+#~ msgstr "金額異常處理模式"
+
+#~ msgctxt "amount abnormal mode"
+#~ msgid "No action"
+#~ msgstr "沒有動作"
+
+#~ msgctxt "amount abnormal mode"
+#~ msgid "Add one product to match order amount"
+#~ msgstr "添加一個商品以符合訂單總金額"
+
+#~ msgctxt "amount abnormal mode"
+#~ msgid "Change order total amount"
+#~ msgstr "修改訂單總金額"
+
+#~ msgid "fix amount product name"
+#~ msgstr "修正金額異常商品名稱"
+
+#~ msgid "API credentials"
+#~ msgstr "API 憑證"
+
+#~ msgid "ECPay invoice sandbox"
+#~ msgstr "綠界電子發票測試模式"
+
+#~ msgid "Enable ECPay invoice sandbox"
+#~ msgstr "啟用綠界電子發票測試模式"
+
+#~ msgid "Note: Recommend using this for development purposes only."
+#~ msgstr "注意：僅建議基於開發需求使用本功能。"
+
+#~ msgid "MerchantID"
+#~ msgstr "商店代號"
+
+#~ msgid "HashKey"
+#~ msgstr "HashKey"
+
+#~ msgid "HashIV"
+#~ msgstr "HashIV"
+
+#~ msgctxt "company mode"
+#~ msgid "Cloud host"
+#~ msgstr "雲端發票"
+
+#~ msgctxt "get mode"
+#~ msgid "manual"
+#~ msgstr "手動"
+
+#~ msgctxt "get mode"
+#~ msgid "auto ( when order paid )"
+#~ msgstr "自動 (當訂單為完成付款)"
+
+#~ msgctxt "get mode"
+#~ msgid "auto ( when order completed )"
+#~ msgstr "自動 (當訂單狀態為完成)"
+
+#~ msgctxt "invalid mode"
+#~ msgid "manual"
+#~ msgstr "手動"
+
+#~ msgctxt "invalid mode"
+#~ msgid "auto ( when order status cancelled OR refunded )"
+#~ msgstr "自動 (當訂單狀態為取消或退費)"
+
+#~ msgctxt "amount abnormal mode"
+#~ msgid "add one product to match order amount"
+#~ msgstr "添加一個商品以符合訂單總金額"
+
+#~ msgctxt "amount abnormal mode"
+#~ msgid "change order total amount"
+#~ msgstr "修改訂單總金額"
+
+#~ msgctxt "company mode"
+#~ msgid "cloud host"
+#~ msgstr "雲端發票"
+
+#~ msgctxt "company mode"
+#~ msgid "print"
+#~ msgstr "列印"
+
+#~ msgid "Company invoice mode"
+#~ msgstr "公司發票類型"
+
+#~ msgctxt "company mode"
+#~ msgid "cloud carruer"
+#~ msgstr "雲端發票"
+
+#~ msgid "Company mode"
+#~ msgstr "公司發票"
