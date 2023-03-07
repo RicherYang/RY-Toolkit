@@ -27,7 +27,7 @@ class RY
 
     protected function do_init(): void
     {
-        load_plugin_textdomain('ry-tools', false, plugin_basename(RY_PLUGIN_DIR) . '/languages');
+        load_plugin_textdomain('ry-toolkit', false, plugin_basename(RY_PLUGIN_DIR) . '/languages');
 
         add_action('init', [$this, 'ry_init']);
 
@@ -44,6 +44,12 @@ class RY
     {
         include_once RY_PLUGIN_DIR . 'includes/image.php';
         $this->instance['image'] = RY_Image::instance();
+
+        include_once RY_PLUGIN_DIR . 'includes/xmlrpc.php';
+        $this->instance['xmlrpc'] = RY_Xmlrpc::instance();
+
+        include_once RY_PLUGIN_DIR . 'includes/frontend.php';
+        $this->instance['frontend'] = RY_Frontend::instance();
     }
 
     public static function get_option_name(string $option): string

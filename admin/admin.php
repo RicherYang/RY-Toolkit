@@ -18,12 +18,14 @@ class RY_Admin
     {
         include_once RY_PLUGIN_DIR . 'admin/page/abstracts-page.php';
         include_once RY_PLUGIN_DIR . 'admin/page/opcache.php';
+        include_once RY_PLUGIN_DIR . 'admin/page/options.php';
         include_once RY_PLUGIN_DIR . 'admin/page/tools.php';
 
         add_action('admin_post_ry-action', [$this, 'do_action']);
         add_action('all_admin_notices', [$this, 'show_notices']);
 
         add_action('admin_init', [$this, 'register_style_script']);
+        add_action('admin_init', [$this, 'init_frontend']);
         add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
 
         add_action('admin_menu', [$this, 'admin_menu']);
@@ -65,6 +67,12 @@ class RY_Admin
         wp_register_style('ry-admin', RY_PLUGIN_URL . 'assets/css/admin/main' . $suffix . '.css', [], RY_VERSION);
     }
 
+    public function init_frontend()
+    {
+        remove_action('admin_print_scripts', 'print_emoji_detection_script');
+        remove_action('admin_print_styles', 'print_emoji_styles');
+    }
+
     public function admin_enqueue_scripts()
     {
         wp_enqueue_style('ry-admin');
@@ -76,7 +84,7 @@ class RY_Admin
 
         if (count($menu_list)) {
             $main_slug = $menu_list[0]['slug'];
-            add_menu_page(__('RY Tool', 'ry-tools'), __('RY Tool', 'ry-tools'), 'manage_options', $main_slug, false, 'dashicons-admin-tools');
+            add_menu_page(__('RY Tool', 'ry-toolkit'), __('RY Tool', 'ry-toolkit'), 'manage_options', $main_slug, false, 'dashicons-admin-tools');
             foreach ($menu_list as $menu_item) {
                 add_submenu_page($main_slug, $menu_item['name'], $menu_item['name'], 'manage_options', $menu_item['slug'], $menu_item['function']);
             }

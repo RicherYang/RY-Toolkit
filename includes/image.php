@@ -23,8 +23,8 @@ class RY_Image
 
     public function add_size_name($size_names)
     {
-        $size_names['medium_large'] = __('Medium large', 'ry-tools');
-        $size_names['post-thumbnail'] = __('Post thumbnail', 'ry-tools');
+        $size_names['medium_large'] = __('Medium large', 'ry-toolkit');
+        $size_names['post-thumbnail'] = __('Post thumbnail', 'ry-toolkit');
 
         return $size_names;
     }

@@ -18,9 +18,19 @@ class RY_Admin_Options
     {
         add_filter('allowed_options', [$this, 'add_allowed_options']);
 
-        add_settings_field('medium_large_size', __('Medium large size', 'ry-tools'), [$this, 'show_medium_large_size'], 'media', 'default');
-        add_settings_field('big_image_size', __('Max size', 'ry-tools'), [$this, 'show_big_size'], 'media', 'default');
-        add_settings_field('disable_subsize_image', __('Disable generated size', 'ry-tools'), [$this, 'show_disable_subsize'], 'media', 'default');
+        add_filter('sanitize_option_' . RY::get_option_name('big_image_size'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY::get_option_name('disable_xmlrpc'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY::get_option_name('hide_wp_version'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY::get_option_name('disable_emoji'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY::get_option_name('disable_shortlink'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY::get_option_name('disable_oembed'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY::get_option_name('disable_feed_link'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY::get_option_name('disable_rest_link'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY::get_option_name('disable_wlw'), [$this, 'return_absint']);
+
+        add_settings_field('medium_large_size', __('Medium large size', 'ry-toolkit'), [$this, 'show_medium_large_size'], 'media', 'default');
+        add_settings_field('big_image_size', __('Max size', 'ry-toolkit'), [$this, 'show_big_size'], 'media', 'default');
+        add_settings_field('disable_subsize_image', __('Disable generated size', 'ry-toolkit'), [$this, 'show_disable_subsize'], 'media', 'default');
     }
 
     public function add_allowed_options($allowed_options)
@@ -30,7 +40,23 @@ class RY_Admin_Options
         $allowed_options['media'][] = RY::get_option_name('big_image_size');
         $allowed_options['media'][] = RY::get_option_name('disable_subsize');
 
+        $allowed_options['ry-options'] = [
+            RY::get_option_name('disable_xmlrpc'),
+            RY::get_option_name('hide_wp_version'),
+            RY::get_option_name('disable_emoji'),
+            RY::get_option_name('disable_shortlink'),
+            RY::get_option_name('disable_oembed'),
+            RY::get_option_name('disable_feed_link'),
+            RY::get_option_name('disable_rest_link'),
+            RY::get_option_name('disable_wlw')
+        ];
+
         return $allowed_options;
+    }
+
+    public function return_absint($value)
+    {
+        return absint($value);
     }
 
     public function show_medium_large_size(): void
@@ -61,9 +87,6 @@ class RY_Admin_Options
             'full' => __('Full Size')
         ]);
 
-        foreach ($all_sizes as $size_name => $size_data) {
-            $show_size_name = isset($size_names[$size_name]) ? $size_names[$size_name] : $size_name;
-            include RY_PLUGIN_DIR . 'admin/html/media/disable-subsize.php';
-        }
+        include RY_PLUGIN_DIR . 'admin/html/media/disable-subsize.php';
     }
 }

@@ -10,8 +10,8 @@ class RY_update
             return;
         }
 
-        if (version_compare($now_version, '0.0.1', '<')) {
-            RY::update_option('version', '0.0.1');
+        if (version_compare($now_version, '1.0.0', '<')) {
+            RY::update_option('version', '1.0.0');
         }
     }
 }

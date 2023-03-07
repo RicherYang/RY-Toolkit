@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Tools\n"
+"Project-Id-Version: RY Toolkit\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-"
 "ecpay-invoice\n"
-"POT-Creation-Date: 2023-03-06 18:00+0800\n"
-"PO-Revision-Date: 2023-03-06 18:03+0800\n"
+"POT-Creation-Date: 2023-03-07 16:00+0800\n"
+"PO-Revision-Date: 2023-03-07 16:00+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -21,11 +21,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SearchPath-0: ./..\n"
 
-#: ../admin/admin.php:79
+#: ../admin/admin.php:87
 msgid "RY Tool"
 msgstr "RY 工具箱"
 
-#: ../admin/html/media/big-size.php:2 ../admin/options.php:22
+#: ../admin/html/media/big-size.php:2 ../admin/options.php:32
 msgid "Max size"
 msgstr "最大尺寸"
 
@@ -33,7 +33,11 @@ msgstr "最大尺寸"
 msgid "Max Width / Heigth"
 msgstr "最大寬度 / 高度"
 
-#: ../admin/html/media/medium-large-size.php:2 ../admin/options.php:21
+#: ../admin/html/media/disable-subsize.php:2 ../admin/options.php:33
+msgid "Disable generated size"
+msgstr "停止生成尺寸"
+
+#: ../admin/html/media/medium-large-size.php:2 ../admin/options.php:31
 msgid "Medium large size"
 msgstr "中大型尺寸"
 
@@ -45,23 +49,19 @@ msgstr "最大寬度"
 msgid "Max Height"
 msgstr "最大高度"
 
-#: ../admin/options.php:23
-msgid "Disable generated size"
-msgstr "停止生成尺寸"
-
-#: ../admin/options.php:58
+#: ../admin/options.php:84
 msgid "Thumbnail"
 msgstr "縮圖尺寸"
 
-#: ../admin/options.php:59
+#: ../admin/options.php:85
 msgid "Medium"
 msgstr "中型尺寸"
 
-#: ../admin/options.php:60
+#: ../admin/options.php:86
 msgid "Large"
 msgstr "大型尺寸"
 
-#: ../admin/options.php:61
+#: ../admin/options.php:87
 msgid "Full Size"
 msgstr "完整尺寸"
 
@@ -173,6 +173,74 @@ msgstr "將 WordPress 根目錄底下所有已快取的檔案設定為失效。"
 msgid "Restart PHP OPcache"
 msgstr "重啟 PHP OPcache"
 
+#: ../admin/page/html/options.php:3 ../admin/page/html/options.php:6
+msgid "XML-RPC"
+msgstr "XML-RPC"
+
+#: ../admin/page/html/options.php:9
+msgid "Disable XML-RPC"
+msgstr "停用 XML-RPC"
+
+#: ../admin/page/html/options.php:16
+msgid "Website frontend"
+msgstr "網站前端"
+
+#: ../admin/page/html/options.php:19 ../admin/page/html/options.php:22
+msgid "WordPress version"
+msgstr "WordPress 版本"
+
+#: ../admin/page/html/options.php:25
+msgid "Hide WordPress version in generator info"
+msgstr "於生成資訊中隱藏 WordPress 版本"
+
+#: ../admin/page/html/options.php:31 ../admin/page/html/options.php:34
+msgid "Emoji"
+msgstr "表情符號"
+
+#: ../admin/page/html/options.php:37
+msgid "Disable convert emoji to a static image come from WordPress"
+msgstr "停用將表情符號替換成來自 WordPress 的靜態圖片"
+
+#: ../admin/page/html/options.php:43 ../admin/page/html/options.php:46
+msgid "Shortlink"
+msgstr "短網址"
+
+#: ../admin/page/html/options.php:49
+msgid "Disable show shortlink link"
+msgstr "停止顯示短網址連結"
+
+#: ../admin/page/html/options.php:55 ../admin/page/html/options.php:58
+msgid "oEmbed"
+msgstr "oEmbed"
+
+#: ../admin/page/html/options.php:61
+msgid "Disable show oEmbed link"
+msgstr "停止顯示 oEmbed 連結"
+
+#: ../admin/page/html/options.php:67 ../admin/page/html/options.php:70
+msgid "Feed"
+msgstr "資訊提供"
+
+#: ../admin/page/html/options.php:73
+msgid "Disable show feed link"
+msgstr "停止顯示資訊提供連結"
+
+#: ../admin/page/html/options.php:79 ../admin/page/html/options.php:82
+msgid "REST"
+msgstr "REST"
+
+#: ../admin/page/html/options.php:85
+msgid "Disable show REST link"
+msgstr "停止顯示 REST 連結"
+
+#: ../admin/page/html/options.php:91 ../admin/page/html/options.php:94
+msgid "Windows Live Writer"
+msgstr "Windows Live Writer"
+
+#: ../admin/page/html/options.php:97
+msgid "Disable show Windows Live Writer manifest file"
+msgstr "停止顯示 Windows Live Writer 資訊清單檔"
+
 #: ../admin/page/html/tools.php:4
 msgid "Database"
 msgstr "資料庫"
@@ -202,39 +270,43 @@ msgid "%s transient in your database."
 msgid_plural "%s transients in your database."
 msgstr[0] "資料庫中有 %s 個暫時性設定。"
 
-#: ../admin/page/opcache.php:18 ../admin/page/opcache.php:33
+#: ../admin/page/opcache.php:18 ../admin/page/opcache.php:32
 msgid "OPcache"
 msgstr "OPcache"
 
-#: ../admin/page/opcache.php:37
+#: ../admin/page/opcache.php:36
 msgid "OPcache disabled."
 msgstr "OPcache 已停用。"
 
-#: ../admin/page/opcache.php:63
+#: ../admin/page/opcache.php:62
 msgid "OPcache flushed successfully."
 msgstr "OPcache 已成功清除。"
 
-#: ../admin/page/opcache.php:66
+#: ../admin/page/opcache.php:65
 msgid "OPcache flush failed."
 msgstr "OPcache 清除失敗。"
 
-#: ../admin/page/opcache.php:75
+#: ../admin/page/opcache.php:74
 msgid "OPcache restarted successfully."
 msgstr "OPcache 已成功重啟。"
 
-#: ../admin/page/opcache.php:77
+#: ../admin/page/opcache.php:76
 msgid "OPcache restart failed."
 msgstr "OPcache 重啟失敗。"
 
-#: ../admin/page/tools.php:16 ../admin/page/tools.php:36
+#: ../admin/page/options.php:16 ../admin/page/options.php:30
+msgid "Options"
+msgstr "設定"
+
+#: ../admin/page/tools.php:18 ../admin/page/tools.php:42
 msgid "Tools"
 msgstr "工具"
 
-#: ../admin/page/tools.php:77
+#: ../admin/page/tools.php:86
 msgid "Database tables analyzed successfully."
 msgstr "資料表已成功分析。"
 
-#: ../admin/page/tools.php:116
+#: ../admin/page/tools.php:128
 msgid "Database tables optimized successfully."
 msgstr "資料表已成功最佳化。"
 
@@ -245,6 +317,15 @@ msgstr "中大型尺寸"
 #: ../includes/image.php:27
 msgid "Post thumbnail"
 msgstr "文章縮圖尺寸"
+
+#~ msgid "Disable Windows Live Writer"
+#~ msgstr "停用 Windows Live Writer "
+
+#~ msgid "Disable Emoji"
+#~ msgstr "停用表情符號"
+
+#~ msgid "Hide WordPress version"
+#~ msgstr "隱藏 WordPress 版本"
 
 #, php-format
 #~ msgid "%d transient in your database."

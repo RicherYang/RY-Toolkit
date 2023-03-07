@@ -8,15 +8,15 @@ final class RY_Admin_Page_Tools extends RY_Admin_Page
 
     public static function init_page()
     {
-        add_filter('ry/menu_list', [__CLASS__, 'add_menu'], 0);
+        add_filter('ry/menu_list', [__CLASS__, 'add_menu'], 5);
         add_action('ry/admin_action', [__CLASS__, 'admin_action']);
     }
 
     public static function add_menu($menu_list)
     {
         $menu_list[] = [
-            'name' => __('Tools', 'ry-tools'),
-            'slug' => 'ry-tools',
+            'name' => __('Tools', 'ry-toolkit'),
+            'slug' => 'ry-toolkit',
             'function' => [__CLASS__, 'pre_show_page']
         ];
 
@@ -39,7 +39,7 @@ final class RY_Admin_Page_Tools extends RY_Admin_Page
             ));
         }
 
-        echo '<div class="wrap"><h1>' . esc_html(__('Tools', 'ry-tools')) . '</h1>';
+        echo '<div class="wrap"><h1>' . esc_html(__('Tools', 'ry-toolkit')) . '</h1>';
 
         include RY_PLUGIN_DIR . 'admin/page/html/tools.php';
 
@@ -83,7 +83,7 @@ final class RY_Admin_Page_Tools extends RY_Admin_Page
         }
 
         delete_transient('ry_analyzed_table');
-        RY()->admin->add_notice('success', __('Database tables analyzed successfully.', 'ry-tools'));
+        RY()->admin->add_notice('success', __('Database tables analyzed successfully.', 'ry-toolkit'));
 
         return '';
     }
@@ -125,7 +125,7 @@ final class RY_Admin_Page_Tools extends RY_Admin_Page
         }
 
         delete_transient('ry_optimized_table');
-        RY()->admin->add_notice('success', __('Database tables optimized successfully.', 'ry-tools'));
+        RY()->admin->add_notice('success', __('Database tables optimized successfully.', 'ry-toolkit'));
 
         return '';
     }

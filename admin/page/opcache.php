@@ -15,7 +15,7 @@ final class RY_Admin_Page_Opcache extends RY_Admin_Page
     public static function add_menu($menu_list)
     {
         $menu_list[] = [
-            'name' => __('OPcache', 'ry-tools'),
+            'name' => __('OPcache', 'ry-toolkit'),
             'slug' => 'ry-tools-opcache',
             'function' => [__CLASS__, 'pre_show_page']
         ];
@@ -29,11 +29,11 @@ final class RY_Admin_Page_Opcache extends RY_Admin_Page
 
     public function show_page(): void
     {
-        echo '<div class="wrap"><h1>' . esc_html(__('OPcache', 'ry-tools')) . '</h1>';
+        echo '<div class="wrap"><h1>' . esc_html(__('OPcache', 'ry-toolkit')) . '</h1>';
 
         $opcache_status = opcache_get_status(false);
         if (false === $opcache_status) {
-            echo esc_html(__('OPcache disabled.', 'ry-tools'));
+            echo esc_html(__('OPcache disabled.', 'ry-toolkit'));
         } else {
             $opcache_total = [
                 'hit' => $opcache_status['opcache_statistics']['hits'] + $opcache_status['opcache_statistics']['misses'] + $opcache_status['opcache_statistics']['blacklist_misses'],
@@ -59,10 +59,10 @@ final class RY_Admin_Page_Opcache extends RY_Admin_Page
                         opcache_invalidate($script['full_path'], true);
                     }
                 }
-                RY()->admin->add_notice('success', __('OPcache flushed successfully.', 'ry-tools'));
+                RY()->admin->add_notice('success', __('OPcache flushed successfully.', 'ry-toolkit'));
             }
         } else {
-            RY()->admin->add_notice('success', __('OPcache flush failed.', 'ry-tools'));
+            RY()->admin->add_notice('success', __('OPcache flush failed.', 'ry-toolkit'));
         }
 
         return '';
@@ -71,9 +71,9 @@ final class RY_Admin_Page_Opcache extends RY_Admin_Page
     protected function restart_opcache(): string
     {
         if (function_exists('opcache_reset') && opcache_reset()) {
-            RY()->admin->add_notice('success', __('OPcache restarted successfully.', 'ry-tools'));
+            RY()->admin->add_notice('success', __('OPcache restarted successfully.', 'ry-toolkit'));
         } else {
-            RY()->admin->add_notice('success', __('OPcache restart failed.', 'ry-tools'));
+            RY()->admin->add_notice('success', __('OPcache restart failed.', 'ry-toolkit'));
         }
 
         return '';
