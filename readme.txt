@@ -40,5 +40,5 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 == Changelog ==
 
-= 1.0.0 - 2015/06/07 =
+= 1.0.0 - 2023/03/07 =
 * First release.

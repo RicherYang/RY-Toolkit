@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: RY Toolkit\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-woocommerce-"
 "ecpay-invoice\n"
-"POT-Creation-Date: 2023-03-07 16:00+0800\n"
-"PO-Revision-Date: 2023-03-07 16:00+0800\n"
+"POT-Creation-Date: 2023-03-08 10:46+0800\n"
+"PO-Revision-Date: 2023-03-08 10:48+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SearchPath-0: ./..\n"
 
-#: ../admin/admin.php:87
+#: ../admin/admin.php:89
 msgid "RY Tool"
 msgstr "RY 工具箱"
 
@@ -49,19 +49,19 @@ msgstr "最大寬度"
 msgid "Max Height"
 msgstr "最大高度"
 
-#: ../admin/options.php:84
+#: ../admin/options.php:89
 msgid "Thumbnail"
 msgstr "縮圖尺寸"
 
-#: ../admin/options.php:85
+#: ../admin/options.php:90
 msgid "Medium"
 msgstr "中型尺寸"
 
-#: ../admin/options.php:86
+#: ../admin/options.php:91
 msgid "Large"
 msgstr "大型尺寸"
 
-#: ../admin/options.php:87
+#: ../admin/options.php:92
 msgid "Full Size"
 msgstr "完整尺寸"
 
@@ -222,22 +222,54 @@ msgid "Feed"
 msgstr "資訊提供"
 
 #: ../admin/page/html/options.php:73
-msgid "Disable show feed link"
-msgstr "停止顯示資訊提供連結"
+msgid "Disable show ALL feed link"
+msgstr "停止顯示 全部 資訊提供連結"
 
-#: ../admin/page/html/options.php:79 ../admin/page/html/options.php:82
+#: ../admin/page/html/options.php:77
+msgid "Disable show posts feed link"
+msgstr "停止顯示 文章 資訊提供連結"
+
+#: ../admin/page/html/options.php:81
+msgid "Disable show comments feed link"
+msgstr "停止顯示 留言 資訊提供連結"
+
+#: ../admin/page/html/options.php:85
+msgid "Disable show post comments feed link"
+msgstr "停止顯示 單篇內容留言 資訊提供連結"
+
+#: ../admin/page/html/options.php:90
+msgid "Disable show post type archive feed link"
+msgstr "停止顯示 內容類型彙整 資訊提供連結"
+
+#: ../admin/page/html/options.php:94
+msgid "Disable show category feed link"
+msgstr "停止顯示 分類 資訊提供連結"
+
+#: ../admin/page/html/options.php:98
+msgid "Disable show tag feed link"
+msgstr "停止顯示 標籤 資訊提供連結"
+
+#: ../admin/page/html/options.php:102
+msgid "Disable show taxonomy feed link"
+msgstr "停止顯示 分類法 資訊提供連結"
+
+#: ../admin/page/html/options.php:106
+msgid "Disable show author feed link"
+msgstr "停止顯示 作者 資訊提供連結"
+
+#: ../admin/page/html/options.php:112 ../admin/page/html/options.php:115
 msgid "REST"
 msgstr "REST"
 
-#: ../admin/page/html/options.php:85
+#: ../admin/page/html/options.php:118
 msgid "Disable show REST link"
 msgstr "停止顯示 REST 連結"
 
-#: ../admin/page/html/options.php:91 ../admin/page/html/options.php:94
+#: ../admin/page/html/options.php:124 ../admin/page/html/options.php:127
 msgid "Windows Live Writer"
 msgstr "Windows Live Writer"
 
-#: ../admin/page/html/options.php:97
+#: ../admin/page/html/options.php:130
 msgid "Disable show Windows Live Writer manifest file"
 msgstr "停止顯示 Windows Live Writer 資訊清單檔"
 
@@ -294,7 +326,7 @@ msgstr "OPcache 已成功重啟。"
 msgid "OPcache restart failed."
 msgstr "OPcache 重啟失敗。"
 
-#: ../admin/page/options.php:16 ../admin/page/options.php:30
+#: ../admin/page/options.php:16 ../admin/page/options.php:32
 msgid "Options"
 msgstr "設定"
 
@@ -317,6 +349,12 @@ msgstr "中大型尺寸"
 #: ../includes/image.php:27
 msgid "Post thumbnail"
 msgstr "文章縮圖尺寸"
+
+#~ msgid "Disable show tax feed link"
+#~ msgstr "停止顯示分類法的資訊提供連結"
+
+#~ msgid "Disable show feed link"
+#~ msgstr "停止顯示資訊提供連結"
 
 #~ msgid "Disable Windows Live Writer"
 #~ msgstr "停用 Windows Live Writer "

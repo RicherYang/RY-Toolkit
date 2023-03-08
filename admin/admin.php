@@ -65,6 +65,8 @@ class RY_Admin
         $suffix = SCRIPT_DEBUG ? '' : '.min';
 
         wp_register_style('ry-admin', RY_PLUGIN_URL . 'assets/css/admin/main' . $suffix . '.css', [], RY_VERSION);
+
+        wp_register_script('ry-options', RY_PLUGIN_URL . 'assets/js/admin/options' . $suffix . '.js', ['jquery'], RY_VERSION, true);
     }
 
     public function init_frontend()

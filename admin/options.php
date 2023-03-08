@@ -24,7 +24,7 @@ class RY_Admin_Options
         add_filter('sanitize_option_' . RY::get_option_name('disable_emoji'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY::get_option_name('disable_shortlink'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY::get_option_name('disable_oembed'), [$this, 'return_absint']);
-        add_filter('sanitize_option_' . RY::get_option_name('disable_feed_link'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY::get_option_name('disable_feed_link'), [$this, 'return_array_absint']);
         add_filter('sanitize_option_' . RY::get_option_name('disable_rest_link'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY::get_option_name('disable_wlw'), [$this, 'return_absint']);
 
@@ -57,6 +57,11 @@ class RY_Admin_Options
     public function return_absint($value)
     {
         return absint($value);
+    }
+
+    public function return_array_absint($value)
+    {
+        return array_map('intval', (array) $value);
     }
 
     public function show_medium_large_size(): void
