@@ -1,6 +1,6 @@
 <?php
 
-class RY_Frontend
+class RY_Toolkit_Frontend
 {
     protected static $_instance = null;
 
@@ -16,7 +16,7 @@ class RY_Frontend
 
     protected function do_init(): void
     {
-        if (RY::get_option('hide_wp_version')) {
+        if (RY_Toolkit::get_option('hide_wp_version')) {
             add_filter('get_the_generator_html', [$this, 'hide_version']);
             add_filter('get_the_generator_xhtml', [$this, 'hide_version']);
             add_filter('get_the_generator_comment', [$this, 'hide_version']);
@@ -26,7 +26,7 @@ class RY_Frontend
             add_filter('get_the_generator_export', [$this, 'hide_version_rss']);
         }
 
-        if (RY::get_option('disable_emoji')) {
+        if (RY_Toolkit::get_option('disable_emoji')) {
             remove_action('wp_head', 'print_emoji_detection_script', 7);
             remove_action('embed_head', 'print_emoji_detection_script');
             remove_action('wp_print_styles', 'print_emoji_styles');
@@ -36,16 +36,16 @@ class RY_Frontend
             remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
         }
 
-        if (RY::get_option('disable_shortlink')) {
+        if (RY_Toolkit::get_option('disable_shortlink')) {
             remove_action('wp_head', 'wp_shortlink_wp_head', 10);
             remove_action('template_redirect', 'wp_shortlink_header', 11);
         }
 
-        if (RY::get_option('disable_oembed')) {
+        if (RY_Toolkit::get_option('disable_oembed')) {
             remove_action('wp_head', 'wp_oembed_add_discovery_links');
         }
 
-        $disable_feed_link = (array) RY::get_option('disable_feed_link');
+        $disable_feed_link = (array) RY_Toolkit::get_option('disable_feed_link');
         if ($disable_feed_link['all'] ?? 0) {
             remove_action('wp_head', 'feed_links', 2);
             remove_action('wp_head', 'feed_links_extra', 3);
@@ -76,23 +76,23 @@ class RY_Frontend
             }
         }
 
-        if (RY::get_option('disable_rest_link')) {
+        if (RY_Toolkit::get_option('disable_rest_link')) {
             remove_action('wp_head', 'rest_output_link_wp_head', 10);
             remove_action('template_redirect', 'rest_output_link_header', 11);
             remove_action('xmlrpc_rsd_apis', 'rest_output_rsd');
         }
 
-        if (RY::get_option('disable_wlw')) {
+        if (RY_Toolkit::get_option('disable_wlw')) {
             remove_action('wp_head', 'wlwmanifest_link');
         }
     }
 
-    public function hide_version($meta)
+    public function hide_version($meta): string
     {
         return str_replace(get_bloginfo('version'), '', $meta);
     }
 
-    public function hide_version_rss($meta)
+    public function hide_version_rss($meta): string
     {
         return str_replace(get_bloginfo_rss('version'), '', $meta);
     }

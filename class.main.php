@@ -1,6 +1,6 @@
 <?php
 
-class RY
+class RY_Toolkit
 {
     public static $option_prefix = 'RY_';
 
@@ -27,29 +27,29 @@ class RY
 
     protected function do_init(): void
     {
-        load_plugin_textdomain('ry-toolkit', false, plugin_basename(RY_PLUGIN_DIR) . '/languages');
+        load_plugin_textdomain('ry-toolkit', false, plugin_basename(RY_TOOLKIT_PLUGIN_DIR) . '/languages');
 
         add_action('init', [$this, 'ry_init']);
 
         if (is_admin()) {
-            include_once RY_PLUGIN_DIR . 'includes/update.php';
-            RY_update::update();
+            include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/update.php';
+            RY_Toolkit_Update::update();
 
-            include_once RY_PLUGIN_DIR . 'admin/admin.php';
-            $this->instance['admin'] = RY_Admin::instance();
+            include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/admin.php';
+            $this->instance['admin'] = RY_Toolkit_Admin::instance();
         }
     }
 
     public function ry_init(): void
     {
-        include_once RY_PLUGIN_DIR . 'includes/image.php';
-        $this->instance['image'] = RY_Image::instance();
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/image.php';
+        $this->instance['image'] = RY_Toolkit_Image::instance();
 
-        include_once RY_PLUGIN_DIR . 'includes/xmlrpc.php';
-        $this->instance['xmlrpc'] = RY_Xmlrpc::instance();
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/xmlrpc.php';
+        $this->instance['xmlrpc'] = RY_Toolkit_Xmlrpc::instance();
 
-        include_once RY_PLUGIN_DIR . 'includes/frontend.php';
-        $this->instance['frontend'] = RY_Frontend::instance();
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/frontend.php';
+        $this->instance['frontend'] = RY_Toolkit_Frontend::instance();
     }
 
     public static function get_option_name(string $option): string
@@ -74,8 +74,8 @@ class RY
 
     public static function plugin_activation(): void
     {
-        RY::add_option('big_image_size', 2560, '', 'no');
-        RY::add_option('disable_subsize', [], '', 'no');
+        RY_Toolkit::add_option('big_image_size', 2560, '', 'no');
+        RY_Toolkit::add_option('disable_subsize', [], '', 'no');
     }
 
     public static function plugin_deactivation(): void

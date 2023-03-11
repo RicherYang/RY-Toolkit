@@ -1,6 +1,6 @@
 <?php
 
-class RY_Admin
+class RY_Toolkit_Admin
 {
     protected static $_instance = null;
 
@@ -16,12 +16,12 @@ class RY_Admin
 
     protected function do_init(): void
     {
-        include_once RY_PLUGIN_DIR . 'admin/page/abstracts-page.php';
-        include_once RY_PLUGIN_DIR . 'admin/page/opcache.php';
-        include_once RY_PLUGIN_DIR . 'admin/page/options.php';
-        include_once RY_PLUGIN_DIR . 'admin/page/tools.php';
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/abstracts-page.php';
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/opcache.php';
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/options.php';
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/tools.php';
 
-        add_action('admin_post_ry-action', [$this, 'do_action']);
+        add_action('admin_post_ry-toolkit-action', [$this, 'do_action']);
         add_action('all_admin_notices', [$this, 'show_notices']);
 
         add_action('admin_init', [$this, 'register_style_script']);
@@ -36,8 +36,8 @@ class RY_Admin
 
     public function do_action(): void
     {
-        if (wp_verify_nonce($_REQUEST['_wpnonce'] ?? '', 'ry-action')) {
-            $redirect = apply_filters('ry/admin_action', '');
+        if (wp_verify_nonce($_REQUEST['_wpnonce'] ?? '', 'ry-toolkit-action')) {
+            $redirect = apply_filters('ry-toolkit/admin_action', '');
         }
 
         if (empty($redirect)) {
@@ -64,9 +64,9 @@ class RY_Admin
     {
         $suffix = SCRIPT_DEBUG ? '' : '.min';
 
-        wp_register_style('ry-admin', RY_PLUGIN_URL . 'assets/css/admin/main' . $suffix . '.css', [], RY_VERSION);
+        wp_register_style('ry-toolkit-admin', RY_TOOLKIT_PLUGIN_URL . 'assets/css/admin/main' . $suffix . '.css', [], RY_TOOLKIT_VERSION);
 
-        wp_register_script('ry-options', RY_PLUGIN_URL . 'assets/js/admin/options' . $suffix . '.js', ['jquery'], RY_VERSION, true);
+        wp_register_script('ry-toolkit-options', RY_TOOLKIT_PLUGIN_URL . 'assets/js/admin/options' . $suffix . '.js', ['jquery'], RY_TOOLKIT_VERSION, true);
     }
 
     public function init_frontend()
@@ -77,31 +77,34 @@ class RY_Admin
 
     public function admin_enqueue_scripts()
     {
-        wp_enqueue_style('ry-admin');
+        wp_enqueue_style('ry-toolkit-admin');
     }
 
     public function admin_menu(): void
     {
-        $menu_list = apply_filters('ry/menu_list', []);
+        $menu_list = apply_filters('ry-toolkit/menu_list', []);
 
         if (count($menu_list)) {
             $main_slug = $menu_list[0]['slug'];
             add_menu_page(__('RY Tool', 'ry-toolkit'), __('RY Tool', 'ry-toolkit'), 'manage_options', $main_slug, false, 'dashicons-admin-tools');
             foreach ($menu_list as $menu_item) {
-                add_submenu_page($main_slug, $menu_item['name'], $menu_item['name'], 'manage_options', $menu_item['slug'], $menu_item['function']);
+                add_submenu_page($main_slug, $menu_item['name'], $menu_item['name'], 'manage_options', $menu_item['slug'], $menu_item['function'], $menu_item['position'] ?? null);
             }
         }
     }
 
     public function add_options(): void
     {
-        include_once RY_PLUGIN_DIR . 'admin/options.php';
-        RY_Admin_Options::instance();
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/options.php';
+        RY_Toolkit_Admin_Options::instance();
     }
 
     public function add_notice(string $status, string $message): void
     {
         $notice = get_transient('ry-notice');
+        if (!is_array($notice)) {
+            $notice = [];
+        }
         if (!isset($notice[$status])) {
             $notice[$status] = [];
         }
@@ -110,17 +113,30 @@ class RY_Admin
         set_transient('ry-notice', $notice);
     }
 
-    public function the_action_form(string $page, string $action, string $submit_text, $hidden_value = []): void
+    public function the_action_form(string $page, string $action, string $submit_text, array $hidden_value = []): void
     {
         $post_url = add_query_arg([
-            'ry-page' => $page
+            'ry-toolkit-page' => $page
         ], admin_url('admin-post.php'));
 
         $hidden_value = array_merge($hidden_value, [
-            'action' => 'ry-action',
-            'ry-action' => $action
+            'action' => 'ry-toolkit-action',
+            'ry-toolkit-action' => $action
         ]);
 
-        include RY_PLUGIN_DIR . 'admin/html/action_form.php';
+        include RY_TOOLKIT_PLUGIN_DIR . 'admin/html/action_form.php';
+    }
+
+    public function the_action_link(string $page, string $action, array $add_args = []): string
+    {
+        $add_args = array_merge($add_args, [
+            'ry-toolkit-page' => $page,
+            'action' => 'ry-toolkit-action',
+            'ry-toolkit-action' => $action,
+            '_wpnonce' => wp_create_nonce('ry-toolkit-action'),
+            '_ry_toolkit_action_nonce' => wp_create_nonce($action)
+        ]);
+
+        return add_query_arg($add_args, admin_url('admin-post.php'));
     }
 }

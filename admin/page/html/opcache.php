@@ -168,7 +168,7 @@
         <td>
             <div class="ry-row">
                 <div class="ry-col-auto">
-                    <?php RY()->admin->the_action_form('opcache', 'flush-opcache', __('Flush PHP OPcache', 'ry-toolkit')); ?>
+                    <?php RY_Toolkit()->admin->the_action_form('opcache', 'flush-opcache', __('Flush PHP OPcache', 'ry-toolkit')); ?>
                 </div>
                 <div class="ry-col">
                     <p class="description">
@@ -178,7 +178,7 @@
             </div>
             <div class="ry-row">
                 <div class="ry-col-auto">
-                    <?php RY()->admin->the_action_form('opcache', 'restart-opcache', __('Restart PHP OPcache', 'ry-toolkit')); ?>
+                    <?php RY_Toolkit()->admin->the_action_form('opcache', 'restart-opcache', __('Restart PHP OPcache', 'ry-toolkit')); ?>
                 </div>
             </div>
         </td>

@@ -1,6 +1,6 @@
 <?php
 
-final class RY_Admin_Page_Tools extends RY_Admin_Page
+final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 {
     private $transient_key = ['_transient_', '_site_transient_'];
 
@@ -8,15 +8,15 @@ final class RY_Admin_Page_Tools extends RY_Admin_Page
 
     public static function init_page()
     {
-        add_filter('ry/menu_list', [__CLASS__, 'add_menu'], 5);
-        add_action('ry/admin_action', [__CLASS__, 'admin_action']);
+        add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu'], 5);
+        add_action('ry-toolkit/admin_action', [__CLASS__, 'admin_action']);
     }
 
     public static function add_menu($menu_list)
     {
         $menu_list[] = [
             'name' => __('Tools', 'ry-toolkit'),
-            'slug' => 'ry-toolkit',
+            'slug' => 'ry-toolkit-tools',
             'function' => [__CLASS__, 'pre_show_page']
         ];
 
@@ -41,7 +41,7 @@ final class RY_Admin_Page_Tools extends RY_Admin_Page
 
         echo '<div class="wrap"><h1>' . esc_html(__('Tools', 'ry-toolkit')) . '</h1>';
 
-        include RY_PLUGIN_DIR . 'admin/page/html/tools.php';
+        include RY_TOOLKIT_PLUGIN_DIR . 'admin/page/html/tools.php';
 
         echo '</div>';
     }
@@ -71,19 +71,14 @@ final class RY_Admin_Page_Tools extends RY_Admin_Page
             set_transient('ry_analyzed_table', $analyzed_table, 600);
 
             if (time() - $start > 1) {
-                return add_query_arg([
-                    'ry-page' => 'tools',
-                    'action' => 'ry-action',
-                    'ry-action' => 'analyze-tables',
-                    '_wp_http_referer' => wp_unslash($_REQUEST['_wp_http_referer'] ?? ''),
-                    '_wpnonce' => wp_create_nonce('ry-action'),
-                    '_ry_action_nonce' => wp_create_nonce('analyze-tables')
-                ], admin_url('admin-post.php'));
+                return RY_Toolkit()->admin->the_action_link('tools', 'analyze-tables', [
+                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? '')))
+                ]);
             }
         }
 
         delete_transient('ry_analyzed_table');
-        RY()->admin->add_notice('success', __('Database tables analyzed successfully.', 'ry-toolkit'));
+        RY_Toolkit()->admin->add_notice('success', __('Database tables analyzed successfully.', 'ry-toolkit'));
 
         return '';
     }
@@ -113,19 +108,14 @@ final class RY_Admin_Page_Tools extends RY_Admin_Page
             set_transient('ry_optimized_table', $optimized_table, 600);
 
             if (time() - $start > 1) {
-                return add_query_arg([
-                    'ry-page' => 'tools',
-                    'action' => 'ry-action',
-                    'ry-action' => 'optimize-tables',
-                    '_wp_http_referer' => wp_unslash($_REQUEST['_wp_http_referer'] ?? ''),
-                    '_wpnonce' => wp_create_nonce('ry-action'),
-                    '_ry_action_nonce' => wp_create_nonce('optimize-tables')
-                ], admin_url('admin-post.php'));
+                return RY_Toolkit()->admin->the_action_link('tools', 'optimize-tables', [
+                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? '')))
+                ]);
             }
         }
 
         delete_transient('ry_optimized_table');
-        RY()->admin->add_notice('success', __('Database tables optimized successfully.', 'ry-toolkit'));
+        RY_Toolkit()->admin->add_notice('success', __('Database tables optimized successfully.', 'ry-toolkit'));
 
         return '';
     }
@@ -154,4 +144,4 @@ final class RY_Admin_Page_Tools extends RY_Admin_Page
     }
 }
 
-RY_Admin_Page_Tools::init_page();
+RY_Toolkit_Admin_Page_Tools::init_page();

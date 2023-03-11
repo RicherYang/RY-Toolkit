@@ -1,6 +1,6 @@
 <?php
 
-class RY_Xmlrpc
+class RY_Toolkit_Xmlrpc
 {
     protected static $_instance = null;
 
@@ -16,7 +16,7 @@ class RY_Xmlrpc
 
     protected function do_init(): void
     {
-        if (RY::get_option('disable_xmlrpc')) {
+        if (RY_Toolkit::get_option('disable_xmlrpc')) {
             if (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST) {
                 add_filter('xmlrpc_enabled', '__return_false');
             }

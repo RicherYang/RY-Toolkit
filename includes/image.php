@@ -1,6 +1,6 @@
 <?php
 
-class RY_Image
+class RY_Toolkit_Image
 {
     protected static $_instance = null;
 
@@ -31,12 +31,12 @@ class RY_Image
 
     public function change_big_image_size($threshold): int
     {
-        return (int) RY::get_option('big_image_size', $threshold);
+        return (int) RY_Toolkit::get_option('big_image_size', $threshold);
     }
 
     public function disable_subsize($new_sizes)
     {
-        $disable_subsize = RY::get_option('disable_subsize', []);
+        $disable_subsize = RY_Toolkit::get_option('disable_subsize', []);
         if (!is_array($disable_subsize)) {
             $disable_subsize = [];
         }

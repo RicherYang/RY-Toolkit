@@ -6,16 +6,16 @@
         </th>
         <td>
             <div class="ry-row">
-                <div class="ry-col-auto">
-                    <?php RY()->admin->the_action_form('tools', 'analyze-tables', __('Analyze tables', 'ry-toolkit')); ?>
+                <div class="ry-col-auto ry-loading">
+                    <?php RY_Toolkit()->admin->the_action_form('tools', 'analyze-tables', __('Analyze tables', 'ry-toolkit')); ?>
                 </div>
-                <div class="ry-col-auto">
-                    <?php RY()->admin->the_action_form('tools', 'optimize-tables', __('Optimize tables', 'ry-toolkit')); ?>
+                <div class="ry-col-auto ry-loading">
+                    <?php RY_Toolkit()->admin->the_action_form('tools', 'optimize-tables', __('Optimize tables', 'ry-toolkit')); ?>
                 </div>
             </div>
             <div class="ry-row">
-                <div class="ry-col-auto">
-                    <?php RY()->admin->the_action_form('tools', 'clear-transient', __('Clear transient option', 'ry-toolkit')); ?>
+                <div class="ry-col-auto ry-loading">
+                    <?php RY_Toolkit()->admin->the_action_form('tools', 'clear-transient', __('Clear transient option', 'ry-toolkit')); ?>
                 </div>
                 <div class="ry-col">
                     <p class="description">
@@ -35,8 +35,8 @@
         </th>
         <td>
             <div class="ry-row">
-                <div class="ry-col-auto">
-                    <?php RY()->admin->the_action_form('opcache', 'flush-opcache', __('Flush PHP OPcache', 'ry-toolkit')); ?>
+                <div class="ry-col-auto ry-loading">
+                    <?php RY_Toolkit()->admin->the_action_form('opcache', 'flush-opcache', __('Flush PHP OPcache', 'ry-toolkit')); ?>
                 </div>
                 <div class="ry-col">
                     <p class="description">
@@ -45,13 +45,13 @@
                 </div>
             </div>
             <div class="ry-row">
-                <div class="ry-col-auto">
-                    <?php RY()->admin->the_action_form('opcache', 'restart-opcache', __('Restart PHP OPcache', 'ry-toolkit')); ?>
+                <div class="ry-col-auto ry-loading">
+                    <?php RY_Toolkit()->admin->the_action_form('opcache', 'restart-opcache', __('Restart PHP OPcache', 'ry-toolkit')); ?>
                 </div>
             </div>
         </td>
     </tr>
 
-    <?php do_action('ry/tools_table'); ?>
+    <?php do_action('ry-toolkit/tools_table'); ?>
 
 </table>

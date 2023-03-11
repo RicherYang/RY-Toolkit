@@ -1,6 +1,6 @@
 <?php
 
-abstract class RY_Admin_Page
+abstract class RY_Toolkit_Admin_Page
 {
     protected static $page_type;
     protected static $_instance = [];
@@ -30,15 +30,15 @@ abstract class RY_Admin_Page
             return $redirect;
         }
 
-        if (static::$page_type === wp_unslash($_GET['ry-page'] ?? '')) {
-            $action = wp_unslash($_REQUEST['ry-action'] ?? '');
-            if (wp_verify_nonce($_REQUEST['_ry_action_nonce'] ?? '', $action)) {
+        if (static::$page_type === wp_unslash($_GET['ry-toolkit-page'] ?? '')) {
+            $action = wp_unslash($_REQUEST['ry-toolkit-action'] ?? '');
+            if (wp_verify_nonce($_REQUEST['_ry_toolkit_action_nonce'] ?? '', $action)) {
                 $action_method = filter_var($action, FILTER_SANITIZE_SPECIAL_CHARS, FILTER_FLAG_STRIP_LOW | FILTER_FLAG_STRIP_HIGH | FILTER_FLAG_STRIP_BACKTICK);
                 $action_method = str_replace('-', '_', $action_method);
                 if (method_exists(static::class, $action_method)) {
                     $redirect = static::instance()->$action_method();
                     if (empty($redirect)) {
-                        $redirect = wp_unslash($_REQUEST['_wp_http_referer'] ?? '');
+                        $redirect = sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''));
                     }
                 }
             }
