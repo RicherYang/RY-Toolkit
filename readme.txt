@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 5.6
 Requires PHP: 7.4
 Tested up to: 6.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -39,6 +39,9 @@ Report bugs on the [GitHub repository](https://github.com/RicherYang/RY-Toolkit/
 or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 == Changelog ==
+
+= 1.0.2 - 2023/03/14 =
+* Fixed the XSS issue
 
 = 1.0.1 - 2023/03/11 =
 * Add more options from feed link
