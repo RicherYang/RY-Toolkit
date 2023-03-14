@@ -50,11 +50,9 @@ class RY_Toolkit_Admin
     {
         $notice = get_transient('ry-notice');
         if (is_array($notice) && count($notice)) {
-            foreach ($notice as $status => $messages) {
+            foreach ($notice as $status => $message) {
                 echo '<div class="notice notice-' . esc_attr($status) . ' is-dismissible">';
-                foreach ($messages as $message) {
-                    echo '<p><strong>' . wp_kses($message, ['strong', 'br']) . '</strong></p>';
-                }
+                echo '<p><strong>' . implode('</strong></p><p><strong>', array_map('esc_html', $message)) . '</strong></p>';
                 echo '</div>';
             }
 
