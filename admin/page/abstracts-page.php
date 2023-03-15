@@ -32,10 +32,9 @@ abstract class RY_Toolkit_Admin_Page
 
         if (static::$page_type === wp_unslash($_GET['ry-toolkit-page'] ?? '')) {
             $action = (string) wp_unslash($_REQUEST['ry-toolkit-action'] ?? '');
-            $action_nonce = (string) wp_unslash($_REQUEST['_ry_toolkit_action_nonce'] ?? '');
-            if (wp_verify_nonce($action_nonce, $action)) {
-                $action_method = str_replace('-', '_', $action);
-                if (sanitize_key($action_method) === $action_method) {
+            if (sanitize_key($action) === $action) {
+                if (wp_verify_nonce((string) wp_unslash($_REQUEST['_ry_toolkit_action_nonce'] ?? ''), $action)) {
+                    $action_method = str_replace('-', '_', $action);
                     $callback = [static::instance(), $action_method];
                     if (is_callable($callback)) {
                         $redirect = call_user_func($callback);
