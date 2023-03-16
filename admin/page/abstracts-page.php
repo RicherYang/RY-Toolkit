@@ -31,16 +31,14 @@ abstract class RY_Toolkit_Admin_Page
         }
 
         if (static::$page_type === wp_unslash($_GET['ry-toolkit-page'] ?? '')) {
-            $action = (string) wp_unslash($_REQUEST['ry-toolkit-action'] ?? '');
-            if (sanitize_key($action) === $action) {
-                if (wp_verify_nonce((string) wp_unslash($_REQUEST['_ry_toolkit_action_nonce'] ?? ''), $action)) {
-                    $action_method = str_replace('-', '_', $action);
-                    $callback = [static::instance(), $action_method];
-                    if (is_callable($callback)) {
-                        $redirect = call_user_func($callback);
-                        if (empty($redirect)) {
-                            $redirect = sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''));
-                        }
+            $action = sanitize_key((string) wp_unslash($_REQUEST['ry-toolkit-action'] ?? ''));
+            if (wp_verify_nonce((string) wp_unslash($_REQUEST['_ry_toolkit_action_nonce'] ?? ''), $action)) {
+                $action_method = str_replace('-', '_', $action);
+                $callback = [static::instance(), $action_method];
+                if (is_callable($callback)) {
+                    $redirect = call_user_func($callback);
+                    if (empty($redirect)) {
+                        $redirect = sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''));
                     }
                 }
             }
