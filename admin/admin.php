@@ -36,7 +36,7 @@ class RY_Toolkit_Admin
 
     public function do_action(): void
     {
-        if (wp_verify_nonce($_REQUEST['_wpnonce'] ?? '', 'ry-toolkit-action')) {
+        if (wp_verify_nonce(wp_unslash($_REQUEST['_wpnonce'] ?? ''), 'ry-toolkit-action')) {
             $redirect = apply_filters('ry-toolkit/admin_action', '');
         }
 
