@@ -45,7 +45,7 @@ class RY_Toolkit_Frontend
             remove_action('wp_head', 'wp_oembed_add_discovery_links');
         }
 
-        $disable_feed_link = (array) RY_Toolkit::get_option('disable_feed_link');
+        $disable_feed_link = (array) RY_Toolkit::get_option('disable_feed_link', []);
         if ($disable_feed_link['all'] ?? 0) {
             remove_action('wp_head', 'feed_links', 2);
             remove_action('wp_head', 'feed_links_extra', 3);

@@ -2,7 +2,7 @@
 
 class RY_Toolkit
 {
-    public static $option_prefix = 'RY_';
+    public static $option_prefix = 'RY_Toolkit_';
 
     protected static $_instance = null;
 
@@ -74,8 +74,6 @@ class RY_Toolkit
 
     public static function plugin_activation(): void
     {
-        RY_Toolkit::add_option('big_image_size', 2560, '', 'no');
-        RY_Toolkit::add_option('disable_subsize', [], '', 'no');
     }
 
     public static function plugin_deactivation(): void
