@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -39,6 +39,13 @@ Report bugs on the [GitHub repository](https://github.com/RicherYang/RY-Toolkit/
 or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 == Changelog ==
+
+= 1.0.3 - 2023/03/21 =
+* Add WooCommerce image size name
+* Add miss action successfully notice
+
+= 1.0.2.1 - 2023/03/21 =
+* Fixed admin options page javascript issue.
 
 = 1.0.2 - 2023/03/21 =
 * First release.

@@ -30,6 +30,8 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
     {
         wp_enqueue_script('ry-toolkit-options');
 
+        require ABSPATH . 'wp-admin/options-head.php';
+
         echo '<div class="wrap"><h1>' . esc_html(__('Options', 'ry-toolkit')) . '</h1>';
         echo '<form action="options.php" method="post">';
         settings_fields('ry-toolkit-options');

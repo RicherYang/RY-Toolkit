@@ -26,6 +26,10 @@ class RY_Toolkit_Image
         $size_names['medium_large'] = __('Medium large', 'ry-toolkit');
         $size_names['post-thumbnail'] = __('Post thumbnail', 'ry-toolkit');
 
+        $size_names['woocommerce_thumbnail'] = __('WooCommerce thumbnail', 'ry-toolkit');
+        $size_names['woocommerce_single'] = __('WooCommerce image', 'ry-toolkit');
+        $size_names['woocommerce_gallery_thumbnail'] = __('WooCommerce gallery thumbnail', 'ry-toolkit');
+
         return $size_names;
     }
 

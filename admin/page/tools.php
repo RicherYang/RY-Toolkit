@@ -139,6 +139,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 }
             }
         }
+        RY_Toolkit()->admin->add_notice('success', __('Clear transient option successfully.', 'ry-toolkit'));
 
         return '';
     }
