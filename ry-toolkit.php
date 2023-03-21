@@ -4,7 +4,7 @@
  * Plugin URI: https://ry-plugin.com/ry-toolkit
  * Description: Useful tools for more control over you website
  * Version: 1.0.2
- * Requires at least: 5.6
+ * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: Richer Yang
  * Author URI: https://richer.tw/

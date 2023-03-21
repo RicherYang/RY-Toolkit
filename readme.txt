@@ -2,7 +2,7 @@
 Contributors: fantasyworld
 Donate link: https://www.paypal.me/RicherYang
 Tags: tool
-Requires at least: 5.6
+Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.1
 Stable tag: 1.0.2
@@ -30,7 +30,7 @@ Useful tools for more control over you website.
 = Minimum Requirements =
 
 * PHP 7.4+
-* WordPress 5.6+
+* WordPress 5.8+
 
 == Frequently Asked Questions ==
 
@@ -40,12 +40,5 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 == Changelog ==
 
-= 1.0.2 - 2023/03/14 =
-* Fixed the XSS issue
-
-= 1.0.1 - 2023/03/11 =
-* Add more options from feed link
-* Prevents class / action / filter names conflicting with other plugin or theme
-
-= 1.0.0 - 2023/03/07 =
+= 1.0.2 - 2023/03/21 =
 * First release.
