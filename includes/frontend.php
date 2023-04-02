@@ -85,6 +85,14 @@ class RY_Toolkit_Frontend
         if (RY_Toolkit::get_option('disable_wlw')) {
             remove_action('wp_head', 'wlwmanifest_link');
         }
+
+        if (RY_Toolkit::get_option('disable_comment')) {
+            add_filter('comments_open', '__return_false');
+        }
+
+        if (RY_Toolkit::get_option('disable_ping')) {
+            add_filter('pings_open', '__return_false');
+        }
     }
 
     public function hide_version($meta): string

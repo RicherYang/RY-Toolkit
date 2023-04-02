@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 1.0.3.1
+Stable tag: 1.0.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -16,6 +16,7 @@ Useful tools for more control over you website.
 = media options =
 
 * Set medium_large image size
+* Set big image suze
 * Disable auto-generated image size
 
 = tool =
@@ -39,6 +40,10 @@ Report bugs on the [GitHub repository](https://github.com/RicherYang/RY-Toolkit/
 or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 == Changelog ==
+
+= 1.0.4 - 2023/004/02 =
+* Change admin options page use tab.
+* Add global disable comment and pingback.
 
 = 1.0.3.1 - 2023/03/30 =
 * Change WordPress cron tested version info.

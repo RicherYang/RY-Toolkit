@@ -50,7 +50,7 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
 
     protected function flush_opcache(): string
     {
-        if (function_exists('opcache_invalidate') && (!ini_get('opcache.restrict_api') || stripos(realpath($_SERVER['SCRIPT_FILENAME']), ini_get('opcache.restrict_api')) === 0)) {
+        if (function_exists('opcache_invalidate') && (!ini_get('opcache.restrict_api') || 0 === stripos(realpath($_SERVER['SCRIPT_FILENAME']), ini_get('opcache.restrict_api')))) {
             $opcache_status = opcache_get_status(true);
             if (isset($opcache_status['scripts'])) {
                 $check_abspath = substr(ABSPATH, 0, -1);

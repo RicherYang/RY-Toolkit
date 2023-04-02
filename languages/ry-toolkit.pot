@@ -1,416 +1,407 @@
+# Copyright (C) 2023 Richer Yang
+# This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit\n"
+"Project-Id-Version: RY Toolkit 1.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
-"POT-Creation-Date: 2023-04-02T11:37:13+08:00\n"
-"PO-Revision-Date: 2023-04-02 11:37+0800\n"
-"Last-Translator: Richer Yang\n"
-"Language-Team: \n"
-"Language: zh_TW\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
-"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
-"_nc:4c,1,2\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 3.0\n"
-"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-SearchPath-0: ./..\n"
+"POT-Creation-Date: 2023-04-02T11:37:13+08:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.7.1\n"
+"X-Domain: ry-toolkit\n"
 
 #. Plugin Name of the plugin
 msgid "RY Toolkit"
-msgstr "RY Toolkit"
+msgstr ""
 
 #. Plugin URI of the plugin
 msgid "https://ry-plugin.com/ry-toolkit"
-msgstr "https://ry-plugin.com/ry-toolkit"
+msgstr ""
 
 #. Description of the plugin
 msgid "Useful tools for more control over you website"
-msgstr "Useful tools for more control over you website"
+msgstr ""
 
 #. Author of the plugin
 msgid "Richer Yang"
-msgstr "Richer Yang"
+msgstr ""
 
 #. Author URI of the plugin
 msgid "https://richer.tw/"
-msgstr "https://richer.tw/"
+msgstr ""
 
 #: admin/admin.php:89
 msgid "RY Tool"
-msgstr "RY 工具箱"
+msgstr ""
 
-#: admin/html/media/big-size.php:2 admin/options.php:36
+#: admin/html/media/big-size.php:2
+#: admin/options.php:36
 msgid "Max size"
-msgstr "最大尺寸"
+msgstr ""
 
 #: admin/html/media/big-size.php:3
 msgid "Max Width / Heigth"
-msgstr "最大寬度 / 高度"
+msgstr ""
 
-#: admin/html/media/disable-subsize.php:2 admin/options.php:37
+#: admin/html/media/disable-subsize.php:2
+#: admin/options.php:37
 msgid "Disable generated size"
-msgstr "停止生成尺寸"
+msgstr ""
 
-#: admin/html/media/medium-large-size.php:2 admin/options.php:35
+#: admin/html/media/medium-large-size.php:2
+#: admin/options.php:35
 msgid "Medium large size"
-msgstr "中大型尺寸"
+msgstr ""
 
 #: admin/html/media/medium-large-size.php:3
 msgid "Max Width"
-msgstr "最大寬度"
+msgstr ""
 
 #: admin/html/media/medium-large-size.php:6
 msgid "Max Height"
-msgstr "最大高度"
+msgstr ""
 
 #: admin/page/html/opcache.php:1
 msgid "OPcache status"
-msgstr "OPcache 狀態"
+msgstr ""
 
 #: admin/page/html/opcache.php:8
 msgid "OPcache statistics"
-msgstr "OPcache 統計"
+msgstr ""
 
 #: admin/page/html/opcache.php:12
 msgid "Start time"
-msgstr "開始時間"
+msgstr ""
 
 #: admin/page/html/opcache.php:19
 msgid "Last restart time"
-msgstr "最後重啟時間"
+msgstr ""
 
 #: admin/page/html/opcache.php:26
 msgid "Number of cached files"
-msgstr "快取檔案數"
+msgstr ""
 
 #: admin/page/html/opcache.php:32
 msgid "Number of hits"
-msgstr "命中數"
+msgstr ""
 
 #: admin/page/html/opcache.php:39
 msgid "Number of misses"
-msgstr "未命中數"
+msgstr ""
 
 #: admin/page/html/opcache.php:46
 msgid "blacklist hits"
-msgstr "禁用命中數"
+msgstr ""
 
 #: admin/page/html/opcache.php:59
 msgid "Memory usage"
-msgstr "記憶體使用"
+msgstr ""
 
 #: admin/page/html/opcache.php:63
 msgid "Total memory"
-msgstr "總記憶體"
+msgstr ""
 
 #: admin/page/html/opcache.php:69
 msgid "Used memory"
-msgstr "已使用記憶體"
+msgstr ""
 
 #: admin/page/html/opcache.php:76
 msgid "Free memory"
-msgstr "可用記憶體"
+msgstr ""
 
 #: admin/page/html/opcache.php:83
 msgid "Wasted memory"
-msgstr "浪費的記憶體"
+msgstr ""
 
 #: admin/page/html/opcache.php:96
 msgid "Interned strings usage"
-msgstr "實習字串使用"
+msgstr ""
 
 #: admin/page/html/opcache.php:100
 msgid "Buffer size"
-msgstr "緩衝區大小"
+msgstr ""
 
 #: admin/page/html/opcache.php:106
 msgid "Used buffer"
-msgstr "已使用緩衝區"
+msgstr ""
 
 #: admin/page/html/opcache.php:113
 msgid "Free buffer"
-msgstr "可用緩衝區"
+msgstr ""
 
 #: admin/page/html/opcache.php:120
 msgid "Number of strings"
-msgstr "字串數"
+msgstr ""
 
 #: admin/page/html/opcache.php:132
 msgid "Restart info"
-msgstr "重啟資訊"
+msgstr ""
 
 #: admin/page/html/opcache.php:136
 msgid "Out of memory"
-msgstr "記憶體耗盡"
+msgstr ""
 
 #: admin/page/html/opcache.php:143
 msgid "Out of file"
-msgstr "檔案耗盡"
+msgstr ""
 
 #: admin/page/html/opcache.php:150
 msgid "manual"
-msgstr "手動"
+msgstr ""
 
 #: admin/page/html/opcache.php:160
 msgid "OPcache tool"
-msgstr "OPcache 工具"
+msgstr ""
 
-#: admin/page/html/opcache.php:165 admin/page/html/tools.php:33
+#: admin/page/html/opcache.php:165
+#: admin/page/html/tools.php:33
 msgid "PHP OPcache"
-msgstr "PHP OPcache"
+msgstr ""
 
-#: admin/page/html/opcache.php:171 admin/page/html/tools.php:39
+#: admin/page/html/opcache.php:171
+#: admin/page/html/tools.php:39
 msgid "Flush PHP OPcache"
-msgstr "清除 PHP OPcache"
+msgstr ""
 
-#: admin/page/html/opcache.php:175 admin/page/html/tools.php:43
+#: admin/page/html/opcache.php:175
+#: admin/page/html/tools.php:43
 msgid "Set all cached files under the WordPress root directory to be invalid."
-msgstr "將 WordPress 根目錄底下所有已快取的檔案設定為失效。"
+msgstr ""
 
-#: admin/page/html/opcache.php:181 admin/page/html/tools.php:49
+#: admin/page/html/opcache.php:181
+#: admin/page/html/tools.php:49
 msgid "Restart PHP OPcache"
-msgstr "重啟 PHP OPcache"
+msgstr ""
 
-#: admin/page/html/options-core.php:3 admin/page/html/options-core.php:6
+#: admin/page/html/options-core.php:3
+#: admin/page/html/options-core.php:6
 msgid "XML-RPC"
-msgstr "XML-RPC"
+msgstr ""
 
 #: admin/page/html/options-core.php:9
 msgid "Disable XML-RPC"
-msgstr "停用 XML-RPC"
+msgstr ""
 
-#: admin/page/html/options-core.php:15 admin/page/html/options-core.php:18
+#: admin/page/html/options-core.php:15
+#: admin/page/html/options-core.php:18
 msgid "Comment"
-msgstr "留言"
+msgstr ""
 
 #: admin/page/html/options-core.php:21
 msgid "Disable comment"
-msgstr "停用留言"
+msgstr ""
 
-#: admin/page/html/options-core.php:23 admin/page/html/options-core.php:36
+#: admin/page/html/options-core.php:23
+#: admin/page/html/options-core.php:36
 msgid "If you set disabled it will override the post settings."
-msgstr "如果你設定為停用，將忽略原本文章中的留言設定。"
+msgstr ""
 
-#: admin/page/html/options-core.php:28 admin/page/html/options-core.php:31
+#: admin/page/html/options-core.php:28
+#: admin/page/html/options-core.php:31
 msgid "Trackback"
-msgstr "引用通知"
+msgstr ""
 
 #: admin/page/html/options-core.php:34
 msgid "Disable trackbacks and pingbacks"
-msgstr "停用引用通知及自動引用通知"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:3
 #: admin/page/html/options-frontend.php:6
 msgid "WordPress version"
-msgstr "WordPress 版本"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:9
 msgid "Hide WordPress version in generator info"
-msgstr "於生成資訊中隱藏 WordPress 版本"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:15
 #: admin/page/html/options-frontend.php:18
 msgid "Emoji"
-msgstr "表情符號"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:21
 msgid "Disable convert emoji to a static image come from WordPress"
-msgstr "停用將表情符號替換成來自 WordPress 的靜態圖片"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:27
 #: admin/page/html/options-frontend.php:30
 msgid "Shortlink"
-msgstr "短網址"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:33
 msgid "Disable show shortlink link"
-msgstr "停止顯示短網址連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:39
 #: admin/page/html/options-frontend.php:42
 msgid "oEmbed"
-msgstr "oEmbed"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:45
 msgid "Disable show oEmbed link"
-msgstr "停止顯示 oEmbed 連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:51
 #: admin/page/html/options-frontend.php:54
 msgid "Feed"
-msgstr "資訊提供"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:57
 msgid "Disable show ALL feed link"
-msgstr "停止顯示 全部 資訊提供連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:61
 msgid "Disable show posts feed link"
-msgstr "停止顯示 文章 資訊提供連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:65
 msgid "Disable show comments feed link"
-msgstr "停止顯示 留言 資訊提供連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:69
 msgid "Disable show post comments feed link"
-msgstr "停止顯示 單篇內容留言 資訊提供連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:74
 msgid "Disable show post type archive feed link"
-msgstr "停止顯示 內容類型彙整 資訊提供連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:78
 msgid "Disable show category feed link"
-msgstr "停止顯示 分類 資訊提供連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:82
 msgid "Disable show tag feed link"
-msgstr "停止顯示 標籤 資訊提供連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:86
 msgid "Disable show taxonomy feed link"
-msgstr "停止顯示 分類法 資訊提供連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:90
 msgid "Disable show author feed link"
-msgstr "停止顯示 作者 資訊提供連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:96
 #: admin/page/html/options-frontend.php:99
 msgid "REST"
-msgstr "REST"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:102
 msgid "Disable show REST link"
-msgstr "停止顯示 REST 連結"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:108
 #: admin/page/html/options-frontend.php:111
 msgid "Windows Live Writer"
-msgstr "Windows Live Writer"
+msgstr ""
 
 #: admin/page/html/options-frontend.php:114
 msgid "Disable show Windows Live Writer manifest file"
-msgstr "停止顯示 Windows Live Writer 資訊清單檔"
+msgstr ""
 
 #: admin/page/html/tools.php:4
 msgid "Database"
-msgstr "資料庫"
+msgstr ""
 
 #: admin/page/html/tools.php:10
 msgid "Analyze tables"
-msgstr "分析資料表"
+msgstr ""
 
 #: admin/page/html/tools.php:13
 msgid "Optimize tables"
-msgstr "最佳化資料表"
+msgstr ""
 
 #: admin/page/html/tools.php:18
 msgid "Clear transient option"
-msgstr "清除暫時性設定"
+msgstr ""
 
 #: admin/page/html/tools.php:22
-msgid ""
-"Transient option are safe to remove. They will be automatically regenerated "
-"when require it."
-msgstr "暫時性設定可以刪除的，於需要使用到的時候會自動生成新的暫時設定值。"
+msgid "Transient option are safe to remove. They will be automatically regenerated when require it."
+msgstr ""
 
 #. translators: %: Number of transient option.
 #: admin/page/html/tools.php:25
 msgid "%s transient in your database."
 msgid_plural "%s transients in your database."
-msgstr[0] "資料庫中有 %s 個暫時性設定。"
+msgstr[0] ""
+msgstr[1] ""
 
-#: admin/page/opcache.php:18 admin/page/opcache.php:32
+#: admin/page/opcache.php:18
+#: admin/page/opcache.php:32
 msgid "OPcache"
-msgstr "OPcache"
+msgstr ""
 
 #: admin/page/opcache.php:36
 msgid "OPcache disabled."
-msgstr "OPcache 已停用。"
+msgstr ""
 
 #: admin/page/opcache.php:62
 msgid "OPcache flushed successfully."
-msgstr "OPcache 已成功清除。"
+msgstr ""
 
 #: admin/page/opcache.php:65
 msgid "OPcache flush failed."
-msgstr "OPcache 清除失敗。"
+msgstr ""
 
 #: admin/page/opcache.php:74
 msgid "OPcache restarted successfully."
-msgstr "OPcache 已成功重啟。"
+msgstr ""
 
 #: admin/page/opcache.php:76
 msgid "OPcache restart failed."
-msgstr "OPcache 重啟失敗。"
+msgstr ""
 
-#: admin/page/options.php:16 admin/page/options.php:42
+#: admin/page/options.php:16
+#: admin/page/options.php:42
 msgid "Options"
-msgstr "設定"
+msgstr ""
 
 #: admin/page/options.php:32
 msgid "Website frontend"
-msgstr "網站前端"
+msgstr ""
 
 #: admin/page/options.php:33
 msgid "WordPress core function"
-msgstr "WordPress 核心功能"
+msgstr ""
 
-#: admin/page/tools.php:18 admin/page/tools.php:42
+#: admin/page/tools.php:18
+#: admin/page/tools.php:42
 msgid "Tools"
-msgstr "工具"
+msgstr ""
 
 #: admin/page/tools.php:81
 msgid "Database tables analyzed successfully."
-msgstr "資料表已成功分析。"
+msgstr ""
 
 #: admin/page/tools.php:118
 msgid "Database tables optimized successfully."
-msgstr "資料表已成功最佳化。"
+msgstr ""
 
 #: admin/page/tools.php:142
 msgid "Clear transient option successfully."
-msgstr "臨時設定已成功清除。"
+msgstr ""
 
 #: includes/image.php:26
 msgid "Medium large"
-msgstr "中大型尺寸"
+msgstr ""
 
 #: includes/image.php:27
 msgid "Post thumbnail"
-msgstr "文章縮圖尺寸"
+msgstr ""
 
 #: includes/image.php:29
 msgid "WooCommerce thumbnail"
-msgstr "WooCommerce 縮圖尺寸"
+msgstr ""
 
 #: includes/image.php:30
 msgid "WooCommerce image"
-msgstr "WooCommerce 圖片尺寸"
+msgstr ""
 
 #: includes/image.php:31
 msgid "WooCommerce gallery thumbnail"
-msgstr "WooCommerce 圖庫縮圖尺寸"
-
-#~ msgid "Thumbnail"
-#~ msgstr "縮圖尺寸"
-
-#~ msgid "Medium"
-#~ msgstr "中型尺寸"
-
-#~ msgid "Large"
-#~ msgstr "大型尺寸"
-
-#~ msgid "Full Size"
-#~ msgstr "完整尺寸"
-
-#~ msgid "Disable comment."
-#~ msgstr "停用留言"
+msgstr ""

@@ -19,7 +19,7 @@ class RY_Toolkit_Admin_Options
         add_filter('allowed_options', [$this, 'add_allowed_options']);
 
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('big_image_size'), [$this, 'return_absint']);
-        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_xmlrpc'), [$this, 'return_absint']);
+
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('hide_wp_version'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_emoji'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_shortlink'), [$this, 'return_absint']);
@@ -27,6 +27,10 @@ class RY_Toolkit_Admin_Options
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_feed_link'), [$this, 'return_array_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_rest_link'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_wlw'), [$this, 'return_absint']);
+
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_xmlrpc'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_comment'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_ping'), [$this, 'return_absint']);
 
         add_settings_field('medium_large_size', __('Medium large size', 'ry-toolkit'), [$this, 'show_medium_large_size'], 'media', 'default');
         add_settings_field('big_image_size', __('Max size', 'ry-toolkit'), [$this, 'show_big_size'], 'media', 'default');
@@ -40,8 +44,7 @@ class RY_Toolkit_Admin_Options
         $allowed_options['media'][] = RY_Toolkit::get_option_name('big_image_size');
         $allowed_options['media'][] = RY_Toolkit::get_option_name('disable_subsize');
 
-        $allowed_options['ry-toolkit-options'] = [
-            RY_Toolkit::get_option_name('disable_xmlrpc'),
+        $allowed_options['ry-toolkit-options-frontend'] = [
             RY_Toolkit::get_option_name('hide_wp_version'),
             RY_Toolkit::get_option_name('disable_emoji'),
             RY_Toolkit::get_option_name('disable_shortlink'),
@@ -50,6 +53,12 @@ class RY_Toolkit_Admin_Options
             RY_Toolkit::get_option_name('disable_rest_link'),
             RY_Toolkit::get_option_name('disable_wlw')
         ];
+        $allowed_options['ry-toolkit-options-core'] = [
+            RY_Toolkit::get_option_name('disable_xmlrpc'),
+            RY_Toolkit::get_option_name('disable_comment'),
+            RY_Toolkit::get_option_name('disable_ping')
+        ];
+
 
         return $allowed_options;
     }

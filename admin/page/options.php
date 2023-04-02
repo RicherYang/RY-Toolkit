@@ -28,15 +28,37 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
 
     public function show_page(): void
     {
+        $type_list = [
+            'frontend' => __('Website frontend', 'ry-toolkit'),
+            'core' => __('WordPress core function', 'ry-toolkit')
+        ];
+        $show_type = sanitize_key(wp_unslash($_GET['type'] ?? ''));
+        if (empty($show_type)) {
+            $show_type = 'frontend';
+        }
+
         wp_enqueue_script('ry-toolkit-options');
 
+        echo '<div class="wrap"><h1>' . esc_html(__('Options', 'ry-toolkit')) . '</h1>';
         require ABSPATH . 'wp-admin/options-head.php';
 
-        echo '<div class="wrap"><h1>' . esc_html(__('Options', 'ry-toolkit')) . '</h1>';
-        echo '<form action="options.php" method="post">';
-        settings_fields('ry-toolkit-options');
+        include RY_TOOLKIT_PLUGIN_DIR . 'admin/page/html/options-nav.php';
 
-        include RY_TOOLKIT_PLUGIN_DIR . 'admin/page/html/options.php';
+        if (!isset($type_list[$show_type])) {
+            echo '</div>';
+            return;
+        }
+
+        $load_file = RY_TOOLKIT_PLUGIN_DIR . "admin/page/html/options-{$show_type}.php";
+        if (!is_file($load_file)) {
+            echo '</div>';
+            return;
+        }
+
+        echo '<form action="options.php" method="post">';
+        settings_fields('ry-toolkit-options-' . $show_type);
+
+        include $load_file;
 
         submit_button();
         echo '</form>';
