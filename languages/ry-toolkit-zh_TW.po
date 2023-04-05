@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RY Toolkit\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
-"POT-Creation-Date: 2023-04-02T11:37:13+08:00\n"
-"PO-Revision-Date: 2023-04-02 11:37+0800\n"
+"POT-Creation-Date: 2023-04-05T19:39:05+08:00\n"
+"PO-Revision-Date: 2023-04-05 19:39+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -45,7 +45,7 @@ msgstr "https://richer.tw/"
 msgid "RY Tool"
 msgstr "RY 工具箱"
 
-#: admin/html/media/big-size.php:2 admin/options.php:36
+#: admin/html/media/big-size.php:2 admin/options.php:42
 msgid "Max size"
 msgstr "最大尺寸"
 
@@ -53,11 +53,11 @@ msgstr "最大尺寸"
 msgid "Max Width / Heigth"
 msgstr "最大寬度 / 高度"
 
-#: admin/html/media/disable-subsize.php:2 admin/options.php:37
+#: admin/html/media/disable-subsize.php:2 admin/options.php:43
 msgid "Disable generated size"
 msgstr "停止生成尺寸"
 
-#: admin/html/media/medium-large-size.php:2 admin/options.php:35
+#: admin/html/media/medium-large-size.php:2 admin/options.php:41
 msgid "Medium large size"
 msgstr "中大型尺寸"
 
@@ -300,6 +300,49 @@ msgstr "Windows Live Writer"
 msgid "Disable show Windows Live Writer manifest file"
 msgstr "停止顯示 Windows Live Writer 資訊清單檔"
 
+#: admin/page/html/options-sitemap.php:14
+msgid "View XML sitemap index."
+msgstr "瀏覽 XML sitemap 索引檔。"
+
+#: admin/page/html/options-sitemap.php:18
+msgid "Maximum number of URLs for a sitemap"
+msgstr "一個 Sitemap 檔案中包含的最大網址數量"
+
+#: admin/page/html/options-sitemap.php:21
+msgid "urls"
+msgstr "個網址"
+
+#: admin/page/html/options-sitemap.php:25
+#: admin/page/html/options-sitemap.php:28
+msgid "Sitemap entry"
+msgstr "Sitemap 項目"
+
+#. translators: %s: sitemap entry name.
+#: admin/page/html/options-sitemap.php:34
+#: admin/page/html/options-sitemap.php:65
+#: admin/page/html/options-sitemap.php:84
+msgid "Disable generation \"%s\" sitemap"
+msgstr "停止產生 [%s] 的 Sitemap"
+
+#: admin/page/html/options-sitemap.php:42
+#: admin/page/html/options-sitemap.php:45
+msgid "Additional tags to sitemap"
+msgstr "Sitemap 的擴充元素"
+
+#: admin/page/html/options-sitemap.php:48
+msgid "Add last modification date for posts sitemap"
+msgstr "於 [文章] Sitemap 中加入最後更新時間"
+
+#: admin/page/html/options-sitemap.php:56
+#: admin/page/html/options-sitemap.php:59
+msgid "Posts sitemap"
+msgstr "文章的 Sitemap"
+
+#: admin/page/html/options-sitemap.php:75
+#: admin/page/html/options-sitemap.php:78
+msgid "Taxonomys sitemap"
+msgstr "分類法的 Sitemap"
+
 #: admin/page/html/tools.php:4
 msgid "Database"
 msgstr "資料庫"
@@ -352,7 +395,7 @@ msgstr "OPcache 已成功重啟。"
 msgid "OPcache restart failed."
 msgstr "OPcache 重啟失敗。"
 
-#: admin/page/options.php:16 admin/page/options.php:42
+#: admin/page/options.php:16 admin/page/options.php:53
 msgid "Options"
 msgstr "設定"
 
@@ -363,6 +406,25 @@ msgstr "網站前端"
 #: admin/page/options.php:33
 msgid "WordPress core function"
 msgstr "WordPress 核心功能"
+
+#: admin/page/options.php:38
+msgid "WordPress sitemap"
+msgstr "WordPress sitemap"
+
+#: admin/page/options.php:40
+msgctxt "sitemap provider"
+msgid "posts"
+msgstr "文章"
+
+#: admin/page/options.php:41
+msgctxt "sitemap provider"
+msgid "taxonomies"
+msgstr "分類法"
+
+#: admin/page/options.php:42
+msgctxt "sitemap provider"
+msgid "users"
+msgstr "使用者"
 
 #: admin/page/tools.php:18 admin/page/tools.php:42
 msgid "Tools"
@@ -399,18 +461,3 @@ msgstr "WooCommerce 圖片尺寸"
 #: includes/image.php:31
 msgid "WooCommerce gallery thumbnail"
 msgstr "WooCommerce 圖庫縮圖尺寸"
-
-#~ msgid "Thumbnail"
-#~ msgstr "縮圖尺寸"
-
-#~ msgid "Medium"
-#~ msgstr "中型尺寸"
-
-#~ msgid "Large"
-#~ msgstr "大型尺寸"
-
-#~ msgid "Full Size"
-#~ msgstr "完整尺寸"
-
-#~ msgid "Disable comment."
-#~ msgstr "停用留言"

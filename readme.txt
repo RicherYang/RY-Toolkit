@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -18,6 +18,12 @@ Useful tools for more control over you website.
 * Set medium_large image size
 * Set big image suze
 * Disable auto-generated image size
+
+= WordPress buidin sitemaps options =
+
+* Set max number of URLs in one file
+* Disable post type sitemap
+* Disable taxonomy sitemap
 
 = tool =
 
@@ -39,9 +45,19 @@ Useful tools for more control over you website.
 Report bugs on the [GitHub repository](https://github.com/RicherYang/RY-Toolkit/issues),
 or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
+== Screenshots ==
+
+1. Website frontend settings page.
+2. WordPress core function settings page.
+3. Tools page.
+4. OPcache info page.
+
 == Changelog ==
 
-= 1.0.4 - 2023/004/02 =
+= 1.0.5 - 2023/04/05 =
+* Add WordPress Sitemap options.
+
+= 1.0.4 - 2023/04/02 =
 * Change admin options page use tab.
 * Add global disable comment and pingback.
 

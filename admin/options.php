@@ -32,6 +32,12 @@ class RY_Toolkit_Admin_Options
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_comment'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_ping'), [$this, 'return_absint']);
 
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_urls_pre_file'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_provider'), [$this, 'return_array_nicestring']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_add_tag'), [$this, 'return_array_absint']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_post_type'), [$this, 'return_array_nicestring']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_taxonomy'), [$this, 'return_array_nicestring']);
+
         add_settings_field('medium_large_size', __('Medium large size', 'ry-toolkit'), [$this, 'show_medium_large_size'], 'media', 'default');
         add_settings_field('big_image_size', __('Max size', 'ry-toolkit'), [$this, 'show_big_size'], 'media', 'default');
         add_settings_field('disable_subsize_image', __('Disable generated size', 'ry-toolkit'), [$this, 'show_disable_subsize'], 'media', 'default');
@@ -53,12 +59,20 @@ class RY_Toolkit_Admin_Options
             RY_Toolkit::get_option_name('disable_rest_link'),
             RY_Toolkit::get_option_name('disable_wlw')
         ];
+
         $allowed_options['ry-toolkit-options-core'] = [
             RY_Toolkit::get_option_name('disable_xmlrpc'),
             RY_Toolkit::get_option_name('disable_comment'),
             RY_Toolkit::get_option_name('disable_ping')
         ];
 
+        $allowed_options['ry-toolkit-options-sitemap'] = [
+            RY_Toolkit::get_option_name('sitemap_urls_pre_file'),
+            RY_Toolkit::get_option_name('sitemap_disable_provider'),
+            RY_Toolkit::get_option_name('sitemap_add_tag'),
+            RY_Toolkit::get_option_name('sitemap_disable_post_type'),
+            RY_Toolkit::get_option_name('sitemap_disable_taxonomy')
+        ];
 
         return $allowed_options;
     }
@@ -68,9 +82,28 @@ class RY_Toolkit_Admin_Options
         return absint($value);
     }
 
-    public function return_array_absint($value): array
+    public function return_array_absint($array): array
     {
-        return array_map('intval', (array) $value);
+        $array = (array) $array;
+        $values = [];
+        foreach ($array as $key => $value) {
+            if ($key === sanitize_key($key)) {
+                $values[$key] = (int) $value;
+            }
+        }
+        return $values;
+    }
+
+    public function return_array_nicestring($array): array
+    {
+        $array = (array) $array;
+        $values = [];
+        foreach ($array as $key => $value) {
+            if ($key === sanitize_key($key)) {
+                $values[$key] = sanitize_key($value);
+            }
+        }
+        return $values;
     }
 
     public function show_medium_large_size(): void

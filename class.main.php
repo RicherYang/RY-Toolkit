@@ -29,6 +29,7 @@ class RY_Toolkit
     {
         load_plugin_textdomain('ry-toolkit', false, plugin_basename(RY_TOOLKIT_PLUGIN_DIR) . '/languages');
 
+        add_action('init', [$this, 'ry_sitemaps_init'], 9);
         add_action('init', [$this, 'ry_init']);
 
         if (is_admin()) {
@@ -50,6 +51,12 @@ class RY_Toolkit
 
         include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/frontend.php';
         $this->instance['frontend'] = RY_Toolkit_Frontend::instance();
+    }
+
+    public function ry_sitemaps_init()
+    {
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/sitemaps.php';
+        $this->instance['sitemaps'] = RY_Toolkit_Sitemaps::instance();
     }
 
     public static function get_option_name(string $option): string
