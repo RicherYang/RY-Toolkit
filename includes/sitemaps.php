@@ -21,13 +21,7 @@ class RY_Toolkit_Sitemaps
         }
 
         add_filter('wp_sitemaps_add_provider', [$this, 'limit_the_provider'], 10, 2);
-
-        add_filter('wp_sitemaps_max_urls', [$this, 'change_max_urls']);
-
-        add_filter('wp_sitemaps_post_types', [$this, 'disable_post_type']);
-        add_filter('wp_sitemaps_taxonomies', [$this, 'disable_taxonomy']);
-
-        add_filter('wp_sitemaps_posts_entry', [$this, 'add_last_mod'], 10, 2);
+        add_action('wp_sitemaps_init', [$this, 'init_change']);
     }
 
     public function limit_the_provider($provider, $name)
@@ -39,6 +33,16 @@ class RY_Toolkit_Sitemaps
             }
         }
         return $provider;
+    }
+
+    public function init_change()
+    {
+        add_filter('wp_sitemaps_max_urls', [$this, 'change_max_urls']);
+
+        add_filter('wp_sitemaps_post_types', [$this, 'disable_post_type']);
+        add_filter('wp_sitemaps_taxonomies', [$this, 'disable_taxonomy']);
+
+        add_filter('wp_sitemaps_posts_entry', [$this, 'add_last_mod'], 10, 2);
     }
 
     public function change_max_urls($max_urls)

@@ -10,8 +10,8 @@ class RY_Toolkit_Update
             return;
         }
 
-        if (version_compare($now_version, '1.0.5', '<')) {
-            RY_Toolkit::update_option('version', '1.0.5');
+        if (version_compare($now_version, '1.0.6', '<')) {
+            RY_Toolkit::update_option('version', '1.0.6');
         }
     }
 }

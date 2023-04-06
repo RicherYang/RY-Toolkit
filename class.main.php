@@ -41,6 +41,14 @@ class RY_Toolkit
         }
     }
 
+    public function ry_sitemaps_init()
+    {
+        if(has_action('init', 'wp_sitemaps_get_server')) {
+            include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/sitemaps.php';
+            $this->instance['sitemaps'] = RY_Toolkit_Sitemaps::instance();
+        }
+    }
+
     public function ry_init(): void
     {
         include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/image.php';
@@ -51,12 +59,6 @@ class RY_Toolkit
 
         include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/frontend.php';
         $this->instance['frontend'] = RY_Toolkit_Frontend::instance();
-    }
-
-    public function ry_sitemaps_init()
-    {
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/sitemaps.php';
-        $this->instance['sitemaps'] = RY_Toolkit_Sitemaps::instance();
     }
 
     public static function get_option_name(string $option): string

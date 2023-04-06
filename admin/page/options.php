@@ -33,14 +33,16 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
             'core' => __('WordPress core function', 'ry-toolkit')
         ];
 
-        $sitemaps = wp_sitemaps_get_server();
-        if ($sitemaps->sitemaps_enabled()) {
-            $type_list['sitemap'] = __('WordPress sitemap', 'ry-toolkit');
-            $sitemap_provider_name = [
-                'posts' => _x('posts', 'sitemap provider', 'ry-toolkit'),
-                'taxonomies' => _x('taxonomies', 'sitemap provider', 'ry-toolkit'),
-                'users' => _x('users', 'sitemap provider', 'ry-toolkit')
-            ];
+        if(has_action('init', 'wp_sitemaps_get_server')) {
+            $sitemaps = wp_sitemaps_get_server();
+            if ($sitemaps->sitemaps_enabled()) {
+                $type_list['sitemap'] = __('WordPress sitemap', 'ry-toolkit');
+                $sitemap_provider_name = [
+                    'posts' => _x('posts', 'sitemap provider', 'ry-toolkit'),
+                    'taxonomies' => _x('taxonomies', 'sitemap provider', 'ry-toolkit'),
+                    'users' => _x('users', 'sitemap provider', 'ry-toolkit')
+                ];
+            }
         }
 
         $show_type = sanitize_key(wp_unslash($_GET['type'] ?? ''));
