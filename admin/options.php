@@ -128,10 +128,10 @@ class RY_Toolkit_Admin_Options
 
         /** This filter is documented in wp-admin/includes/media.php */
         $size_names = apply_filters('image_size_names_choose', [
-            'thumbnail' => __('Thumbnail'),
-            'medium' => __('Medium'),
-            'large' => __('Large'),
-            'full' => __('Full Size')
+            'thumbnail' => __('Thumbnail', 'ry-toolkit'),
+            'medium' => __('Medium', 'ry-toolkit'),
+            'large' => __('Large', 'ry-toolkit'),
+            'full' => __('Full Size', 'ry-toolkit')
         ]);
 
         include RY_TOOLKIT_PLUGIN_DIR . 'admin/html/media/disable-subsize.php';

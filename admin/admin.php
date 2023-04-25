@@ -21,6 +21,9 @@ class RY_Toolkit_Admin
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/options.php';
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/tools.php';
 
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/plugins.php';
+        RY_Toolkit_Admin_Plugins::instance();
+
         add_action('admin_post_ry-toolkit-action', [$this, 'do_action']);
         add_action('all_admin_notices', [$this, 'show_notices']);
 

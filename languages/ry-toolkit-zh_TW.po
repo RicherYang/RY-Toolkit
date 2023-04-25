@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RY Toolkit\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
-"POT-Creation-Date: 2023-04-05T19:39:05+08:00\n"
-"PO-Revision-Date: 2023-04-05 19:39+0800\n"
+"POT-Creation-Date: 2023-04-25T10:59:25+08:00\n"
+"PO-Revision-Date: 2023-04-25 10:59+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -41,7 +41,7 @@ msgstr "Richer Yang"
 msgid "https://richer.tw/"
 msgstr "https://richer.tw/"
 
-#: admin/admin.php:89
+#: admin/admin.php:92
 msgid "RY Tool"
 msgstr "RY 工具箱"
 
@@ -68,6 +68,22 @@ msgstr "最大寬度"
 #: admin/html/media/medium-large-size.php:6
 msgid "Max Height"
 msgstr "最大高度"
+
+#: admin/options.php:131
+msgid "Thumbnail"
+msgstr "縮圖尺寸"
+
+#: admin/options.php:132
+msgid "Medium"
+msgstr "中型尺寸"
+
+#: admin/options.php:133
+msgid "Large"
+msgstr "大型尺寸"
+
+#: admin/options.php:134
+msgid "Full Size"
+msgstr "完整尺寸"
 
 #: admin/page/html/opcache.php:1
 msgid "OPcache status"
@@ -319,10 +335,8 @@ msgstr "Sitemap 項目"
 
 #. translators: %s: sitemap entry name.
 #: admin/page/html/options-sitemap.php:34
-#: admin/page/html/options-sitemap.php:65
-#: admin/page/html/options-sitemap.php:84
-msgid "Disable generation \"%s\" sitemap"
-msgstr "停止產生 [%s] 的 Sitemap"
+msgid "Disable generation \"%s\" entry sitemap"
+msgstr "停止產生項目 [%s] 的 Sitemap"
 
 #: admin/page/html/options-sitemap.php:42
 #: admin/page/html/options-sitemap.php:45
@@ -331,17 +345,27 @@ msgstr "Sitemap 的擴充元素"
 
 #: admin/page/html/options-sitemap.php:48
 msgid "Add last modification date for posts sitemap"
-msgstr "於 [文章] Sitemap 中加入最後更新時間"
+msgstr "於項目 [文章] 的 Sitemap 中加入最後更新時間"
 
 #: admin/page/html/options-sitemap.php:56
 #: admin/page/html/options-sitemap.php:59
 msgid "Posts sitemap"
 msgstr "文章的 Sitemap"
 
+#. translators: %s: sitemap entry name.
+#: admin/page/html/options-sitemap.php:65
+msgid "Disable generation \"%s\" post type sitemap"
+msgstr "停止產生內容類型 [%s] 的 Sitemap"
+
 #: admin/page/html/options-sitemap.php:75
 #: admin/page/html/options-sitemap.php:78
-msgid "Taxonomys sitemap"
+msgid "Taxonomies sitemap"
 msgstr "分類法的 Sitemap"
+
+#. translators: %s: sitemap entry name.
+#: admin/page/html/options-sitemap.php:84
+msgid "Disable generation \"%s\" taxonomy sitemap"
+msgstr "停止產生分類法 [%s] 的 Sitemap"
 
 #: admin/page/html/tools.php:4
 msgid "Database"
@@ -395,7 +419,7 @@ msgstr "OPcache 已成功重啟。"
 msgid "OPcache restart failed."
 msgstr "OPcache 重啟失敗。"
 
-#: admin/page/options.php:16 admin/page/options.php:53
+#: admin/page/options.php:16 admin/page/options.php:55
 msgid "Options"
 msgstr "設定"
 
@@ -407,21 +431,21 @@ msgstr "網站前端"
 msgid "WordPress core function"
 msgstr "WordPress 核心功能"
 
-#: admin/page/options.php:38
+#: admin/page/options.php:39
 msgid "WordPress sitemap"
 msgstr "WordPress sitemap"
 
-#: admin/page/options.php:40
+#: admin/page/options.php:41
 msgctxt "sitemap provider"
 msgid "posts"
 msgstr "文章"
 
-#: admin/page/options.php:41
+#: admin/page/options.php:42
 msgctxt "sitemap provider"
 msgid "taxonomies"
 msgstr "分類法"
 
-#: admin/page/options.php:42
+#: admin/page/options.php:43
 msgctxt "sitemap provider"
 msgid "users"
 msgstr "使用者"
@@ -441,6 +465,35 @@ msgstr "資料表已成功最佳化。"
 #: admin/page/tools.php:142
 msgid "Clear transient option successfully."
 msgstr "臨時設定已成功清除。"
+
+#. translators: %s: Plugin name.
+#: admin/plugins.php:33
+msgid "Download %s"
+msgstr "下載 \"%s\""
+
+#: admin/plugins.php:34
+msgid "Download"
+msgstr "下載"
+
+#: admin/plugins.php:44
+msgid "Sorry, you are not allowed to download plugin."
+msgstr "很抱歉，目前的登入身分沒有下載外掛的權限。"
+
+#: admin/plugins.php:49
+msgid "Invalid plugin path."
+msgstr "無效的外掛路徑。"
+
+#: admin/plugins.php:60
+msgid "Sorry, cannot find the plugin."
+msgstr "很抱歉，找不到要下載的外掛。"
+
+#: admin/plugins.php:85
+msgid "Unable to generate zip file."
+msgstr "無法產生壓縮檔。"
+
+#: admin/plugins.php:88
+msgid "Unable to open zip file for writing."
+msgstr "無法開啟壓縮檔進行資料寫入。"
 
 #: includes/image.php:26
 msgid "Medium large"

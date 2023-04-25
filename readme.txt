@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 1.0.6
+Stable tag: 1.1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -53,6 +53,9 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 4. OPcache info page.
 
 == Changelog ==
+
+= 1.1.0 - 2023/04/25 =
+* Add download plugin archive file.
 
 = 1.0.6 - 2023/04/06 =
 * Fixed detection error with use remove_action to disable WordPress sitemap.

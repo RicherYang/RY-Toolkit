@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.0.5\n"
+"Project-Id-Version: RY Toolkit 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-05T19:39:05+08:00\n"
+"POT-Creation-Date: 2023-04-25T10:59:25+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: ry-toolkit\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "https://richer.tw/"
 msgstr ""
 
-#: admin/admin.php:89
+#: admin/admin.php:92
 msgid "RY Tool"
 msgstr ""
 
@@ -63,6 +63,22 @@ msgstr ""
 
 #: admin/html/media/medium-large-size.php:6
 msgid "Max Height"
+msgstr ""
+
+#: admin/options.php:131
+msgid "Thumbnail"
+msgstr ""
+
+#: admin/options.php:132
+msgid "Medium"
+msgstr ""
+
+#: admin/options.php:133
+msgid "Large"
+msgstr ""
+
+#: admin/options.php:134
+msgid "Full Size"
 msgstr ""
 
 #: admin/page/html/opcache.php:1
@@ -323,9 +339,7 @@ msgstr ""
 
 #. translators: %s: sitemap entry name.
 #: admin/page/html/options-sitemap.php:34
-#: admin/page/html/options-sitemap.php:65
-#: admin/page/html/options-sitemap.php:84
-msgid "Disable generation \"%s\" sitemap"
+msgid "Disable generation \"%s\" entry sitemap"
 msgstr ""
 
 #: admin/page/html/options-sitemap.php:42
@@ -342,9 +356,19 @@ msgstr ""
 msgid "Posts sitemap"
 msgstr ""
 
+#. translators: %s: sitemap entry name.
+#: admin/page/html/options-sitemap.php:65
+msgid "Disable generation \"%s\" post type sitemap"
+msgstr ""
+
 #: admin/page/html/options-sitemap.php:75
 #: admin/page/html/options-sitemap.php:78
-msgid "Taxonomys sitemap"
+msgid "Taxonomies sitemap"
+msgstr ""
+
+#. translators: %s: sitemap entry name.
+#: admin/page/html/options-sitemap.php:84
+msgid "Disable generation \"%s\" taxonomy sitemap"
 msgstr ""
 
 #: admin/page/html/tools.php:4
@@ -400,7 +424,7 @@ msgid "OPcache restart failed."
 msgstr ""
 
 #: admin/page/options.php:16
-#: admin/page/options.php:53
+#: admin/page/options.php:55
 msgid "Options"
 msgstr ""
 
@@ -412,21 +436,21 @@ msgstr ""
 msgid "WordPress core function"
 msgstr ""
 
-#: admin/page/options.php:38
+#: admin/page/options.php:39
 msgid "WordPress sitemap"
-msgstr ""
-
-#: admin/page/options.php:40
-msgctxt "sitemap provider"
-msgid "posts"
 msgstr ""
 
 #: admin/page/options.php:41
 msgctxt "sitemap provider"
-msgid "taxonomies"
+msgid "posts"
 msgstr ""
 
 #: admin/page/options.php:42
+msgctxt "sitemap provider"
+msgid "taxonomies"
+msgstr ""
+
+#: admin/page/options.php:43
 msgctxt "sitemap provider"
 msgid "users"
 msgstr ""
@@ -446,6 +470,35 @@ msgstr ""
 
 #: admin/page/tools.php:142
 msgid "Clear transient option successfully."
+msgstr ""
+
+#. translators: %s: Plugin name.
+#: admin/plugins.php:33
+msgid "Download %s"
+msgstr ""
+
+#: admin/plugins.php:34
+msgid "Download"
+msgstr ""
+
+#: admin/plugins.php:44
+msgid "Sorry, you are not allowed to download plugin."
+msgstr ""
+
+#: admin/plugins.php:49
+msgid "Invalid plugin path."
+msgstr ""
+
+#: admin/plugins.php:60
+msgid "Sorry, cannot find the plugin."
+msgstr ""
+
+#: admin/plugins.php:85
+msgid "Unable to generate zip file."
+msgstr ""
+
+#: admin/plugins.php:88
+msgid "Unable to open zip file for writing."
 msgstr ""
 
 #: includes/image.php:26
