@@ -13,7 +13,7 @@ $taxonomies = array_filter($taxonomies, 'is_taxonomy_viewable');
 
 <p><a href="<?php echo esc_url(get_sitemap_url('index')); ?>"><?php esc_html_e('View XML sitemap index.', 'ry-toolkit'); ?></a></p>
 
-<table class="form-table">
+<table id="ry-toolkit-options-sitemap" class="form-table">
     <tr>
         <th scope="row"><label for="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_urls_pre_file')); ?>"><?php esc_html_e('Maximum number of URLs for a sitemap', 'ry-toolkit'); ?></label></th>
         <td>
@@ -38,9 +38,9 @@ $taxonomies = array_filter($taxonomies, 'is_taxonomy_viewable');
             </fieldset>
         </td>
     </tr>
-    <tr>
+    <tr class="sitemap-posts-options">
         <th scope="row"><?php esc_html_e('Additional tags to sitemap', 'ry-toolkit'); ?></th>
-        <td id="disable-feed-link">
+        <td>
             <fieldset>
                 <legend class="screen-reader-text"><span><?php esc_html_e('Additional tags to sitemap', 'ry-toolkit'); ?></span></legend>
                 <label for="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_add_tag')); ?>-lastmod">
@@ -52,7 +52,7 @@ $taxonomies = array_filter($taxonomies, 'is_taxonomy_viewable');
     </tr>
 
     <?php if (count($post_types)) { ?>
-    <tr>
+    <tr class="sitemap-posts-options">
         <th scope="row"><?php esc_html_e('Posts sitemap', 'ry-toolkit'); ?></th>
         <td>
             <fieldset>
@@ -71,7 +71,7 @@ $taxonomies = array_filter($taxonomies, 'is_taxonomy_viewable');
     </tr>
     <?php } ?>
     <?php if (count($taxonomies)) { ?>
-    <tr>
+    <tr class="sitemap-taxonomies-options">
         <th scope="row"><?php esc_html_e('Taxonomies sitemap', 'ry-toolkit'); ?></th>
         <td>
             <fieldset>

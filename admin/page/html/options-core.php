@@ -1,4 +1,4 @@
-<table class="form-table">
+<table id="ry-toolkit-options-core" class="form-table">
     <tr>
         <th scope="row"><?php esc_html_e('XML-RPC', 'ry-toolkit'); ?></th>
         <td>

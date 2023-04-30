@@ -1,4 +1,4 @@
-<table class="form-table">
+<table id="ry-toolkit-options-frontend" class="form-table">
     <tr>
         <th scope="row"><?php esc_html_e('WordPress version', 'ry-toolkit'); ?></th>
         <td>
