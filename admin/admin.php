@@ -17,6 +17,7 @@ class RY_Toolkit_Admin
     protected function do_init(): void
     {
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/abstracts-page.php';
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/cron.php';
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/opcache.php';
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/options.php';
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/tools.php';

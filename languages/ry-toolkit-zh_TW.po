@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RY Toolkit\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
-"POT-Creation-Date: 2023-04-25T10:59:25+08:00\n"
-"PO-Revision-Date: 2023-04-25 10:59+0800\n"
+"POT-Creation-Date: 2023-05-28T11:18:22+08:00\n"
+"PO-Revision-Date: 2023-05-28 11:19+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -41,7 +41,7 @@ msgstr "Richer Yang"
 msgid "https://richer.tw/"
 msgstr "https://richer.tw/"
 
-#: admin/admin.php:92
+#: admin/admin.php:93
 msgid "RY Tool"
 msgstr "RY 工具箱"
 
@@ -69,6 +69,85 @@ msgstr "最大寬度"
 msgid "Max Height"
 msgstr "最大高度"
 
+#. translators: %s: Number of events.
+#: admin/includes/cron-event-list-table.php:102
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "全部 <span class=\"count\">(%s)</span>"
+
+#. translators: %s: Number of events.
+#: admin/includes/cron-event-list-table.php:116
+msgid "NO action <span class=\"count\">(%s)</span>"
+msgid_plural "NO action <span class=\"count\">(%s)</span>"
+msgstr[0] "沒有執行動作 <span class=\"count\">(%s)</span>"
+
+#: admin/includes/cron-event-list-table.php:144
+msgid "Hook"
+msgstr "勾點"
+
+#: admin/includes/cron-event-list-table.php:145
+msgid "Arguments"
+msgstr "引數"
+
+#: admin/includes/cron-event-list-table.php:146
+msgid "Actions"
+msgstr "執行動作"
+
+#. translators: %s: UTC offset
+#: admin/includes/cron-event-list-table.php:149
+msgid "Next execution (%s)"
+msgstr "下次執行時間 ( %s )"
+
+#: admin/includes/cron-event-list-table.php:152
+msgid "Recurrence"
+msgstr "執行週期"
+
+#. translators: %s: interval text
+#: admin/includes/cron-event-list-table.php:200
+msgid " (after %s)"
+msgstr " ( %s後 )"
+
+#. translators: %s: interval text
+#: admin/includes/cron-event-list-table.php:218
+msgid " (%s)"
+msgstr " ( %s )"
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:291
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] "%d 年"
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:296
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] "%d 月"
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:301
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] "%d 天"
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:306
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d 小時"
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:311
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d 分鐘"
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:316
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d 秒"
+
 #: admin/options.php:131
 msgid "Thumbnail"
 msgstr "縮圖尺寸"
@@ -84,6 +163,10 @@ msgstr "大型尺寸"
 #: admin/options.php:134
 msgid "Full Size"
 msgstr "完整尺寸"
+
+#: admin/page/cron.php:15 admin/page/cron.php:34
+msgid "Cron"
+msgstr "排程"
 
 #: admin/page/html/opcache.php:1
 msgid "OPcache status"
@@ -514,3 +597,19 @@ msgstr "WooCommerce 圖片尺寸"
 #: includes/image.php:31
 msgid "WooCommerce gallery thumbnail"
 msgstr "WooCommerce 圖庫縮圖尺寸"
+
+#, php-format
+#~ msgid " ( %s )"
+#~ msgstr " ( %s )"
+
+#, php-format
+#~ msgid "every %s"
+#~ msgstr "每 %s"
+
+#, php-format
+#~ msgid "%d week"
+#~ msgid_plural "%d weeks"
+#~ msgstr[0] "%d "
+
+#~ msgid "Next execution"
+#~ msgstr "下次執行時間"

@@ -1,15 +1,15 @@
 # Copyright (C) 2023 Richer Yang
-# This file is distributed under the GPLv3 or later.
+# This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.1.0\n"
+"Project-Id-Version: RY Toolkit 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-25T10:59:25+08:00\n"
+"POT-Creation-Date: 2023-05-28T11:18:22+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: ry-toolkit\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "https://richer.tw/"
 msgstr ""
 
-#: admin/admin.php:92
+#: admin/admin.php:93
 msgid "RY Tool"
 msgstr ""
 
@@ -65,6 +65,93 @@ msgstr ""
 msgid "Max Height"
 msgstr ""
 
+#. translators: %s: Number of events.
+#: admin/includes/cron-event-list-table.php:102
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: Number of events.
+#: admin/includes/cron-event-list-table.php:116
+msgid "NO action <span class=\"count\">(%s)</span>"
+msgid_plural "NO action <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/includes/cron-event-list-table.php:144
+msgid "Hook"
+msgstr ""
+
+#: admin/includes/cron-event-list-table.php:145
+msgid "Arguments"
+msgstr ""
+
+#: admin/includes/cron-event-list-table.php:146
+msgid "Actions"
+msgstr ""
+
+#. translators: %s: UTC offset
+#: admin/includes/cron-event-list-table.php:149
+msgid "Next execution (%s)"
+msgstr ""
+
+#: admin/includes/cron-event-list-table.php:152
+msgid "Recurrence"
+msgstr ""
+
+#. translators: %s: interval text
+#: admin/includes/cron-event-list-table.php:200
+msgid " (after %s)"
+msgstr ""
+
+#. translators: %s: interval text
+#: admin/includes/cron-event-list-table.php:218
+msgid " (%s)"
+msgstr ""
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:291
+msgid "%d year"
+msgid_plural "%d years"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:296
+msgid "%d month"
+msgid_plural "%d months"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:301
+msgid "%d day"
+msgid_plural "%d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:306
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:311
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %d: amount of time
+#: admin/includes/cron-event-list-table.php:316
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] ""
+msgstr[1] ""
+
 #: admin/options.php:131
 msgid "Thumbnail"
 msgstr ""
@@ -79,6 +166,11 @@ msgstr ""
 
 #: admin/options.php:134
 msgid "Full Size"
+msgstr ""
+
+#: admin/page/cron.php:15
+#: admin/page/cron.php:34
+msgid "Cron"
 msgstr ""
 
 #: admin/page/html/opcache.php:1

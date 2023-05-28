@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -49,10 +49,15 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 1. Website frontend settings page.
 2. WordPress core function settings page.
-3. Tools page.
-4. OPcache info page.
+3. WordPress core sitemap settings page.
+4. WordPrees core cron job info list.
+5. Tools page.
+6. OPcache info page.
 
 == Changelog ==
+
+= 1.2.0 - 2023/05/28 =
+* Add WordPress core cron job info list.
 
 = 1.1.1 - 2023/04/30 =
 * Nice change options for sitemap.
