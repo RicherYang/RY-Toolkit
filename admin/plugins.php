@@ -92,9 +92,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
     protected function check_user_can()
     {
         if (is_multisite()) {
-            if (!is_super_admin()) {
-                return false;
-            }
+            return is_super_admin();
         }
 
         return current_user_can('activate_plugins') && current_user_can('install_plugins') && current_user_can('delete_plugins');

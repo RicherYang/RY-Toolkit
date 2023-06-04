@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RY Toolkit\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
-"POT-Creation-Date: 2023-05-28T11:18:22+08:00\n"
-"PO-Revision-Date: 2023-05-28 11:19+0800\n"
+"POT-Creation-Date: 2023-06-04T18:03:17+08:00\n"
+"PO-Revision-Date: 2023-06-04 18:03+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -12,8 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
-"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
-"_nc:4c,1,2\n"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 3.0\n"
@@ -41,7 +40,7 @@ msgstr "Richer Yang"
 msgid "https://richer.tw/"
 msgstr "https://richer.tw/"
 
-#: admin/admin.php:93
+#: admin/admin.php:107
 msgid "RY Tool"
 msgstr "RY 工具箱"
 
@@ -70,80 +69,102 @@ msgid "Max Height"
 msgstr "最大高度"
 
 #. translators: %s: Number of events.
-#: admin/includes/cron-event-list-table.php:102
+#: admin/includes/cron-event-list-table.php:122
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] "全部 <span class=\"count\">(%s)</span>"
 
 #. translators: %s: Number of events.
-#: admin/includes/cron-event-list-table.php:116
+#: admin/includes/cron-event-list-table.php:136
 msgid "NO action <span class=\"count\">(%s)</span>"
 msgid_plural "NO action <span class=\"count\">(%s)</span>"
 msgstr[0] "沒有執行動作 <span class=\"count\">(%s)</span>"
 
-#: admin/includes/cron-event-list-table.php:144
+#: admin/includes/cron-event-list-table.php:164
 msgid "Hook"
 msgstr "勾點"
 
-#: admin/includes/cron-event-list-table.php:145
+#: admin/includes/cron-event-list-table.php:165
 msgid "Arguments"
 msgstr "引數"
 
-#: admin/includes/cron-event-list-table.php:146
+#: admin/includes/cron-event-list-table.php:166
 msgid "Actions"
 msgstr "執行動作"
 
 #. translators: %s: UTC offset
-#: admin/includes/cron-event-list-table.php:149
+#: admin/includes/cron-event-list-table.php:169
 msgid "Next execution (%s)"
 msgstr "下次執行時間 ( %s )"
 
-#: admin/includes/cron-event-list-table.php:152
+#: admin/includes/cron-event-list-table.php:172
 msgid "Recurrence"
 msgstr "執行週期"
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:200
-msgid " (after %s)"
-msgstr " ( %s後 )"
+#: admin/includes/cron-event-list-table.php:226
+msgid "after %s"
+msgstr "%s後"
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:218
-msgid " (%s)"
-msgstr " ( %s )"
+#: admin/includes/cron-event-list-table.php:244
+msgid "every %s"
+msgstr "每 %s"
+
+#. translators: %s: Event hook name.
+#: admin/includes/cron-event-list-table.php:266
+msgid "Execute %s"
+msgstr "執行 %s"
+
+#: admin/includes/cron-event-list-table.php:267
+msgid "Execute now"
+msgstr "立刻執行"
+
+#. translators: %s: Event hook name.
+#: admin/includes/cron-event-list-table.php:274
+msgid "Delete %s"
+msgstr "刪除 %s"
+
+#: admin/includes/cron-event-list-table.php:275
+msgid "Delete"
+msgstr "刪除"
+
+#: admin/includes/cron-event-list-table.php:328
+msgid "Anonymous function"
+msgstr "匿名函式"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:291
+#: admin/includes/cron-event-list-table.php:350
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] "%d 年"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:296
+#: admin/includes/cron-event-list-table.php:355
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] "%d 月"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:301
+#: admin/includes/cron-event-list-table.php:360
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d 天"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:306
+#: admin/includes/cron-event-list-table.php:365
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d 小時"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:311
+#: admin/includes/cron-event-list-table.php:370
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分鐘"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:316
+#: admin/includes/cron-event-list-table.php:375
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 秒"
@@ -164,9 +185,73 @@ msgstr "大型尺寸"
 msgid "Full Size"
 msgstr "完整尺寸"
 
-#: admin/page/cron.php:15 admin/page/cron.php:34
+#: admin/page/cron.php:19 admin/page/cron.php:79
 msgid "Cron"
 msgstr "排程"
+
+#: admin/page/cron.php:54
+msgid "Screen Content"
+msgstr "顯示項目內容"
+
+#: admin/page/cron.php:56
+msgid ""
+"You can customize the display of this screen&#8217;s contents in a number of "
+"ways:"
+msgstr "使用者可以使用下列方式自訂這個畫面的顯示項目:"
+
+#: admin/page/cron.php:58
+msgid ""
+"You can decide how many events to list per screen using the Screen Options "
+"tab."
+msgstr ""
+"使用者可以依據個人需求在 [顯示項目設定] 分頁中設定每頁顯示的排程事件數量。"
+
+#: admin/page/cron.php:63
+msgid "Available Actions"
+msgstr "可進行的操作"
+
+#: admin/page/cron.php:65
+msgid ""
+"Hovering over a row in the events list will display action links that allow "
+"you to manage event. You can perform the following actions:"
+msgstr ""
+"將游標暫留於排程事件清單的資料列上，便會出現操作連結讓使用者管理排程事件。使"
+"用者可進行的操作如下:"
+
+#: admin/page/cron.php:67
+msgid ""
+"<strong>Execute now</strong> execute event, the next execution time of "
+"schedule event will be calculated based on the current time."
+msgstr ""
+"<strong>立刻執行</strong> &mdash; 點擊 [立刻執行] 執行排程事件，週期性事件的"
+"下次執行時間將以目前時間為基準計算。"
+
+#: admin/page/cron.php:68
+msgid ""
+"<strong>Delete</strong> unschedule event, some event will be automatically "
+"create after you unscheduled."
+msgstr ""
+"<strong>刪除</strong> &mdash; 點擊 [刪除] 取消排程事件，部分的排程事件於取消"
+"後將自動建立相同的排程事件。"
+
+#: admin/page/cron.php:94 admin/page/cron.php:144
+msgid "You are not allowed to do that."
+msgstr "目前的登入身分沒有進行這項操作的權限。"
+
+#. translators: Event hook name.
+#: admin/page/cron.php:132 admin/page/cron.php:170
+msgid "Cron event \"%s\" not found."
+msgstr "找不到排程事件 [%s]。"
+
+#. translators: Event hook name.
+#: admin/page/cron.php:157
+msgid "Cron event \"%s\" has been deleted."
+msgstr "排程事件 \"%s\" 已經刪除。"
+
+#. translators: Event hook name.
+#: admin/page/cron.php:163
+msgid "Failed to the delete the cron event \"%s\"."
+msgstr "無法刪除排程事件 [%s]。"
 
 #: admin/page/html/opcache.php:1
 msgid "OPcache status"
@@ -346,40 +431,40 @@ msgid "Feed"
 msgstr "資訊提供"
 
 #: admin/page/html/options-frontend.php:57
-msgid "Disable show ALL feed link"
-msgstr "停止顯示 全部 資訊提供連結"
+msgid "Disable show \"ALL\" feed link"
+msgstr "停止顯示 [全部] 資訊提供連結"
 
 #: admin/page/html/options-frontend.php:61
-msgid "Disable show posts feed link"
-msgstr "停止顯示 文章 資訊提供連結"
+msgid "Disable show \"posts\" feed link"
+msgstr "停止顯示 [文章] 資訊提供連結"
 
 #: admin/page/html/options-frontend.php:65
-msgid "Disable show comments feed link"
-msgstr "停止顯示 留言 資訊提供連結"
+msgid "Disable show \"comments\" feed link"
+msgstr "停止顯示 [留言] 資訊提供連結"
 
 #: admin/page/html/options-frontend.php:69
-msgid "Disable show post comments feed link"
-msgstr "停止顯示 單篇內容留言 資訊提供連結"
+msgid "Disable show \"post comments\" feed link"
+msgstr "停止顯示 [單篇內容留言] 資訊提供連結"
 
 #: admin/page/html/options-frontend.php:74
-msgid "Disable show post type archive feed link"
-msgstr "停止顯示 內容類型彙整 資訊提供連結"
+msgid "Disable show \"post type archive\" feed link"
+msgstr "停止顯示 [內容類型彙整] 資訊提供連結"
 
 #: admin/page/html/options-frontend.php:78
-msgid "Disable show category feed link"
-msgstr "停止顯示 分類 資訊提供連結"
+msgid "Disable show \"category\" feed link"
+msgstr "停止顯示 [分類] 資訊提供連結"
 
 #: admin/page/html/options-frontend.php:82
-msgid "Disable show tag feed link"
-msgstr "停止顯示 標籤 資訊提供連結"
+msgid "Disable show \"tag\" feed link"
+msgstr "停止顯示 [標籤] 資訊提供連結"
 
 #: admin/page/html/options-frontend.php:86
-msgid "Disable show taxonomy feed link"
-msgstr "停止顯示 分類法 資訊提供連結"
+msgid "Disable show \"taxonomy\" feed link"
+msgstr "停止顯示 [分類法] 資訊提供連結"
 
 #: admin/page/html/options-frontend.php:90
-msgid "Disable show author feed link"
-msgstr "停止顯示 作者 資訊提供連結"
+msgid "Disable show \"author\" feed link"
+msgstr "停止顯示 [作者] 資訊提供連結"
 
 #: admin/page/html/options-frontend.php:96
 #: admin/page/html/options-frontend.php:99
@@ -598,13 +683,84 @@ msgstr "WooCommerce 圖片尺寸"
 msgid "WooCommerce gallery thumbnail"
 msgstr "WooCommerce 圖庫縮圖尺寸"
 
+#~ msgid ""
+#~ "<strong>Execute now</strong> execute event, it will set the schedule "
+#~ "event next execution time based on current time."
+#~ msgstr ""
+#~ "<strong>立刻執行</strong> &mdash; 點擊 [立刻執行] 執行排程事件，週期性事件"
+#~ "的下次執行時間將以目前時間為基準計算。"
+
+#~ msgid ""
+#~ "<strong>Quick Edit</strong> provides inline access to the metadata of "
+#~ "your post, allowing you to update post details without leaving this "
+#~ "screen."
+#~ msgstr ""
+#~ "<strong>快速編輯</strong> &mdash; 點擊 [快速編輯] 連結便能進入文章的中繼資"
+#~ "料編輯區段，讓使用者無須離開這個畫面就能更新文章的詳細資料。"
+
+#~ msgid ""
+#~ "<strong>DELETE</strong> unschedule event, some event will be "
+#~ "automatically create after you unscheduled."
+#~ msgstr ""
+#~ "<strong>刪除</strong> &mdash; 點擊 [刪除] 取消排程事件，部分的排程事件於取"
+#~ "消後將自動建立相同的排程事件。"
+
+#~ msgid ""
+#~ "Hovering over a row in the events list will display action links that "
+#~ "allow you to manage your event. You can perform the following actions:"
+#~ msgstr ""
+#~ "將游標暫留於排程事件清單的資料列上，便會出現操作連結讓使用者管理排程事件。"
+#~ "使用者可進行的操作如下:"
+
 #, php-format
-#~ msgid " ( %s )"
+#~ msgid ""
+#~ "Cron event \"%s\" has been deleted. Event maybe automatically recreated."
+#~ msgstr "排程事件 [%s] 成功刪除。 系統可能自動生成相同設定的排程事件。"
+
+#, php-format
+#~ msgid " (after %s)"
+#~ msgstr " ( %s後 )"
+
+#~ msgid "Disable show \"tag feed\" link"
+#~ msgstr "停止顯示 [標籤] 資訊提供連結"
+
+#~ msgid "Disable show ALL feed link"
+#~ msgstr "停止顯示 全部 資訊提供連結"
+
+#~ msgid "Disable show posts feed link"
+#~ msgstr "停止顯示 文章 資訊提供連結"
+
+#~ msgid "Disable show comments feed link"
+#~ msgstr "停止顯示 留言 資訊提供連結"
+
+#~ msgid "Disable show post comments feed link"
+#~ msgstr "停止顯示 單篇內容留言 資訊提供連結"
+
+#~ msgid "Disable show post type archive feed link"
+#~ msgstr "停止顯示 內容類型彙整 資訊提供連結"
+
+#~ msgid "Disable show category feed link"
+#~ msgstr "停止顯示 分類 資訊提供連結"
+
+#~ msgid "Disable show tag feed link"
+#~ msgstr "停止顯示 標籤 資訊提供連結"
+
+#~ msgid "Disable show taxonomy feed link"
+#~ msgstr "停止顯示 分類法 資訊提供連結"
+
+#~ msgid "Disable show author feed link"
+#~ msgstr "停止顯示 作者 資訊提供連結"
+
+#, php-format
+#~ msgid "Cron event \"%s\" has been deleted"
+#~ msgstr "排程事件 \"%s\" 已經刪除"
+
+#~ msgid " (%s)"
 #~ msgstr " ( %s )"
 
 #, php-format
-#~ msgid "every %s"
-#~ msgstr "每 %s"
+#~ msgid " ( %s )"
+#~ msgstr " ( %s )"
 
 #, php-format
 #~ msgid "%d week"

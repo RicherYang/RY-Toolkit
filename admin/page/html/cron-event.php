@@ -1,4 +1,4 @@
 <?php
 
-$table->views();
-$table->display();
+$list_table->views();
+$list_table->display();

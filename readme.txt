@@ -5,15 +5,15 @@ Tags: tool
 Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
-Useful tools for more control over you website. Include media, sitemap, OPcache.
+Useful tools for more control over you website. Include cron, media, sitemap, OPcache.
 
 == Description ==
 
-= media options =
+= Media options =
 
 * Set medium_large image size
 * Set big image suze
@@ -25,12 +25,18 @@ Useful tools for more control over you website. Include media, sitemap, OPcache.
 * Disable post type sitemap
 * Disable taxonomy sitemap
 
-= tool =
+= Tool =
 
 * PHP OPcache flush or restart
 * Clear, optimize database
 * Disable XML-RPC
 * Disable convert emoji to image
+
+= Cron event =
+
+* Show the cron events.
+* Execute the cron event right now.
+* Delete the cron event.
 
 == Installation ==
 
@@ -55,6 +61,9 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.2.1 - 2023/06/04 =
+* Add WordPress cron job action ( execute now / delete ).
 
 = 1.2.0 - 2023/05/28 =
 * Add WordPress core cron job info list.

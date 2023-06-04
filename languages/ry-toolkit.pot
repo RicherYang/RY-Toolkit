@@ -2,16 +2,16 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.2.0\n"
+"Project-Id-Version: RY Toolkit 1.2.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-05-28T11:18:22+08:00\n"
+"POT-Creation-Date: 2023-06-04T18:03:17+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.8.0\n"
 "X-Domain: ry-toolkit\n"
 
 #. Plugin Name of the plugin
@@ -34,7 +34,7 @@ msgstr ""
 msgid "https://richer.tw/"
 msgstr ""
 
-#: admin/admin.php:93
+#: admin/admin.php:107
 msgid "RY Tool"
 msgstr ""
 
@@ -66,87 +66,109 @@ msgid "Max Height"
 msgstr ""
 
 #. translators: %s: Number of events.
-#: admin/includes/cron-event-list-table.php:102
+#: admin/includes/cron-event-list-table.php:122
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: Number of events.
-#: admin/includes/cron-event-list-table.php:116
+#: admin/includes/cron-event-list-table.php:136
 msgid "NO action <span class=\"count\">(%s)</span>"
 msgid_plural "NO action <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/includes/cron-event-list-table.php:144
+#: admin/includes/cron-event-list-table.php:164
 msgid "Hook"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:145
+#: admin/includes/cron-event-list-table.php:165
 msgid "Arguments"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:146
+#: admin/includes/cron-event-list-table.php:166
 msgid "Actions"
 msgstr ""
 
 #. translators: %s: UTC offset
-#: admin/includes/cron-event-list-table.php:149
+#: admin/includes/cron-event-list-table.php:169
 msgid "Next execution (%s)"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:152
+#: admin/includes/cron-event-list-table.php:172
 msgid "Recurrence"
 msgstr ""
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:200
-msgid " (after %s)"
+#: admin/includes/cron-event-list-table.php:226
+msgid "after %s"
 msgstr ""
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:218
-msgid " (%s)"
+#: admin/includes/cron-event-list-table.php:244
+msgid "every %s"
+msgstr ""
+
+#. translators: %s: Event hook name.
+#: admin/includes/cron-event-list-table.php:266
+msgid "Execute %s"
+msgstr ""
+
+#: admin/includes/cron-event-list-table.php:267
+msgid "Execute now"
+msgstr ""
+
+#. translators: %s: Event hook name.
+#: admin/includes/cron-event-list-table.php:274
+msgid "Delete %s"
+msgstr ""
+
+#: admin/includes/cron-event-list-table.php:275
+msgid "Delete"
+msgstr ""
+
+#: admin/includes/cron-event-list-table.php:328
+msgid "Anonymous function"
 msgstr ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:291
+#: admin/includes/cron-event-list-table.php:350
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:296
+#: admin/includes/cron-event-list-table.php:355
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:301
+#: admin/includes/cron-event-list-table.php:360
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:306
+#: admin/includes/cron-event-list-table.php:365
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:311
+#: admin/includes/cron-event-list-table.php:370
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:316
+#: admin/includes/cron-event-list-table.php:375
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] ""
@@ -168,9 +190,58 @@ msgstr ""
 msgid "Full Size"
 msgstr ""
 
-#: admin/page/cron.php:15
-#: admin/page/cron.php:34
+#: admin/page/cron.php:19
+#: admin/page/cron.php:79
 msgid "Cron"
+msgstr ""
+
+#: admin/page/cron.php:54
+msgid "Screen Content"
+msgstr ""
+
+#: admin/page/cron.php:56
+msgid "You can customize the display of this screen&#8217;s contents in a number of ways:"
+msgstr ""
+
+#: admin/page/cron.php:58
+msgid "You can decide how many events to list per screen using the Screen Options tab."
+msgstr ""
+
+#: admin/page/cron.php:63
+msgid "Available Actions"
+msgstr ""
+
+#: admin/page/cron.php:65
+msgid "Hovering over a row in the events list will display action links that allow you to manage event. You can perform the following actions:"
+msgstr ""
+
+#: admin/page/cron.php:67
+msgid "<strong>Execute now</strong> execute event, the next execution time of schedule event will be calculated based on the current time."
+msgstr ""
+
+#: admin/page/cron.php:68
+msgid "<strong>Delete</strong> unschedule event, some event will be automatically create after you unscheduled."
+msgstr ""
+
+#: admin/page/cron.php:94
+#: admin/page/cron.php:144
+msgid "You are not allowed to do that."
+msgstr ""
+
+#. translators: Event hook name.
+#: admin/page/cron.php:132
+#: admin/page/cron.php:170
+msgid "Cron event \"%s\" not found."
+msgstr ""
+
+#. translators: Event hook name.
+#: admin/page/cron.php:157
+msgid "Cron event \"%s\" has been deleted."
+msgstr ""
+
+#. translators: Event hook name.
+#: admin/page/cron.php:163
+msgid "Failed to the delete the cron event \"%s\"."
 msgstr ""
 
 #: admin/page/html/opcache.php:1
@@ -359,39 +430,39 @@ msgid "Feed"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:57
-msgid "Disable show ALL feed link"
+msgid "Disable show \"ALL\" feed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:61
-msgid "Disable show posts feed link"
+msgid "Disable show \"posts\" feed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:65
-msgid "Disable show comments feed link"
+msgid "Disable show \"comments\" feed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:69
-msgid "Disable show post comments feed link"
+msgid "Disable show \"post comments\" feed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:74
-msgid "Disable show post type archive feed link"
+msgid "Disable show \"post type archive\" feed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:78
-msgid "Disable show category feed link"
+msgid "Disable show \"category\" feed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:82
-msgid "Disable show tag feed link"
+msgid "Disable show \"tag\" feed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:86
-msgid "Disable show taxonomy feed link"
+msgid "Disable show \"taxonomy\" feed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:90
-msgid "Disable show author feed link"
+msgid "Disable show \"author\" feed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:96

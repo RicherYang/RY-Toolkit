@@ -9,13 +9,35 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
     protected $schedules;
 
+    private $wp_core_hook = [
+        'delete_expired_transients',
+        'do_pings',
+        'importer_scheduled_cleanup',
+        'publish_future_post',
+        'recovery_mode_clean_expired_keys',
+        'update_network_counts',
+        'upgrader_scheduled_cleanup',
+
+        'wp_https_detection',
+        'wp_maybe_auto_update',
+        'wp_privacy_delete_old_export_files',
+        'wp_scheduled_auto_draft_delete',
+        'wp_scheduled_delete',
+        'wp_site_health_scheduled_check',
+        'wp_split_shared_term_batch',
+        'wp_update_comment_type_batch',
+        'wp_update_plugins',
+        'wp_update_themes',
+        'wp_update_user_counts',
+        'wp_version_check',
+    ];
+
     public function __construct()
     {
         parent::__construct([
-            'plural' => 'ry_toolkit_cron_event',
-            'singular' => 'ry_toolkit_cron_events',
-            'ajax' => false,
-            'screen' => 'ry_toolkit_cron_events'
+            'singular' => 'ry_toolkit_cron_event',
+            'plural' => 'ry_toolkit_cron_events',
+            'ajax' => false
         ]);
 
         $this->orderby = $_GET['orderby'] ?? '';
@@ -29,10 +51,6 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         global $wp_filter;
 
         $wp_events = _get_cron_array();
-
-        if (!is_array($wp_events)) {
-            $wp_events = [];
-        }
 
         $this->all_events = [];
         foreach ($wp_events as $time => $cron) {
@@ -70,6 +88,8 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
         $offset = ($this->get_pagenum() - 1) * $per_page;
         $this->items = array_slice($this->all_events, $offset, $per_page);
+
+        $this->_column_headers = [$this->get_columns(), [], $this->get_sortable_columns()];
 
         $this->set_pagination_args([
             'total_items' => count($this->all_events),
@@ -164,25 +184,31 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
     protected function column_hook($event)
     {
         echo esc_html($event->hook);
+
+        if(in_array($event->hook, $this->wp_core_hook)) {
+            echo '<span class="dashicons dashicons-wordpress" aria-hidden="true" style="font-size:.95rem;padding:5px"></span>';
+        }
     }
 
     protected function column_args($event)
     {
         if (!empty($event->args)) {
-            echo '<code>';
-            foreach($event->args as $idx => $arg) {
-                printf('%s => %s', $idx, esc_html($arg));
+            $html = [];
+            foreach ($event->args as $key => $value) {
+                $html[] .= sprintf('<code>%s => %s</code>', esc_html(var_export($key, true)), esc_html(var_export($value, true)));
             }
-            echo '</code>';
+            echo implode('<br>', $html);
         }
     }
 
     protected function column_actions($event)
     {
         if (!empty($event->actions)) {
+            $html = [];
             foreach($event->actions as $action) {
-                printf('<code>%s => %s</code>', esc_html($action->priority), esc_html($this->get_callback_name($action->callback)));
+                $html[] = sprintf('<code>%s => %s</code>', esc_html($action->priority), esc_html($this->get_callback_name($action->callback)));
             }
+            echo implode('<br>', $html);
         }
     }
 
@@ -197,7 +223,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $diff = $event->time - time();
         if(0 < $diff) {
             /* translators: %s: interval text  */
-            echo esc_html(sprintf(__(' (after %s)', 'ry-toolkit'), $this->get_second_text($diff, 2)));
+            echo '<br>' . esc_html(sprintf(__('after %s', 'ry-toolkit'), $this->get_second_text($diff, 2)));
         }
     }
 
@@ -215,8 +241,41 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
         if(0 < $event->interval) {
             /* translators: %s: interval text  */
-            echo esc_html(sprintf(__(' (%s)', 'ry-toolkit'), $this->get_second_text($event->interval)));
+            echo '<br>' . esc_html(sprintf(__('every %s', 'ry-toolkit'), $this->get_second_text($event->interval)));
         }
+    }
+
+    protected function handle_row_actions($event, $column_name, $primary)
+    {
+        if ($primary !== $column_name) {
+            return '';
+        }
+
+        $actions = [];
+
+        $url_args = [
+            'time' => urlencode($event->time),
+            'hook' => urlencode($event->hook),
+            'sig' => urlencode($event->sig)
+        ];
+
+        $actions['execute'] = sprintf(
+            '<a href="%s" aria-label="%s">%s</a>',
+            RY_Toolkit()->admin->the_action_link('cron', 'execute-cron', $url_args),
+            /* translators: %s: Event hook name. */
+            esc_attr(sprintf(__('Execute %s', 'ry-toolkit'), $event->hook)),
+            __('Execute now', 'ry-toolkit')
+        );
+
+        $actions['delete'] = sprintf(
+            '<a href="%s" class="delete" aria-label="%s">%s</a>',
+            RY_Toolkit()->admin->the_action_link('cron', 'delete-cron', $url_args),
+            /* translators: %s: Event hook name. */
+            esc_attr(sprintf(__('Delete %s', 'ry-toolkit'), $event->hook)),
+            __('Delete', 'ry-toolkit')
+        );
+
+        return $this->row_actions($actions) . parent::handle_row_actions($event, $column_name, $primary);
     }
 
     protected function sort_action($a, $b): int
@@ -266,7 +325,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
         if (is_object($callback['function'])) {
             if (is_a($callback['function'], 'Closure')) {
-                return 'Closure';
+                return __('Anonymous function', 'ry-toolkit');
             }
 
             $class = get_class($callback['function']);

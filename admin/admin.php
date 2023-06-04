@@ -4,6 +4,8 @@ class RY_Toolkit_Admin
 {
     protected static $_instance = null;
 
+    private $instance = [];
+
     public static function instance()
     {
         if (null === self::$_instance) {
@@ -12,6 +14,13 @@ class RY_Toolkit_Admin
         }
 
         return self::$_instance;
+    }
+
+    public function __get(string $name)
+    {
+        if (isset($this->instance[$name])) {
+            return $this->instance[$name];
+        }
     }
 
     protected function do_init(): void
@@ -23,7 +32,10 @@ class RY_Toolkit_Admin
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/tools.php';
 
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/plugins.php';
-        RY_Toolkit_Admin_Plugins::instance();
+        $this->instance['plugins'] = RY_Toolkit_Admin_Plugins::instance();
+
+        add_action('load-options.php', [$this, 'add_options']);
+        add_action('load-options-media.php', [$this, 'add_options']);
 
         add_action('admin_post_ry-toolkit-action', [$this, 'do_action']);
         add_action('all_admin_notices', [$this, 'show_notices']);
@@ -33,9 +45,12 @@ class RY_Toolkit_Admin
         add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
 
         add_action('admin_menu', [$this, 'admin_menu']);
+    }
 
-        add_action('load-options.php', [$this, 'add_options']);
-        add_action('load-options-media.php', [$this, 'add_options']);
+    public function add_options(): void
+    {
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/options.php';
+        $this->instance['options'] = RY_Toolkit_Admin_Options::instance();
     }
 
     public function do_action(): void
@@ -89,18 +104,12 @@ class RY_Toolkit_Admin
         $menu_list = apply_filters('ry-toolkit/menu_list', []);
 
         if (count($menu_list)) {
-            $main_slug = $menu_list[0]['slug'];
-            add_menu_page(__('RY Tool', 'ry-toolkit'), __('RY Tool', 'ry-toolkit'), 'manage_options', $main_slug, false, 'dashicons-admin-tools');
+            add_menu_page(__('RY Tool', 'ry-toolkit'), __('RY Tool', 'ry-toolkit'), 'manage_options', $menu_list[0]['slug'], '', 'dashicons-admin-tools');
             foreach ($menu_list as $menu_item) {
-                add_submenu_page($main_slug, $menu_item['name'], $menu_item['name'], 'manage_options', $menu_item['slug'], $menu_item['function'], $menu_item['position'] ?? null);
+                $hook_suffix = add_submenu_page($menu_list[0]['slug'], $menu_item['name'], $menu_item['name'], 'manage_options', $menu_item['slug'], $menu_item['function'], $menu_item['position'] ?? null);
+                do_action('ry-toolkit/add_page-' . $menu_item['slug'], $hook_suffix);
             }
         }
-    }
-
-    public function add_options(): void
-    {
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/options.php';
-        RY_Toolkit_Admin_Options::instance();
     }
 
     public function add_notice(string $status, string $message): void

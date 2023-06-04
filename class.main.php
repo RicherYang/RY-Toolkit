@@ -39,6 +39,11 @@ class RY_Toolkit
             include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/admin.php';
             $this->instance['admin'] = RY_Toolkit_Admin::instance();
         }
+
+        if(wp_doing_cron()) {
+            include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/cron.php';
+            $this->instance['cron'] = RY_Toolkit_Cron::instance();
+        }
     }
 
     public function ry_sitemaps_init()
