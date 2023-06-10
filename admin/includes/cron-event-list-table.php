@@ -6,6 +6,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
     protected $orderby;
     protected $order;
+    protected $view_type;
 
     protected $schedules;
 
@@ -40,8 +41,9 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             'ajax' => false
         ]);
 
-        $this->orderby = $_GET['orderby'] ?? '';
-        $this->order = 'desc' === strtolower($_GET['order'] ?? '') ? 'desc' : 'desc';
+        $this->orderby = strtolower($_GET['orderby'] ?? '');
+        $this->order = ('desc' === strtolower($_GET['order'] ?? '')) ? 'desc' : 'asc';
+        $this->view_type = strtolower($_GET['viewtype'] ?? 'all');
 
         $this->schedules = wp_get_schedules();
     }
@@ -82,17 +84,18 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                 }
             }
         }
-        usort($this->all_events, [$this, 'sort_event']);
+        $all_items = array_filter($this->all_events, [$this, 'filter_view_type']);
+        usort($all_items, [$this, 'sort_event']);
 
         $per_page = $this->get_items_per_page('ry_toolkit_cron_event_per_page');
 
         $offset = ($this->get_pagenum() - 1) * $per_page;
-        $this->items = array_slice($this->all_events, $offset, $per_page);
+        $this->items = array_slice($all_items, $offset, $per_page);
 
         $this->_column_headers = [$this->get_columns(), [], $this->get_sortable_columns()];
 
         $this->set_pagination_args([
-            'total_items' => count($this->all_events),
+            'total_items' => count($all_items),
             'per_page' => $per_page,
         ]);
     }
@@ -108,7 +111,6 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
     public function get_views()
     {
         $links = [];
-        $view_type = strtolower($_GET['viewtype'] ?? 'all');
         $basic_url = admin_url('admin.php');
         $url_args = [
             'page' => 'ry-toolkit-cron'
@@ -122,7 +124,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                 _n('All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'ry-toolkit'),
                 number_format_i18n($count)
             ),
-            'current' => 'all' === $view_type,
+            'current' => 'all' === $this->view_type,
         );
 
         $url_args['viewtype'] = 'noaction';
@@ -136,7 +138,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                 _n('NO action <span class="count">(%s)</span>', 'NO action <span class="count">(%s)</span>', $count, 'ry-toolkit'),
                 number_format_i18n($count)
             ),
-            'current' => 'noaction' === $view_type,
+            'current' => 'noaction' === $this->view_type,
         );
 
         return $this->get_views_links($links);
@@ -186,7 +188,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         echo esc_html($event->hook);
 
         if(in_array($event->hook, $this->wp_core_hook)) {
-            echo '<span class="dashicons dashicons-wordpress" aria-hidden="true" style="font-size:.95rem;padding:5px"></span>';
+            echo '<span class="dashicons dashicons-wordpress" aria-hidden="true" style="font-size:.95rem;padding:5px;height:10px"></span>';
         }
     }
 
@@ -278,12 +280,25 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         return $this->row_actions($actions) . parent::handle_row_actions($event, $column_name, $primary);
     }
 
-    protected function sort_action($a, $b): int
+    private function filter_view_type($event)
+    {
+        switch ($this->view_type) {
+            case 'noaction':
+                $keep = empty($event->actions);
+                break;
+            default:
+                $keep = true;
+                break;
+        }
+        return $keep;
+    }
+
+    private function sort_action($a, $b): int
     {
         return $a->priority <=> $b->priority;
     }
 
-    protected function sort_event($a, $b): int
+    private function sort_event($a, $b): int
     {
         switch ($this->orderby) {
             case 'hook':
