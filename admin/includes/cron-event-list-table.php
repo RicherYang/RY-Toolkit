@@ -46,6 +46,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $this->view_type = strtolower($_GET['viewtype'] ?? 'all');
 
         $this->schedules = wp_get_schedules();
+        uasort($this->schedules, [$this, 'sort_schedule']);
     }
 
     public function prepare_items()
@@ -60,8 +61,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                 foreach ($dings as $sig => $data) {
                     $actions = [];
                     if (isset($wp_filter[$hook])) {
-                        $action = $wp_filter[$hook];
-                        foreach ($action as $priority => $callbacks) {
+                        foreach ($wp_filter[$hook] as $priority => $callbacks) {
                             foreach ($callbacks as $callback) {
                                 $actions[] = (object) [
                                     'priority' => $priority,
@@ -115,6 +115,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $url_args = [
             'page' => 'ry-toolkit-cron'
         ];
+        $current_view_type = $this->view_type;
 
         $count = count($this->all_events);
         $links['all'] = array(
@@ -124,22 +125,43 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                 _n('All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'ry-toolkit'),
                 number_format_i18n($count)
             ),
-            'current' => 'all' === $this->view_type,
+            'current' => 'all' === $current_view_type,
         );
 
-        $url_args['viewtype'] = 'noaction';
-        $count = count(array_filter($this->all_events, function ($event) {
-            return empty($event->actions);
-        }));
-        $links['noaction'] = array(
-            'url' => esc_url(add_query_arg($url_args, $basic_url)),
-            'label' => sprintf(
-                /* translators: %s: Number of events. */
-                _n('NO action <span class="count">(%s)</span>', 'NO action <span class="count">(%s)</span>', $count, 'ry-toolkit'),
-                number_format_i18n($count)
-            ),
-            'current' => 'noaction' === $this->view_type,
-        );
+        $this->view_type = 'noaction';
+        $count = count(array_filter($this->all_events, [$this, 'filter_view_type']));
+        if(0 < $count) {
+            $url_args['viewtype'] = $this->view_type;
+            $links[$this->view_type] = array(
+                'url' => esc_url(add_query_arg($url_args, $basic_url)),
+                'label' => sprintf(
+                    /* translators: %s: Number of events. */
+                    _n('NO action <span class="count">(%s)</span>', 'NO action <span class="count">(%s)</span>', $count, 'ry-toolkit'),
+                    number_format_i18n($count)
+                ),
+                'current' => $this->view_type === $current_view_type,
+            );
+        }
+
+        foreach($this->schedules as $schedule => $schedule_info) {
+            $this->view_type = 'schedule_' . $schedule;
+            $count = count(array_filter($this->all_events, [$this, 'filter_view_type']));
+            if(0 < $count) {
+                $url_args['viewtype'] = $this->view_type;
+                $links[$this->view_type] = array(
+                    'url' => esc_url(add_query_arg($url_args, $basic_url)),
+                    'label' => sprintf(
+                        /* translators: %s: Number of events. */
+                        _n('%s <span class="count">(%s)</span>', '%s <span class="count">(%s)</span>', $count, 'ry-toolkit'),
+                        $schedule_info['display'] ?? $schedule,
+                        number_format_i18n($count)
+                    ),
+                    'current' => $this->view_type === $current_view_type,
+                );
+            }
+        }
+
+        $this->view_type = $current_view_type;
 
         return $this->get_views_links($links);
     }
@@ -232,11 +254,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
     protected function column_recurrence($event)
     {
         if(isset($this->schedules[$event->schedule])) {
-            if(isset($this->schedules[$event->schedule]['display'])) {
-                echo esc_html($this->schedules[$event->schedule]['display']);
-            } else {
-                echo esc_html($event->schedule);
-            }
+            echo esc_html($this->schedules[$event->schedule]['display'] ?? $event->schedule);
         } else {
             echo esc_html($event->schedule);
         }
@@ -282,15 +300,19 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
     private function filter_view_type($event)
     {
-        switch ($this->view_type) {
-            case 'noaction':
-                $keep = empty($event->actions);
-                break;
-            default:
-                $keep = true;
-                break;
+        $keep = true;
+        if('noaction' == $this->view_type) {
+            $keep = empty($event->actions);
+        } elseif(0 === strpos($this->view_type, 'schedule_')) {
+            $keep = $event->schedule == substr($this->view_type, 9);
         }
+
         return $keep;
+    }
+
+    private function sort_schedule($a, $b): int
+    {
+        return $a['interval'] <=> $b['interval'];
     }
 
     private function sort_action($a, $b): int
