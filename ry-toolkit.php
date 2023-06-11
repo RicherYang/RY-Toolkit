@@ -3,7 +3,7 @@
  * Plugin Name: RY Toolkit
  * Plugin URI: https://ry-plugin.com/ry-toolkit
  * Description: Useful tools for more control over you website
- * Version: 1.2.1
+ * Version: 1.2.2
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: Richer Yang
@@ -13,7 +13,7 @@
 
 function_exists('plugin_dir_url') or exit('No direct script access allowed');
 
-define('RY_TOOLKIT_VERSION', '1.2.1');
+define('RY_TOOLKIT_VERSION', '1.2.2');
 define('RY_TOOLKIT_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('RY_TOOLKIT_PLUGIN_DIR', plugin_dir_path(__FILE__));
 

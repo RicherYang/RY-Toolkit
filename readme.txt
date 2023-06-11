@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -61,6 +61,10 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.2.2 - 2023/06/11 =
+* Fixed WordPress cron job list order issuu.
+* Add more view for WordPress cron job list.
 
 = 1.2.1 - 2023/06/04 =
 * Add WordPress cron job action ( execute now / delete ).
