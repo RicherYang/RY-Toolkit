@@ -4,6 +4,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 {
     protected $all_events;
 
+    protected $search;
     protected $orderby;
     protected $order;
     protected $view_type;
@@ -41,6 +42,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             'ajax' => false
         ]);
 
+        $this->search = $_GET['s'] ?? '';
         $this->orderby = strtolower($_GET['orderby'] ?? '');
         $this->order = ('desc' === strtolower($_GET['order'] ?? '')) ? 'desc' : 'asc';
         $this->view_type = strtolower($_GET['viewtype'] ?? 'all');
@@ -58,6 +60,11 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $this->all_events = [];
         foreach ($wp_events as $time => $cron) {
             foreach ($cron as $hook => $dings) {
+                if(!empty($this->search)) {
+                    if(false === strpos($hook, $this->search)) {
+                        continue;
+                    }
+                }
                 foreach ($dings as $sig => $data) {
                     $actions = [];
                     if (isset($wp_filter[$hook])) {
@@ -121,7 +128,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $links['all'] = array(
             'url' => esc_url(add_query_arg($url_args, $basic_url)),
             'label' => sprintf(
-                /* translators: %s: Number of events. */
+                /* translators: %s: number of events. */
                 _n('All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'ry-toolkit'),
                 number_format_i18n($count)
             ),
@@ -135,7 +142,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             $links[$this->view_type] = array(
                 'url' => esc_url(add_query_arg($url_args, $basic_url)),
                 'label' => sprintf(
-                    /* translators: %s: Number of events. */
+                    /* translators: %s: number of events. */
                     _n('NO action <span class="count">(%s)</span>', 'NO action <span class="count">(%s)</span>', $count, 'ry-toolkit'),
                     number_format_i18n($count)
                 ),
@@ -151,8 +158,8 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                 $links[$this->view_type] = array(
                     'url' => esc_url(add_query_arg($url_args, $basic_url)),
                     'label' => sprintf(
-                        /* translators: %s: Number of events. */
-                        _n('%s <span class="count">(%s)</span>', '%s <span class="count">(%s)</span>', $count, 'ry-toolkit'),
+                        /* translators: %1$s: schedule name %2$s: number of events. */
+                        _n('%1$s <span class="count">(%2$s)</span>', '%1$s <span class="count">(%2$s)</span>', $count, 'ry-toolkit'),
                         $schedule_info['display'] ?? $schedule,
                         number_format_i18n($count)
                     ),

@@ -19,6 +19,8 @@ class RY_Toolkit_Admin_Options
         add_filter('allowed_options', [$this, 'add_allowed_options']);
 
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('big_image_size'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_subsize'), [$this, 'return_array_nicestring']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('friendly_filename'), [$this, 'return_absint']);
 
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('hide_wp_version'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_emoji'), [$this, 'return_absint']);
@@ -41,6 +43,8 @@ class RY_Toolkit_Admin_Options
         add_settings_field('medium_large_size', __('Medium large size', 'ry-toolkit'), [$this, 'show_medium_large_size'], 'media', 'default');
         add_settings_field('big_image_size', __('Max size', 'ry-toolkit'), [$this, 'show_big_size'], 'media', 'default');
         add_settings_field('disable_subsize_image', __('Disable generated size', 'ry-toolkit'), [$this, 'show_disable_subsize'], 'media', 'default');
+
+        add_settings_field('friendly_filename', __('Friendly filename', 'ry-toolkit'), [$this, 'show_friendly_filename'], 'media', 'uploads');
     }
 
     public function add_allowed_options($allowed_options)
@@ -49,6 +53,7 @@ class RY_Toolkit_Admin_Options
         $allowed_options['media'][] = 'medium_large_size_h';
         $allowed_options['media'][] = RY_Toolkit::get_option_name('big_image_size');
         $allowed_options['media'][] = RY_Toolkit::get_option_name('disable_subsize');
+        $allowed_options['media'][] = RY_Toolkit::get_option_name('friendly_filename');
 
         $allowed_options['ry-toolkit-options-frontend'] = [
             RY_Toolkit::get_option_name('hide_wp_version'),
@@ -99,7 +104,7 @@ class RY_Toolkit_Admin_Options
         $array = (array) $array;
         $values = [];
         foreach ($array as $key => $value) {
-            if ($key === sanitize_key($key)) {
+            if ((string) $key === sanitize_key($key)) {
                 $values[$key] = sanitize_key($value);
             }
         }
@@ -135,5 +140,12 @@ class RY_Toolkit_Admin_Options
         ]);
 
         include RY_TOOLKIT_PLUGIN_DIR . 'admin/html/media/disable-subsize.php';
+    }
+
+    public function show_friendly_filename(): void
+    {
+        $friendly_filename = (int) RY_Toolkit::get_option('friendly_filename', 0);
+
+        include RY_TOOLKIT_PLUGIN_DIR . 'admin/html/media/friendly-filename.php';
     }
 }

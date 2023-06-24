@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RY Toolkit\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
-"POT-Creation-Date: 2023-06-04T18:03:17+08:00\n"
-"PO-Revision-Date: 2023-06-04 18:03+0800\n"
+"POT-Creation-Date: 2023-06-24T10:38:44+08:00\n"
+"PO-Revision-Date: 2023-06-24 10:39+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -44,7 +44,7 @@ msgstr "https://richer.tw/"
 msgid "RY Tool"
 msgstr "RY 工具箱"
 
-#: admin/html/media/big-size.php:2 admin/options.php:42
+#: admin/html/media/big-size.php:2 admin/options.php:44
 msgid "Max size"
 msgstr "最大尺寸"
 
@@ -52,11 +52,19 @@ msgstr "最大尺寸"
 msgid "Max Width / Heigth"
 msgstr "最大寬度 / 高度"
 
-#: admin/html/media/disable-subsize.php:2 admin/options.php:43
+#: admin/html/media/disable-subsize.php:2 admin/options.php:45
 msgid "Disable generated size"
 msgstr "停止生成尺寸"
 
-#: admin/html/media/medium-large-size.php:2 admin/options.php:41
+#: admin/html/media/disable-subsize.php:9
+msgid "Crop image"
+msgstr "裁剪圖片"
+
+#: admin/html/media/friendly-filename.php:2
+msgid "Change upload filename to only use system friendly characters."
+msgstr "變更上傳的檔案名稱為系統友善的字元。"
+
+#: admin/html/media/medium-large-size.php:2 admin/options.php:43
 msgid "Medium large size"
 msgstr "中大型尺寸"
 
@@ -68,120 +76,130 @@ msgstr "最大寬度"
 msgid "Max Height"
 msgstr "最大高度"
 
-#. translators: %s: Number of events.
-#: admin/includes/cron-event-list-table.php:122
+#. translators: %s: number of events.
+#: admin/includes/cron-event-list-table.php:132
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] "全部 <span class=\"count\">(%s)</span>"
 
-#. translators: %s: Number of events.
-#: admin/includes/cron-event-list-table.php:136
+#. translators: %s: number of events.
+#: admin/includes/cron-event-list-table.php:146
 msgid "NO action <span class=\"count\">(%s)</span>"
 msgid_plural "NO action <span class=\"count\">(%s)</span>"
 msgstr[0] "沒有執行動作 <span class=\"count\">(%s)</span>"
 
-#: admin/includes/cron-event-list-table.php:164
+#. translators: %1$s: schedule name %2$s: number of events.
+#: admin/includes/cron-event-list-table.php:162
+msgid "%1$s <span class=\"count\">(%2$s)</span>"
+msgid_plural "%1$s <span class=\"count\">(%2$s)</span>"
+msgstr[0] "%1$s <span class=\"count\">(%2$s)</span>"
+
+#: admin/includes/cron-event-list-table.php:195
 msgid "Hook"
 msgstr "勾點"
 
-#: admin/includes/cron-event-list-table.php:165
+#: admin/includes/cron-event-list-table.php:196
 msgid "Arguments"
 msgstr "引數"
 
-#: admin/includes/cron-event-list-table.php:166
+#: admin/includes/cron-event-list-table.php:197
 msgid "Actions"
 msgstr "執行動作"
 
 #. translators: %s: UTC offset
-#: admin/includes/cron-event-list-table.php:169
+#: admin/includes/cron-event-list-table.php:200
 msgid "Next execution (%s)"
 msgstr "下次執行時間 ( %s )"
 
-#: admin/includes/cron-event-list-table.php:172
+#: admin/includes/cron-event-list-table.php:203
 msgid "Recurrence"
 msgstr "執行週期"
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:226
+#: admin/includes/cron-event-list-table.php:257
 msgid "after %s"
 msgstr "%s後"
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:244
+#: admin/includes/cron-event-list-table.php:271
 msgid "every %s"
 msgstr "每 %s"
 
 #. translators: %s: Event hook name.
-#: admin/includes/cron-event-list-table.php:266
+#: admin/includes/cron-event-list-table.php:293
 msgid "Execute %s"
 msgstr "執行 %s"
 
-#: admin/includes/cron-event-list-table.php:267
+#: admin/includes/cron-event-list-table.php:294
 msgid "Execute now"
 msgstr "立刻執行"
 
 #. translators: %s: Event hook name.
-#: admin/includes/cron-event-list-table.php:274
+#: admin/includes/cron-event-list-table.php:301
 msgid "Delete %s"
 msgstr "刪除 %s"
 
-#: admin/includes/cron-event-list-table.php:275
+#: admin/includes/cron-event-list-table.php:302
 msgid "Delete"
 msgstr "刪除"
 
-#: admin/includes/cron-event-list-table.php:328
+#: admin/includes/cron-event-list-table.php:372
 msgid "Anonymous function"
 msgstr "匿名函式"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:350
+#: admin/includes/cron-event-list-table.php:394
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] "%d 年"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:355
+#: admin/includes/cron-event-list-table.php:399
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] "%d 月"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:360
+#: admin/includes/cron-event-list-table.php:404
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] "%d 天"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:365
+#: admin/includes/cron-event-list-table.php:409
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] "%d 小時"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:370
+#: admin/includes/cron-event-list-table.php:414
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d 分鐘"
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:375
+#: admin/includes/cron-event-list-table.php:419
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 秒"
 
-#: admin/options.php:131
+#: admin/options.php:47
+msgid "Friendly filename"
+msgstr "系統友善的檔案名稱"
+
+#: admin/options.php:136
 msgid "Thumbnail"
 msgstr "縮圖尺寸"
 
-#: admin/options.php:132
+#: admin/options.php:137
 msgid "Medium"
 msgstr "中型尺寸"
 
-#: admin/options.php:133
+#: admin/options.php:138
 msgid "Large"
 msgstr "大型尺寸"
 
-#: admin/options.php:134
+#: admin/options.php:139
 msgid "Full Size"
 msgstr "完整尺寸"
 
@@ -252,6 +270,10 @@ msgstr "排程事件 \"%s\" 已經刪除。"
 #: admin/page/cron.php:163
 msgid "Failed to the delete the cron event \"%s\"."
 msgstr "無法刪除排程事件 [%s]。"
+
+#: admin/page/html/cron-event.php:5
+msgid "Search cron"
+msgstr "搜尋排程"
 
 #: admin/page/html/opcache.php:1
 msgid "OPcache status"
@@ -663,109 +685,22 @@ msgstr "無法產生壓縮檔。"
 msgid "Unable to open zip file for writing."
 msgstr "無法開啟壓縮檔進行資料寫入。"
 
-#: includes/image.php:26
+#: includes/upload.php:31
 msgid "Medium large"
 msgstr "中大型尺寸"
 
-#: includes/image.php:27
+#: includes/upload.php:32
 msgid "Post thumbnail"
 msgstr "文章縮圖尺寸"
 
-#: includes/image.php:29
+#: includes/upload.php:34
 msgid "WooCommerce thumbnail"
 msgstr "WooCommerce 縮圖尺寸"
 
-#: includes/image.php:30
+#: includes/upload.php:35
 msgid "WooCommerce image"
 msgstr "WooCommerce 圖片尺寸"
 
-#: includes/image.php:31
+#: includes/upload.php:36
 msgid "WooCommerce gallery thumbnail"
 msgstr "WooCommerce 圖庫縮圖尺寸"
-
-#~ msgid ""
-#~ "<strong>Execute now</strong> execute event, it will set the schedule "
-#~ "event next execution time based on current time."
-#~ msgstr ""
-#~ "<strong>立刻執行</strong> &mdash; 點擊 [立刻執行] 執行排程事件，週期性事件"
-#~ "的下次執行時間將以目前時間為基準計算。"
-
-#~ msgid ""
-#~ "<strong>Quick Edit</strong> provides inline access to the metadata of "
-#~ "your post, allowing you to update post details without leaving this "
-#~ "screen."
-#~ msgstr ""
-#~ "<strong>快速編輯</strong> &mdash; 點擊 [快速編輯] 連結便能進入文章的中繼資"
-#~ "料編輯區段，讓使用者無須離開這個畫面就能更新文章的詳細資料。"
-
-#~ msgid ""
-#~ "<strong>DELETE</strong> unschedule event, some event will be "
-#~ "automatically create after you unscheduled."
-#~ msgstr ""
-#~ "<strong>刪除</strong> &mdash; 點擊 [刪除] 取消排程事件，部分的排程事件於取"
-#~ "消後將自動建立相同的排程事件。"
-
-#~ msgid ""
-#~ "Hovering over a row in the events list will display action links that "
-#~ "allow you to manage your event. You can perform the following actions:"
-#~ msgstr ""
-#~ "將游標暫留於排程事件清單的資料列上，便會出現操作連結讓使用者管理排程事件。"
-#~ "使用者可進行的操作如下:"
-
-#, php-format
-#~ msgid ""
-#~ "Cron event \"%s\" has been deleted. Event maybe automatically recreated."
-#~ msgstr "排程事件 [%s] 成功刪除。 系統可能自動生成相同設定的排程事件。"
-
-#, php-format
-#~ msgid " (after %s)"
-#~ msgstr " ( %s後 )"
-
-#~ msgid "Disable show \"tag feed\" link"
-#~ msgstr "停止顯示 [標籤] 資訊提供連結"
-
-#~ msgid "Disable show ALL feed link"
-#~ msgstr "停止顯示 全部 資訊提供連結"
-
-#~ msgid "Disable show posts feed link"
-#~ msgstr "停止顯示 文章 資訊提供連結"
-
-#~ msgid "Disable show comments feed link"
-#~ msgstr "停止顯示 留言 資訊提供連結"
-
-#~ msgid "Disable show post comments feed link"
-#~ msgstr "停止顯示 單篇內容留言 資訊提供連結"
-
-#~ msgid "Disable show post type archive feed link"
-#~ msgstr "停止顯示 內容類型彙整 資訊提供連結"
-
-#~ msgid "Disable show category feed link"
-#~ msgstr "停止顯示 分類 資訊提供連結"
-
-#~ msgid "Disable show tag feed link"
-#~ msgstr "停止顯示 標籤 資訊提供連結"
-
-#~ msgid "Disable show taxonomy feed link"
-#~ msgstr "停止顯示 分類法 資訊提供連結"
-
-#~ msgid "Disable show author feed link"
-#~ msgstr "停止顯示 作者 資訊提供連結"
-
-#, php-format
-#~ msgid "Cron event \"%s\" has been deleted"
-#~ msgstr "排程事件 \"%s\" 已經刪除"
-
-#~ msgid " (%s)"
-#~ msgstr " ( %s )"
-
-#, php-format
-#~ msgid " ( %s )"
-#~ msgstr " ( %s )"
-
-#, php-format
-#~ msgid "%d week"
-#~ msgid_plural "%d weeks"
-#~ msgstr[0] "%d "
-
-#~ msgid "Next execution"
-#~ msgstr "下次執行時間"

@@ -2,16 +2,16 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.2.1\n"
+"Project-Id-Version: RY Toolkit 1.2.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-06-04T18:03:17+08:00\n"
+"POT-Creation-Date: 2023-06-24T10:38:44+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.8.0\n"
+"X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: ry-toolkit\n"
 
 #. Plugin Name of the plugin
@@ -39,7 +39,7 @@ msgid "RY Tool"
 msgstr ""
 
 #: admin/html/media/big-size.php:2
-#: admin/options.php:42
+#: admin/options.php:44
 msgid "Max size"
 msgstr ""
 
@@ -48,12 +48,20 @@ msgid "Max Width / Heigth"
 msgstr ""
 
 #: admin/html/media/disable-subsize.php:2
-#: admin/options.php:43
+#: admin/options.php:45
 msgid "Disable generated size"
 msgstr ""
 
+#: admin/html/media/disable-subsize.php:9
+msgid "Crop image"
+msgstr ""
+
+#: admin/html/media/friendly-filename.php:2
+msgid "Change upload filename to only use system friendly characters."
+msgstr ""
+
 #: admin/html/media/medium-large-size.php:2
-#: admin/options.php:41
+#: admin/options.php:43
 msgid "Medium large size"
 msgstr ""
 
@@ -65,128 +73,139 @@ msgstr ""
 msgid "Max Height"
 msgstr ""
 
-#. translators: %s: Number of events.
-#: admin/includes/cron-event-list-table.php:122
+#. translators: %s: number of events.
+#: admin/includes/cron-event-list-table.php:132
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#. translators: %s: Number of events.
-#: admin/includes/cron-event-list-table.php:136
+#. translators: %s: number of events.
+#: admin/includes/cron-event-list-table.php:146
 msgid "NO action <span class=\"count\">(%s)</span>"
 msgid_plural "NO action <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/includes/cron-event-list-table.php:164
+#. translators: %1$s: schedule name %2$s: number of events.
+#: admin/includes/cron-event-list-table.php:162
+msgid "%1$s <span class=\"count\">(%2$s)</span>"
+msgid_plural "%1$s <span class=\"count\">(%2$s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/includes/cron-event-list-table.php:195
 msgid "Hook"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:165
+#: admin/includes/cron-event-list-table.php:196
 msgid "Arguments"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:166
+#: admin/includes/cron-event-list-table.php:197
 msgid "Actions"
 msgstr ""
 
 #. translators: %s: UTC offset
-#: admin/includes/cron-event-list-table.php:169
+#: admin/includes/cron-event-list-table.php:200
 msgid "Next execution (%s)"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:172
+#: admin/includes/cron-event-list-table.php:203
 msgid "Recurrence"
 msgstr ""
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:226
+#: admin/includes/cron-event-list-table.php:257
 msgid "after %s"
 msgstr ""
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:244
+#: admin/includes/cron-event-list-table.php:271
 msgid "every %s"
 msgstr ""
 
 #. translators: %s: Event hook name.
-#: admin/includes/cron-event-list-table.php:266
+#: admin/includes/cron-event-list-table.php:293
 msgid "Execute %s"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:267
+#: admin/includes/cron-event-list-table.php:294
 msgid "Execute now"
 msgstr ""
 
 #. translators: %s: Event hook name.
-#: admin/includes/cron-event-list-table.php:274
+#: admin/includes/cron-event-list-table.php:301
 msgid "Delete %s"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:275
+#: admin/includes/cron-event-list-table.php:302
 msgid "Delete"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:328
+#: admin/includes/cron-event-list-table.php:372
 msgid "Anonymous function"
 msgstr ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:350
+#: admin/includes/cron-event-list-table.php:394
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:355
+#: admin/includes/cron-event-list-table.php:399
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:360
+#: admin/includes/cron-event-list-table.php:404
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:365
+#: admin/includes/cron-event-list-table.php:409
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:370
+#: admin/includes/cron-event-list-table.php:414
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:375
+#: admin/includes/cron-event-list-table.php:419
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/options.php:131
+#: admin/options.php:47
+msgid "Friendly filename"
+msgstr ""
+
+#: admin/options.php:136
 msgid "Thumbnail"
 msgstr ""
 
-#: admin/options.php:132
+#: admin/options.php:137
 msgid "Medium"
 msgstr ""
 
-#: admin/options.php:133
+#: admin/options.php:138
 msgid "Large"
 msgstr ""
 
-#: admin/options.php:134
+#: admin/options.php:139
 msgid "Full Size"
 msgstr ""
 
@@ -242,6 +261,10 @@ msgstr ""
 #. translators: Event hook name.
 #: admin/page/cron.php:163
 msgid "Failed to the delete the cron event \"%s\"."
+msgstr ""
+
+#: admin/page/html/cron-event.php:5
+msgid "Search cron"
 msgstr ""
 
 #: admin/page/html/opcache.php:1
@@ -664,22 +687,22 @@ msgstr ""
 msgid "Unable to open zip file for writing."
 msgstr ""
 
-#: includes/image.php:26
+#: includes/upload.php:31
 msgid "Medium large"
 msgstr ""
 
-#: includes/image.php:27
+#: includes/upload.php:32
 msgid "Post thumbnail"
 msgstr ""
 
-#: includes/image.php:29
+#: includes/upload.php:34
 msgid "WooCommerce thumbnail"
 msgstr ""
 
-#: includes/image.php:30
+#: includes/upload.php:35
 msgid "WooCommerce image"
 msgstr ""
 
-#: includes/image.php:31
+#: includes/upload.php:36
 msgid "WooCommerce gallery thumbnail"
 msgstr ""

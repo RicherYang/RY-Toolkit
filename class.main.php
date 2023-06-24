@@ -56,8 +56,8 @@ class RY_Toolkit
 
     public function ry_init(): void
     {
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/image.php';
-        $this->instance['image'] = RY_Toolkit_Image::instance();
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/upload.php';
+        $this->instance['upload'] = RY_Toolkit_Upload::instance();
 
         include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/xmlrpc.php';
         $this->instance['xmlrpc'] = RY_Toolkit_Xmlrpc::instance();

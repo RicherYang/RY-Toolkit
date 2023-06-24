@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 1.2.2
+Stable tag: 1.2.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -16,12 +16,13 @@ Useful tools for more control over you website. Include cron, media, sitemap, OP
 = Media options =
 
 * Set medium_large image size
-* Set big image suze
+* Set big image size
 * Disable auto-generated image size
 
 = WordPress buidin sitemaps options =
 
 * Set max number of URLs in one file
+* Add last modification date for post type sitemap
 * Disable post type sitemap
 * Disable taxonomy sitemap
 
@@ -61,6 +62,12 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.2.4 - 2023/06/24 =
+* Add chagne upload filename to system friendly filename. 
+
+= 1.2.3 - 2023/06/23 =
+* Add search for cron job list.
 
 = 1.2.2 - 2023/06/11 =
 * Fixed WordPress cron job list order issuu.

@@ -1,6 +1,6 @@
 <?php
 
-class RY_Toolkit_Image
+class RY_Toolkit_Upload
 {
     protected static $_instance = null;
 
@@ -19,6 +19,11 @@ class RY_Toolkit_Image
         add_filter('image_size_names_choose', [$this, 'add_size_name']);
         add_filter('big_image_size_threshold', [$this, 'change_big_image_size'], 0);
         add_filter('intermediate_image_sizes_advanced', [$this, 'disable_subsize']);
+
+        if (RY_Toolkit::get_option('friendly_filename')) {
+            add_filter('sanitize_file_name', [$this, 'sanitize_file_name']);
+
+        }
     }
 
     public function add_size_name($size_names)
@@ -48,5 +53,24 @@ class RY_Toolkit_Image
         $new_sizes = array_diff_key($new_sizes, array_fill_keys($disable_subsize, true));
 
         return $new_sizes;
+    }
+
+    public function sanitize_file_name($file_name)
+    {
+        $parts = explode('.', $file_name);
+        if (1 == count($parts)) {
+            $extension = '';
+        } else {
+            $extension = strtolower(array_pop($parts));
+            $file_name = implode('.', $parts);
+        }
+        if ($file_name !== preg_replace('/[^a-z0-9_\-]/i', '', $file_name)) {
+            $file_name = substr(md5($file_name), 0, 12);
+        }
+        if ('' !== $extension) {
+            $file_name .= '.' . $extension;
+        }
+
+        return $file_name;
     }
 }
