@@ -29,7 +29,7 @@ class RY_Toolkit
     {
         load_plugin_textdomain('ry-toolkit', false, plugin_basename(RY_TOOLKIT_PLUGIN_DIR) . '/languages');
 
-        add_action('init', [$this, 'ry_sitemaps_init'], 9);
+        add_action('init', [$this, 'ry_pre_init'], 9);
         add_action('init', [$this, 'ry_init']);
 
         if (is_admin()) {
@@ -46,7 +46,7 @@ class RY_Toolkit
         }
     }
 
-    public function ry_sitemaps_init()
+    public function ry_pre_init()
     {
         if(has_action('init', 'wp_sitemaps_get_server')) {
             include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/sitemaps.php';
@@ -56,6 +56,8 @@ class RY_Toolkit
 
     public function ry_init(): void
     {
+        global $is_apache;
+
         include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/upload.php';
         $this->instance['upload'] = RY_Toolkit_Upload::instance();
 
@@ -64,6 +66,11 @@ class RY_Toolkit
 
         include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/frontend.php';
         $this->instance['frontend'] = RY_Toolkit_Frontend::instance();
+
+        if($is_apache && defined('WP_ROCKET_VERSION')) {
+            include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/plugin-wp-rocket.php';
+            $this->instance['plugin_wprocket'] = RY_Toolkit_Plugin_WpRocket::instance();
+        }
     }
 
     public static function get_option_name(string $option): string
@@ -86,15 +93,9 @@ class RY_Toolkit
         return update_option(self::get_option_name($option), $value, $autoload);
     }
 
-    public static function plugin_activation(): void
-    {
-    }
+    public static function plugin_activation(): void {}
 
-    public static function plugin_deactivation(): void
-    {
-    }
+    public static function plugin_deactivation(): void {}
 
-    public static function plugin_uninstall(): void
-    {
-    }
+    public static function plugin_uninstall(): void {}
 }

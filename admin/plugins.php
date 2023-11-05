@@ -14,9 +14,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
         }
     }
 
-    public function show_page(): void
-    {
-    }
+    public function show_page(): void {}
 
     public function add_actions($actions, $plugin_file, $plugin_data)
     {
@@ -76,7 +74,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
             if(is_file($tmp_zip_file) && filesize($tmp_zip_file) > 0) {
                 header('Content-Description: File Transfer');
                 header('Content-Type: application/octet-stream');
-                header('Content-Disposition: attachment; filename="' . sanitize_key($plugin_name)  . '.zip"');
+                header('Content-Disposition: attachment; filename="' . sanitize_key($plugin_name) . '.zip"');
                 header('Content-Length: ' . filesize($tmp_zip_file));
                 readfile($tmp_zip_file);
                 unlink($tmp_zip_file);

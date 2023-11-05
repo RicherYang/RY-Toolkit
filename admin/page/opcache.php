@@ -23,9 +23,7 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
         return $menu_list;
     }
 
-    protected function do_init(): void
-    {
-    }
+    protected function do_init(): void {}
 
     public function show_page(): void
     {

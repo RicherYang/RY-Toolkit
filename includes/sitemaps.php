@@ -27,10 +27,8 @@ class RY_Toolkit_Sitemaps
     public function limit_the_provider($provider, $name)
     {
         $sitemap_disable_providers = RY_Toolkit::get_option('sitemap_disable_provider', []);
-        if (is_array($sitemap_disable_providers)) {
-            if (isset($sitemap_disable_providers[$name])) {
-                return new stdClass();
-            }
+        if (is_array($sitemap_disable_providers) && isset($sitemap_disable_providers[$name])) {
+            return new stdClass();
         }
         return $provider;
     }

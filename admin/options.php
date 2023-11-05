@@ -40,6 +40,8 @@ class RY_Toolkit_Admin_Options
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_post_type'), [$this, 'return_array_nicestring']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_taxonomy'), [$this, 'return_array_nicestring']);
 
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('wp_rocket_htaccess'), [$this, 'return_array_absint']);
+
         add_settings_field('medium_large_size', __('Medium large size', 'ry-toolkit'), [$this, 'show_medium_large_size'], 'media', 'default');
         add_settings_field('big_image_size', __('Max size', 'ry-toolkit'), [$this, 'show_big_size'], 'media', 'default');
         add_settings_field('disable_subsize_image', __('Disable generated size', 'ry-toolkit'), [$this, 'show_disable_subsize'], 'media', 'default');
@@ -77,6 +79,10 @@ class RY_Toolkit_Admin_Options
             RY_Toolkit::get_option_name('sitemap_add_tag'),
             RY_Toolkit::get_option_name('sitemap_disable_post_type'),
             RY_Toolkit::get_option_name('sitemap_disable_taxonomy')
+        ];
+
+        $allowed_options['ry-toolkit-options-wp-rocket'] = [
+            RY_Toolkit::get_option_name('wp_rocket_htaccess')
         ];
 
         return $allowed_options;

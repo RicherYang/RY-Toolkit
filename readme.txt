@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 5.8
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -63,8 +63,11 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 == Changelog ==
 
+= 1.2.5 - 2023/07/01 =
+* Add plugin "WP Rocket" .htaccess rules option.
+
 = 1.2.4 - 2023/06/24 =
-* Add chagne upload filename to system friendly filename. 
+* Add chagne upload filename to system friendly filename.
 
 = 1.2.3 - 2023/06/23 =
 * Add search for cron job list.

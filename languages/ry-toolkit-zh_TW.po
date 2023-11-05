@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RY Toolkit\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
-"POT-Creation-Date: 2023-06-24T10:38:44+08:00\n"
-"PO-Revision-Date: 2023-06-24 10:39+0800\n"
+"POT-Creation-Date: 2023-07-01T18:19:27+08:00\n"
+"PO-Revision-Date: 2023-07-01 18:19+0800\n"
 "Last-Translator: Richer Yang\n"
 "Language-Team: \n"
 "Language: zh_TW\n"
@@ -44,7 +44,7 @@ msgstr "https://richer.tw/"
 msgid "RY Tool"
 msgstr "RY 工具箱"
 
-#: admin/html/media/big-size.php:2 admin/options.php:44
+#: admin/html/media/big-size.php:2 admin/options.php:46
 msgid "Max size"
 msgstr "最大尺寸"
 
@@ -52,7 +52,7 @@ msgstr "最大尺寸"
 msgid "Max Width / Heigth"
 msgstr "最大寬度 / 高度"
 
-#: admin/html/media/disable-subsize.php:2 admin/options.php:45
+#: admin/html/media/disable-subsize.php:2 admin/options.php:47
 msgid "Disable generated size"
 msgstr "停止生成尺寸"
 
@@ -64,7 +64,7 @@ msgstr "裁剪圖片"
 msgid "Change upload filename to only use system friendly characters."
 msgstr "變更上傳的檔案名稱為系統友善的字元。"
 
-#: admin/html/media/medium-large-size.php:2 admin/options.php:43
+#: admin/html/media/medium-large-size.php:2 admin/options.php:45
 msgid "Medium large size"
 msgstr "中大型尺寸"
 
@@ -183,23 +183,23 @@ msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d 秒"
 
-#: admin/options.php:47
+#: admin/options.php:49
 msgid "Friendly filename"
 msgstr "系統友善的檔案名稱"
 
-#: admin/options.php:136
+#: admin/options.php:142
 msgid "Thumbnail"
 msgstr "縮圖尺寸"
 
-#: admin/options.php:137
+#: admin/options.php:143
 msgid "Medium"
 msgstr "中型尺寸"
 
-#: admin/options.php:138
+#: admin/options.php:144
 msgid "Large"
 msgstr "大型尺寸"
 
-#: admin/options.php:139
+#: admin/options.php:145
 msgid "Full Size"
 msgstr "完整尺寸"
 
@@ -557,6 +557,16 @@ msgstr "分類法的 Sitemap"
 msgid "Disable generation \"%s\" taxonomy sitemap"
 msgstr "停止產生分類法 [%s] 的 Sitemap"
 
+#: admin/page/html/options-wp-rocket.php:16
+#: admin/page/html/options-wp-rocket.php:19
+msgid ".htaccess"
+msgstr ".htaccess"
+
+#. translators: %1$s: rule key %1$s: rule description
+#: admin/page/html/options-wp-rocket.php:25
+msgid "Disable rules \"%1$s\" (%2$s)"
+msgstr "停用規則 [%1$s] ( %2$s )"
+
 #: admin/page/html/tools.php:4
 msgid "Database"
 msgstr "資料庫"
@@ -609,36 +619,85 @@ msgstr "OPcache 已成功重啟。"
 msgid "OPcache restart failed."
 msgstr "OPcache 重啟失敗。"
 
-#: admin/page/options.php:16 admin/page/options.php:55
+#: admin/page/options.php:16 admin/page/options.php:72
 msgid "Options"
 msgstr "設定"
 
-#: admin/page/options.php:32
+#: admin/page/options.php:34
 msgid "Website frontend"
 msgstr "網站前端"
 
-#: admin/page/options.php:33
+#: admin/page/options.php:35
 msgid "WordPress core function"
 msgstr "WordPress 核心功能"
 
-#: admin/page/options.php:39
+#: admin/page/options.php:41
 msgid "WordPress sitemap"
 msgstr "WordPress sitemap"
 
-#: admin/page/options.php:41
+#: admin/page/options.php:43
 msgctxt "sitemap provider"
 msgid "posts"
 msgstr "文章"
 
-#: admin/page/options.php:42
+#: admin/page/options.php:44
 msgctxt "sitemap provider"
 msgid "taxonomies"
 msgstr "分類法"
 
-#: admin/page/options.php:43
+#: admin/page/options.php:45
 msgctxt "sitemap provider"
 msgid "users"
 msgstr "使用者"
+
+#: admin/page/options.php:51
+msgid "WP Rocket"
+msgstr "WP Rocket"
+
+#: admin/page/options.php:53
+msgctxt "wp rocket htaccess"
+msgid "Rewrite rules to serve the cache file"
+msgstr "重寫伺服器快取檔案路徑"
+
+#: admin/page/options.php:54
+msgctxt "wp rocket htaccess"
+msgid "Detect mobile version"
+msgstr "辨識手機版本"
+
+#: admin/page/options.php:55
+msgctxt "wp rocket htaccess"
+msgid "SSL requests"
+msgstr "強制使用 SSL"
+
+#: admin/page/options.php:56
+msgctxt "wp rocket htaccess"
+msgid "Use GZIP compression"
+msgstr "使用 GZIP 壓縮"
+
+#: admin/page/options.php:57
+msgctxt "wp rocket htaccess"
+msgid "Use expires headers"
+msgstr "過期 HTTP 標頭"
+
+#: admin/page/options.php:58
+msgctxt "wp rocket htaccess"
+msgid "Default charset on static files"
+msgstr "靜態文件的預設字符集"
+
+#: admin/page/options.php:59
+msgctxt "wp rocket htaccess"
+msgid "Cache control"
+msgstr "快取控制"
+
+#: admin/page/options.php:60
+msgctxt "wp rocket htaccess"
+msgid "Remove the ETag header"
+msgstr "移除 ETag 標頭"
+
+#: admin/page/options.php:61
+msgctxt "wp rocket htaccess"
+msgid "Cross-origin fonts sharing"
+msgstr "跨網域使用字體檔案"
 
 #: admin/page/tools.php:18 admin/page/tools.php:42
 msgid "Tools"

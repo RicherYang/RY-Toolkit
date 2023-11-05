@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.2.4\n"
+"Project-Id-Version: RY Toolkit 1.2.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-06-24T10:38:44+08:00\n"
+"POT-Creation-Date: 2023-07-01T18:19:27+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: ry-toolkit\n"
@@ -39,7 +39,7 @@ msgid "RY Tool"
 msgstr ""
 
 #: admin/html/media/big-size.php:2
-#: admin/options.php:44
+#: admin/options.php:46
 msgid "Max size"
 msgstr ""
 
@@ -48,7 +48,7 @@ msgid "Max Width / Heigth"
 msgstr ""
 
 #: admin/html/media/disable-subsize.php:2
-#: admin/options.php:45
+#: admin/options.php:47
 msgid "Disable generated size"
 msgstr ""
 
@@ -61,7 +61,7 @@ msgid "Change upload filename to only use system friendly characters."
 msgstr ""
 
 #: admin/html/media/medium-large-size.php:2
-#: admin/options.php:43
+#: admin/options.php:45
 msgid "Medium large size"
 msgstr ""
 
@@ -189,23 +189,23 @@ msgid_plural "%d seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/options.php:47
+#: admin/options.php:49
 msgid "Friendly filename"
 msgstr ""
 
-#: admin/options.php:136
+#: admin/options.php:142
 msgid "Thumbnail"
 msgstr ""
 
-#: admin/options.php:137
+#: admin/options.php:143
 msgid "Medium"
 msgstr ""
 
-#: admin/options.php:138
+#: admin/options.php:144
 msgid "Large"
 msgstr ""
 
-#: admin/options.php:139
+#: admin/options.php:145
 msgid "Full Size"
 msgstr ""
 
@@ -557,6 +557,16 @@ msgstr ""
 msgid "Disable generation \"%s\" taxonomy sitemap"
 msgstr ""
 
+#: admin/page/html/options-wp-rocket.php:16
+#: admin/page/html/options-wp-rocket.php:19
+msgid ".htaccess"
+msgstr ""
+
+#. translators: %1$s: rule key %1$s: rule description
+#: admin/page/html/options-wp-rocket.php:25
+msgid "Disable rules \"%1$s\" (%2$s)"
+msgstr ""
+
 #: admin/page/html/tools.php:4
 msgid "Database"
 msgstr ""
@@ -610,35 +620,84 @@ msgid "OPcache restart failed."
 msgstr ""
 
 #: admin/page/options.php:16
-#: admin/page/options.php:55
+#: admin/page/options.php:72
 msgid "Options"
 msgstr ""
 
-#: admin/page/options.php:32
+#: admin/page/options.php:34
 msgid "Website frontend"
 msgstr ""
 
-#: admin/page/options.php:33
+#: admin/page/options.php:35
 msgid "WordPress core function"
 msgstr ""
 
-#: admin/page/options.php:39
-msgid "WordPress sitemap"
-msgstr ""
-
 #: admin/page/options.php:41
-msgctxt "sitemap provider"
-msgid "posts"
-msgstr ""
-
-#: admin/page/options.php:42
-msgctxt "sitemap provider"
-msgid "taxonomies"
+msgid "WordPress sitemap"
 msgstr ""
 
 #: admin/page/options.php:43
 msgctxt "sitemap provider"
+msgid "posts"
+msgstr ""
+
+#: admin/page/options.php:44
+msgctxt "sitemap provider"
+msgid "taxonomies"
+msgstr ""
+
+#: admin/page/options.php:45
+msgctxt "sitemap provider"
 msgid "users"
+msgstr ""
+
+#: admin/page/options.php:51
+msgid "WP Rocket"
+msgstr ""
+
+#: admin/page/options.php:53
+msgctxt "wp rocket htaccess"
+msgid "Rewrite rules to serve the cache file"
+msgstr ""
+
+#: admin/page/options.php:54
+msgctxt "wp rocket htaccess"
+msgid "Detect mobile version"
+msgstr ""
+
+#: admin/page/options.php:55
+msgctxt "wp rocket htaccess"
+msgid "SSL requests"
+msgstr ""
+
+#: admin/page/options.php:56
+msgctxt "wp rocket htaccess"
+msgid "Use GZIP compression"
+msgstr ""
+
+#: admin/page/options.php:57
+msgctxt "wp rocket htaccess"
+msgid "Use expires headers"
+msgstr ""
+
+#: admin/page/options.php:58
+msgctxt "wp rocket htaccess"
+msgid "Default charset on static files"
+msgstr ""
+
+#: admin/page/options.php:59
+msgctxt "wp rocket htaccess"
+msgid "Cache control"
+msgstr ""
+
+#: admin/page/options.php:60
+msgctxt "wp rocket htaccess"
+msgid "Remove the ETag header"
+msgstr ""
+
+#: admin/page/options.php:61
+msgctxt "wp rocket htaccess"
+msgid "Cross-origin fonts sharing"
 msgstr ""
 
 #: admin/page/tools.php:18

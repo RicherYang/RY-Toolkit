@@ -23,9 +23,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
         return $menu_list;
     }
 
-    protected function do_init(): void
-    {
-    }
+    protected function do_init(): void {}
 
     public function show_page(): void
     {
@@ -35,7 +33,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
         foreach ($this->transient_key as $transient_key) {
             $transients += (int) $wpdb->get_var($wpdb->prepare(
                 "SELECT COUNT(option_id) FROM {$wpdb->options} WHERE option_name LIKE %s",
-                $wpdb->esc_like($transient_key) .'%'
+                $wpdb->esc_like($transient_key) . '%'
             ));
         }
 
@@ -59,7 +57,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
         $tables = $wpdb->get_col($wpdb->prepare(
             'SHOW TABLES LIKE %s',
-            $wpdb->esc_like($wpdb->prefix) .'%'
+            $wpdb->esc_like($wpdb->prefix) . '%'
         ));
         foreach ($tables as $table) {
             if (isset($analyzed_table[$table])) {
@@ -96,7 +94,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
         $tables = $wpdb->get_col($wpdb->prepare(
             'SHOW TABLES LIKE %s',
-            $wpdb->esc_like($wpdb->prefix) .'%'
+            $wpdb->esc_like($wpdb->prefix) . '%'
         ));
         foreach ($tables as $table) {
             if (isset($optimized_table[$table])) {
