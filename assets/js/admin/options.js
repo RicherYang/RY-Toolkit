@@ -1,7 +1,7 @@
 jQuery(function ($) {
     'use strict';
 
-    if (document.getElementById('ry-toolkit-options-frontend') !== null) {
+    if (null !== document.getElementById('ry-toolkit-options-frontend')) {
         let disableAll = $('#RY_Toolkit_disable_feed_link-all'),
             disableComment = $('#RY_Toolkit_disable_feed_link-comments'),
             check_disabled = function () {
@@ -27,7 +27,7 @@ jQuery(function ($) {
         disableComment.on('change', check_disabled);
     }
 
-    if (document.getElementById('ry-toolkit-options-sitemap') !== null) {
+    if (null !== document.getElementById('ry-toolkit-options-sitemap')) {
         let sitemapPosts = $('#RY_Toolkit_sitemap_disable_provider-posts'),
             sitemapTaxonomies = $('#RY_Toolkit_sitemap_disable_provider-taxonomies'),
             check_disabled = function () {

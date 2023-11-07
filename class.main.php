@@ -4,11 +4,11 @@ class RY_Toolkit
 {
     public static $option_prefix = 'RY_Toolkit_';
 
-    protected static $_instance = null;
+    protected static $_instance;
 
     private $instance = [];
 
-    public static function instance()
+    public static function instance(): RY_Toolkit
     {
         if (null === self::$_instance) {
             self::$_instance = new self();
@@ -40,7 +40,7 @@ class RY_Toolkit
             $this->instance['admin'] = RY_Toolkit_Admin::instance();
         }
 
-        if(wp_doing_cron()) {
+        if (wp_doing_cron()) {
             include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/cron.php';
             $this->instance['cron'] = RY_Toolkit_Cron::instance();
         }
@@ -48,7 +48,7 @@ class RY_Toolkit
 
     public function ry_pre_init()
     {
-        if(has_action('init', 'wp_sitemaps_get_server')) {
+        if (has_action('init', 'wp_sitemaps_get_server')) {
             include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/sitemaps.php';
             $this->instance['sitemaps'] = RY_Toolkit_Sitemaps::instance();
         }
@@ -67,7 +67,7 @@ class RY_Toolkit
         include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/frontend.php';
         $this->instance['frontend'] = RY_Toolkit_Frontend::instance();
 
-        if($is_apache && defined('WP_ROCKET_VERSION')) {
+        if ($is_apache && defined('WP_ROCKET_VERSION')) {
             include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/plugin-wp-rocket.php';
             $this->instance['plugin_wprocket'] = RY_Toolkit_Plugin_WpRocket::instance();
         }

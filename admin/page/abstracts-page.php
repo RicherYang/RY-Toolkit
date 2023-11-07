@@ -9,7 +9,7 @@ abstract class RY_Toolkit_Admin_Page
 
     abstract protected function do_init(): void;
 
-    public static function instance()
+    public static function instance(): RY_Toolkit_Admin_Page
     {
         if (!isset(static::$_instance[static::class])) {
             static::$_instance[static::class] = new static();
@@ -32,7 +32,7 @@ abstract class RY_Toolkit_Admin_Page
 
         if (static::$page_type === wp_unslash($_GET['ry-toolkit-page'] ?? '')) {
             $action = wp_unslash($_REQUEST['ry-toolkit-action'] ?? '');
-            if ($action === sanitize_key($action)) {
+            if ((string) $action === sanitize_key($action)) {
                 if (wp_verify_nonce(wp_unslash($_REQUEST['_ry_toolkit_action_nonce'] ?? ''), $action)) {
                     $action_method = str_replace('-', '_', $action);
                     $callback = [static::instance(), $action_method];

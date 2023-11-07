@@ -4,7 +4,7 @@ class RY_Toolkit_Admin_Options
 {
     protected static $_instance = null;
 
-    public static function instance()
+    public static function instance(): RY_Toolkit_Admin_Options
     {
         if (null === self::$_instance) {
             self::$_instance = new self();
@@ -93,19 +93,20 @@ class RY_Toolkit_Admin_Options
         return absint($value);
     }
 
-    public function return_array_absint($array): array
+    public function return_array_absint($array)
     {
         $array = (array) $array;
         $values = [];
         foreach ($array as $key => $value) {
-            if ($key === sanitize_key($key)) {
+            if ((string) $key === sanitize_key($key)) {
                 $values[$key] = (int) $value;
             }
         }
+
         return $values;
     }
 
-    public function return_array_nicestring($array): array
+    public function return_array_nicestring($array)
     {
         $array = (array) $array;
         $values = [];
@@ -114,6 +115,7 @@ class RY_Toolkit_Admin_Options
                 $values[$key] = sanitize_key($value);
             }
         }
+
         return $values;
     }
 

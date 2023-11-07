@@ -14,7 +14,7 @@
                     <?php echo wp_date('Y-m-d H:i:s', $opcache_status['opcache_statistics']['start_time']); ?>
                 </td>
             </tr>
-            <?php if ($opcache_status['opcache_statistics']['last_restart_time'] > 0) { ?>
+            <?php if (0 < $opcache_status['opcache_statistics']['last_restart_time']) { ?>
             <tr>
                 <td><?php esc_html_e('Last restart time', 'ry-toolkit'); ?></td>
                 <td>

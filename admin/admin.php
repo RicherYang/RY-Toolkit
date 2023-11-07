@@ -6,7 +6,7 @@ class RY_Toolkit_Admin
 
     private $instance = [];
 
-    public static function instance()
+    public static function instance(): RY_Toolkit_Admin
     {
         if (null === self::$_instance) {
             self::$_instance = new self();

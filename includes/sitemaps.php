@@ -4,7 +4,7 @@ class RY_Toolkit_Sitemaps
 {
     protected static $_instance = null;
 
-    public static function instance()
+    public static function instance(): RY_Toolkit_Sitemaps
     {
         if (null === self::$_instance) {
             self::$_instance = new self();
@@ -30,10 +30,11 @@ class RY_Toolkit_Sitemaps
         if (is_array($sitemap_disable_providers) && isset($sitemap_disable_providers[$name])) {
             return new stdClass();
         }
+
         return $provider;
     }
 
-    public function init_change()
+    public function init_change(): void
     {
         add_filter('wp_sitemaps_max_urls', [$this, 'change_max_urls']);
 
@@ -46,7 +47,7 @@ class RY_Toolkit_Sitemaps
     public function change_max_urls($max_urls)
     {
         $urls = (int) RY_Toolkit::get_option('sitemap_urls_pre_file', $max_urls);
-        if ($urls > 0) {
+        if (0 < $urls) {
             return $urls;
         }
 

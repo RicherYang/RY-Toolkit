@@ -4,7 +4,7 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
 {
     protected static $page_type = 'opcache';
 
-    public static function init_page()
+    public static function init_page(): void
     {
         if (function_exists('opcache_get_status')) {
             add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu']);
@@ -27,11 +27,11 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
 
     public function show_page(): void
     {
-        echo '<div class="wrap"><h1>' . esc_html(__('OPcache', 'ry-toolkit')) . '</h1>';
+        echo '<div class="wrap"><h1>' . esc_html__('OPcache', 'ry-toolkit') . '</h1>';
 
         $opcache_status = opcache_get_status(false);
         if (false === $opcache_status) {
-            echo esc_html(__('OPcache disabled.', 'ry-toolkit'));
+            echo esc_html__('OPcache disabled.', 'ry-toolkit');
         } else {
             $opcache_total = [
                 'hit' => $opcache_status['opcache_statistics']['hits'] + $opcache_status['opcache_statistics']['misses'] + $opcache_status['opcache_statistics']['blacklist_misses'],

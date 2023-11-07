@@ -6,7 +6,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
     protected static $page_type = 'tools';
 
-    public static function init_page()
+    public static function init_page(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu'], 5);
         add_action('ry-toolkit/admin_action', [__CLASS__, 'admin_action']);
@@ -37,7 +37,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             ));
         }
 
-        echo '<div class="wrap"><h1>' . esc_html(__('Tools', 'ry-toolkit')) . '</h1>';
+        echo '<div class="wrap"><h1>' . esc_html__('Tools', 'ry-toolkit') . '</h1>';
 
         include RY_TOOLKIT_PLUGIN_DIR . 'admin/page/html/tools.php';
 
@@ -68,7 +68,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             $analyzed_table[$table] = true;
             set_transient('ry_analyzed_table', $analyzed_table, 600);
 
-            if (time() - $start > 1) {
+            if (1 < time() - $start) {
                 return RY_Toolkit()->admin->the_action_link('tools', 'analyze-tables', [
                     '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? '')))
                 ]);
@@ -105,7 +105,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             $optimized_table[$table] = true;
             set_transient('ry_optimized_table', $optimized_table, 600);
 
-            if (time() - $start > 1) {
+            if (1 < time() - $start) {
                 return RY_Toolkit()->admin->the_action_link('tools', 'optimize-tables', [
                     '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? '')))
                 ]);
@@ -129,7 +129,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             ));
             if ($transients) {
                 foreach ($transients as $transient) {
-                    if ('_transient_' == $transient_key) {
+                    if ('_transient_' === $transient_key) {
                         delete_transient(str_replace('_transient_', '', $transient));
                     } else {
                         delete_site_transient(str_replace('_site_transient_', '', $transient));

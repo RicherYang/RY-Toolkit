@@ -4,7 +4,7 @@ class RY_Toolkit_Upload
 {
     protected static $_instance = null;
 
-    public static function instance()
+    public static function instance(): RY_Toolkit_Upload
     {
         if (null === self::$_instance) {
             self::$_instance = new self();
@@ -58,15 +58,17 @@ class RY_Toolkit_Upload
     public function sanitize_file_name($file_name)
     {
         $parts = explode('.', $file_name);
-        if (1 == count($parts)) {
+        if (1 === count($parts)) {
             $extension = '';
         } else {
             $extension = strtolower(array_pop($parts));
             $file_name = implode('.', $parts);
         }
+
         if ($file_name !== preg_replace('/[^a-z0-9_\-]/i', '', $file_name)) {
             $file_name = substr(md5($file_name), 0, 12);
         }
+
         if ('' !== $extension) {
             $file_name .= '.' . $extension;
         }

@@ -6,7 +6,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 
     protected $limit_event;
 
-    public static function init_page()
+    public static function init_page(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu']);
         add_action('ry-toolkit/admin_action', [__CLASS__, 'admin_action']);
@@ -48,24 +48,24 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         set_screen_options();
 
         $screen = get_current_screen();
-        if($screen) {
+        if ($screen) {
             $screen->add_help_tab([
                 'id' => 'screen-content',
-                'title' => __('Screen Content', 'ry-toolkit'),
+                'title' => esc_html__('Screen Content', 'ry-toolkit'),
                 'content' =>
-                    '<p>' . __('You can customize the display of this screen&#8217;s contents in a number of ways:', 'ry-toolkit') . '</p>' .
+                    '<p>' . esc_html__('You can customize the display of this screen&#8217;s contents in a number of ways:', 'ry-toolkit') . '</p>' .
                     '<ul>' .
-                        '<li>' . __('You can decide how many events to list per screen using the Screen Options tab.', 'ry-toolkit') . '</li>' .
+                        '<li>' . esc_html__('You can decide how many events to list per screen using the Screen Options tab.', 'ry-toolkit') . '</li>' .
                     '</ul>',
             ]);
             $screen->add_help_tab([
                 'id' => 'action-links',
-                'title' => __('Available Actions', 'ry-toolkit'),
+                'title' => esc_html__('Available Actions', 'ry-toolkit'),
                 'content' =>
-                    '<p>' . __('Hovering over a row in the events list will display action links that allow you to manage event. You can perform the following actions:', 'ry-toolkit') . '</p>' .
+                    '<p>' . esc_html__('Hovering over a row in the events list will display action links that allow you to manage event. You can perform the following actions:', 'ry-toolkit') . '</p>' .
                     '<ul>' .
-                        '<li>' . __('<strong>Execute now</strong> execute event, the next execution time of schedule event will be calculated based on the current time.', 'ry-toolkit') . '</li>' .
-                        '<li>' . __('<strong>Delete</strong> unschedule event, some event will be automatically create after you unscheduled.', 'ry-toolkit') . '</li>' .
+                        '<li><strong>' . esc_html__('Execute now') . '</strong> ' . esc_html__('execute event, the next execution time of schedule event will be calculated based on the current time.', 'ry-toolkit') . '</li>' .
+                        '<li><strong>' . esc_html__('Delete') . '</strong> ' . esc_html__('unschedule event, some event will be automatically create after you unscheduled.', 'ry-toolkit') . '</li>' .
                     '</ul>',
             ]);
         }
@@ -76,7 +76,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         $list_table = new RY_Toolkit_Cron_Event_List_Table();
         $list_table->prepare_items();
 
-        echo '<div class="wrap"><h1>' . esc_html(__('Cron', 'ry-toolkit')) . '</h1>';
+        echo '<div class="wrap"><h1>' . esc_html__('Cron', 'ry-toolkit') . '</h1>';
 
         include RY_TOOLKIT_PLUGIN_DIR . 'admin/page/html/cron-event.php';
 
@@ -99,7 +99,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         $sig = wp_unslash($_GET['sig'] ?? '');
 
         $wp_events = _get_cron_array();
-        if(isset($wp_events[$time][$hook][$sig])) {
+        if (isset($wp_events[$time][$hook][$sig])) {
             $this->limit_event = time() - 1;
             while(!isset($wp_events[$this->limit_event])) {
                 $this->limit_event -= 1;
@@ -111,9 +111,9 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
                 ]
             ];
             unset($wp_events[$time][$hook][$sig]);
-            if(empty($wp_events[$time][$hook])) {
+            if (empty($wp_events[$time][$hook])) {
                 unset($wp_events[$time][$hook]);
-                if(empty($wp_events[$time])) {
+                if (empty($wp_events[$time])) {
                     unset($wp_events[$time]);
                 }
             }
@@ -150,8 +150,8 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 
 
         $wp_events = _get_cron_array();
-        if(isset($wp_events[$time][$hook][$sig])) {
-            if(wp_unschedule_event($time, $hook, $wp_events[$time][$hook][$sig]['args'])) {
+        if (isset($wp_events[$time][$hook][$sig])) {
+            if (wp_unschedule_event($time, $hook, $wp_events[$time][$hook][$sig]['args'])) {
                 RY_Toolkit()->admin->add_notice('success', sprintf(
                     /* translators: Event hook name. */
                     __('Cron event "%s" has been deleted.', 'ry-toolkit'),

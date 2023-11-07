@@ -4,7 +4,7 @@ class RY_Toolkit_Xmlrpc
 {
     protected static $_instance = null;
 
-    public static function instance()
+    public static function instance(): RY_Toolkit_Xmlrpc
     {
         if (null === self::$_instance) {
             self::$_instance = new self();
