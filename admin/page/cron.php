@@ -99,11 +99,10 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         $sig = wp_unslash($_GET['sig'] ?? '');
 
         $wp_events = _get_cron_array();
+
         if (isset($wp_events[$time][$hook][$sig])) {
-            $this->limit_event = time() - 1;
-            while(!isset($wp_events[$this->limit_event])) {
-                $this->limit_event -= 1;
-            }
+            ksort($wp_events);
+            $this->limit_event = array_key_first($wp_events) - MINUTE_IN_SECONDS * 5;
 
             $wp_events[$this->limit_event] = [
                 $hook => [
@@ -118,14 +117,35 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
                 }
             }
             ksort($wp_events);
-            _set_cron_array($wp_events);
+            $set_cron = _set_cron_array($wp_events);
+            if (true === $set_cron) {
+                delete_transient('doing_cron');
 
-            add_filter('cron_request', function (array $cron_request_array) {
-                $cron_request_array['url'] = add_query_arg('ry-toolkit-limit-event', $this->limit_event, $cron_request_array['url']);
-                return $cron_request_array;
-            });
-            delete_transient('doing_cron');
-            spawn_cron();
+                add_filter('cron_request', function ($cron_request_array) {
+                    $cron_request_array['url'] = add_query_arg('ry-toolkit-limit-event', $this->limit_event, $cron_request_array['url']);
+                    $cron_request_array['args']['timeout'] = 15;
+                    $cron_request_array['args']['blocking'] = true;
+
+                    return $cron_request_array;
+                });
+
+                $result = spawn_cron();
+                if($result) {
+                    RY_Toolkit()->admin->add_notice('success', sprintf(
+                        /* translators: Event hook name. */
+                        __('Executed event "%s".', 'ry-toolkit'),
+                        $hook
+                    ));
+                } else {
+                    RY_Toolkit()->admin->add_notice('error', __('Failed to start cron job.', 'ry-toolkit'));
+                }
+            } else {
+                RY_Toolkit()->admin->add_notice('error', sprintf(
+                    /* translators: Event hook name. */
+                    __('Failed to schedule the cron event "%s".', 'ry-toolkit'),
+                    $hook
+                ));
+            }
         } else {
             RY_Toolkit()->admin->add_notice('error', sprintf(
                 /* translators: Event hook name. */

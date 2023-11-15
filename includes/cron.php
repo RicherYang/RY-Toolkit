@@ -29,6 +29,8 @@ class RY_Toolkit_Cron
                 $crons = [];
                 if (isset($wp_events[$limit_time])) {
                     $crons[$limit_time] = $wp_events[$limit_time];
+                } else {
+                    RY_Toolkit()->admin->add_notice('error', __('Cron event not found.', 'ry-toolkit'));
                 }
             }
         }

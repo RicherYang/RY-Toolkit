@@ -2,10 +2,10 @@
 Contributors: fantasyworld
 Donate link: https://www.paypal.me/RicherYang
 Tags: tool
-Requires at least: 5.8
+Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.2
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -44,7 +44,7 @@ Useful tools for more control over you website. Include cron, media, sitemap, OP
 = Minimum Requirements =
 
 * PHP 7.4+
-* WordPress 5.8+
+* WordPress 6.0+
 
 == Frequently Asked Questions ==
 
@@ -62,6 +62,9 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.2.7 - 2023/11/15 =
+* Add more action info for execute cron.
 
 = 1.2.6 - 2023/11/07 =
 * Fixed same security issuu with echo string without escaped. 
