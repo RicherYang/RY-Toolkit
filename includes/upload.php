@@ -38,7 +38,7 @@ class RY_Toolkit_Upload
         return $size_names;
     }
 
-    public function change_big_image_size($threshold): int
+    public function change_big_image_size(int $threshold): int
     {
         return (int) RY_Toolkit::get_option('big_image_size', $threshold);
     }
@@ -55,7 +55,7 @@ class RY_Toolkit_Upload
         return $new_sizes;
     }
 
-    public function sanitize_file_name($file_name)
+    public function sanitize_file_name(string $file_name): string
     {
         $parts = explode('.', $file_name);
         if (1 === count($parts)) {

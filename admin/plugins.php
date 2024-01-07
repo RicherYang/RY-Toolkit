@@ -16,7 +16,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
 
     public function show_page(): void {}
 
-    public function add_actions($actions, $plugin_file, $plugin_data)
+    public function add_actions(array $actions, string $plugin_file, array $plugin_data): array
     {
         if ($this->check_user_can()) {
             $plugin_slug = isset($plugin_data['slug']) ? $plugin_data['slug'] : sanitize_title($plugin_data['Name']);
@@ -97,7 +97,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
         return current_user_can('activate_plugins') && current_user_can('install_plugins') && current_user_can('delete_plugins');
     }
 
-    private function add_dir_to_zip(&$zip, $dir, $cat_length): void
+    private function add_dir_to_zip(ZipArchive &$zip, string $dir, int $cat_length): void
     {
         $file_list = list_files($dir, 1);
         foreach($file_list as $file) {

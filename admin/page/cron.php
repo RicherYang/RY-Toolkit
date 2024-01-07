@@ -24,12 +24,12 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         return $menu_list;
     }
 
-    public static function set_page_load($hook_suffix)
+    public static function set_page_load($hook_suffix): void
     {
         add_action('load-' . $hook_suffix, [__CLASS__, 'process_admin_ui']);
     }
 
-    public static function process_admin_ui()
+    public static function process_admin_ui(): void
     {
         self::instance();
     }

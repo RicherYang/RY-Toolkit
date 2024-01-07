@@ -212,7 +212,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         ];
     }
 
-    protected function column_hook($event)
+    protected function column_hook($event): void
     {
         echo esc_html($event->hook);
 
@@ -221,7 +221,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         }
     }
 
-    protected function column_args($event)
+    protected function column_args($event): void
     {
         if (!empty($event->args)) {
             $html = [];
@@ -232,7 +232,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         }
     }
 
-    protected function column_actions($event)
+    protected function column_actions($event): void
     {
         if (!empty($event->actions)) {
             $html = [];
@@ -243,7 +243,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         }
     }
 
-    protected function column_next($event)
+    protected function column_next($event): void
     {
         printf(
             '<time datetime="%1$s">%2$s</time>',
@@ -258,7 +258,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         }
     }
 
-    protected function column_recurrence($event)
+    protected function column_recurrence($event): void
     {
         if (isset($this->schedules[$event->schedule])) {
             echo esc_html($this->schedules[$event->schedule]['display'] ?? $event->schedule);
@@ -305,7 +305,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         return $this->row_actions($actions) . parent::handle_row_actions($event, $column_name, $primary);
     }
 
-    private function filter_view_type($event)
+    private function filter_view_type($event): bool
     {
         $keep = true;
         if ('noaction' === $this->view_type) {
@@ -379,7 +379,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         return '';
     }
 
-    protected function get_second_text($seconds, $period_limit = 6): string
+    protected function get_second_text(int $seconds, int $period_limit = 6): string
     {
         static $second_text = [];
 

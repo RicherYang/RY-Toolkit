@@ -1,10 +1,10 @@
 <?php
 
-class RY_Toolkit_Plugin_WpRocket
+class RY_Toolkit_Plugin_Wp_Rocket
 {
     protected static $_instance = null;
 
-    public static function instance(): RY_Toolkit_Plugin_WpRocket
+    public static function instance(): RY_Toolkit_Plugin_Wp_Rocket
     {
         if (null === self::$_instance) {
             self::$_instance = new self();

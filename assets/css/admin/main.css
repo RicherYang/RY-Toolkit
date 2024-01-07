@@ -47,6 +47,12 @@
     }
 }
 
+@media screen and (min-width: 1400px) {
+    .health-check-body {
+        max-width: 1000px;
+    }
+}
+
 @media screen and (min-width: 1600px) {
     .ry-row-opcache .ry-col {
         flex: 0 0 auto;

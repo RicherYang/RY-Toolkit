@@ -34,6 +34,9 @@ class RY_Toolkit_Admin
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/plugins.php';
         $this->instance['plugins'] = RY_Toolkit_Admin_Plugins::instance();
 
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/site-health.php';
+        $this->instance['plugins'] = RY_Toolkit_Admin_Site_Health::instance();
+
         add_action('load-options.php', [$this, 'add_options']);
         add_action('load-options-media.php', [$this, 'add_options']);
 
@@ -94,7 +97,7 @@ class RY_Toolkit_Admin
         remove_action('admin_print_styles', 'print_emoji_styles');
     }
 
-    public function admin_enqueue_scripts()
+    public function admin_enqueue_scripts(): void
     {
         wp_enqueue_style('ry-toolkit-admin');
     }

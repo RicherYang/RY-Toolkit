@@ -69,7 +69,7 @@ class RY_Toolkit
 
         if ($is_apache && defined('WP_ROCKET_VERSION')) {
             include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/plugin-wp-rocket.php';
-            $this->instance['plugin_wprocket'] = RY_Toolkit_Plugin_WpRocket::instance();
+            $this->instance['plugin_wp_rocket'] = RY_Toolkit_Plugin_Wp_Rocket::instance();
         }
     }
 

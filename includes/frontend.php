@@ -95,12 +95,12 @@ class RY_Toolkit_Frontend
         }
     }
 
-    public function hide_version($meta): string
+    public function hide_version(string $meta): string
     {
         return str_replace(get_bloginfo('version'), '', $meta);
     }
 
-    public function hide_version_rss($meta): string
+    public function hide_version_rss(string $meta): string
     {
         return str_replace(get_bloginfo_rss('version'), '', $meta);
     }

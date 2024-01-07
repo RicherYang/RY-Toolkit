@@ -24,7 +24,7 @@ class RY_Toolkit_Sitemaps
         add_action('wp_sitemaps_init', [$this, 'init_change']);
     }
 
-    public function limit_the_provider($provider, $name)
+    public function limit_the_provider($provider, string $name)
     {
         $sitemap_disable_providers = RY_Toolkit::get_option('sitemap_disable_provider', []);
         if (is_array($sitemap_disable_providers) && isset($sitemap_disable_providers[$name])) {
@@ -44,7 +44,7 @@ class RY_Toolkit_Sitemaps
         add_filter('wp_sitemaps_posts_entry', [$this, 'add_last_mod'], 10, 2);
     }
 
-    public function change_max_urls($max_urls)
+    public function change_max_urls(int $max_urls): int
     {
         $urls = (int) RY_Toolkit::get_option('sitemap_urls_pre_file', $max_urls);
         if (0 < $urls) {

@@ -4,8 +4,8 @@ Donate link: https://www.paypal.me/RicherYang
 Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
-Tested up to: 6.2
-Stable tag: 1.2.7
+Tested up to: 6.4
+Stable tag: 1.2.8
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -62,6 +62,9 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.2.8 - 2023/12/30 =
+* Add show database tables size at "Site Health Info" page .
 
 = 1.2.7 - 2023/11/15 =
 * Add more action info for execute cron.
