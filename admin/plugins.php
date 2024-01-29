@@ -16,7 +16,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
 
     public function show_page(): void {}
 
-    public function add_actions(array $actions, string $plugin_file, array $plugin_data): array
+    public function add_actions(array $actions, string $plugin_file, ?array $plugin_data): array
     {
         if ($this->check_user_can()) {
             $plugin_slug = isset($plugin_data['slug']) ? $plugin_data['slug'] : sanitize_title($plugin_data['Name']);

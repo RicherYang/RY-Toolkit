@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.4
-Stable tag: 1.2.8
+Stable tag: 1.2.8.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
