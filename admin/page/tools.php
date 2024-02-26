@@ -2,9 +2,9 @@
 
 final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 {
-    private $transient_key = ['_transient_', '_site_transient_'];
-
     protected static $page_type = 'tools';
+
+    public const TRANSIENT_KEYS = ['_transient_', '_site_transient_'];
 
     public static function init_page(): void
     {
@@ -30,7 +30,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
         global $wpdb;
 
         $transients = 0;
-        foreach ($this->transient_key as $transient_key) {
+        foreach (self::TRANSIENT_KEYS as $transient_key) {
             $transients += (int) $wpdb->get_var($wpdb->prepare(
                 "SELECT COUNT(option_id) FROM {$wpdb->options} WHERE option_name LIKE %s",
                 $wpdb->esc_like($transient_key) . '%'
@@ -122,7 +122,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
     {
         global $wpdb;
 
-        foreach ($this->transient_key as $transient_key) {
+        foreach (self::TRANSIENT_KEYS as $transient_key) {
             $transients = $wpdb->get_col($wpdb->prepare(
                 "SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE %s",
                 $wpdb->esc_like($transient_key) . '%'

@@ -2,9 +2,9 @@
 
 class RY_Toolkit
 {
-    public static $option_prefix = 'RY_Toolkit_';
+    public const OPTION_PREFIX = 'RY_Toolkit_';
 
-    protected static $_instance;
+    protected static $_instance = null;
 
     private $instance = [];
 
@@ -75,7 +75,7 @@ class RY_Toolkit
 
     public static function get_option_name(string $option): string
     {
-        return self::$option_prefix . $option;
+        return self::OPTION_PREFIX . $option;
     }
 
     public static function get_option(string $option, $default = false): mixed
@@ -91,6 +91,11 @@ class RY_Toolkit
     public static function update_option(string $option, $value, $autoload = null): bool
     {
         return update_option(self::get_option_name($option), $value, $autoload);
+    }
+
+    public static function delete_option($option): bool
+    {
+        return delete_option(self::get_option_name($option));
     }
 
     public static function plugin_activation(): void {}

@@ -226,7 +226,11 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         if (!empty($event->args)) {
             $html = [];
             foreach ($event->args as $key => $value) {
-                $html[] .= sprintf('<code>%s => %s</code>', esc_html(var_export($key, true)), esc_html(var_export($value, true)));
+                $html[] .= sprintf(
+                    '<code>%s => %s</code>',
+                    esc_html(var_export($key, true)),
+                    esc_html(var_export($value, true))
+                );
             }
             echo implode('<br>', $html);
         }
@@ -237,7 +241,11 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         if (!empty($event->actions)) {
             $html = [];
             foreach($event->actions as $action) {
-                $html[] = sprintf('<code>%s => %s</code>', esc_html($action->priority), esc_html($this->get_callback_name($action->callback)));
+                $html[] = sprintf(
+                    '<code>%s => %s</code>',
+                    esc_html($action->priority),
+                    esc_html($this->get_callback_name($action->callback))
+                );
             }
             echo implode('<br>', $html);
         }
@@ -253,8 +261,11 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
         $diff = $event->time - time();
         if (0 < $diff) {
-            /* translators: %s: interval text  */
-            echo '<br>' . esc_html(sprintf(__('after %s', 'ry-toolkit'), $this->get_second_text($diff, 2)));
+            echo '<br>' . esc_html(sprintf(
+                /* translators: %s: interval text  */
+                __('after %s', 'ry-toolkit'),
+                $this->get_second_text($diff, 2)
+            ));
         }
     }
 
@@ -267,8 +278,11 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         }
 
         if (0 < $event->interval) {
-            /* translators: %s: interval text  */
-            echo '<br>' . esc_html(sprintf(__('every %s', 'ry-toolkit'), $this->get_second_text($event->interval)));
+            echo '<br>' . esc_html(sprintf(
+                /* translators: %s: interval text  */
+                __('every %s', 'ry-toolkit'),
+                $this->get_second_text($event->interval)
+            ));
         }
     }
 
@@ -289,16 +303,22 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $actions['execute'] = sprintf(
             '<a href="%s" aria-label="%s">%s</a>',
             esc_url(RY_Toolkit()->admin->the_action_link('cron', 'execute-cron', $url_args)),
-            /* translators: %s: Event hook name. */
-            esc_attr(sprintf(__('Execute %s', 'ry-toolkit'), $event->hook)),
+            esc_attr(sprintf(
+                /* translators: %s: Event hook name. */
+                __('Execute %s', 'ry-toolkit'),
+                $event->hook
+            )),
             __('Execute now', 'ry-toolkit')
         );
 
         $actions['delete'] = sprintf(
             '<a href="%s" class="delete" aria-label="%s">%s</a>',
             esc_url(RY_Toolkit()->admin->the_action_link('cron', 'delete-cron', $url_args)),
-            /* translators: %s: Event hook name. */
-            esc_attr(sprintf(__('Delete %s', 'ry-toolkit'), $event->hook)),
+            esc_attr(sprintf(
+                /* translators: %s: Event hook name. */
+                __('Delete %s', 'ry-toolkit'),
+                $event->hook
+            )),
             __('Delete', 'ry-toolkit')
         );
 
@@ -425,7 +445,10 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             foreach($time_periods as $time_period) {
                 $time_show = floor($time_remaining / $time_period['seconds']);
                 if (0 < $time_show) {
-                    $second_text[$seconds][$period_limit][] = sprintf(translate_nooped_plural($time_period['names'], $time_show, 'ry-toolkit'), $time_show);
+                    $second_text[$seconds][$period_limit][] = sprintf(
+                        translate_nooped_plural($time_period['names'], $time_show, 'ry-toolkit'),
+                        $time_show
+                    );
                     $time_remaining -= $time_show * $time_period['seconds'];
 
                     if ($period_limit <= count($second_text[$seconds][$period_limit])) {

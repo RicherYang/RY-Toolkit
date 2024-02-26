@@ -21,8 +21,11 @@
                     <p class="description">
                         <?php esc_html_e('Transient option are safe to remove. They will be automatically regenerated when require it.', 'ry-toolkit'); ?>
                         <br />
-                        <?php echo esc_html(sprintf( /* translators: %: Number of transient option. */
-                            _n('%s transient in your database.', '%s transients in your database.', $transients, 'ry-toolkit'), number_format_i18n($transients))); ?>
+                        <?php echo esc_html(sprintf(
+                            /* translators: %: Number of transient option. */
+                            _n('%s transient in your database.', '%s transients in your database.', $transients, 'ry-toolkit'),
+                            number_format_i18n($transients)
+                        )); ?>
                     </p>
                 </div>
             </div>

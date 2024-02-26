@@ -20,10 +20,12 @@ $taxonomies = array_filter($taxonomies, 'is_taxonomy_viewable');
                 <?php foreach ($htaccess_name as $key => $name) { ?>
                 <label for="<?php echo esc_attr(RY_Toolkit::get_option_name('wp_rocket_htaccess')); ?>-<?php echo esc_attr($key); ?>">
                     <input name="<?php echo esc_attr(RY_Toolkit::get_option_name('wp_rocket_htaccess')); ?>[<?php echo esc_attr($key); ?>]" type="checkbox" id="<?php echo esc_attr(RY_Toolkit::get_option_name('wp_rocket_htaccess')); ?>-<?php echo esc_attr($key); ?>" value="1" <?php checked('1', RY_Toolkit::get_option('wp_rocket_htaccess')[$key] ?? 0); ?> />
-                    <?php
-                    /* translators: %1$s: rule key %1$s: rule description */
-                    echo esc_html(sprintf(__('Disable rules "%1$s" (%2$s)', 'ry-toolkit'), esc_attr($key), $name));
-                    ?>
+                    <?php echo esc_html(sprintf(
+                        /* translators: %1$s: rule key %1$s: rule description */
+                        __('Disable rules "%1$s" (%2$s)', 'ry-toolkit'),
+                        esc_attr($key),
+                        $name
+                    )); ?>
                 </label><br />
                 <?php } ?>
             </fieldset>

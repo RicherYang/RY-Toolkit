@@ -35,7 +35,7 @@ class RY_Toolkit_Admin
         $this->instance['plugins'] = RY_Toolkit_Admin_Plugins::instance();
 
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/site-health.php';
-        $this->instance['plugins'] = RY_Toolkit_Admin_Site_Health::instance();
+        $this->instance['site-health'] = RY_Toolkit_Admin_Site_Health::instance();
 
         add_action('load-options.php', [$this, 'add_options']);
         add_action('load-options-media.php', [$this, 'add_options']);

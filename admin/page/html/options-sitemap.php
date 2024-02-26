@@ -29,10 +29,11 @@ $taxonomies = array_filter($taxonomies, 'is_taxonomy_viewable');
                 <?php foreach ($providers as $provider_name => $type_object) { ?>
                 <label for="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_disable_provider')); ?>-<?php echo esc_attr($provider_name); ?>">
                     <input name="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_disable_provider')); ?>[<?php echo esc_attr($provider_name); ?>]" type="checkbox" id="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_disable_provider')); ?>-<?php echo esc_attr($provider_name); ?>" value="1" <?php checked('1', RY_Toolkit::get_option('sitemap_disable_provider')[$provider_name] ?? 0); ?> />
-                    <?php
-                    /* translators: %s: sitemap entry name. */
-                    echo esc_html(sprintf(__('Disable generation "%s" entry sitemap', 'ry-toolkit'), $sitemap_provider_name[$provider_name] ?? $provider_name));
-                    ?>
+                    <?php echo esc_html(sprintf(
+                        /* translators: %s: sitemap entry name. */
+                        __('Disable generation "%s" entry sitemap', 'ry-toolkit'),
+                        $sitemap_provider_name[$provider_name] ?? $provider_name
+                    )); ?>
                 </label><br />
                 <?php } ?>
             </fieldset>
@@ -60,10 +61,11 @@ $taxonomies = array_filter($taxonomies, 'is_taxonomy_viewable');
                 <?php foreach ($post_types as $post_type => $type_object) { ?>
                 <label for="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_disable_post_type')); ?>-<?php echo esc_attr($post_type); ?>">
                     <input name="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_disable_post_type')); ?>[<?php echo esc_attr($post_type); ?>]" type="checkbox" id="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_disable_post_type')); ?>-<?php echo esc_attr($post_type); ?>" value="1" <?php checked('1', RY_Toolkit::get_option('sitemap_disable_post_type')[$post_type] ?? 0); ?> />
-                    <?php
-                    /* translators: %s: sitemap entry name. */
-                    echo esc_html(sprintf(__('Disable generation "%s" post type sitemap', 'ry-toolkit'), $type_object->labels->name));
-                    ?>
+                    <?php echo esc_html(sprintf(
+                        /* translators: %s: sitemap entry name. */
+                        __('Disable generation "%s" post type sitemap', 'ry-toolkit'),
+                        $type_object->labels->name
+                    )); ?>
                 </label><br />
                 <?php } ?>
             </fieldset>
@@ -79,10 +81,11 @@ $taxonomies = array_filter($taxonomies, 'is_taxonomy_viewable');
                 <?php foreach ($taxonomies as $taxonomy => $type_object) { ?>
                 <label for="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_disable_taxonomy')); ?>-<?php echo esc_attr($taxonomy); ?>">
                     <input name="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_disable_taxonomy')); ?>[<?php echo esc_attr($taxonomy); ?>]" type="checkbox" id="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_disable_taxonomy')); ?>-<?php echo esc_attr($taxonomy); ?>" value="1" <?php checked('1', RY_Toolkit::get_option('sitemap_disable_taxonomy')[$taxonomy] ?? 0); ?> />
-                    <?php
-                    /* translators: %s: sitemap entry name. */
-                    echo esc_html(sprintf(__('Disable generation "%s" taxonomy sitemap', 'ry-toolkit'), $type_object->labels->name));
-                    ?>
+                    <?php echo esc_html(sprintf(
+                        /* translators: %s: sitemap entry name. */
+                        __('Disable generation "%s" taxonomy sitemap', 'ry-toolkit'),
+                        $type_object->labels->name
+                    )); ?>
                 </label><br />
                 <?php } ?>
             </fieldset>

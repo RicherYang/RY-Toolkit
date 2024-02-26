@@ -27,8 +27,11 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
                     'plugin_file' => urlencode($plugin_file)
                 ])),
                 esc_attr($plugin_slug),
-                /* translators: %s: Plugin name. */
-                esc_attr(sprintf(__('Download %s', 'ry-toolkit'), $plugin_data['Name'])),
+                esc_attr(sprintf(
+                    /* translators: %s: Plugin name. */
+                    __('Download %s', 'ry-toolkit'),
+                    $plugin_data['Name']
+                )),
                 esc_html__('Download', 'ry-toolkit')
             );
         }
