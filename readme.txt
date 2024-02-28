@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.4
-Stable tag: 1.2.9
+Stable tag: 1.2.10
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -62,6 +62,9 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.2.10 - 2024/02/28 =
+* Fixed same security issuu with echo string without escaped. 
 
 = 1.2.9 - 2024/02/24 =
 * Fixed same security issuu with echo string without escaped. 

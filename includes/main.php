@@ -83,11 +83,6 @@ class RY_Toolkit
         return get_option(self::get_option_name($option), $default);
     }
 
-    public static function add_option(string $option, $value = '', $deprecated = '', $autoload = 'yes'): bool
-    {
-        return add_option(self::get_option_name($option), $value, $deprecated, $autoload);
-    }
-
     public static function update_option(string $option, $value, $autoload = null): bool
     {
         return update_option(self::get_option_name($option), $value, $autoload);
