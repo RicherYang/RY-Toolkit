@@ -65,7 +65,7 @@ class RY_Toolkit_Upload
             $file_name = implode('.', $parts);
         }
 
-        if ($file_name !== preg_replace('/[^a-z0-9_\-]/i', '', $file_name)) {
+        if ($file_name !== preg_replace('/[^a-z0-9_\-\.]/i', '', $file_name)) {
             $file_name = substr(md5($file_name), 0, 12);
         }
 

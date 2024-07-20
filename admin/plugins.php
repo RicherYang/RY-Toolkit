@@ -24,15 +24,15 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
             $actions['ry_download'] = sprintf(
                 '<a href="%s" id="download-%s" class="edit" aria-label="%s" target="_blank">%s</a>',
                 esc_url(RY_Toolkit()->admin->the_action_link('ry-plugins', 'plugin-download', [
-                    'plugin_file' => urlencode($plugin_file)
+                    'plugin_file' => urlencode($plugin_file),
                 ])),
                 esc_attr($plugin_slug),
                 esc_attr(sprintf(
                     /* translators: %s: Plugin name. */
                     __('Download %s', 'ry-toolkit'),
-                    $plugin_data['Name']
+                    $plugin_data['Name'],
                 )),
-                esc_html__('Download', 'ry-toolkit')
+                esc_html__('Download', 'ry-toolkit'),
             );
         }
 
@@ -81,7 +81,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
                 header('Content-Disposition: attachment; filename="' . sanitize_key($plugin_name) . '.zip"');
                 header('Content-Length: ' . filesize($tmp_zip_file));
                 readfile($tmp_zip_file);
-                unlink($tmp_zip_file);
+                wp_delete_file($tmp_zip_file);
                 exit();
             } else {
                 wp_die(esc_html__('Unable to generate zip file.', 'ry-toolkit'));

@@ -4,8 +4,8 @@ Donate link: https://www.paypal.me/RicherYang
 Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
-Tested up to: 6.4
-Stable tag: 1.2.10
+Tested up to: 6.6
+Stable tag: 1.2.11
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -63,11 +63,14 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 == Changelog ==
 
+= 1.2.11 - 2024/07/20 =
+* Upload filename friendly characters add "." .
+
 = 1.2.10 - 2024/02/28 =
-* Fixed same security issuu with echo string without escaped. 
+* Fixed same security issuu with echo string without escaped.
 
 = 1.2.9 - 2024/02/24 =
-* Fixed same security issuu with echo string without escaped. 
+* Fixed same security issuu with echo string without escaped.
 
 = 1.2.8 - 2023/12/30 =
 * Add show database tables size at "Site Health Info" page .
@@ -76,7 +79,7 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 * Add more action info for execute cron.
 
 = 1.2.6 - 2023/11/07 =
-* Fixed same security issuu with echo string without escaped. 
+* Fixed same security issuu with echo string without escaped.
 
 = 1.2.5 - 2023/07/01 =
 * Add plugin "WP Rocket" .htaccess rules option.
