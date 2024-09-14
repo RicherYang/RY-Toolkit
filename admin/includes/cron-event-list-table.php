@@ -5,8 +5,11 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
     protected $all_events;
 
     protected $search;
+
     protected $orderby;
+
     protected $order;
+
     protected $view_type;
 
     protected $schedules;
@@ -39,7 +42,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         parent::__construct([
             'singular' => 'ry_toolkit_cron_event',
             'plural' => 'ry_toolkit_cron_events',
-            'ajax' => false
+            'ajax' => false,
         ]);
 
         $this->search = $_GET['s'] ?? '';
@@ -120,12 +123,12 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $links = [];
         $basic_url = admin_url('admin.php');
         $url_args = [
-            'page' => 'ry-toolkit-cron'
+            'page' => 'ry-toolkit-cron',
         ];
         $current_view_type = $this->view_type;
 
         $count = count($this->all_events);
-        $links['all'] = array(
+        $links['all'] = [
             'url' => esc_url(add_query_arg($url_args, $basic_url)),
             'label' => sprintf(
                 /* translators: %s: number of events. */
@@ -133,13 +136,13 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                 number_format_i18n($count)
             ),
             'current' => 'all' === $current_view_type,
-        );
+        ];
 
         $this->view_type = 'noaction';
         $count = count(array_filter($this->all_events, [$this, 'filter_view_type']));
         if (0 < $count) {
             $url_args['viewtype'] = $this->view_type;
-            $links[$this->view_type] = array(
+            $links[$this->view_type] = [
                 'url' => esc_url(add_query_arg($url_args, $basic_url)),
                 'label' => sprintf(
                     /* translators: %s: number of events. */
@@ -147,15 +150,15 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                     number_format_i18n($count)
                 ),
                 'current' => $this->view_type === $current_view_type,
-            );
+            ];
         }
 
-        foreach($this->schedules as $schedule => $schedule_info) {
+        foreach ($this->schedules as $schedule => $schedule_info) {
             $this->view_type = 'schedule_' . $schedule;
             $count = count(array_filter($this->all_events, [$this, 'filter_view_type']));
             if (0 < $count) {
                 $url_args['viewtype'] = $this->view_type;
-                $links[$this->view_type] = array(
+                $links[$this->view_type] = [
                     'url' => esc_url(add_query_arg($url_args, $basic_url)),
                     'label' => sprintf(
                         /* translators: %1$s: schedule name %2$s: number of events. */
@@ -164,7 +167,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                         number_format_i18n($count)
                     ),
                     'current' => $this->view_type === $current_view_type,
-                );
+                ];
             }
         }
 
@@ -200,7 +203,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                 __('Next execution (%s)', 'ry-toolkit'),
                 'UTC' . $utc_info
             ),
-            'recurrence' => __('Recurrence', 'ry-toolkit')
+            'recurrence' => __('Recurrence', 'ry-toolkit'),
         ];
     }
 
@@ -208,7 +211,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
     {
         return [
             'hook' => ['hook', 'asc'],
-            'next' => ['next', 'asc']
+            'next' => ['next', 'asc'],
         ];
     }
 
@@ -240,7 +243,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
     {
         if (!empty($event->actions)) {
             $html = [];
-            foreach($event->actions as $action) {
+            foreach ($event->actions as $action) {
                 $html[] = sprintf(
                     '<code>%s => %s</code>',
                     esc_html($action->priority),
@@ -262,7 +265,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $diff = $event->time - time();
         if (0 < $diff) {
             echo '<br>' . esc_html(sprintf(
-                /* translators: %s: interval text  */
+                /* translators: %s: interval text */
                 __('after %s', 'ry-toolkit'),
                 $this->get_second_text($diff, 2)
             ));
@@ -279,7 +282,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
         if (0 < $event->interval) {
             echo '<br>' . esc_html(sprintf(
-                /* translators: %s: interval text  */
+                /* translators: %s: interval text */
                 __('every %s', 'ry-toolkit'),
                 $this->get_second_text($event->interval)
             ));
@@ -297,7 +300,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $url_args = [
             'time' => urlencode($event->time),
             'hook' => urlencode($event->hook),
-            'sig' => urlencode($event->sig)
+            'sig' => urlencode($event->sig),
         ];
 
         $actions['execute'] = sprintf(
@@ -442,7 +445,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
             $second_text[$seconds][$period_limit] = [];
             $time_remaining = $seconds;
-            foreach($time_periods as $time_period) {
+            foreach ($time_periods as $time_period) {
                 $time_show = floor($time_remaining / $time_period['seconds']);
                 if (0 < $time_show) {
                     $second_text[$seconds][$period_limit][] = sprintf(

@@ -3,6 +3,7 @@
 abstract class RY_Toolkit_Admin_Page
 {
     protected static $page_type;
+
     protected static $_instance = [];
 
     abstract public function show_page(): void;

@@ -1,0 +1,20 @@
+{
+    "name": "ry-toolkit",
+    "title": "RY Toolkit",
+    "version": "1.3.0",
+    "author": "Richer Yang",
+    "private": true,
+    "devDependencies": {
+        "react": "^18.0",
+        "@wordpress/i18n": "^4.58",
+        "@wordpress/scripts": "^27.9"
+    },
+    "scripts": {
+        "start": "wp-scripts start",
+        "build": "npm run build:assets && npm run i18n:pot",
+        "build:all": "npm run build:assets && npm run build:i18n",
+        "build:assets": "wp-scripts build",
+        "build:i18n": "npm run i18n:pot",
+        "i18n:pot": "wp i18n make-pot \"\" \"languages/ry-toolkit.pot\" --slug=\"ry-toolkit\" --domain=\"ry-toolkit\" --exclude=\"node_modules,assets-src\""
+    }
+}

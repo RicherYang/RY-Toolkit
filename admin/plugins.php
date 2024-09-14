@@ -19,7 +19,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
     public function add_actions(array $actions, string $plugin_file, ?array $plugin_data): array
     {
         if ($this->check_user_can()) {
-            $plugin_slug = isset($plugin_data['slug']) ? $plugin_data['slug'] : sanitize_title($plugin_data['Name']);
+            $plugin_slug = $plugin_data['slug'] ?? sanitize_title($plugin_data['Name']);
 
             $actions['ry_download'] = sprintf(
                 '<a href="%s" id="download-%s" class="edit" aria-label="%s" target="_blank">%s</a>',
@@ -103,7 +103,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
     private function add_dir_to_zip(ZipArchive &$zip, string $dir, int $cat_length): void
     {
         $file_list = list_files($dir, 1);
-        foreach($file_list as $file) {
+        foreach ($file_list as $file) {
             if (is_file($file)) {
                 $zip->addFile($file, substr($file, $cat_length));
             } else {

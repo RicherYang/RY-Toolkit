@@ -18,7 +18,7 @@ class RY_Toolkit_Plugin_Wp_Rocket
     {
         $wp_rocket_htaccess = RY_Toolkit::get_option('wp_rocket_htaccess', []);
         if (is_array($wp_rocket_htaccess)) {
-            foreach($wp_rocket_htaccess as $type => $is_disable) {
+            foreach ($wp_rocket_htaccess as $type => $is_disable) {
                 if ($is_disable) {
                     add_filter('rocket_htaccess_' . $type, '__return_empty_string');
                 }

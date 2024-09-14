@@ -2,9 +2,9 @@
 
 final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 {
-    protected static $page_type = 'tools';
-
     public const TRANSIENT_KEYS = ['_transient_', '_site_transient_'];
+
+    protected static $page_type = 'tools';
 
     public static function init_page(): void
     {
@@ -17,7 +17,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
         $menu_list[] = [
             'name' => __('Tools', 'ry-toolkit'),
             'slug' => 'ry-toolkit-tools',
-            'function' => [__CLASS__, 'pre_show_page']
+            'function' => [__CLASS__, 'pre_show_page'],
         ];
 
         return $menu_list;
@@ -70,7 +70,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
             if (1 < time() - $start) {
                 return RY_Toolkit()->admin->the_action_link('tools', 'analyze-tables', [
-                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? '')))
+                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))),
                 ]);
             }
         }
@@ -107,7 +107,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
             if (1 < time() - $start) {
                 return RY_Toolkit()->admin->the_action_link('tools', 'optimize-tables', [
-                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? '')))
+                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))),
                 ]);
             }
         }

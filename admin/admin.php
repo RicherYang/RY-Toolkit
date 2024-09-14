@@ -6,6 +6,13 @@ class RY_Toolkit_Admin
 
     private $instance = [];
 
+    public function __get(string $name)
+    {
+        if (isset($this->instance[$name])) {
+            return $this->instance[$name];
+        }
+    }
+
     public static function instance(): RY_Toolkit_Admin
     {
         if (null === self::$_instance) {
@@ -14,13 +21,6 @@ class RY_Toolkit_Admin
         }
 
         return self::$_instance;
-    }
-
-    public function __get(string $name)
-    {
-        if (isset($this->instance[$name])) {
-            return $this->instance[$name];
-        }
     }
 
     protected function do_init(): void
@@ -84,11 +84,11 @@ class RY_Toolkit_Admin
 
     public function register_style_script(): void
     {
-        $suffix = SCRIPT_DEBUG ? '' : '.min';
+        $asset_info = include RY_TOOLKIT_PLUGIN_DIR . 'assets/admin/main.asset.php';
+        wp_register_style('ry-toolkit-admin', RY_TOOLKIT_PLUGIN_URL . 'assets/admin/main.css', $asset_info['dependencies'], $asset_info['version']);
 
-        wp_register_style('ry-toolkit-admin', RY_TOOLKIT_PLUGIN_URL . 'assets/css/admin/main' . $suffix . '.css', [], RY_TOOLKIT_VERSION);
-
-        wp_register_script('ry-toolkit-options', RY_TOOLKIT_PLUGIN_URL . 'assets/js/admin/options' . $suffix . '.js', ['jquery'], RY_TOOLKIT_VERSION, true);
+        $asset_info = include RY_TOOLKIT_PLUGIN_DIR . 'assets/admin/options.asset.php';
+        wp_register_script('ry-toolkit-options', RY_TOOLKIT_PLUGIN_URL . 'assets/admin/options.js', $asset_info['dependencies'], $asset_info['version'], true);
     }
 
     public function init_frontend()
@@ -132,12 +132,12 @@ class RY_Toolkit_Admin
     public function the_action_form(string $page, string $action, string $submit_text, array $hidden_value = []): void
     {
         $post_url = add_query_arg([
-            'ry-toolkit-page' => $page
+            'ry-toolkit-page' => $page,
         ], admin_url('admin-post.php'));
 
         $hidden_value = array_merge($hidden_value, [
             'action' => 'ry-toolkit-action',
-            'ry-toolkit-action' => $action
+            'ry-toolkit-action' => $action,
         ]);
 
         include RY_TOOLKIT_PLUGIN_DIR . 'admin/html/action_form.php';
@@ -150,9 +150,29 @@ class RY_Toolkit_Admin
             'action' => 'ry-toolkit-action',
             'ry-toolkit-action' => $action,
             '_wpnonce' => wp_create_nonce('ry-toolkit-action'),
-            '_ry_toolkit_action_nonce' => wp_create_nonce($action)
+            '_ry_toolkit_action_nonce' => wp_create_nonce($action),
         ]);
 
         return add_query_arg($add_args, admin_url('admin-post.php'));
+    }
+
+    public static function the_bool_option_checkbox(string $option_name, string $label, string $sub_name = null): void
+    {
+        $id = esc_attr(RY_Toolkit::get_option_name($option_name));
+        $name = esc_attr(RY_Toolkit::get_option_name($option_name));
+        if (null === $sub_name) {
+            $value = RY_Toolkit::get_option($option_name);
+        } else {
+            $id .= '-' . esc_attr($sub_name);
+            $name .= '[' . esc_attr($sub_name) . ']';
+            $value = RY_Toolkit::get_option($option_name)[$sub_name] ?? 0;
+        }
+        printf(
+            '<label for="%1$s"><input type="checkbox" id="%1$s" name="%2$s" value="1" %3$s /> %4$s</label>',
+            $id,
+            $name,
+            checked('1', $value, false),
+            esc_html($label)
+        );
     }
 }

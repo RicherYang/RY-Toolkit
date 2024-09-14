@@ -1,14 +1,19 @@
-.ry-tooltable th,
-.ry-tooltable td {
-    padding: 1.2rem;
-}
-
-.ry-tooltable p.description {
-    margin-bottom: 0;
+.ry-tooltable {
+    th,
+    td {
+        padding: 1.2rem;
+    }
+    p.description {
+        margin-bottom: 0;
+    }
 }
 
 .ry-row > * {
     margin-bottom: 1rem;
+}
+
+.ry-toolkit-options td fieldset label {
+    display: block;
 }
 
 @media screen and (min-width: 782px) {
@@ -18,14 +23,14 @@
         box-sizing: border-box;
         margin-right: -1rem;
         margin-left: -1rem;
-    }
 
-    .ry-row > * {
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 100%;
-        padding-right: 1rem;
-        padding-left: 1rem;
+        > * {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
     }
 
     .ry-col {

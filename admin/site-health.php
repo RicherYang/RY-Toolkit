@@ -24,7 +24,7 @@ class RY_Toolkit_Admin_Site_Health
         global $wpdb;
 
         $table_info = [];
-        foreach($wpdb->get_results('SHOW TABLE STATUS') as $row) {
+        foreach ($wpdb->get_results('SHOW TABLE STATUS') as $row) {
             $table_info[$row->Name] = sprintf(
                 /* Translators: %1$s: Table size, %2$s: Index size, %3$s: Free size, %4$s Engine. */
                 esc_html__('Data: %1$s, Index: %2$s, Free: %3$s, Engine %4$s', 'ry-toolkit'),

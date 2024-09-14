@@ -17,7 +17,7 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
         $menu_list[] = [
             'name' => __('OPcache', 'ry-toolkit'),
             'slug' => 'ry-toolkit-opcache',
-            'function' => [__CLASS__, 'pre_show_page']
+            'function' => [__CLASS__, 'pre_show_page'],
         ];
 
         return $menu_list;
@@ -37,7 +37,7 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
                 'hit' => $opcache_status['opcache_statistics']['hits'] + $opcache_status['opcache_statistics']['misses'] + $opcache_status['opcache_statistics']['blacklist_misses'],
                 'restart' => $opcache_status['opcache_statistics']['oom_restarts'] + $opcache_status['opcache_statistics']['hash_restarts'] + $opcache_status['opcache_statistics']['manual_restarts'],
                 'memory' => $opcache_status['memory_usage']['used_memory'] + $opcache_status['memory_usage']['free_memory'] + $opcache_status['memory_usage']['wasted_memory'],
-                'buffer' => $opcache_status['interned_strings_usage']['buffer_size']
+                'buffer' => $opcache_status['interned_strings_usage']['buffer_size'],
             ];
 
             include RY_TOOLKIT_PLUGIN_DIR . 'admin/page/html/opcache.php';

@@ -1,40 +1,45 @@
-# Copyright (C) 2023 Richer Yang
+# Copyright (C) 2024 Richer Yang
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.2.5\n"
+"Project-Id-Version: RY Toolkit 1.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-07-01T18:19:27+08:00\n"
+"POT-Creation-Date: 2024-09-14T16:17:49+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.8.1\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: ry-toolkit\n"
 
 #. Plugin Name of the plugin
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
 msgid "RY Toolkit"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
 msgid "https://ry-plugin.com/ry-toolkit"
 msgstr ""
 
 #. Description of the plugin
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
 msgid "Useful tools for more control over you website"
 msgstr ""
 
 #. Author of the plugin
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
 msgid "Richer Yang"
 msgstr ""
 
 #. Author URI of the plugin
+#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
 msgid "https://richer.tw/"
 msgstr ""
 
-#: admin/admin.php:107
+#: admin/admin.php:110
 msgid "RY Tool"
 msgstr ""
 
@@ -74,116 +79,116 @@ msgid "Max Height"
 msgstr ""
 
 #. translators: %s: number of events.
-#: admin/includes/cron-event-list-table.php:132
+#: admin/includes/cron-event-list-table.php:135
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %s: number of events.
-#: admin/includes/cron-event-list-table.php:146
+#: admin/includes/cron-event-list-table.php:149
 msgid "NO action <span class=\"count\">(%s)</span>"
 msgid_plural "NO action <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %1$s: schedule name %2$s: number of events.
-#: admin/includes/cron-event-list-table.php:162
+#: admin/includes/cron-event-list-table.php:165
 msgid "%1$s <span class=\"count\">(%2$s)</span>"
 msgid_plural "%1$s <span class=\"count\">(%2$s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/includes/cron-event-list-table.php:195
+#: admin/includes/cron-event-list-table.php:198
 msgid "Hook"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:196
+#: admin/includes/cron-event-list-table.php:199
 msgid "Arguments"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:197
+#: admin/includes/cron-event-list-table.php:200
 msgid "Actions"
 msgstr ""
 
 #. translators: %s: UTC offset
-#: admin/includes/cron-event-list-table.php:200
+#: admin/includes/cron-event-list-table.php:203
 msgid "Next execution (%s)"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:203
+#: admin/includes/cron-event-list-table.php:206
 msgid "Recurrence"
 msgstr ""
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:257
+#: admin/includes/cron-event-list-table.php:269
 msgid "after %s"
 msgstr ""
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:271
+#: admin/includes/cron-event-list-table.php:286
 msgid "every %s"
 msgstr ""
 
 #. translators: %s: Event hook name.
-#: admin/includes/cron-event-list-table.php:293
+#: admin/includes/cron-event-list-table.php:311
 msgid "Execute %s"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:294
+#: admin/includes/cron-event-list-table.php:314
 msgid "Execute now"
 msgstr ""
 
 #. translators: %s: Event hook name.
-#: admin/includes/cron-event-list-table.php:301
+#: admin/includes/cron-event-list-table.php:322
 msgid "Delete %s"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:302
+#: admin/includes/cron-event-list-table.php:325
 msgid "Delete"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:372
+#: admin/includes/cron-event-list-table.php:395
 msgid "Anonymous function"
 msgstr ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:394
+#: admin/includes/cron-event-list-table.php:417
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:399
+#: admin/includes/cron-event-list-table.php:422
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:404
+#: admin/includes/cron-event-list-table.php:427
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:409
+#: admin/includes/cron-event-list-table.php:432
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:414
+#: admin/includes/cron-event-list-table.php:437
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:419
+#: admin/includes/cron-event-list-table.php:442
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] ""
@@ -193,24 +198,24 @@ msgstr[1] ""
 msgid "Friendly filename"
 msgstr ""
 
-#: admin/options.php:142
+#: admin/options.php:144
 msgid "Thumbnail"
 msgstr ""
 
-#: admin/options.php:143
+#: admin/options.php:145
 msgid "Medium"
 msgstr ""
 
-#: admin/options.php:144
+#: admin/options.php:146
 msgid "Large"
 msgstr ""
 
-#: admin/options.php:145
+#: admin/options.php:147
 msgid "Full Size"
 msgstr ""
 
 #: admin/page/cron.php:19
-#: admin/page/cron.php:79
+#: admin/page/cron.php:77
 msgid "Cron"
 msgstr ""
 
@@ -218,48 +223,62 @@ msgstr ""
 msgid "Screen Content"
 msgstr ""
 
-#: admin/page/cron.php:56
+#: admin/page/cron.php:55
 msgid "You can customize the display of this screen&#8217;s contents in a number of ways:"
 msgstr ""
 
-#: admin/page/cron.php:58
+#: admin/page/cron.php:57
 msgid "You can decide how many events to list per screen using the Screen Options tab."
 msgstr ""
 
-#: admin/page/cron.php:63
+#: admin/page/cron.php:62
 msgid "Available Actions"
 msgstr ""
 
-#: admin/page/cron.php:65
+#: admin/page/cron.php:63
 msgid "Hovering over a row in the events list will display action links that allow you to manage event. You can perform the following actions:"
 msgstr ""
 
-#: admin/page/cron.php:67
-msgid "<strong>Execute now</strong> execute event, the next execution time of schedule event will be calculated based on the current time."
+#: admin/page/cron.php:65
+msgid "execute event, the next execution time of schedule event will be calculated based on the current time."
 msgstr ""
 
-#: admin/page/cron.php:68
-msgid "<strong>Delete</strong> unschedule event, some event will be automatically create after you unscheduled."
+#: admin/page/cron.php:66
+msgid "unschedule event, some event will be automatically create after you unscheduled."
 msgstr ""
 
-#: admin/page/cron.php:94
-#: admin/page/cron.php:144
+#: admin/page/cron.php:92
+#: admin/page/cron.php:161
 msgid "You are not allowed to do that."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:132
-#: admin/page/cron.php:170
+#: admin/page/cron.php:134
+msgid "Executed event \"%s\"."
+msgstr ""
+
+#: admin/page/cron.php:138
+msgid "Failed to start cron job."
+msgstr ""
+
+#. translators: Event hook name.
+#: admin/page/cron.php:143
+msgid "Failed to schedule the cron event \"%s\"."
+msgstr ""
+
+#. translators: Event hook name.
+#: admin/page/cron.php:150
+#: admin/page/cron.php:186
 msgid "Cron event \"%s\" not found."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:157
+#: admin/page/cron.php:173
 msgid "Cron event \"%s\" has been deleted."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:163
+#: admin/page/cron.php:179
 msgid "Failed to the delete the cron event \"%s\"."
 msgstr ""
 
@@ -360,22 +379,22 @@ msgid "OPcache tool"
 msgstr ""
 
 #: admin/page/html/opcache.php:165
-#: admin/page/html/tools.php:33
+#: admin/page/html/tools.php:36
 msgid "PHP OPcache"
 msgstr ""
 
 #: admin/page/html/opcache.php:171
-#: admin/page/html/tools.php:39
+#: admin/page/html/tools.php:42
 msgid "Flush PHP OPcache"
 msgstr ""
 
 #: admin/page/html/opcache.php:175
-#: admin/page/html/tools.php:43
+#: admin/page/html/tools.php:46
 msgid "Set all cached files under the WordPress root directory to be invalid."
 msgstr ""
 
 #: admin/page/html/opcache.php:181
-#: admin/page/html/tools.php:49
+#: admin/page/html/tools.php:52
 msgid "Restart PHP OPcache"
 msgstr ""
 
@@ -384,30 +403,30 @@ msgstr ""
 msgid "XML-RPC"
 msgstr ""
 
-#: admin/page/html/options-core.php:9
+#: admin/page/html/options-core.php:7
 msgid "Disable XML-RPC"
 msgstr ""
 
+#: admin/page/html/options-core.php:12
 #: admin/page/html/options-core.php:15
-#: admin/page/html/options-core.php:18
 msgid "Comment"
 msgstr ""
 
-#: admin/page/html/options-core.php:21
+#: admin/page/html/options-core.php:16
 msgid "Disable comment"
 msgstr ""
 
-#: admin/page/html/options-core.php:23
-#: admin/page/html/options-core.php:36
+#: admin/page/html/options-core.php:17
+#: admin/page/html/options-core.php:27
 msgid "If you set disabled it will override the post settings."
 msgstr ""
 
-#: admin/page/html/options-core.php:28
-#: admin/page/html/options-core.php:31
+#: admin/page/html/options-core.php:22
+#: admin/page/html/options-core.php:25
 msgid "Trackback"
 msgstr ""
 
-#: admin/page/html/options-core.php:34
+#: admin/page/html/options-core.php:26
 msgid "Disable trackbacks and pingbacks"
 msgstr ""
 
@@ -416,154 +435,175 @@ msgstr ""
 msgid "WordPress version"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:9
+#: admin/page/html/options-frontend.php:7
 msgid "Hide WordPress version in generator info"
 msgstr ""
 
+#: admin/page/html/options-frontend.php:12
 #: admin/page/html/options-frontend.php:15
-#: admin/page/html/options-frontend.php:18
 msgid "Emoji"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:21
+#: admin/page/html/options-frontend.php:16
 msgid "Disable convert emoji to a static image come from WordPress"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:27
-#: admin/page/html/options-frontend.php:30
+#: admin/page/html/options-frontend.php:21
+#: admin/page/html/options-frontend.php:24
 msgid "Shortlink"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:33
+#: admin/page/html/options-frontend.php:25
 msgid "Disable show shortlink link"
+msgstr ""
+
+#: admin/page/html/options-frontend.php:30
+#: admin/page/html/options-frontend.php:33
+msgid "oEmbed"
+msgstr ""
+
+#: admin/page/html/options-frontend.php:34
+msgid "Disable show oEmbed link"
 msgstr ""
 
 #: admin/page/html/options-frontend.php:39
 #: admin/page/html/options-frontend.php:42
-msgid "oEmbed"
-msgstr ""
-
-#: admin/page/html/options-frontend.php:45
-msgid "Disable show oEmbed link"
-msgstr ""
-
-#: admin/page/html/options-frontend.php:51
-#: admin/page/html/options-frontend.php:54
 msgid "Feed"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:57
+#: admin/page/html/options-frontend.php:43
 msgid "Disable show \"ALL\" feed link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:61
+#: admin/page/html/options-frontend.php:44
 msgid "Disable show \"posts\" feed link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:65
+#: admin/page/html/options-frontend.php:45
 msgid "Disable show \"comments\" feed link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:69
+#: admin/page/html/options-frontend.php:46
 msgid "Disable show \"post comments\" feed link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:74
+#: admin/page/html/options-frontend.php:47
 msgid "Disable show \"post type archive\" feed link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:78
+#: admin/page/html/options-frontend.php:48
 msgid "Disable show \"category\" feed link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:82
+#: admin/page/html/options-frontend.php:49
 msgid "Disable show \"tag\" feed link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:86
+#: admin/page/html/options-frontend.php:50
 msgid "Disable show \"taxonomy\" feed link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:90
+#: admin/page/html/options-frontend.php:51
 msgid "Disable show \"author\" feed link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:96
-#: admin/page/html/options-frontend.php:99
+#: admin/page/html/options-frontend.php:56
+#: admin/page/html/options-frontend.php:59
 msgid "REST"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:102
+#: admin/page/html/options-frontend.php:60
 msgid "Disable show REST link"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:108
-#: admin/page/html/options-frontend.php:111
+#: admin/page/html/options-frontend.php:65
+#: admin/page/html/options-frontend.php:68
 msgid "Windows Live Writer"
 msgstr ""
 
-#: admin/page/html/options-frontend.php:114
+#: admin/page/html/options-frontend.php:69
 msgid "Disable show Windows Live Writer manifest file"
 msgstr ""
 
-#: admin/page/html/options-sitemap.php:14
-msgid "View XML sitemap index."
+#: admin/page/html/options-sitemap.php:13
+msgid "WooCommerce Shop"
 msgstr ""
 
-#: admin/page/html/options-sitemap.php:18
-msgid "Maximum number of URLs for a sitemap"
+#: admin/page/html/options-sitemap.php:14
+msgid "WooCommerce Cart"
+msgstr ""
+
+#: admin/page/html/options-sitemap.php:15
+msgid "WooCommerce Checkout"
+msgstr ""
+
+#: admin/page/html/options-sitemap.php:16
+msgid "WooCommerce My account"
+msgstr ""
+
+#: admin/page/html/options-sitemap.php:17
+msgid "WooCommerce Terms and conditions"
 msgstr ""
 
 #: admin/page/html/options-sitemap.php:21
-msgid "urls"
+msgid "View XML sitemap index."
 msgstr ""
 
 #: admin/page/html/options-sitemap.php:25
+msgid "Maximum number of URLs for a sitemap"
+msgstr ""
+
 #: admin/page/html/options-sitemap.php:28
+msgid "urls"
+msgstr ""
+
+#: admin/page/html/options-sitemap.php:32
+#: admin/page/html/options-sitemap.php:35
 msgid "Sitemap entry"
 msgstr ""
 
 #. translators: %s: sitemap entry name.
-#: admin/page/html/options-sitemap.php:34
+#: admin/page/html/options-sitemap.php:39
 msgid "Disable generation \"%s\" entry sitemap"
 msgstr ""
 
-#: admin/page/html/options-sitemap.php:42
-#: admin/page/html/options-sitemap.php:45
-msgid "Additional tags to sitemap"
-msgstr ""
-
-#: admin/page/html/options-sitemap.php:48
-msgid "Add last modification date for posts sitemap"
-msgstr ""
-
-#: admin/page/html/options-sitemap.php:56
-#: admin/page/html/options-sitemap.php:59
-msgid "Posts sitemap"
+#: admin/page/html/options-sitemap.php:49
+#: admin/page/html/options-sitemap.php:52
+msgid "\"Posts\" entry sitemap"
 msgstr ""
 
 #. translators: %s: sitemap entry name.
-#: admin/page/html/options-sitemap.php:65
+#: admin/page/html/options-sitemap.php:56
 msgid "Disable generation \"%s\" post type sitemap"
 msgstr ""
 
-#: admin/page/html/options-sitemap.php:75
-#: admin/page/html/options-sitemap.php:78
+#: admin/page/html/options-sitemap.php:65
+#: admin/page/html/options-sitemap.php:68
+msgid "\"Page\" post type sitemap"
+msgstr ""
+
+#. translators: %s: page name.
+#: admin/page/html/options-sitemap.php:72
+msgid "Skip \"%s\" page"
+msgstr ""
+
+#: admin/page/html/options-sitemap.php:85
+#: admin/page/html/options-sitemap.php:88
 msgid "Taxonomies sitemap"
 msgstr ""
 
 #. translators: %s: sitemap entry name.
-#: admin/page/html/options-sitemap.php:84
+#: admin/page/html/options-sitemap.php:92
 msgid "Disable generation \"%s\" taxonomy sitemap"
 msgstr ""
 
-#: admin/page/html/options-wp-rocket.php:16
-#: admin/page/html/options-wp-rocket.php:19
+#: admin/page/html/options-wp-rocket.php:3
+#: admin/page/html/options-wp-rocket.php:6
 msgid ".htaccess"
 msgstr ""
 
-#. translators: %1$s: rule key %1$s: rule description
-#: admin/page/html/options-wp-rocket.php:25
+#. translators: %1$s: rule key %2$s: rule description
+#: admin/page/html/options-wp-rocket.php:10
 msgid "Disable rules \"%1$s\" (%2$s)"
 msgstr ""
 
@@ -588,180 +628,193 @@ msgid "Transient option are safe to remove. They will be automatically regenerat
 msgstr ""
 
 #. translators: %: Number of transient option.
-#: admin/page/html/tools.php:25
+#: admin/page/html/tools.php:26
 msgid "%s transient in your database."
 msgid_plural "%s transients in your database."
 msgstr[0] ""
 msgstr[1] ""
 
 #: admin/page/opcache.php:18
-#: admin/page/opcache.php:32
+#: admin/page/opcache.php:30
 msgid "OPcache"
 msgstr ""
 
-#: admin/page/opcache.php:36
+#: admin/page/opcache.php:34
 msgid "OPcache disabled."
 msgstr ""
 
-#: admin/page/opcache.php:62
+#: admin/page/opcache.php:60
 msgid "OPcache flushed successfully."
 msgstr ""
 
-#: admin/page/opcache.php:65
+#: admin/page/opcache.php:63
 msgid "OPcache flush failed."
 msgstr ""
 
-#: admin/page/opcache.php:74
+#: admin/page/opcache.php:72
 msgid "OPcache restarted successfully."
 msgstr ""
 
-#: admin/page/opcache.php:76
+#: admin/page/opcache.php:74
 msgid "OPcache restart failed."
 msgstr ""
 
 #: admin/page/options.php:16
-#: admin/page/options.php:72
+#: admin/page/options.php:70
 msgid "Options"
 msgstr ""
 
-#: admin/page/options.php:34
+#: admin/page/options.php:32
 msgid "Website frontend"
 msgstr ""
 
-#: admin/page/options.php:35
+#: admin/page/options.php:33
 msgid "WordPress core function"
 msgstr ""
 
-#: admin/page/options.php:41
+#: admin/page/options.php:39
 msgid "WordPress sitemap"
 msgstr ""
 
-#: admin/page/options.php:43
+#: admin/page/options.php:41
 msgctxt "sitemap provider"
 msgid "posts"
 msgstr ""
 
-#: admin/page/options.php:44
+#: admin/page/options.php:42
 msgctxt "sitemap provider"
 msgid "taxonomies"
 msgstr ""
 
-#: admin/page/options.php:45
+#: admin/page/options.php:43
 msgctxt "sitemap provider"
 msgid "users"
 msgstr ""
 
-#: admin/page/options.php:51
+#: admin/page/options.php:49
 msgid "WP Rocket"
 msgstr ""
 
-#: admin/page/options.php:53
+#: admin/page/options.php:51
 msgctxt "wp rocket htaccess"
 msgid "Rewrite rules to serve the cache file"
 msgstr ""
 
-#: admin/page/options.php:54
+#: admin/page/options.php:52
 msgctxt "wp rocket htaccess"
 msgid "Detect mobile version"
 msgstr ""
 
-#: admin/page/options.php:55
+#: admin/page/options.php:53
 msgctxt "wp rocket htaccess"
 msgid "SSL requests"
 msgstr ""
 
-#: admin/page/options.php:56
+#: admin/page/options.php:54
 msgctxt "wp rocket htaccess"
 msgid "Use GZIP compression"
 msgstr ""
 
-#: admin/page/options.php:57
+#: admin/page/options.php:55
 msgctxt "wp rocket htaccess"
 msgid "Use expires headers"
 msgstr ""
 
-#: admin/page/options.php:58
+#: admin/page/options.php:56
 msgctxt "wp rocket htaccess"
 msgid "Default charset on static files"
 msgstr ""
 
-#: admin/page/options.php:59
+#: admin/page/options.php:57
 msgctxt "wp rocket htaccess"
 msgid "Cache control"
 msgstr ""
 
-#: admin/page/options.php:60
+#: admin/page/options.php:58
 msgctxt "wp rocket htaccess"
 msgid "Remove the ETag header"
 msgstr ""
 
-#: admin/page/options.php:61
+#: admin/page/options.php:59
 msgctxt "wp rocket htaccess"
 msgid "Cross-origin fonts sharing"
 msgstr ""
 
 #: admin/page/tools.php:18
-#: admin/page/tools.php:42
+#: admin/page/tools.php:40
 msgid "Tools"
 msgstr ""
 
-#: admin/page/tools.php:81
+#: admin/page/tools.php:79
 msgid "Database tables analyzed successfully."
 msgstr ""
 
-#: admin/page/tools.php:118
+#: admin/page/tools.php:116
 msgid "Database tables optimized successfully."
 msgstr ""
 
-#: admin/page/tools.php:142
+#: admin/page/tools.php:140
 msgid "Clear transient option successfully."
 msgstr ""
 
 #. translators: %s: Plugin name.
-#: admin/plugins.php:33
+#: admin/plugins.php:32
 msgid "Download %s"
 msgstr ""
 
-#: admin/plugins.php:34
+#: admin/plugins.php:35
 msgid "Download"
 msgstr ""
 
-#: admin/plugins.php:44
+#: admin/plugins.php:47
 msgid "Sorry, you are not allowed to download plugin."
 msgstr ""
 
-#: admin/plugins.php:49
+#: admin/plugins.php:52
 msgid "Invalid plugin path."
 msgstr ""
 
-#: admin/plugins.php:60
+#: admin/plugins.php:62
 msgid "Sorry, cannot find the plugin."
 msgstr ""
 
-#: admin/plugins.php:85
+#: admin/plugins.php:87
 msgid "Unable to generate zip file."
 msgstr ""
 
-#: admin/plugins.php:88
+#: admin/plugins.php:90
 msgid "Unable to open zip file for writing."
 msgstr ""
 
-#: includes/upload.php:31
+#. Translators: %1$s: Table size, %2$s: Index size, %3$s: Free size, %4$s Engine.
+#: admin/site-health.php:30
+msgid "Data: %1$s, Index: %2$s, Free: %3$s, Engine %4$s"
+msgstr ""
+
+#: admin/site-health.php:39
+msgid "Table size"
+msgstr ""
+
+#: includes/cron.php:33
+msgid "Cron event not found."
+msgstr ""
+
+#: includes/upload.php:30
 msgid "Medium large"
 msgstr ""
 
-#: includes/upload.php:32
+#: includes/upload.php:31
 msgid "Post thumbnail"
 msgstr ""
 
-#: includes/upload.php:34
+#: includes/upload.php:33
 msgid "WooCommerce thumbnail"
 msgstr ""
 
-#: includes/upload.php:35
+#: includes/upload.php:34
 msgid "WooCommerce image"
 msgstr ""
 
-#: includes/upload.php:36
+#: includes/upload.php:35
 msgid "WooCommerce gallery thumbnail"
 msgstr ""

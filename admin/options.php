@@ -36,8 +36,8 @@ class RY_Toolkit_Admin_Options
 
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_urls_pre_file'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_provider'), [$this, 'return_array_nicestring']);
-        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_add_tag'), [$this, 'return_array_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_post_type'), [$this, 'return_array_nicestring']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_skip_page'), [$this, 'return_array_nicestring']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_taxonomy'), [$this, 'return_array_nicestring']);
 
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('wp_rocket_htaccess'), [$this, 'return_array_absint']);
@@ -64,25 +64,25 @@ class RY_Toolkit_Admin_Options
             RY_Toolkit::get_option_name('disable_oembed'),
             RY_Toolkit::get_option_name('disable_feed_link'),
             RY_Toolkit::get_option_name('disable_rest_link'),
-            RY_Toolkit::get_option_name('disable_wlw')
+            RY_Toolkit::get_option_name('disable_wlw'),
         ];
 
         $allowed_options['ry-toolkit-options-core'] = [
             RY_Toolkit::get_option_name('disable_xmlrpc'),
             RY_Toolkit::get_option_name('disable_comment'),
-            RY_Toolkit::get_option_name('disable_ping')
+            RY_Toolkit::get_option_name('disable_ping'),
         ];
 
         $allowed_options['ry-toolkit-options-sitemap'] = [
             RY_Toolkit::get_option_name('sitemap_urls_pre_file'),
             RY_Toolkit::get_option_name('sitemap_disable_provider'),
-            RY_Toolkit::get_option_name('sitemap_add_tag'),
             RY_Toolkit::get_option_name('sitemap_disable_post_type'),
-            RY_Toolkit::get_option_name('sitemap_disable_taxonomy')
+            RY_Toolkit::get_option_name('sitemap_skip_page'),
+            RY_Toolkit::get_option_name('sitemap_disable_taxonomy'),
         ];
 
         $allowed_options['ry-toolkit-options-wp-rocket'] = [
-            RY_Toolkit::get_option_name('wp_rocket_htaccess')
+            RY_Toolkit::get_option_name('wp_rocket_htaccess'),
         ];
 
         return $allowed_options;
@@ -144,7 +144,7 @@ class RY_Toolkit_Admin_Options
             'thumbnail' => __('Thumbnail', 'ry-toolkit'),
             'medium' => __('Medium', 'ry-toolkit'),
             'large' => __('Large', 'ry-toolkit'),
-            'full' => __('Full Size', 'ry-toolkit')
+            'full' => __('Full Size', 'ry-toolkit'),
         ]);
 
         include RY_TOOLKIT_PLUGIN_DIR . 'admin/html/media/disable-subsize.php';

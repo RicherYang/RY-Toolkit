@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.6
-Stable tag: 1.2.11
+Stable tag: 1.3.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -62,6 +62,11 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.3.0 - 2024/09/14 =
+* Set sitemap options not autoload.
+* Add sitemap option support skip some WooCommerce page.
+* Add support remove data when uninstall plugin.
 
 = 1.2.11 - 2024/07/20 =
 * Upload filename friendly characters add "." .

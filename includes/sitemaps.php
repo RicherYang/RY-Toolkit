@@ -41,7 +41,7 @@ class RY_Toolkit_Sitemaps
         add_filter('wp_sitemaps_post_types', [$this, 'disable_post_type']);
         add_filter('wp_sitemaps_taxonomies', [$this, 'disable_taxonomy']);
 
-        add_filter('wp_sitemaps_posts_entry', [$this, 'add_last_mod'], 10, 2);
+        add_filter('wp_sitemaps_posts_query_args', [$this, 'exclude_post'], 10, 2);
     }
 
     public function change_max_urls(int $max_urls): int
@@ -74,10 +74,37 @@ class RY_Toolkit_Sitemaps
         return $taxonomies;
     }
 
-    public function add_last_mod($sitemap_entry, $post)
+    public function exclude_post($args, $post_type)
     {
-        $sitemap_entry['lastmod'] = get_the_modified_date(DateTimeInterface::W3C, $post);
+        if ('page' === $post_type) {
+            $sitemap_skip_page = RY_Toolkit::get_option('sitemap_skip_page', []);
+            if (class_exists('WooCommerce', false)) {
+                foreach ($sitemap_skip_page as $page => $skiped) {
+                    if (0 === strpos($page, 'wc_')) {
+                        $page_ID = wc_get_page_id(substr($page, 3));
+                        if (-1 !== $page_ID) {
+                            $args['post__not_in'][] = $page_ID;
+                        }
+                    }
+                }
+            }
+        }
 
-        return $sitemap_entry;
+        /*
+        if ($post_type == 'product') {
+            $visibility_terms = wc_get_product_visibility_term_ids();
+            $args['tax_query'][] = [
+                'taxonomy' => 'product_visibility',
+                'field' => 'term_taxonomy_id',
+                'terms' => [
+                    $visibility_terms['exclude-from-catalog'],
+                    $visibility_terms['exclude-from-search'],
+                ],
+                'operator' => 'NOT IN',
+            ];
+        }
+            */
+
+        return $args;
     }
 }

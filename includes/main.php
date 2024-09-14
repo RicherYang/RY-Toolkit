@@ -8,6 +8,13 @@ class RY_Toolkit
 
     private $instance = [];
 
+    public function __get(string $name)
+    {
+        if (isset($this->instance[$name])) {
+            return $this->instance[$name];
+        }
+    }
+
     public static function instance(): RY_Toolkit
     {
         if (null === self::$_instance) {
@@ -16,13 +23,6 @@ class RY_Toolkit
         }
 
         return self::$_instance;
-    }
-
-    public function __get(string $name)
-    {
-        if (isset($this->instance[$name])) {
-            return $this->instance[$name];
-        }
     }
 
     protected function do_init(): void
@@ -93,9 +93,40 @@ class RY_Toolkit
         return delete_option(self::get_option_name($option));
     }
 
-    public static function plugin_activation(): void {}
+    public static function plugin_activation(): void
+    {
+        $defauts = [
+            'big_image_size' => 2560,
+            'disable_subsize' => [],
+            'friendly_filename' => 0,
+
+            'hide_wp_version' => 0,
+            'disable_emoji' => 0,
+            'disable_shortlink' => 0,
+            'disable_oembed' => 0,
+            'disable_feed_link' => [],
+            'disable_rest_link' => 0,
+            'disable_wlw' => 0,
+
+            'disable_xmlrpc' => 1,
+            'disable_comment' => 0,
+            'disable_ping' => 0,
+        ];
+        foreach ($defauts as $name => $value) {
+            self::update_option($name, self::get_option($name, $value), true);
+        }
+
+        $defauts = [
+            'sitemap_urls_pre_file' => 2000,
+            'sitemap_disable_provider' => [],
+            'sitemap_disable_post_type' => [],
+            'sitemap_skip_page' => [],
+            'sitemap_disable_taxonomy' => [],
+        ];
+        foreach ($defauts as $name => $value) {
+            self::update_option($name, self::get_option($name, $value), false);
+        }
+    }
 
     public static function plugin_deactivation(): void {}
-
-    public static function plugin_uninstall(): void {}
 }

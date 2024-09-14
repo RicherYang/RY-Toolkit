@@ -22,7 +22,6 @@ class RY_Toolkit_Upload
 
         if (RY_Toolkit::get_option('friendly_filename')) {
             add_filter('sanitize_file_name', [$this, 'sanitize_file_name']);
-
         }
     }
 
@@ -50,9 +49,7 @@ class RY_Toolkit_Upload
             $disable_subsize = [];
         }
 
-        $new_sizes = array_diff_key($new_sizes, array_fill_keys($disable_subsize, true));
-
-        return $new_sizes;
+        return array_diff_key($new_sizes, array_fill_keys($disable_subsize, true));
     }
 
     public function sanitize_file_name(string $file_name): string
