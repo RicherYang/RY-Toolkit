@@ -16,10 +16,12 @@ $(function () {
                         }
                         break;
                     case 'comments':
-                        if ($option.prop('checked')) {
-                            $('#RY_Toolkit_disable_feed_link-postcomments').closest('label').hide();
-                        } else {
-                            $('#RY_Toolkit_disable_feed_link-postcomments').closest('label').show();
+                        if (!$('#ry-toolkit-options-frontend #RY_Toolkit_disable_feed_link-all').prop('checked')) {
+                            if ($option.prop('checked')) {
+                                $('#RY_Toolkit_disable_feed_link-postcomments').closest('label').hide();
+                            } else {
+                                $('#RY_Toolkit_disable_feed_link-postcomments').closest('label').show();
+                            }
                         }
                         break;
                 }

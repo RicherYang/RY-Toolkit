@@ -4,8 +4,8 @@ Donate link: https://www.paypal.me/RicherYang
 Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
-Tested up to: 6.6
-Stable tag: 1.3.0
+Tested up to: 6.7
+Stable tag: 1.3.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -62,6 +62,9 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.3.1 - 2024/11/24 =
+* Fixed admin options frontend feed setting display error.
 
 = 1.3.0 - 2024/09/14 =
 * Set sitemap options not autoload.
