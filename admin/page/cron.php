@@ -62,8 +62,8 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
                 'title' => esc_html__('Available Actions', 'ry-toolkit'),
                 'content' => '<p>' . esc_html__('Hovering over a row in the events list will display action links that allow you to manage event. You can perform the following actions:', 'ry-toolkit') . '</p>' .
                     '<ul>' .
-                        '<li><strong>' . esc_html__('Execute now') . '</strong> ' . esc_html__('execute event, the next execution time of schedule event will be calculated based on the current time.', 'ry-toolkit') . '</li>' .
-                        '<li><strong>' . esc_html__('Delete') . '</strong> ' . esc_html__('unschedule event, some event will be automatically create after you unscheduled.', 'ry-toolkit') . '</li>' .
+                        '<li><strong>' . esc_html__('Execute now', 'ry-toolkit') . '</strong> ' . esc_html__('execute event, the next execution time of schedule event will be calculated based on the current time.', 'ry-toolkit') . '</li>' .
+                        '<li><strong>' . esc_html__('Delete', 'ry-toolkit') . '</strong> ' . esc_html__('unschedule event, some event will be automatically create after you unscheduled.', 'ry-toolkit') . '</li>' .
                     '</ul>',
             ]);
         }

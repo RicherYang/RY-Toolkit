@@ -158,19 +158,19 @@ class RY_Toolkit_Admin
 
     public static function the_bool_option_checkbox(string $option_name, string $label, string $sub_name = null): void
     {
-        $id = esc_attr(RY_Toolkit::get_option_name($option_name));
-        $name = esc_attr(RY_Toolkit::get_option_name($option_name));
+        $id = RY_Toolkit::get_option_name($option_name);
+        $name = RY_Toolkit::get_option_name($option_name);
         if (null === $sub_name) {
             $value = RY_Toolkit::get_option($option_name);
         } else {
-            $id .= '-' . esc_attr($sub_name);
-            $name .= '[' . esc_attr($sub_name) . ']';
+            $id .= '-' . $sub_name;
+            $name .= '[' . $sub_name . ']';
             $value = RY_Toolkit::get_option($option_name)[$sub_name] ?? 0;
         }
         printf(
             '<label for="%1$s"><input type="checkbox" id="%1$s" name="%2$s" value="1" %3$s /> %4$s</label>',
-            $id,
-            $name,
+            esc_attr($id),
+            esc_attr($name),
             checked('1', $value, false),
             esc_html($label)
         );

@@ -90,21 +90,6 @@ class RY_Toolkit_Sitemaps
             }
         }
 
-        /*
-        if ($post_type == 'product') {
-            $visibility_terms = wc_get_product_visibility_term_ids();
-            $args['tax_query'][] = [
-                'taxonomy' => 'product_visibility',
-                'field' => 'term_taxonomy_id',
-                'terms' => [
-                    $visibility_terms['exclude-from-catalog'],
-                    $visibility_terms['exclude-from-search'],
-                ],
-                'operator' => 'NOT IN',
-            ];
-        }
-            */
-
         return $args;
     }
 }

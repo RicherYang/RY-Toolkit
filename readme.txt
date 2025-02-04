@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -62,6 +62,9 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.3.2 -2025/02/04 =
+* Fixed some string text domain error.
 
 = 1.3.1 - 2024/11/24 =
 * Fixed admin options frontend feed setting display error.
