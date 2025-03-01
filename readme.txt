@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 1.3.2
+Stable tag: 1.4.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -63,7 +63,10 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 == Changelog ==
 
-= 1.3.2 -2025/02/04 =
+= 1.4.0 - 2025/03/01 =
+* Add Post type views.
+
+= 1.3.2 - 2025/02/04 =
 * Fixed some string text domain error.
 
 = 1.3.1 - 2024/11/24 =

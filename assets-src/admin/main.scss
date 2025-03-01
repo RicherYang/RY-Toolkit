@@ -16,6 +16,32 @@
     display: block;
 }
 
+.ry-row-posttypeinfo {
+    th {
+        vertical-align: top;
+    }
+
+    td p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .info-table {
+        width: 100%;
+
+        th,
+        td {
+            color: #1d2327;
+            padding: 8px 10px;
+        }
+
+        > tbody > tr > th {
+            text-align: left;
+            font-weight: 600;
+            padding-left: 0;
+        }
+    }
+}
+
 @media screen and (min-width: 782px) {
     .ry-row {
         display: flex;

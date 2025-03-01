@@ -20,6 +20,16 @@ abstract class RY_Toolkit_Admin_Page
         return static::$_instance[static::class];
     }
 
+    public static function set_page_load($hook_suffix): void
+    {
+        add_action('load-' . $hook_suffix, [static::class, 'process_admin_ui']);
+    }
+
+    public static function process_admin_ui(): void
+    {
+        static::instance();
+    }
+
     public static function pre_show_page(): void
     {
         static::instance()->show_page();
@@ -32,9 +42,9 @@ abstract class RY_Toolkit_Admin_Page
         }
 
         if (static::$page_type === wp_unslash($_GET['ry-toolkit-page'] ?? '')) {
-            $action = wp_unslash($_REQUEST['ry-toolkit-action'] ?? '');
-            if ((string) $action === sanitize_key($action)) {
-                if (wp_verify_nonce(wp_unslash($_REQUEST['_ry_toolkit_action_nonce'] ?? ''), $action)) {
+            $action = (string) wp_unslash($_REQUEST['ry-toolkit-action'] ?? '');
+            if ($action === sanitize_key($action)) {
+                if (wp_verify_nonce(wp_unslash($_REQUEST['_ry_toolkit_action_nonce'] ?? ''), 'ry-toolkit-' . $action)) {
                     $action_method = str_replace('-', '_', $action);
                     $callback = [static::instance(), $action_method];
                     if (is_callable($callback)) {

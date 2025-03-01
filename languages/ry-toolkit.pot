@@ -2,44 +2,44 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.3.1\n"
+"Project-Id-Version: RY Toolkit 1.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-02-04T11:14:34+08:00\n"
+"POT-Creation-Date: 2025-03-01T22:51:29+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: ry-toolkit\n"
 
 #. Plugin Name of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
+#: ry-toolkit.php
 msgid "RY Toolkit"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
+#: ry-toolkit.php
 msgid "https://ry-plugin.com/ry-toolkit"
 msgstr ""
 
 #. Description of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
+#: ry-toolkit.php
 msgid "Useful tools for more control over you website"
 msgstr ""
 
 #. Author of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
+#: ry-toolkit.php
 msgid "Richer Yang"
 msgstr ""
 
 #. Author URI of the plugin
-#: D:\WebServer\htdocs_80\ry-plugin.com\wp-content\plugins\ry-toolkit\ry-toolkit.php
+#: ry-toolkit.php
 msgid "https://richer.tw/"
 msgstr ""
 
-#: admin/admin.php:110
+#: admin/admin.php:111
 msgid "RY Tool"
 msgstr ""
 
@@ -121,80 +121,136 @@ msgid "Recurrence"
 msgstr ""
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:269
+#: admin/includes/cron-event-list-table.php:265
 msgid "after %s"
 msgstr ""
 
 #. translators: %s: interval text
-#: admin/includes/cron-event-list-table.php:286
+#: admin/includes/cron-event-list-table.php:282
 msgid "every %s"
 msgstr ""
 
 #. translators: %s: Event hook name.
-#: admin/includes/cron-event-list-table.php:311
+#: admin/includes/cron-event-list-table.php:307
 msgid "Execute %s"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:314
-#: admin/page/cron.php:65
+#: admin/includes/cron-event-list-table.php:310
+#: admin/page/cron.php:55
 msgid "Execute now"
 msgstr ""
 
 #. translators: %s: Event hook name.
-#: admin/includes/cron-event-list-table.php:322
+#: admin/includes/cron-event-list-table.php:318
 msgid "Delete %s"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:325
-#: admin/page/cron.php:66
+#: admin/includes/cron-event-list-table.php:321
+#: admin/page/cron.php:56
 msgid "Delete"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:395
+#: admin/includes/cron-event-list-table.php:386
 msgid "Anonymous function"
 msgstr ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:417
+#: admin/includes/cron-event-list-table.php:408
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:422
+#: admin/includes/cron-event-list-table.php:413
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:427
+#: admin/includes/cron-event-list-table.php:418
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:432
+#: admin/includes/cron-event-list-table.php:423
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:437
+#: admin/includes/cron-event-list-table.php:428
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:442
+#: admin/includes/cron-event-list-table.php:433
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] ""
 msgstr[1] ""
+
+#: admin/includes/post-type-list-table.php:61
+msgid "Name"
+msgstr ""
+
+#: admin/includes/post-type-list-table.php:62
+msgid "Label"
+msgstr ""
+
+#: admin/includes/post-type-list-table.php:63
+#: admin/page/html/post-type-info.php:103
+msgid "Description"
+msgstr ""
+
+#: admin/includes/post-type-list-table.php:64
+#: admin/page/html/post-type-info.php:160
+msgid "Public"
+msgstr ""
+
+#: admin/includes/post-type-list-table.php:65
+msgid "Show in REST"
+msgstr ""
+
+#: admin/includes/post-type-list-table.php:66
+msgid "Capability type"
+msgstr ""
+
+#: admin/includes/post-type-list-table.php:109
+#: admin/includes/post-type-list-table.php:114
+#: admin/page/html/post-type-info.php:111
+#: admin/page/html/post-type-info.php:117
+#: admin/page/html/post-type-info.php:131
+#: admin/page/html/post-type-info.php:137
+#: admin/page/html/post-type-info.php:161
+#: admin/page/html/post-type-info.php:165
+#: admin/page/html/post-type-info.php:169
+#: admin/page/html/post-type-info.php:174
+#: admin/page/html/post-type-info.php:182
+#: admin/page/html/post-type-info.php:186
+msgid "Yes"
+msgstr ""
+
+#: admin/includes/post-type-list-table.php:109
+#: admin/includes/post-type-list-table.php:114
+#: admin/page/html/post-type-info.php:111
+#: admin/page/html/post-type-info.php:117
+#: admin/page/html/post-type-info.php:131
+#: admin/page/html/post-type-info.php:137
+#: admin/page/html/post-type-info.php:161
+#: admin/page/html/post-type-info.php:165
+#: admin/page/html/post-type-info.php:169
+#: admin/page/html/post-type-info.php:174
+#: admin/page/html/post-type-info.php:182
+#: admin/page/html/post-type-info.php:186
+msgid "No"
+msgstr ""
 
 #: admin/options.php:49
 msgid "Friendly filename"
@@ -217,70 +273,70 @@ msgid "Full Size"
 msgstr ""
 
 #: admin/page/cron.php:19
-#: admin/page/cron.php:77
+#: admin/page/cron.php:67
 msgid "Cron"
 msgstr ""
 
-#: admin/page/cron.php:54
+#: admin/page/cron.php:44
 msgid "Screen Content"
 msgstr ""
 
-#: admin/page/cron.php:55
+#: admin/page/cron.php:45
 msgid "You can customize the display of this screen&#8217;s contents in a number of ways:"
 msgstr ""
 
-#: admin/page/cron.php:57
+#: admin/page/cron.php:47
 msgid "You can decide how many events to list per screen using the Screen Options tab."
 msgstr ""
 
-#: admin/page/cron.php:62
+#: admin/page/cron.php:52
 msgid "Available Actions"
 msgstr ""
 
-#: admin/page/cron.php:63
+#: admin/page/cron.php:53
 msgid "Hovering over a row in the events list will display action links that allow you to manage event. You can perform the following actions:"
 msgstr ""
 
-#: admin/page/cron.php:65
+#: admin/page/cron.php:55
 msgid "execute event, the next execution time of schedule event will be calculated based on the current time."
 msgstr ""
 
-#: admin/page/cron.php:66
+#: admin/page/cron.php:56
 msgid "unschedule event, some event will be automatically create after you unscheduled."
 msgstr ""
 
-#: admin/page/cron.php:92
-#: admin/page/cron.php:161
+#: admin/page/cron.php:82
+#: admin/page/cron.php:151
 msgid "You are not allowed to do that."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:134
+#: admin/page/cron.php:124
 msgid "Executed event \"%s\"."
 msgstr ""
 
-#: admin/page/cron.php:138
+#: admin/page/cron.php:128
 msgid "Failed to start cron job."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:143
+#: admin/page/cron.php:133
 msgid "Failed to schedule the cron event \"%s\"."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:150
-#: admin/page/cron.php:186
+#: admin/page/cron.php:140
+#: admin/page/cron.php:176
 msgid "Cron event \"%s\" not found."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:173
+#: admin/page/cron.php:163
 msgid "Cron event \"%s\" has been deleted."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:179
+#: admin/page/cron.php:169
 msgid "Failed to the delete the cron event \"%s\"."
 msgstr ""
 
@@ -609,6 +665,372 @@ msgstr ""
 msgid "Disable rules \"%1$s\" (%2$s)"
 msgstr ""
 
+#: admin/page/html/post-type-info.php:8
+msgctxt "cap key"
+msgid "Read"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:9
+msgctxt "cap key"
+msgid "Read private posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:10
+msgctxt "cap key"
+msgid "Edit post"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:11
+msgctxt "cap key"
+msgid "Read post"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:12
+msgctxt "cap key"
+msgid "Delete post"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:13
+msgctxt "cap key"
+msgid "Create posts "
+msgstr ""
+
+#: admin/page/html/post-type-info.php:14
+msgctxt "cap key"
+msgid "Publish posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:15
+msgctxt "cap key"
+msgid "Edit posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:16
+msgctxt "cap key"
+msgid "Edit others posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:17
+msgctxt "cap key"
+msgid "Edit private posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:18
+msgctxt "cap key"
+msgid "Edit published posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:19
+msgctxt "cap key"
+msgid "Delete posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:20
+msgctxt "cap key"
+msgid "Delete others posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:21
+msgctxt "cap key"
+msgid "Delete private posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:22
+msgctxt "cap key"
+msgid "Delete published posts"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:34
+msgctxt "support key"
+msgid "Title"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:35
+msgctxt "support key"
+msgid "Editor"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:36
+msgctxt "support key"
+msgid "Comments"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:37
+msgctxt "support key"
+msgid "Revisions"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:38
+msgctxt "support key"
+msgid "Trackbacks"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:39
+msgctxt "support key"
+msgid "Author"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:40
+msgctxt "support key"
+msgid "Excerpt"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:41
+msgctxt "support key"
+msgid "Page attributes"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:42
+msgctxt "support key"
+msgid "Thumbnail"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:43
+msgctxt "support key"
+msgid "Custom fields"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:44
+msgctxt "support key"
+msgid "Post formats"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:45
+msgctxt "support key"
+msgid "Autosave"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:57
+msgctxt "label key"
+msgid "Name"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:58
+msgctxt "label key"
+msgid "Singular name"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:59
+msgctxt "label key"
+msgid "Add new"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:60
+msgctxt "label key"
+msgid "Add new item"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:61
+msgctxt "label key"
+msgid "Edit item"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:62
+msgctxt "label key"
+msgid "New item"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:63
+msgctxt "label key"
+msgid "View item"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:64
+msgctxt "label key"
+msgid "View items"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:65
+msgctxt "label key"
+msgid "Search items"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:66
+msgctxt "label key"
+msgid "Not found"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:67
+msgctxt "label key"
+msgid "Not found in trash"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:68
+msgctxt "label key"
+msgid "Parent item colon"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:69
+msgctxt "label key"
+msgid "All items"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:70
+msgctxt "label key"
+msgid "Archives"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:71
+msgctxt "label key"
+msgid "Attributes"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:72
+msgctxt "label key"
+msgid "Insert into item"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:73
+msgctxt "label key"
+msgid "Uploaded to this item"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:74
+msgctxt "label key"
+msgid "Featured image"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:75
+msgctxt "label key"
+msgid "Set featured image"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:76
+msgctxt "label key"
+msgid "Remove featured image"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:77
+msgctxt "label key"
+msgid "Use featured image"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:78
+msgctxt "label key"
+msgid "Menu name"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:79
+msgctxt "label key"
+msgid "Filter items list"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:80
+msgctxt "label key"
+msgid "Filter by date"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:81
+msgctxt "label key"
+msgid "Items list navigation"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:82
+msgctxt "label key"
+msgid "Items list"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:83
+msgctxt "label key"
+msgid "Item published"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:84
+msgctxt "label key"
+msgid "Item published privately"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:85
+msgctxt "label key"
+msgid "Item reverted to draft"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:86
+msgctxt "label key"
+msgid "Item trashed"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:87
+msgctxt "label key"
+msgid "Item scheduled"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:88
+msgctxt "label key"
+msgid "Item updated"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:89
+msgctxt "label key"
+msgid "Item link"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:90
+msgctxt "label key"
+msgid "Item link description"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:91
+msgctxt "label key"
+msgid "Name admin bar"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:109
+msgid "Hierarchical"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:115
+msgid "Archive"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:121
+msgid "Supports"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:129
+msgid "Export"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:135
+msgid "Delete with user"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:141
+msgid "Capabilities"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:156
+msgid "Visibility"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:164
+msgid "Exclude from search"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:168
+msgid "Show in UI"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:172
+msgid "Show in menu"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:176
+msgid "Menu position: "
+msgstr ""
+
+#: admin/page/html/post-type-info.php:181
+msgid "Show in admin bar"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:185
+msgid "Show in navigation menus"
+msgstr ""
+
+#: admin/page/html/post-type-info.php:193
+msgid "Labels"
+msgstr ""
+
 #: admin/page/html/tools.php:4
 msgid "Database"
 msgstr ""
@@ -740,6 +1162,20 @@ msgstr ""
 #: admin/page/options.php:59
 msgctxt "wp rocket htaccess"
 msgid "Cross-origin fonts sharing"
+msgstr ""
+
+#: admin/page/post-type.php:19
+#: admin/page/post-type.php:69
+msgid "Post type"
+msgstr ""
+
+#: admin/page/post-type.php:34
+msgid "Th post type does not exist."
+msgstr ""
+
+#. translators: %s: post type name
+#: admin/page/post-type.php:58
+msgid "Post type \"%s\""
 msgstr ""
 
 #: admin/page/tools.php:18

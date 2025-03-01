@@ -45,10 +45,10 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             'ajax' => false,
         ]);
 
-        $this->search = $_GET['s'] ?? '';
-        $this->orderby = strtolower($_GET['orderby'] ?? '');
-        $this->order = ('desc' === strtolower($_GET['order'] ?? '')) ? 'desc' : 'asc';
-        $this->view_type = strtolower($_GET['viewtype'] ?? 'all');
+        $this->search = wp_unslash($_GET['s'] ?? '');
+        $this->orderby = strtolower(wp_unslash($_GET['orderby'] ?? ''));
+        $this->order = ('desc' === strtolower(wp_unslash($_GET['order'] ?? ''))) ? 'desc' : 'asc';
+        $this->view_type = strtolower(wp_unslash($_GET['viewtype'] ?? 'all'));
 
         $this->schedules = wp_get_schedules();
         uasort($this->schedules, [$this, 'sort_schedule']);
@@ -227,30 +227,26 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
     protected function column_args($event): void
     {
         if (!empty($event->args)) {
-            $html = [];
             foreach ($event->args as $key => $value) {
-                $html[] .= sprintf(
-                    '<code>%s => %s</code>',
+                printf(
+                    '<code>%s => %s</code><br>',
                     esc_html(var_export($key, true)),
                     esc_html(var_export($value, true))
                 );
             }
-            echo implode('<br>', $html);
         }
     }
 
     protected function column_actions($event): void
     {
         if (!empty($event->actions)) {
-            $html = [];
             foreach ($event->actions as $action) {
-                $html[] = sprintf(
-                    '<code>%s => %s</code>',
+                printf(
+                    '<code>%s => %s</code><br>',
                     esc_html($action->priority),
                     esc_html($this->get_callback_name($action->callback))
                 );
             }
-            echo implode('<br>', $html);
         }
     }
 
@@ -352,24 +348,19 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
     private function sort_event($a, $b): int
     {
-        switch ($this->orderby) {
-            case 'hook':
-                if ('asc' === $this->order) {
-                    $compare = strcasecmp($a->hook, $b->hook);
-                } else {
-                    $compare = strcasecmp($b->hook, $a->hook);
-                }
-                break;
-            default:
-                if ('asc' === $this->order) {
-                    $compare = $a->time <=> $b->time;
-                } else {
-                    $compare = $b->time <=> $a->time;
-                }
-                break;
+        if ($this->orderby === 'hook') {
+            if ('asc' === $this->order) {
+                return strcasecmp($a->hook, $b->hook);
+            } else {
+                return strcasecmp($b->hook, $a->hook);
+            }
         }
 
-        return $compare;
+        if ('asc' === $this->order) {
+            return $a->time <=> $b->time;
+        } else {
+            return $b->time <=> $a->time;
+        }
     }
 
     protected function get_callback_name($callback): string

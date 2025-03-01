@@ -83,12 +83,12 @@ class RY_Toolkit
         return get_option(self::get_option_name($option), $default);
     }
 
-    public static function update_option(string $option, $value, $autoload = null): bool
+    public static function update_option(string $option, $value, $autoload = null)
     {
         return update_option(self::get_option_name($option), $value, $autoload);
     }
 
-    public static function delete_option($option): bool
+    public static function delete_option($option)
     {
         return delete_option(self::get_option_name($option));
     }

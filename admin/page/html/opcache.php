@@ -32,21 +32,21 @@
                 <td><?php esc_html_e('Number of hits', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(number_format_i18n($opcache_status['opcache_statistics']['hits'])); ?>
-                    ( <?php echo round($opcache_status['opcache_statistics']['hits'] / ($opcache_total['hit'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['opcache_statistics']['hits'] / ($opcache_total['hit'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
             <tr>
                 <td><?php esc_html_e('Number of misses', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(number_format_i18n($opcache_status['opcache_statistics']['misses'])); ?>
-                    ( <?php echo round($opcache_status['opcache_statistics']['misses'] / ($opcache_total['hit'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['opcache_statistics']['misses'] / ($opcache_total['hit'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
             <tr>
                 <td><?php esc_html_e('blacklist hits', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(number_format_i18n($opcache_status['opcache_statistics']['blacklist_misses'])); ?>
-                    ( <?php echo round($opcache_status['opcache_statistics']['blacklist_misses'] / ($opcache_total['hit'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['opcache_statistics']['blacklist_misses'] / ($opcache_total['hit'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
         </table>
@@ -69,21 +69,21 @@
                 <td><?php esc_html_e('Used memory', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(size_format($opcache_status['memory_usage']['used_memory'], 2)); ?>
-                    ( <?php echo round($opcache_status['memory_usage']['used_memory'] / ($opcache_total['memory'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['memory_usage']['used_memory'] / ($opcache_total['memory'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
             <tr>
                 <td><?php esc_html_e('Free memory', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(size_format($opcache_status['memory_usage']['free_memory'], 2)); ?>
-                    ( <?php echo round($opcache_status['memory_usage']['free_memory'] / ($opcache_total['memory'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['memory_usage']['free_memory'] / ($opcache_total['memory'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
             <tr>
                 <td><?php esc_html_e('Wasted memory', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(size_format($opcache_status['memory_usage']['wasted_memory'], 2)); ?>
-                    ( <?php echo round($opcache_status['memory_usage']['wasted_memory'] / ($opcache_total['memory'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['memory_usage']['wasted_memory'] / ($opcache_total['memory'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
         </table>
@@ -106,14 +106,14 @@
                 <td><?php esc_html_e('Used buffer', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(size_format($opcache_status['interned_strings_usage']['used_memory'], 2)); ?>
-                    ( <?php echo round($opcache_status['interned_strings_usage']['used_memory'] / ($opcache_total['buffer'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['interned_strings_usage']['used_memory'] / ($opcache_total['buffer'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
             <tr>
                 <td><?php esc_html_e('Free buffer', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(size_format($opcache_status['interned_strings_usage']['free_memory'], 2)); ?>
-                    ( <?php echo round($opcache_status['interned_strings_usage']['free_memory'] / ($opcache_total['buffer'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['interned_strings_usage']['free_memory'] / ($opcache_total['buffer'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
             <tr>
@@ -136,21 +136,21 @@
                 <td><?php esc_html_e('Out of memory', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(number_format_i18n($opcache_status['opcache_statistics']['oom_restarts'])); ?>
-                    ( <?php echo round($opcache_status['opcache_statistics']['oom_restarts'] / ($opcache_total['restart'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['opcache_statistics']['oom_restarts'] / ($opcache_total['restart'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
             <tr>
                 <td><?php esc_html_e('Out of file', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(number_format_i18n($opcache_status['opcache_statistics']['hash_restarts'])); ?>
-                    ( <?php echo round($opcache_status['opcache_statistics']['hash_restarts'] / ($opcache_total['restart'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['opcache_statistics']['hash_restarts'] / ($opcache_total['restart'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
             <tr>
                 <td><?php esc_html_e('manual', 'ry-toolkit'); ?></td>
                 <td>
                     <?php echo esc_html(number_format_i18n($opcache_status['opcache_statistics']['manual_restarts'])); ?>
-                    ( <?php echo round($opcache_status['opcache_statistics']['manual_restarts'] / ($opcache_total['restart'] ?: 1) * 100, 2); ?>% )
+                    ( <?php echo esc_html(round($opcache_status['opcache_statistics']['manual_restarts'] / ($opcache_total['restart'] ?: 1) * 100, 2)); ?>% )
                 </td>
             </tr>
         </table>
