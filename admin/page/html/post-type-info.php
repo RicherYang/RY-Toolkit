@@ -10,7 +10,7 @@ function ry_toolkit_get_cap_key_name($key)
             'edit_post' => _x('Edit post', 'cap key', 'ry-toolkit'),
             'read_post' => _x('Read post', 'cap key', 'ry-toolkit'),
             'delete_post' => _x('Delete post', 'cap key', 'ry-toolkit'),
-            'create_posts' => _x('Create posts ', 'cap key', 'ry-toolkit'),
+            'create_posts' => _x('Create posts', 'cap key', 'ry-toolkit'),
             'publish_posts' => _x('Publish posts', 'cap key', 'ry-toolkit'),
             'edit_posts' => _x('Edit posts', 'cap key', 'ry-toolkit'),
             'edit_others_posts' => _x('Edit others posts', 'cap key', 'ry-toolkit'),
@@ -89,6 +89,7 @@ function ry_toolkit_get_label_key_name($key)
             'item_link' => _x('Item link', 'label key', 'ry-toolkit'),
             'item_link_description' => _x('Item link description', 'label key', 'ry-toolkit'),
             'name_admin_bar' => _x('Name admin bar', 'label key', 'ry-toolkit'),
+            'template_name' => _x('Template name', 'label key', 'ry-toolkit'),
         ];
     }
 
@@ -120,9 +121,21 @@ function ry_toolkit_get_label_key_name($key)
             <tr>
                 <th scope="row"><?php esc_html_e('Supports', 'ry-toolkit'); ?></th>
                 <td>
-                    <?php foreach ($post_type->supports as $key => $is_support) { ?>
-                    <?php echo esc_html(ry_toolkit_get_support_key_name($key)); ?>,
-                    <?php } ?>
+                    <?php $supports = [];
+foreach ($post_type->supports as $key => $is_support) {
+    $supports[] = ry_toolkit_get_support_key_name($key);
+}
+echo esc_html(implode(__(', ', 'ry-toolkit'), $supports)); ?>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('Taxonomies', 'ry-toolkit'); ?></th>
+                <td>
+                    <?php $taxonomies = [];
+foreach ($post_type->taxonomies as $taxonomy) {
+    $taxonomies[] = $taxonomy->label;
+}
+echo esc_html(implode(__(', ', 'ry-toolkit'), $taxonomies)); ?>
                 </td>
             </tr>
             <tr>
@@ -132,7 +145,7 @@ function ry_toolkit_get_label_key_name($key)
                 </td>
             </tr>
             <tr>
-                <th scope="row"><?php esc_html_e('Delete with user', 'ry-toolkit'); ?></th>
+                <th scope="row"><?php esc_html_e('Delete with user delete', 'ry-toolkit'); ?></th>
                 <td>
                     <?php $post_type->delete_with_user ? esc_html_e('Yes', 'ry-toolkit') : esc_html_e('No', 'ry-toolkit'); ?>
                 </td>
@@ -141,11 +154,27 @@ function ry_toolkit_get_label_key_name($key)
                 <th scope="row"><?php esc_html_e('Capabilities', 'ry-toolkit'); ?></th>
                 <td>
                     <table class="widefat striped">
+                        <thead>
+                            <tr>
+                                <th><?php esc_html_e('Use for', 'ry-toolkit'); ?></th>
+                                <th><?php esc_html_e('Capability', 'ry-toolkit'); ?></th>
+                                <th><?php esc_html_e('Within role', 'ry-toolkit'); ?></th>
+                            </tr>
+                        </thead>
                         <?php foreach ($post_type->cap as $key => $capability) { ?>
                         <tr>
                             <th><?php echo esc_html(ry_toolkit_get_cap_key_name($key)); ?></th>
                             <td>
                                 <?php echo esc_html($capability); ?>
+                            </td>
+                            <td>
+                                <?php $roles = [];
+                            foreach ($wp_roles->role_objects as $role) {
+                                if ($role->has_cap($key)) {
+                                    $roles[] = translate_user_role($wp_roles->role_names[$role->name]);
+                                }
+                            }
+                            echo esc_html(implode(__(', ', 'ry-toolkit'), $roles)); ?>
                             </td>
                         </tr>
                         <?php } ?>
@@ -153,9 +182,15 @@ function ry_toolkit_get_label_key_name($key)
                 </td>
             </tr>
             <tr>
-                <th scope="row"><?php esc_html_e('Visibility', 'ry-toolkit'); ?></th>
+                <th scope="row"><?php esc_html_e('Visibilities', 'ry-toolkit'); ?></th>
                 <td>
                     <table class="widefat striped">
+                        <thead>
+                            <tr>
+                                <th><?php esc_html_e('Visibility', 'ry-toolkit'); ?></th>
+                                <th><?php esc_html_e('State', 'ry-toolkit'); ?></th>
+                            </tr>
+                        </thead>
                         <tr>
                             <th scope="row"><?php esc_html_e('Public', 'ry-toolkit'); ?></th>
                             <td><?php $post_type->public ? esc_html_e('Yes', 'ry-toolkit') : esc_html_e('No', 'ry-toolkit'); ?></td>
@@ -190,8 +225,14 @@ function ry_toolkit_get_label_key_name($key)
         </table>
     </div>
     <div class="ry-col">
-        <h2><?php esc_html_e('Labels', 'ry-toolkit'); ?></h2>
+        <h2><?php esc_html_e('Names', 'ry-toolkit'); ?></h2>
         <table class="widefat striped">
+            <thead>
+                <tr>
+                    <th><?php esc_html_e('Use for', 'ry-toolkit'); ?></th>
+                    <th><?php esc_html_e('Name', 'ry-toolkit'); ?></th>
+                </tr>
+            </thead>
             <?php foreach ($post_type->labels as $key => $label) { ?>
             <tr>
                 <td><?php echo esc_html(ry_toolkit_get_label_key_name($key)); ?></td>

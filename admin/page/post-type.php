@@ -31,7 +31,7 @@ final class RY_Toolkit_Admin_Page_PostType extends RY_Toolkit_Admin_Page
             $post_type = wp_unslash($_GET['type']);
             $this->post_type = get_post_type_object($post_type);
             if (!$this->post_type) {
-                wp_die(esc_html__('Th post type does not exist.', 'ry-toolkit'));
+                wp_die(esc_html__('The post type does not exist.', 'ry-toolkit'));
             }
             return;
         }
@@ -51,8 +51,10 @@ final class RY_Toolkit_Admin_Page_PostType extends RY_Toolkit_Admin_Page
     public function show_page(): void
     {
         if (!empty($this->post_type)) {
+            $wp_roles = wp_roles();
             $post_type = $this->post_type;
             $post_type->supports = get_all_post_type_supports($post_type->name);
+            $post_type->taxonomies = get_object_taxonomies($post_type->name, 'objects');
 
             /* translators: %s: post type name */
             echo '<div class="wrap"><h1>' . esc_html(sprintf(__('Post type "%s"', 'ry-toolkit'), $post_type->name)) . '</h1>';

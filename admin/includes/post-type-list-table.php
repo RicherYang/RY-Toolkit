@@ -40,6 +40,9 @@ class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
     public function prepare_items()
     {
         $all_items = get_post_types([], 'objects');
+        foreach ($all_items as $idx => $item) {
+            $item->posts = array_sum((array) wp_count_posts($item->name));
+        }
         usort($all_items, [$this, 'sort_post_types']);
 
         $per_page = $this->get_items_per_page('ry_toolkit_post_type_per_page');
@@ -58,27 +61,28 @@ class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
     public function get_columns()
     {
         return [
+            'key' => __('Key', 'ry-toolkit'),
             'name' => __('Name', 'ry-toolkit'),
-            'label' => __('Label', 'ry-toolkit'),
             'description' => __('Description', 'ry-toolkit'),
             'public' => __('Public', 'ry-toolkit'),
-            'show_in_rest' => __('Show in REST', 'ry-toolkit'),
+            'show_in_rest' => __('Show in REST API', 'ry-toolkit'),
             'capability_type' => __('Capability type', 'ry-toolkit'),
+            'posts' => __('Count', 'ry-toolkit'),
         ];
     }
 
     protected function get_sortable_columns()
     {
         return [
-            'name' => ['name', 'asc'],
-            'label' => ['label', 'asc'],
+            'key' => ['name', 'asc'],
+            'name' => ['label', 'asc'],
             'public' => ['public', 'asc'],
             'show_in_rest' => ['show_in_rest', 'asc'],
             'capability_type' => ['capability_type', 'asc'],
         ];
     }
 
-    protected function column_name($post_type): void
+    protected function column_key($post_type): void
     {
         printf(
             '<a href="%s">%s</a>',
@@ -94,9 +98,17 @@ class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
         }
     }
 
-    protected function column_label($post_type): void
+    protected function column_name($post_type): void
     {
-        echo esc_html($post_type->label);
+        if ($post_type->show_in_menu) {
+            printf(
+                '<a href="%s">%s</a>',
+                esc_url(admin_url('edit.php?post_type=' . $post_type->name)),
+                esc_html($post_type->label)
+            );
+        } else {
+            echo esc_html($post_type->label);
+        }
     }
 
     protected function column_description($post_type): void
@@ -130,5 +142,10 @@ class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
         }
 
         return 0;
+    }
+
+    protected function column_posts($post_type): void
+    {
+        echo esc_html(number_format_i18n($post_type->posts));
     }
 }

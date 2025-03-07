@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.7
-Stable tag: 1.4.0
+Stable tag: 1.4.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -62,6 +62,13 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.4.2 - 2025/03/07 =
+* Add taxonomies for post type.
+* Add role for post type.
+
+= 1.4.1 - 2025/03/02 =
+* Fixed error text label.
 
 = 1.4.0 - 2025/03/01 =
 * Add Post type views.
