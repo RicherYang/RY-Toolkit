@@ -7,6 +7,6 @@
         );
     } ?>
     <?php wp_nonce_field('ry-toolkit-action'); ?>
-    <?php wp_nonce_field($action, '_ry_toolkit_action_nonce', false); ?>
+    <?php wp_nonce_field('ry-toolkit-' . $action, '_ry_toolkit_action_nonce', false); ?>
     <?php submit_button($submit_text, 'secondary', 'submit', false); ?>
 </form>
