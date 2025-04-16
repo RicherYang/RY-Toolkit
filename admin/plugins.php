@@ -53,12 +53,18 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
         }
 
         include_once ABSPATH . 'wp-admin/includes/file.php';
+        include_once ABSPATH . 'wp-admin/includes/plugin.php';
         WP_Filesystem();
 
         $plugins_dir = $wp_filesystem->wp_plugins_dir();
         $plugins_dir = trailingslashit($plugins_dir);
         $real_plugin_dir = trailingslashit(dirname($plugins_dir . $plugin_file));
         if (!file_exists($real_plugin_dir)) {
+            wp_die(esc_html__('Sorry, cannot find the plugin.', 'ry-toolkit'));
+        }
+
+        $plugin_data = get_plugin_data($plugins_dir . $plugin_file);
+        if (empty($plugin_data['Name'])) {
             wp_die(esc_html__('Sorry, cannot find the plugin.', 'ry-toolkit'));
         }
 
@@ -76,9 +82,13 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
             $zip->close();
 
             if (is_file($tmp_zip_file) && 0 < filesize($tmp_zip_file)) {
+                $file_name = $plugin_name . '.' . $plugin_data['Version'] . '.zip';
+                $file_name = strtolower($file_name);
+                $file_name = preg_replace('/[^a-z0-9_\-\.]/', '', $file_name);
+
                 header('Content-Description: File Transfer');
                 header('Content-Type: application/zip');
-                header('Content-Disposition: attachment; filename="' . sanitize_key($plugin_name) . '.zip"');
+                header('Content-Disposition: attachment; filename="' . $file_name . '"');
                 header('Content-Length: ' . filesize($tmp_zip_file));
                 readfile($tmp_zip_file);
                 wp_delete_file($tmp_zip_file);
