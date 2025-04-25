@@ -7,7 +7,6 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
     public static function init_page(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu'], 1);
-        add_action('ry-toolkit/admin_action', [__CLASS__, 'admin_action']);
     }
 
     public static function add_menu($menu_list)
@@ -60,7 +59,7 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
             ];
         }
 
-        $show_type = sanitize_key(wp_unslash($_GET['type'] ?? ''));
+        $show_type = sanitize_key(wp_unslash($_GET['type'] ?? '')); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
         if (empty($show_type)) {
             $show_type = 'frontend';
         }

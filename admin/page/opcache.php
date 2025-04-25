@@ -8,7 +8,7 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
     {
         if (function_exists('opcache_get_status')) {
             add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu']);
-            add_filter('ry-toolkit/admin_action', [__CLASS__, 'admin_action']);
+            add_filter('admin_post_ry-toolkit-action', [__CLASS__, 'admin_post_action']);
         }
     }
 
@@ -48,16 +48,22 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
 
     protected function flush_opcache(): string
     {
-        if (function_exists('opcache_invalidate') && (!ini_get('opcache.restrict_api') || 0 === stripos(realpath($_SERVER['SCRIPT_FILENAME']), ini_get('opcache.restrict_api')))) {
-            $opcache_status = opcache_get_status(true);
-            if (isset($opcache_status['scripts'])) {
-                $check_abspath = substr(ABSPATH, 0, -1);
-                foreach ($opcache_status['scripts'] as $script) {
-                    if (0 === strpos($script['full_path'], $check_abspath)) {
-                        opcache_invalidate($script['full_path'], true);
+        check_ajax_referer('ry-toolkit-action/flush-opcache', '_ry_toolkit_nonce');
+
+        if (function_exists('opcache_invalidate')) {
+            try {
+                $opcache_status = opcache_get_status(true);
+                if ($opcache_status && isset($opcache_status['scripts'])) {
+                    $check_abspath = substr(ABSPATH, 0, -1);
+                    foreach ($opcache_status['scripts'] as $script) {
+                        if (str_starts_with($script['full_path'], $check_abspath)) {
+                            opcache_invalidate($script['full_path'], true);
+                        }
                     }
+                    RY_Toolkit()->admin->add_notice('success', __('OPcache flushed successfully.', 'ry-toolkit'));
                 }
-                RY_Toolkit()->admin->add_notice('success', __('OPcache flushed successfully.', 'ry-toolkit'));
+            } catch (\Throwable $th) {
+                RY_Toolkit()->admin->add_notice('success', __('OPcache flush failed.', 'ry-toolkit'));
             }
         } else {
             RY_Toolkit()->admin->add_notice('success', __('OPcache flush failed.', 'ry-toolkit'));
@@ -68,6 +74,8 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
 
     protected function restart_opcache(): string
     {
+        check_ajax_referer('ry-toolkit-action/restart-opcache', '_ry_toolkit_nonce');
+
         if (function_exists('opcache_reset') && opcache_reset()) {
             RY_Toolkit()->admin->add_notice('success', __('OPcache restarted successfully.', 'ry-toolkit'));
         } else {

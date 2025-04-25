@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.8
-Stable tag: 1.4.4
+Stable tag: 1.4.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -62,6 +62,9 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.4.5 - 2025/04/25 =
+* Change admin action hook name.
 
 = 1.4.4 - 2025/04/16 =
 * Download plugin add version info in zip filename.

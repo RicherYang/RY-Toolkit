@@ -33,8 +33,8 @@ class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
             'ajax' => false,
         ]);
 
-        $this->orderby = strtolower(wp_unslash($_GET['orderby'] ?? ''));
-        $this->order = ('desc' === strtolower(wp_unslash($_GET['order'] ?? ''))) ? 'desc' : 'asc';
+        $this->orderby = strtolower(wp_unslash($_GET['orderby'] ?? '')); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
+        $this->order = ('desc' === strtolower(wp_unslash($_GET['order'] ?? ''))) ? 'desc' : 'asc'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
     }
 
     public function prepare_items()

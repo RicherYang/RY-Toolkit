@@ -45,10 +45,10 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             'ajax' => false,
         ]);
 
-        $this->search = wp_unslash($_GET['s'] ?? '');
-        $this->orderby = strtolower(wp_unslash($_GET['orderby'] ?? ''));
-        $this->order = ('desc' === strtolower(wp_unslash($_GET['order'] ?? ''))) ? 'desc' : 'asc';
-        $this->view_type = strtolower(wp_unslash($_GET['viewtype'] ?? 'all'));
+        $this->search = wp_unslash($_GET['s'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
+        $this->orderby = strtolower(wp_unslash($_GET['orderby'] ?? '')); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
+        $this->order = ('desc' === strtolower(wp_unslash($_GET['order'] ?? ''))) ? 'desc' : 'asc'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
+        $this->view_type = strtolower(wp_unslash($_GET['viewtype'] ?? 'all')); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
 
         $this->schedules = wp_get_schedules();
         uasort($this->schedules, [$this, 'sort_schedule']);
@@ -230,8 +230,8 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             foreach ($event->args as $key => $value) {
                 printf(
                     '<code>%s => %s</code><br>',
-                    esc_html(var_export($key, true)),
-                    esc_html(var_export($value, true))
+                    esc_html(var_export($key, true)), // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
+                    esc_html(var_export($value, true)) // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
                 );
             }
         }

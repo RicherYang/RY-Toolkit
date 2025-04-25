@@ -9,7 +9,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
     public static function init_page(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu'], 5);
-        add_action('ry-toolkit/admin_action', [__CLASS__, 'admin_action']);
+        add_action('admin_post_ry-toolkit-action', [__CLASS__, 'admin_post_action']);
     }
 
     public static function add_menu($menu_list)
@@ -48,6 +48,8 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
     {
         global $wpdb;
 
+        check_ajax_referer('ry-toolkit-action/analyze-tables', '_ry_toolkit_nonce');
+
         $start = time();
 
         $analyzed_table = get_transient('ry_analyzed_table');
@@ -64,13 +66,13 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 continue;
             }
 
-            $wpdb->query("ANALYZE TABLE `$table`");
+            $wpdb->query("ANALYZE TABLE `$table`"); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
             $analyzed_table[$table] = true;
             set_transient('ry_analyzed_table', $analyzed_table, 600);
 
             if (1 < time() - $start) {
                 return RY_Toolkit()->admin->the_action_link('tools', 'analyze-tables', [
-                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))),
+                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))), // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
                 ]);
             }
         }
@@ -84,6 +86,8 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
     protected function optimize_tables(): string
     {
         global $wpdb;
+
+        check_ajax_referer('ry-toolkit-action/optimize-tables', '_ry_toolkit_nonce');
 
         $start = time();
 
@@ -101,13 +105,13 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 continue;
             }
 
-            $wpdb->query("OPTIMIZE TABLE `$table`");
+            $wpdb->query("OPTIMIZE TABLE `$table`"); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
             $optimized_table[$table] = true;
             set_transient('ry_optimized_table', $optimized_table, 600);
 
             if (1 < time() - $start) {
                 return RY_Toolkit()->admin->the_action_link('tools', 'optimize-tables', [
-                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))),
+                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))), // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
                 ]);
             }
         }
@@ -121,6 +125,8 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
     protected function clear_transient(): string
     {
         global $wpdb;
+
+        check_ajax_referer('ry-toolkit-action/clear-transient', '_ry_toolkit_nonce');
 
         foreach (self::TRANSIENT_KEYS as $transient_key) {
             $transients = $wpdb->get_col($wpdb->prepare(

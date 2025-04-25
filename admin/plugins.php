@@ -10,7 +10,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
             add_filter('network_admin_plugin_action_links', [$this, 'add_actions'], 10, 2);
             add_filter('plugin_action_links', [$this, 'add_actions'], 10, 3);
 
-            add_action('ry-toolkit/admin_action', [__CLASS__, 'admin_action']);
+            add_action('admin_post_ry-toolkit-action', [__CLASS__, 'admin_post_action']);
         }
     }
 
@@ -43,11 +43,13 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
     {
         global $wp_filesystem;
 
+        check_ajax_referer('ry-toolkit-action/plugin-download', '_ry_toolkit_nonce');
+
         if (!$this->check_user_can()) {
             wp_die(esc_html__('Sorry, you are not allowed to download plugin.', 'ry-toolkit'));
         }
 
-        $plugin_file = wp_unslash($_GET['plugin_file'] ?? '');
+        $plugin_file = wp_unslash($_GET['plugin_file'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
         if (validate_file($plugin_file)) {
             wp_die(esc_html__('Invalid plugin path.', 'ry-toolkit'));
         }

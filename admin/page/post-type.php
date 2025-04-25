@@ -9,7 +9,6 @@ final class RY_Toolkit_Admin_Page_PostType extends RY_Toolkit_Admin_Page
     public static function init_page(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu']);
-        add_action('ry-toolkit/admin_action', [__CLASS__, 'admin_action']);
         add_action('ry-toolkit/add_page-ry-toolkit-posttype', [__CLASS__, 'set_page_load']);
     }
 
@@ -27,8 +26,8 @@ final class RY_Toolkit_Admin_Page_PostType extends RY_Toolkit_Admin_Page
 
     protected function do_init(): void
     {
-        if (isset($_GET['type'])) {
-            $post_type = wp_unslash($_GET['type']);
+        if (isset($_GET['type'])) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+            $post_type = wp_unslash($_GET['type']); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
             $this->post_type = get_post_type_object($post_type);
             if (!$this->post_type) {
                 wp_die(esc_html__('The post type does not exist.', 'ry-toolkit'));

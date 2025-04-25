@@ -9,7 +9,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
     public static function init_page(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu']);
-        add_action('ry-toolkit/admin_action', [__CLASS__, 'admin_action']);
+        add_action('admin_post_ry-toolkit-action', [__CLASS__, 'admin_post_action']);
         add_action('ry-toolkit/add_page-ry-toolkit-cron', [__CLASS__, 'set_page_load']);
     }
 
@@ -78,13 +78,15 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 
     protected function execute_cron(): string
     {
+        check_ajax_referer('ry-toolkit-action/execute-cron', '_ry_toolkit_nonce');
+
         if (!current_user_can('manage_options')) {
             wp_die(esc_html__('You are not allowed to do that.', 'ry-toolkit'), 401);
         }
 
-        $time = wp_unslash($_GET['time'] ?? '');
-        $hook = wp_unslash($_GET['hook'] ?? '');
-        $sig = wp_unslash($_GET['sig'] ?? '');
+        $time = wp_unslash($_GET['time'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $hook = wp_unslash($_GET['hook'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $sig = wp_unslash($_GET['sig'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
         $wp_events = _get_cron_array();
 
@@ -147,13 +149,15 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 
     protected function delete_cron(): string
     {
+        check_ajax_referer('ry-toolkit-action/delete-cron', '_ry_toolkit_nonce');
+
         if (!current_user_can('manage_options')) {
             wp_die(esc_html__('You are not allowed to do that.', 'ry-toolkit'), 401);
         }
 
-        $time = wp_unslash($_GET['time'] ?? '');
-        $hook = wp_unslash($_GET['hook'] ?? '');
-        $sig = wp_unslash($_GET['sig'] ?? '');
+        $time = wp_unslash($_GET['time'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $hook = wp_unslash($_GET['hook'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $sig = wp_unslash($_GET['sig'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
         $wp_events = _get_cron_array();
         if (isset($wp_events[$time][$hook][$sig])) {

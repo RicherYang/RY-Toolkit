@@ -36,8 +36,8 @@ class RY_Toolkit_Update
             RY_Toolkit::update_option('version', '1.3.0', true);
         }
 
-        if (version_compare($now_version, '1.4.4', '<')) {
-            RY_Toolkit::update_option('version', '1.4.4', true);
+        if (version_compare($now_version, '1.4.5', '<')) {
+            RY_Toolkit::update_option('version', '1.4.5', true);
         }
     }
 }

@@ -41,7 +41,6 @@ class RY_Toolkit_Admin
         add_action('load-options.php', [$this, 'add_options']);
         add_action('load-options-media.php', [$this, 'add_options']);
 
-        add_action('admin_post_ry-toolkit-action', [$this, 'do_action']);
         add_action('all_admin_notices', [$this, 'show_notices']);
 
         add_action('admin_init', [$this, 'register_style_script']);
@@ -55,18 +54,6 @@ class RY_Toolkit_Admin
     {
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/options.php';
         $this->instance['options'] = RY_Toolkit_Admin_Options::instance();
-    }
-
-    public function do_action(): void
-    {
-        if (wp_verify_nonce(wp_unslash($_REQUEST['_wpnonce'] ?? ''), 'ry-toolkit-action')) {
-            $redirect = apply_filters('ry-toolkit/admin_action', '');
-        }
-
-        if (empty($redirect)) {
-            $redirect = admin_url();
-        }
-        wp_safe_redirect($redirect);
     }
 
     public function show_notices(): void
@@ -141,17 +128,17 @@ class RY_Toolkit_Admin
             'ry-toolkit-action' => $action,
         ]);
 
-        include RY_TOOLKIT_PLUGIN_DIR . 'admin/html/action_form.php';
+        include RY_TOOLKIT_PLUGIN_DIR . 'admin/html/action-form.php';
     }
 
     public function the_action_link(string $page, string $action, array $add_args = []): string
     {
         $add_args = array_merge($add_args, [
             'action' => 'ry-toolkit-action',
-            'ry-toolkit-action' => $action,
             'ry-toolkit-page' => $page,
+            'ry-toolkit-action' => $action,
+            '_ry_toolkit_nonce' => wp_create_nonce('ry-toolkit-action/' . $action),
             '_wpnonce' => wp_create_nonce('ry-toolkit-action'),
-            '_ry_toolkit_action_nonce' => wp_create_nonce('ry-toolkit-' . $action),
         ]);
 
         return add_query_arg($add_args, admin_url('admin-post.php'));
