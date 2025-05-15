@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.4.2\n"
+"Project-Id-Version: RY Toolkit 1.4.6\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-07T12:17:44+08:00\n"
+"POT-Creation-Date: 2025-05-15T14:55:09+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: ry-toolkit\n"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "https://richer.tw/"
 msgstr ""
 
-#: admin/admin.php:111
+#: admin/admin.php:98
 msgid "RY Tool"
 msgstr ""
 
@@ -150,47 +150,47 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: admin/includes/cron-event-list-table.php:386
+#: admin/includes/cron-event-list-table.php:390
 msgid "Anonymous function"
 msgstr ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:408
+#: admin/includes/cron-event-list-table.php:412
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:413
+#: admin/includes/cron-event-list-table.php:417
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:418
+#: admin/includes/cron-event-list-table.php:422
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:423
+#: admin/includes/cron-event-list-table.php:427
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:428
+#: admin/includes/cron-event-list-table.php:432
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: %d: amount of time
-#: admin/includes/cron-event-list-table.php:433
+#: admin/includes/cron-event-list-table.php:437
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] ""
@@ -310,38 +310,40 @@ msgstr ""
 msgid "unschedule event, some event will be automatically create after you unscheduled."
 msgstr ""
 
-#: admin/page/cron.php:82
-#: admin/page/cron.php:151
+#: admin/page/cron.php:84
+#: admin/page/cron.php:162
 msgid "You are not allowed to do that."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:124
-msgid "Executed event \"%s\"."
-msgstr ""
-
-#: admin/page/cron.php:128
-msgid "Failed to start cron job."
-msgstr ""
-
-#. translators: Event hook name.
-#: admin/page/cron.php:133
-msgid "Failed to schedule the cron event \"%s\"."
-msgstr ""
-
-#. translators: Event hook name.
-#: admin/page/cron.php:140
-#: admin/page/cron.php:176
+#: admin/page/cron.php:93
+#: admin/page/cron.php:149
+#: admin/page/cron.php:171
+#: admin/page/cron.php:194
 msgid "Cron event \"%s\" not found."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:163
+#: admin/page/cron.php:133
+msgid "Executed event \"%s\"."
+msgstr ""
+
+#: admin/page/cron.php:137
+msgid "Failed to start cron job."
+msgstr ""
+
+#. translators: Event hook name.
+#: admin/page/cron.php:142
+msgid "Failed to schedule the cron event \"%s\"."
+msgstr ""
+
+#. translators: Event hook name.
+#: admin/page/cron.php:181
 msgid "Cron event \"%s\" has been deleted."
 msgstr ""
 
 #. translators: Event hook name.
-#: admin/page/cron.php:169
+#: admin/page/cron.php:187
 msgid "Failed to the delete the cron event \"%s\"."
 msgstr ""
 
@@ -1108,131 +1110,133 @@ msgstr ""
 msgid "OPcache disabled."
 msgstr ""
 
-#: admin/page/opcache.php:60
+#: admin/page/opcache.php:63
 msgid "OPcache flushed successfully."
 msgstr ""
 
-#: admin/page/opcache.php:63
+#: admin/page/opcache.php:66
+#: admin/page/opcache.php:69
 msgid "OPcache flush failed."
 msgstr ""
 
-#: admin/page/opcache.php:72
+#: admin/page/opcache.php:80
 msgid "OPcache restarted successfully."
 msgstr ""
 
-#: admin/page/opcache.php:74
+#: admin/page/opcache.php:82
 msgid "OPcache restart failed."
 msgstr ""
 
-#: admin/page/options.php:16
-#: admin/page/options.php:70
+#: admin/page/options.php:15
+#: admin/page/options.php:69
 msgid "Options"
 msgstr ""
 
-#: admin/page/options.php:32
+#: admin/page/options.php:31
 msgid "Website frontend"
 msgstr ""
 
-#: admin/page/options.php:33
+#: admin/page/options.php:32
 msgid "WordPress core function"
 msgstr ""
 
-#: admin/page/options.php:39
+#: admin/page/options.php:38
 msgid "WordPress sitemap"
 msgstr ""
 
-#: admin/page/options.php:41
+#: admin/page/options.php:40
 msgctxt "sitemap provider"
 msgid "posts"
 msgstr ""
 
-#: admin/page/options.php:42
+#: admin/page/options.php:41
 msgctxt "sitemap provider"
 msgid "taxonomies"
 msgstr ""
 
-#: admin/page/options.php:43
+#: admin/page/options.php:42
 msgctxt "sitemap provider"
 msgid "users"
 msgstr ""
 
-#: admin/page/options.php:49
+#: admin/page/options.php:48
 msgid "WP Rocket"
 msgstr ""
 
-#: admin/page/options.php:51
+#: admin/page/options.php:50
 msgctxt "wp rocket htaccess"
 msgid "Rewrite rules to serve the cache file"
 msgstr ""
 
-#: admin/page/options.php:52
+#: admin/page/options.php:51
 msgctxt "wp rocket htaccess"
 msgid "Detect mobile version"
 msgstr ""
 
-#: admin/page/options.php:53
+#: admin/page/options.php:52
 msgctxt "wp rocket htaccess"
 msgid "SSL requests"
 msgstr ""
 
-#: admin/page/options.php:54
+#: admin/page/options.php:53
 msgctxt "wp rocket htaccess"
 msgid "Use GZIP compression"
 msgstr ""
 
-#: admin/page/options.php:55
+#: admin/page/options.php:54
 msgctxt "wp rocket htaccess"
 msgid "Use expires headers"
 msgstr ""
 
-#: admin/page/options.php:56
+#: admin/page/options.php:55
 msgctxt "wp rocket htaccess"
 msgid "Default charset on static files"
 msgstr ""
 
-#: admin/page/options.php:57
+#: admin/page/options.php:56
 msgctxt "wp rocket htaccess"
 msgid "Cache control"
 msgstr ""
 
-#: admin/page/options.php:58
+#: admin/page/options.php:57
 msgctxt "wp rocket htaccess"
 msgid "Remove the ETag header"
 msgstr ""
 
-#: admin/page/options.php:59
+#: admin/page/options.php:58
 msgctxt "wp rocket htaccess"
 msgid "Cross-origin fonts sharing"
 msgstr ""
 
-#: admin/page/post-type.php:19
-#: admin/page/post-type.php:71
+#: admin/page/post-type.php:18
+#: admin/page/post-type.php:74
 msgid "Post type"
 msgstr ""
 
-#: admin/page/post-type.php:34
+#: admin/page/post-type.php:32
+#: admin/page/post-type.php:37
 msgid "The post type does not exist."
 msgstr ""
 
 #. translators: %s: post type name
-#: admin/page/post-type.php:60
+#: admin/page/post-type.php:63
 msgid "Post type \"%s\""
 msgstr ""
 
 #: admin/page/tools.php:18
-#: admin/page/tools.php:40
+#: admin/page/tools.php:41
 msgid "Tools"
 msgstr ""
 
-#: admin/page/tools.php:79
+#: admin/page/tools.php:84
 msgid "Database tables analyzed successfully."
 msgstr ""
 
-#: admin/page/tools.php:116
+#: admin/page/tools.php:125
 msgid "Database tables optimized successfully."
 msgstr ""
 
-#: admin/page/tools.php:140
+#: admin/page/tools.php:152
 msgid "Clear transient option successfully."
 msgstr ""
 
@@ -1245,32 +1249,33 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: admin/plugins.php:47
+#: admin/plugins.php:49
 msgid "Sorry, you are not allowed to download plugin."
 msgstr ""
 
-#: admin/plugins.php:52
+#: admin/plugins.php:54
 msgid "Invalid plugin path."
 msgstr ""
 
-#: admin/plugins.php:62
+#: admin/plugins.php:65
+#: admin/plugins.php:70
 msgid "Sorry, cannot find the plugin."
 msgstr ""
 
-#: admin/plugins.php:87
+#: admin/plugins.php:99
 msgid "Unable to generate zip file."
 msgstr ""
 
-#: admin/plugins.php:90
+#: admin/plugins.php:102
 msgid "Unable to open zip file for writing."
 msgstr ""
 
 #. Translators: %1$s: Table size, %2$s: Index size, %3$s: Free size, %4$s Engine.
-#: admin/site-health.php:30
+#: admin/site-health.php:31
 msgid "Data: %1$s, Index: %2$s, Free: %3$s, Engine %4$s"
 msgstr ""
 
-#: admin/site-health.php:39
+#: admin/site-health.php:40
 msgid "Table size"
 msgstr ""
 

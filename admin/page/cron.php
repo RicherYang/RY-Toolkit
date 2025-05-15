@@ -84,9 +84,16 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
             wp_die(esc_html__('You are not allowed to do that.', 'ry-toolkit'), 401);
         }
 
-        $time = wp_unslash($_GET['time'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-        $hook = wp_unslash($_GET['hook'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $time = intval($_GET['time'] ?? '');
+        $hook = sanitize_text_field(wp_unslash($_GET['hook'] ?? ''));
         $sig = wp_unslash($_GET['sig'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        if ($sig !== sanitize_key($sig)) {
+            RY_Toolkit()->admin->add_notice('error', sprintf(
+                /* translators: Event hook name. */
+                __('Cron event "%s" not found.', 'ry-toolkit'),
+                $hook
+            ));
+        }
 
         $wp_events = _get_cron_array();
 
@@ -155,9 +162,16 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
             wp_die(esc_html__('You are not allowed to do that.', 'ry-toolkit'), 401);
         }
 
-        $time = wp_unslash($_GET['time'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-        $hook = wp_unslash($_GET['hook'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $time = intval($_GET['time'] ?? '');
+        $hook = sanitize_text_field(wp_unslash($_GET['hook'] ?? ''));
         $sig = wp_unslash($_GET['sig'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        if ($sig !== sanitize_key($sig)) {
+            RY_Toolkit()->admin->add_notice('error', sprintf(
+                /* translators: Event hook name. */
+                __('Cron event "%s" not found.', 'ry-toolkit'),
+                $hook
+            ));
+        }
 
         $wp_events = _get_cron_array();
         if (isset($wp_events[$time][$hook][$sig])) {

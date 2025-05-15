@@ -38,14 +38,14 @@ abstract class RY_Toolkit_Admin_Page
     public static function admin_post_action(): void
     {
         if (static::$page_type === wp_unslash($_GET['ry-toolkit-page'] ?? '')) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-            if (wp_verify_nonce(wp_unslash($_REQUEST['_wpnonce'] ?? ''), 'ry-toolkit-action')) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+            if (wp_verify_nonce(($_REQUEST['_wpnonce'] ?? ''), 'ry-toolkit-action')) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
                 $action = (string) wp_unslash($_REQUEST['ry-toolkit-action'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
                 if ($action === sanitize_key($action)) {
                     $callback = [static::instance(), str_replace('-', '_', $action)];
                     if (is_callable($callback)) {
                         $redirect = call_user_func($callback);
                         if (empty($redirect)) {
-                            $redirect = sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? '')); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+                            $redirect = sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''));
                         }
                         wp_safe_redirect($redirect);
                     }

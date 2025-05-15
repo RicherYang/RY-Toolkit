@@ -80,7 +80,7 @@ class RY_Toolkit_Sitemaps
             $sitemap_skip_page = RY_Toolkit::get_option('sitemap_skip_page', []);
             if (class_exists('WooCommerce', false)) {
                 foreach ($sitemap_skip_page as $page => $skiped) {
-                    if (0 === strpos($page, 'wc_')) {
+                    if (str_starts_with($page, 'wc_')) {
                         $page_ID = wc_get_page_id(substr($page, 3));
                         if (-1 !== $page_ID) {
                             $args['post__not_in'][] = $page_ID;

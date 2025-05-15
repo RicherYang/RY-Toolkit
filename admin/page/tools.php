@@ -31,6 +31,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
         $transients = 0;
         foreach (self::TRANSIENT_KEYS as $transient_key) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
             $transients += (int) $wpdb->get_var($wpdb->prepare(
                 "SELECT COUNT(option_id) FROM {$wpdb->options} WHERE option_name LIKE %s",
                 $wpdb->esc_like($transient_key) . '%'
@@ -57,6 +58,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             $analyzed_table = [];
         }
 
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
         $tables = $wpdb->get_col($wpdb->prepare(
             'SHOW TABLES LIKE %s',
             $wpdb->esc_like($wpdb->prefix) . '%'
@@ -66,7 +68,8 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 continue;
             }
 
-            $wpdb->query("ANALYZE TABLE `$table`"); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+            $wpdb->query("ANALYZE TABLE `$table`");
             $analyzed_table[$table] = true;
             set_transient('ry_analyzed_table', $analyzed_table, 600);
 
@@ -96,6 +99,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             $optimized_table = [];
         }
 
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
         $tables = $wpdb->get_col($wpdb->prepare(
             'SHOW TABLES LIKE %s',
             $wpdb->esc_like($wpdb->prefix) . '%'
@@ -105,7 +109,8 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 continue;
             }
 
-            $wpdb->query("OPTIMIZE TABLE `$table`"); // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+            $wpdb->query("OPTIMIZE TABLE `$table`");
             $optimized_table[$table] = true;
             set_transient('ry_optimized_table', $optimized_table, 600);
 
@@ -129,6 +134,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
         check_ajax_referer('ry-toolkit-action/clear-transient', '_ry_toolkit_nonce');
 
         foreach (self::TRANSIENT_KEYS as $transient_key) {
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
             $transients = $wpdb->get_col($wpdb->prepare(
                 "SELECT option_name FROM {$wpdb->options} WHERE option_name LIKE %s",
                 $wpdb->esc_like($transient_key) . '%'

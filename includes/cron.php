@@ -22,7 +22,7 @@ class RY_Toolkit_Cron
     public function limit_ready_cron_jobs($crons)
     {
         if (null === $crons) {
-            $limit_time = (int) wp_unslash($_GET['ry-toolkit-limit-event'] ?? 0); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
+            $limit_time = intval($_GET['ry-toolkit-limit-event'] ?? ''); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             if (0 < $limit_time) {
                 $wp_events = _get_cron_array();
 

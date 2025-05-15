@@ -45,10 +45,10 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             'ajax' => false,
         ]);
 
-        $this->search = wp_unslash($_GET['s'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
-        $this->orderby = strtolower(wp_unslash($_GET['orderby'] ?? '')); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
-        $this->order = ('desc' === strtolower(wp_unslash($_GET['order'] ?? ''))) ? 'desc' : 'asc'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
-        $this->view_type = strtolower(wp_unslash($_GET['viewtype'] ?? 'all')); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized , WordPress.Security.NonceVerification.Recommended
+        $this->search = sanitize_text_field(wp_unslash($_GET['s'] ?? '')); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+        $this->orderby = strtolower(wp_unslash($_GET['orderby'] ?? '')); // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $this->order = ('desc' === strtolower(wp_unslash($_GET['order'] ?? ''))) ? 'desc' : 'asc'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $this->view_type = strtolower(wp_unslash($_GET['viewtype'] ?? 'all')); // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
         $this->schedules = wp_get_schedules();
         uasort($this->schedules, [$this, 'sort_schedule']);
@@ -329,7 +329,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         $keep = true;
         if ('noaction' === $this->view_type) {
             $keep = empty($event->actions);
-        } elseif (0 === strpos($this->view_type, 'schedule_')) {
+        } elseif (str_starts_with($this->view_type, 'schedule_')) {
             $keep = $event->schedule === substr($this->view_type, 9);
         }
 
@@ -356,11 +356,15 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             }
         }
 
-        if ('asc' === $this->order) {
-            return $a->time <=> $b->time;
-        } else {
-            return $b->time <=> $a->time;
+        if ($this->orderby === 'next') {
+            if ('asc' === $this->order) {
+                return $a->time <=> $b->time;
+            } else {
+                return $b->time <=> $a->time;
+            }
         }
+
+        return 0;
     }
 
     protected function get_callback_name($callback): string

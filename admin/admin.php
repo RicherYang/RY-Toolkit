@@ -144,11 +144,11 @@ class RY_Toolkit_Admin
         return add_query_arg($add_args, admin_url('admin-post.php'));
     }
 
-    public static function the_bool_option_checkbox(string $option_name, string $label, string $sub_name = null): void
+    public static function the_bool_option_checkbox(string $option_name, string $label, string $sub_name = ''): void
     {
         $id = RY_Toolkit::get_option_name($option_name);
         $name = RY_Toolkit::get_option_name($option_name);
-        if (null === $sub_name) {
+        if (empty($sub_name)) {
             $value = RY_Toolkit::get_option($option_name);
         } else {
             $id .= '-' . $sub_name;
