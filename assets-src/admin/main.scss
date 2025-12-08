@@ -42,6 +42,10 @@
     }
 }
 
+.fixed .column-ry-thumbnail {
+    width: 60px;
+}
+
 @media screen and (min-width: 782px) {
     .ry-row {
         display: flex;

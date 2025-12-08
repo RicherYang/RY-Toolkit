@@ -21,6 +21,7 @@ delete_option(RY_Toolkit::get_option_name('disable_wlw'));
 delete_option(RY_Toolkit::get_option_name('disable_xmlrpc'));
 delete_option(RY_Toolkit::get_option_name('disable_comment'));
 delete_option(RY_Toolkit::get_option_name('disable_ping'));
+delete_option(RY_Toolkit::get_option_name('show_thumbnails'));
 
 delete_option(RY_Toolkit::get_option_name('sitemap_urls_pre_file'));
 delete_option(RY_Toolkit::get_option_name('sitemap_disable_provider'));

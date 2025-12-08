@@ -18,10 +18,12 @@ class RY_Toolkit_Admin_Options
     {
         add_filter('allowed_options', [$this, 'add_allowed_options']);
 
+        // WordPress option - media
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('big_image_size'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_subsize'), [$this, 'return_array_nicestring']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('friendly_filename'), [$this, 'return_absint']);
 
+        // Self option - frontend
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('hide_wp_version'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_emoji'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_shortlink'), [$this, 'return_absint']);
@@ -30,16 +32,20 @@ class RY_Toolkit_Admin_Options
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_rest_link'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_wlw'), [$this, 'return_absint']);
 
+        // Self option - core
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_xmlrpc'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_comment'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('disable_ping'), [$this, 'return_absint']);
+        add_filter('sanitize_option_' . RY_Toolkit::get_option_name('show_thumbnails'), [$this, 'return_array_absint']);
 
+        // Self option - sitemap
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_urls_pre_file'), [$this, 'return_absint']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_provider'), [$this, 'return_array_nicestring']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_post_type'), [$this, 'return_array_nicestring']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_skip_page'), [$this, 'return_array_nicestring']);
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('sitemap_disable_taxonomy'), [$this, 'return_array_nicestring']);
 
+        // Self option - wp rocket
         add_filter('sanitize_option_' . RY_Toolkit::get_option_name('wp_rocket_htaccess'), [$this, 'return_array_absint']);
 
         add_settings_field('medium_large_size', __('Medium large size', 'ry-toolkit'), [$this, 'show_medium_large_size'], 'media', 'default');
@@ -71,6 +77,7 @@ class RY_Toolkit_Admin_Options
             RY_Toolkit::get_option_name('disable_xmlrpc'),
             RY_Toolkit::get_option_name('disable_comment'),
             RY_Toolkit::get_option_name('disable_ping'),
+            RY_Toolkit::get_option_name('show_thumbnails'),
         ];
 
         $allowed_options['ry-toolkit-options-sitemap'] = [

@@ -2,16 +2,16 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.4.6\n"
+"Project-Id-Version: RY Toolkit 1.4.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-24T18:04:21+08:00\n"
+"POT-Creation-Date: 2025-12-08T10:34:14+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ry-toolkit\n"
 
 #. Plugin Name of the plugin
@@ -39,12 +39,12 @@ msgstr ""
 msgid "https://richer.tw/"
 msgstr ""
 
-#: admin/admin.php:98
+#: admin/admin.php:101
 msgid "RY Tool"
 msgstr ""
 
 #: admin/html/media/big-size.php:2
-#: admin/options.php:46
+#: admin/options.php:52
 msgid "Max size"
 msgstr ""
 
@@ -53,7 +53,7 @@ msgid "Max Width / Heigth"
 msgstr ""
 
 #: admin/html/media/disable-subsize.php:2
-#: admin/options.php:47
+#: admin/options.php:53
 msgid "Disable generated size"
 msgstr ""
 
@@ -66,7 +66,7 @@ msgid "Change upload filename to only use system friendly characters."
 msgstr ""
 
 #: admin/html/media/medium-large-size.php:2
-#: admin/options.php:45
+#: admin/options.php:51
 msgid "Medium large size"
 msgstr ""
 
@@ -80,6 +80,7 @@ msgstr ""
 
 #. translators: %s: number of events.
 #: admin/includes/cron-event-list-table.php:135
+#, php-format
 msgid "All <span class=\"count\">(%s)</span>"
 msgid_plural "All <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -87,6 +88,7 @@ msgstr[1] ""
 
 #. translators: %s: number of events.
 #: admin/includes/cron-event-list-table.php:149
+#, php-format
 msgid "NO action <span class=\"count\">(%s)</span>"
 msgid_plural "NO action <span class=\"count\">(%s)</span>"
 msgstr[0] ""
@@ -94,6 +96,7 @@ msgstr[1] ""
 
 #. translators: %1$s: schedule name %2$s: number of events.
 #: admin/includes/cron-event-list-table.php:165
+#, php-format
 msgid "%1$s <span class=\"count\">(%2$s)</span>"
 msgid_plural "%1$s <span class=\"count\">(%2$s)</span>"
 msgstr[0] ""
@@ -113,6 +116,7 @@ msgstr ""
 
 #. translators: %s: UTC offset
 #: admin/includes/cron-event-list-table.php:203
+#, php-format
 msgid "Next execution (%s)"
 msgstr ""
 
@@ -122,16 +126,19 @@ msgstr ""
 
 #. translators: %s: interval text
 #: admin/includes/cron-event-list-table.php:265
+#, php-format
 msgid "after %s"
 msgstr ""
 
 #. translators: %s: interval text
 #: admin/includes/cron-event-list-table.php:282
+#, php-format
 msgid "every %s"
 msgstr ""
 
 #. translators: %s: Event hook name.
 #: admin/includes/cron-event-list-table.php:307
+#, php-format
 msgid "Execute %s"
 msgstr ""
 
@@ -142,6 +149,7 @@ msgstr ""
 
 #. translators: %s: Event hook name.
 #: admin/includes/cron-event-list-table.php:318
+#, php-format
 msgid "Delete %s"
 msgstr ""
 
@@ -156,6 +164,7 @@ msgstr ""
 
 #. translators: %d: amount of time
 #: admin/includes/cron-event-list-table.php:412
+#, php-format
 msgid "%d year"
 msgid_plural "%d years"
 msgstr[0] ""
@@ -163,6 +172,7 @@ msgstr[1] ""
 
 #. translators: %d: amount of time
 #: admin/includes/cron-event-list-table.php:417
+#, php-format
 msgid "%d month"
 msgid_plural "%d months"
 msgstr[0] ""
@@ -170,6 +180,7 @@ msgstr[1] ""
 
 #. translators: %d: amount of time
 #: admin/includes/cron-event-list-table.php:422
+#, php-format
 msgid "%d day"
 msgid_plural "%d days"
 msgstr[0] ""
@@ -177,6 +188,7 @@ msgstr[1] ""
 
 #. translators: %d: amount of time
 #: admin/includes/cron-event-list-table.php:427
+#, php-format
 msgid "%d hour"
 msgid_plural "%d hours"
 msgstr[0] ""
@@ -184,6 +196,7 @@ msgstr[1] ""
 
 #. translators: %d: amount of time
 #: admin/includes/cron-event-list-table.php:432
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] ""
@@ -191,6 +204,7 @@ msgstr[1] ""
 
 #. translators: %d: amount of time
 #: admin/includes/cron-event-list-table.php:437
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] ""
@@ -257,23 +271,23 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: admin/options.php:49
+#: admin/options.php:55
 msgid "Friendly filename"
 msgstr ""
 
-#: admin/options.php:144
+#: admin/options.php:151
 msgid "Thumbnail"
 msgstr ""
 
-#: admin/options.php:145
+#: admin/options.php:152
 msgid "Medium"
 msgstr ""
 
-#: admin/options.php:146
+#: admin/options.php:153
 msgid "Large"
 msgstr ""
 
-#: admin/options.php:147
+#: admin/options.php:154
 msgid "Full Size"
 msgstr ""
 
@@ -320,11 +334,13 @@ msgstr ""
 #: admin/page/cron.php:149
 #: admin/page/cron.php:171
 #: admin/page/cron.php:194
+#, php-format
 msgid "Cron event \"%s\" not found."
 msgstr ""
 
 #. translators: Event hook name.
 #: admin/page/cron.php:133
+#, php-format
 msgid "Executed event \"%s\"."
 msgstr ""
 
@@ -334,16 +350,19 @@ msgstr ""
 
 #. translators: Event hook name.
 #: admin/page/cron.php:142
+#, php-format
 msgid "Failed to schedule the cron event \"%s\"."
 msgstr ""
 
 #. translators: Event hook name.
 #: admin/page/cron.php:181
+#, php-format
 msgid "Cron event \"%s\" has been deleted."
 msgstr ""
 
 #. translators: Event hook name.
 #: admin/page/cron.php:187
+#, php-format
 msgid "Failed to the delete the cron event \"%s\"."
 msgstr ""
 
@@ -495,6 +514,11 @@ msgstr ""
 msgid "Disable trackbacks and pingbacks"
 msgstr ""
 
+#: admin/page/html/options-core.php:32
+#: admin/page/html/options-core.php:35
+msgid "Post list show thumbnail"
+msgstr ""
+
 #: admin/page/html/options-frontend.php:3
 #: admin/page/html/options-frontend.php:6
 msgid "WordPress version"
@@ -629,6 +653,7 @@ msgstr ""
 
 #. translators: %s: sitemap entry name.
 #: admin/page/html/options-sitemap.php:39
+#, php-format
 msgid "Disable generation \"%s\" entry sitemap"
 msgstr ""
 
@@ -639,6 +664,7 @@ msgstr ""
 
 #. translators: %s: sitemap entry name.
 #: admin/page/html/options-sitemap.php:56
+#, php-format
 msgid "Disable generation \"%s\" post type sitemap"
 msgstr ""
 
@@ -649,6 +675,7 @@ msgstr ""
 
 #. translators: %s: page name.
 #: admin/page/html/options-sitemap.php:72
+#, php-format
 msgid "Skip \"%s\" page"
 msgstr ""
 
@@ -659,6 +686,7 @@ msgstr ""
 
 #. translators: %s: sitemap entry name.
 #: admin/page/html/options-sitemap.php:92
+#, php-format
 msgid "Disable generation \"%s\" taxonomy sitemap"
 msgstr ""
 
@@ -669,6 +697,7 @@ msgstr ""
 
 #. translators: %1$s: rule key %2$s: rule description
 #: admin/page/html/options-wp-rocket.php:10
+#, php-format
 msgid "Disable rules \"%1$s\" (%2$s)"
 msgstr ""
 
@@ -1096,6 +1125,7 @@ msgstr ""
 
 #. translators: %: Number of transient option.
 #: admin/page/html/tools.php:26
+#, php-format
 msgid "%s transient in your database."
 msgid_plural "%s transients in your database."
 msgstr[0] ""
@@ -1220,6 +1250,7 @@ msgstr ""
 
 #. translators: %s: post type name
 #: admin/page/post-type.php:63
+#, php-format
 msgid "Post type \"%s\""
 msgstr ""
 
@@ -1242,6 +1273,7 @@ msgstr ""
 
 #. translators: %s: Plugin name.
 #: admin/plugins.php:32
+#, php-format
 msgid "Download %s"
 msgstr ""
 
@@ -1272,6 +1304,7 @@ msgstr ""
 
 #. Translators: %1$s: Table size, %2$s: Index size, %3$s: Free size, %4$s Engine.
 #: admin/site-health.php:31
+#, php-format
 msgid "Data: %1$s, Index: %2$s, Free: %3$s, Engine %4$s"
 msgstr ""
 

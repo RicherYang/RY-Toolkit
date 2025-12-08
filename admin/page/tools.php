@@ -68,7 +68,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 continue;
             }
 
-            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared , PluginCheck.Security.DirectDB.UnescapedDBParameter
             $wpdb->query("ANALYZE TABLE `$table`");
             $analyzed_table[$table] = true;
             set_transient('ry_analyzed_table', $analyzed_table, 600);
@@ -109,7 +109,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 continue;
             }
 
-            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared , PluginCheck.Security.DirectDB.UnescapedDBParameter
             $wpdb->query("OPTIMIZE TABLE `$table`");
             $optimized_table[$table] = true;
             set_transient('ry_optimized_table', $optimized_table, 600);

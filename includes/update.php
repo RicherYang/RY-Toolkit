@@ -14,7 +14,6 @@ class RY_Toolkit_Update
             $options = [
                 'sitemap_urls_pre_file',
                 'sitemap_disable_provider',
-                'sitemap_add_tag',
                 'sitemap_disable_post_type',
                 'sitemap_disable_taxonomy',
             ];
@@ -36,8 +35,10 @@ class RY_Toolkit_Update
             RY_Toolkit::update_option('version', '1.3.0', true);
         }
 
-        if (version_compare($now_version, '1.4.6', '<')) {
-            RY_Toolkit::update_option('version', '1.4.6', true);
+        if (version_compare($now_version, '1.4.7', '<')) {
+            RY_Toolkit::update_option('show_thumbnails', [], false);
+
+            RY_Toolkit::update_option('version', '1.4.7', true);
         }
     }
 }

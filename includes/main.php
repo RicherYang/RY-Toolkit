@@ -117,6 +117,8 @@ class RY_Toolkit
         }
 
         $defauts = [
+            'show_thumbnails' => [],
+
             'sitemap_urls_pre_file' => 2000,
             'sitemap_disable_provider' => [],
             'sitemap_disable_post_type' => [],

@@ -35,6 +35,9 @@ class RY_Toolkit_Admin
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/plugins.php';
         $this->instance['plugins'] = RY_Toolkit_Admin_Plugins::instance();
 
+        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/post.php';
+        $this->instance['post'] = RY_Toolkit_Admin_Post::instance();
+
         include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/site-health.php';
         $this->instance['site-health'] = RY_Toolkit_Admin_Site_Health::instance();
 

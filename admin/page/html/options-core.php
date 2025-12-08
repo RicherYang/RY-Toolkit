@@ -28,4 +28,19 @@
             </fieldset>
         </td>
     </tr>
+    <tr>
+        <th scope="row"><?php esc_html_e('Post list show thumbnail', 'ry-toolkit'); ?></th>
+        <td>
+            <fieldset>
+                <legend class="screen-reader-text"><span><?php esc_html_e('Post list show thumbnail', 'ry-toolkit'); ?></span></legend>
+                <?php
+        $post_types = array_filter(get_post_types([], 'names'), function ($post_type) {
+            return post_type_supports($post_type, 'thumbnail');
+        });
+        foreach ($post_types as $post_type) {
+            RY_Toolkit_Admin::the_bool_option_checkbox('show_thumbnails', get_post_type_labels(get_post_type_object($post_type))->name, $post_type);
+        } ?>
+            </select>
+        </td>
+    </tr>
 </table>
