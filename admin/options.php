@@ -6,7 +6,7 @@ class RY_Toolkit_Admin_Options
 
     public static function instance(): RY_Toolkit_Admin_Options
     {
-        if (null === self::$_instance) {
+        if (self::$_instance === null) {
             self::$_instance = new self();
             self::$_instance->do_init();
         }

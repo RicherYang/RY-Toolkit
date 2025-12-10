@@ -17,7 +17,7 @@ class RY_Toolkit
 
     public static function instance(): RY_Toolkit
     {
-        if (null === self::$_instance) {
+        if (self::$_instance === null) {
             self::$_instance = new self();
             self::$_instance->do_init();
         }

@@ -6,7 +6,7 @@ class RY_Toolkit_Upload
 
     public static function instance(): RY_Toolkit_Upload
     {
-        if (null === self::$_instance) {
+        if (self::$_instance === null) {
             self::$_instance = new self();
             self::$_instance->do_init();
         }
@@ -55,7 +55,7 @@ class RY_Toolkit_Upload
     public function sanitize_file_name(string $file_name): string
     {
         $parts = explode('.', $file_name);
-        if (1 === count($parts)) {
+        if (count($parts) === 1) {
             $extension = '';
         } else {
             $extension = strtolower(array_pop($parts));

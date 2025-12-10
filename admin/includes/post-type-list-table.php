@@ -34,7 +34,7 @@ class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
         ]);
 
         $this->orderby = strtolower(wp_unslash($_GET['orderby'] ?? '')); // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-        $this->order = ('desc' === strtolower(wp_unslash($_GET['order'] ?? ''))) ? 'desc' : 'asc'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $this->order = (strtolower(wp_unslash($_GET['order'] ?? '')) === 'desc') ? 'desc' : 'asc'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
     }
 
     public function prepare_items()
@@ -134,7 +134,7 @@ class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
     private function sort_post_types($a, $b): int
     {
         if (isset($a->{$this->orderby})) {
-            if ('asc' === $this->order) {
+            if ($this->order === 'asc') {
                 return strcasecmp($a->{$this->orderby}, $b->{$this->orderby});
             } else {
                 return strcasecmp($b->{$this->orderby}, $a->{$this->orderby});

@@ -73,7 +73,7 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
         $tmp_zip_file = wp_tempnam('ry-toolkit-download');
         wp_delete_file($tmp_zip_file);
         $zip = new ZipArchive();
-        if (true === $zip->open($tmp_zip_file, ZipArchive::CREATE)) {
+        if ($zip->open($tmp_zip_file, ZipArchive::CREATE) === true) {
             if (strpos($plugin_file, '/') && $real_plugin_dir !== $plugins_dir) {
                 $plugin_name = pathinfo($real_plugin_dir, PATHINFO_BASENAME);
                 $this->add_dir_to_zip($zip, $real_plugin_dir, strlen($plugins_dir));
@@ -83,18 +83,19 @@ class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
             }
             $zip->close();
 
-            if (is_file($tmp_zip_file) && 0 < filesize($tmp_zip_file)) {
+            if (is_file($tmp_zip_file) && filesize($tmp_zip_file) > 0) {
                 $file_name = $plugin_name . '.' . $plugin_data['Version'] . '.zip';
                 $file_name = strtolower($file_name);
                 $file_name = preg_replace('/[^a-z0-9_\-\.]/', '', $file_name);
 
+                ob_end_clean();
                 header('Content-Description: File Transfer');
                 header('Content-Type: application/zip');
                 header('Content-Disposition: attachment; filename="' . $file_name . '"');
                 header('Content-Length: ' . filesize($tmp_zip_file));
                 readfile($tmp_zip_file); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_readfile
                 wp_delete_file($tmp_zip_file);
-                exit();
+                exit;
             } else {
                 wp_die(esc_html__('Unable to generate zip file.', 'ry-toolkit'));
             }

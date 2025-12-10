@@ -6,7 +6,7 @@ class RY_Toolkit_Sitemaps
 
     public static function instance(): RY_Toolkit_Sitemaps
     {
-        if (null === self::$_instance) {
+        if (self::$_instance === null) {
             self::$_instance = new self();
             self::$_instance->do_init();
         }
@@ -47,7 +47,7 @@ class RY_Toolkit_Sitemaps
     public function change_max_urls(int $max_urls): int
     {
         $urls = (int) RY_Toolkit::get_option('sitemap_urls_pre_file', $max_urls);
-        if (0 < $urls) {
+        if ($urls > 0) {
             return $urls;
         }
 
@@ -76,7 +76,7 @@ class RY_Toolkit_Sitemaps
 
     public function exclude_post($args, $post_type)
     {
-        if ('page' === $post_type) {
+        if ($post_type === 'page') {
             $sitemap_skip_page = RY_Toolkit::get_option('sitemap_skip_page', []);
             if (class_exists('WooCommerce', false)) {
                 foreach ($sitemap_skip_page as $page => $skiped) {

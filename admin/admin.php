@@ -15,7 +15,7 @@ class RY_Toolkit_Admin
 
     public static function instance(): RY_Toolkit_Admin
     {
-        if (null === self::$_instance) {
+        if (self::$_instance === null) {
             self::$_instance = new self();
             self::$_instance->do_init();
         }
@@ -80,6 +80,9 @@ class RY_Toolkit_Admin
 
         $asset_info = include RY_TOOLKIT_PLUGIN_DIR . 'assets/admin/options.asset.php';
         wp_register_script('ry-toolkit-options', RY_TOOLKIT_PLUGIN_URL . 'assets/admin/options.js', $asset_info['dependencies'], $asset_info['version'], true);
+
+        $asset_info = include RY_TOOLKIT_PLUGIN_DIR . 'assets/admin/tools.asset.php';
+        wp_register_script('ry-toolkit-tools', RY_TOOLKIT_PLUGIN_URL . 'assets/admin/tools.js', $asset_info['dependencies'], $asset_info['version'], true);
     }
 
     public function init_frontend()
@@ -126,12 +129,21 @@ class RY_Toolkit_Admin
             'ry-toolkit-page' => $page,
         ], admin_url('admin-post.php'));
 
-        $hidden_value = array_merge($hidden_value, [
-            'action' => 'ry-toolkit-action',
-            'ry-toolkit-action' => $action,
-        ]);
+        echo '<form method="post" action="' . esc_url($post_url) . '">';
+        foreach ($hidden_value as $name => $value) {
+            echo '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr($value) . '" />';
+        }
+        $this->the_action_form_button($action, $submit_text);
+        echo '</form>';
+    }
 
-        include RY_TOOLKIT_PLUGIN_DIR . 'admin/html/action-form.php';
+    public function the_action_form_button(string $action, string $submit_text, string $type = 'submit'): void
+    {
+        echo '<input type="hidden" name="action" value="ry-toolkit-action" />';
+        echo '<input type="hidden" name="ry-toolkit-action" value="' . esc_attr($action) . '" />';
+        wp_nonce_field('ry-toolkit-action');
+        wp_nonce_field('ry-toolkit-action/' . $action, '_ry_toolkit_nonce', false);
+        echo '<button type="' . esc_attr($type) . '" name="submit" id="ry-' . esc_attr($action) . '" class="button" value="' . esc_attr($submit_text) . '">' . esc_html($submit_text) . '</button>';
     }
 
     public function the_action_link(string $page, string $action, array $add_args = []): string

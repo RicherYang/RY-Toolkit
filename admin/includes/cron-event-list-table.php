@@ -47,7 +47,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
         $this->search = sanitize_text_field(wp_unslash($_GET['s'] ?? '')); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         $this->orderby = strtolower(wp_unslash($_GET['orderby'] ?? '')); // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-        $this->order = ('desc' === strtolower(wp_unslash($_GET['order'] ?? ''))) ? 'desc' : 'asc'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $this->order = (strtolower(wp_unslash($_GET['order'] ?? '')) === 'desc') ? 'desc' : 'asc'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
         $this->view_type = strtolower(wp_unslash($_GET['viewtype'] ?? 'all')); // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
         $this->schedules = wp_get_schedules();
@@ -64,7 +64,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         foreach ($wp_events as $time => $cron) {
             foreach ($cron as $hook => $dings) {
                 if (!empty($this->search)) {
-                    if (false === strpos($hook, $this->search)) {
+                    if (strpos($hook, $this->search) === false) {
                         continue;
                     }
                 }
@@ -135,12 +135,12 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
                 _n('All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'ry-toolkit'),
                 number_format_i18n($count)
             ),
-            'current' => 'all' === $current_view_type,
+            'current' => $current_view_type === 'all',
         ];
 
         $this->view_type = 'noaction';
         $count = count(array_filter($this->all_events, [$this, 'filter_view_type']));
-        if (0 < $count) {
+        if ($count > 0) {
             $url_args['viewtype'] = $this->view_type;
             $links[$this->view_type] = [
                 'url' => esc_url(add_query_arg($url_args, $basic_url)),
@@ -156,7 +156,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         foreach ($this->schedules as $schedule => $schedule_info) {
             $this->view_type = 'schedule_' . $schedule;
             $count = count(array_filter($this->all_events, [$this, 'filter_view_type']));
-            if (0 < $count) {
+            if ($count > 0) {
                 $url_args['viewtype'] = $this->view_type;
                 $links[$this->view_type] = [
                     'url' => esc_url(add_query_arg($url_args, $basic_url)),
@@ -182,7 +182,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
         $utc_info = '';
         if (!empty($offset)) {
-            if (0 <= $offset) {
+            if ($offset >= 0) {
                 $utc_info = '+' . (string) $offset;
             } else {
                 $utc_info = (string) $offset;
@@ -259,7 +259,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         );
 
         $diff = $event->time - time();
-        if (0 < $diff) {
+        if ($diff > 0) {
             echo '<br>' . esc_html(sprintf(
                 /* translators: %s: interval text */
                 __('after %s', 'ry-toolkit'),
@@ -276,7 +276,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             echo esc_html($event->schedule);
         }
 
-        if (0 < $event->interval) {
+        if ($event->interval > 0) {
             echo '<br>' . esc_html(sprintf(
                 /* translators: %s: interval text */
                 __('every %s', 'ry-toolkit'),
@@ -327,7 +327,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
     private function filter_view_type($event): bool
     {
         $keep = true;
-        if ('noaction' === $this->view_type) {
+        if ($this->view_type === 'noaction') {
             $keep = empty($event->actions);
         } elseif (str_starts_with($this->view_type, 'schedule_')) {
             $keep = $event->schedule === substr($this->view_type, 9);
@@ -349,7 +349,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
     private function sort_event($a, $b): int
     {
         if ($this->orderby === 'hook') {
-            if ('asc' === $this->order) {
+            if ($this->order === 'asc') {
                 return strcasecmp($a->hook, $b->hook);
             } else {
                 return strcasecmp($b->hook, $a->hook);
@@ -357,7 +357,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         }
 
         if ($this->orderby === 'next') {
-            if ('asc' === $this->order) {
+            if ($this->order === 'asc') {
                 return $a->time <=> $b->time;
             } else {
                 return $b->time <=> $a->time;
@@ -442,7 +442,7 @@ class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
             $time_remaining = $seconds;
             foreach ($time_periods as $time_period) {
                 $time_show = floor($time_remaining / $time_period['seconds']);
-                if (0 < $time_show) {
+                if ($time_show > 0) {
                     $second_text[$seconds][$period_limit][] = sprintf(
                         translate_nooped_plural($time_period['names'], $time_show, 'ry-toolkit'),
                         $time_show

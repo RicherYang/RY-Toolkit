@@ -28,6 +28,7 @@ module.exports = {
     ...defaultConfig,
     entry: {
         'admin/options': path.join(srcPath, 'admin/options.js'),
+        'admin/tools': path.join(srcPath, 'admin/tools.js'),
 
         'admin/main': path.join(srcPath, 'admin/main.scss'),
     },

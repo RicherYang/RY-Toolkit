@@ -6,7 +6,7 @@ class RY_Toolkit_Cron
 
     public static function instance(): RY_Toolkit_Cron
     {
-        if (null === self::$_instance) {
+        if (self::$_instance === null) {
             self::$_instance = new self();
             self::$_instance->do_init();
         }
@@ -21,9 +21,9 @@ class RY_Toolkit_Cron
 
     public function limit_ready_cron_jobs($crons)
     {
-        if (null === $crons) {
+        if ($crons === null) {
             $limit_time = intval($_GET['ry-toolkit-limit-event'] ?? ''); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-            if (0 < $limit_time) {
+            if ($limit_time > 0) {
                 $wp_events = _get_cron_array();
 
                 $crons = [];

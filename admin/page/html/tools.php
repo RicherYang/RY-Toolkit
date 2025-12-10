@@ -5,6 +5,7 @@
 
         </th>
         <td>
+
             <div class="ry-row">
                 <div class="ry-col-auto ry-loading">
                     <?php RY_Toolkit()->admin->the_action_form('tools', 'analyze-tables', __('Analyze tables', 'ry-toolkit')); ?>
@@ -13,6 +14,26 @@
                     <?php RY_Toolkit()->admin->the_action_form('tools', 'optimize-tables', __('Optimize tables', 'ry-toolkit')); ?>
                 </div>
             </div>
+            <?php if (current_user_can('export') && class_exists('ZipArchive')) { ?>
+            <fieldset class="ry-row">
+                <div class="ry-col-auto">
+                    <?php RY_Toolkit()->admin->the_action_form_button('export-db', __('Export database', 'ry-toolkit'), 'button'); ?>
+                </div>
+                <div class="ry-col">
+                    <fieldset>
+                        <legend class="screen-reader-text"><span><?php esc_html_e('Single row', 'ry-toolkit'); ?></span></legend>
+                        <input type="checkbox" id="single-row-1" name="single-row" value="1">
+                        <?php esc_html_e('Insert one row at a time.', 'ry-toolkit'); ?>
+                        <p class="description"><?php esc_html_e('Inserting data one by one would take a lot of time.', 'ry-toolkit'); ?></p>
+                    </fieldset>
+                </div>
+                <div id="export-progress" class="ry-col-full">
+                    <div class="ry-progress">
+                        <div class="ry-progress-bar"></div>
+                    </div>
+                </div>
+            </fieldset>
+            <?php } ?>
             <div class="ry-row">
                 <div class="ry-col-auto ry-loading">
                     <?php RY_Toolkit()->admin->the_action_form('tools', 'clear-transient', __('Clear transient option', 'ry-toolkit')); ?>
@@ -29,6 +50,22 @@
                     </p>
                 </div>
             </div>
+            <?php if ($as_counts >= 0) { ?>
+            <div class="ry-row">
+                <div class="ry-col-auto ry-loading">
+                    <?php RY_Toolkit()->admin->the_action_form('tools', 'clear-complete-log', __('Clear Action Scheduler complete log', 'ry-toolkit')); ?>
+                </div>
+                <div class="ry-col">
+                    <p class="description">
+                        <?php echo esc_html(sprintf(
+                            /* translators: %: Number of complete log. */
+                            _n('%s complete log in your database.', '%s complete logs in your database.', $as_counts, 'ry-toolkit'),
+                            number_format_i18n($as_counts)
+                        )); ?>
+                    </p>
+                </div>
+            </div>
+            <?php } ?>
         </td>
     </tr>
     <tr>

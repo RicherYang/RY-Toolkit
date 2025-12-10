@@ -30,7 +30,7 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
         echo '<div class="wrap"><h1>' . esc_html__('OPcache', 'ry-toolkit') . '</h1>';
 
         $opcache_status = opcache_get_status(false);
-        if (false === $opcache_status) {
+        if ($opcache_status === false) {
             echo esc_html__('OPcache disabled.', 'ry-toolkit');
         } else {
             $opcache_total = [
@@ -55,9 +55,16 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
                 $opcache_status = opcache_get_status(true);
                 if ($opcache_status && isset($opcache_status['scripts'])) {
                     $check_abspath = substr(ABSPATH, 0, -1);
+                    $start = time();
                     foreach ($opcache_status['scripts'] as $script) {
                         if (str_starts_with($script['full_path'], $check_abspath)) {
                             opcache_invalidate($script['full_path'], true);
+                        }
+
+                        if (time() - $start > 9) {
+                            return RY_Toolkit()->admin->the_action_link('tools', 'flush-opcache', [
+                                '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))), // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+                            ]);
                         }
                     }
                     RY_Toolkit()->admin->add_notice('success', __('OPcache flushed successfully.', 'ry-toolkit'));

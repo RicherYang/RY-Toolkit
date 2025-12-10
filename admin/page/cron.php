@@ -115,7 +115,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
             }
             ksort($wp_events);
             $set_cron = _set_cron_array($wp_events);
-            if (true === $set_cron) {
+            if ($set_cron === true) {
                 delete_transient('doing_cron');
 
                 add_filter('cron_request', function ($cron_request_array) {

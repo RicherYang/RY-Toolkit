@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.8
-Stable tag: 1.4.6
+Stable tag: 1.4.8
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -62,6 +62,12 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 1.4.8 - 2025/12/10 =
+* Add database export tool.
+
+= 1.4.7 - 2025/12/08 =
+* Add post list show thumbnail.
 
 = 1.4.6 - 2025/05/15 =
 * Add ignore info for "Plugin Check (PCP)"

@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 1.4.7\n"
+"Project-Id-Version: RY Toolkit 1.4.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-12-08T10:34:14+08:00\n"
+"POT-Creation-Date: 2025-12-10T15:54:45+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ry-toolkit\n"
@@ -39,7 +39,7 @@ msgstr ""
 msgid "https://richer.tw/"
 msgstr ""
 
-#: admin/admin.php:101
+#: admin/admin.php:104
 msgid "RY Tool"
 msgstr ""
 
@@ -463,22 +463,22 @@ msgid "OPcache tool"
 msgstr ""
 
 #: admin/page/html/opcache.php:165
-#: admin/page/html/tools.php:36
+#: admin/page/html/tools.php:73
 msgid "PHP OPcache"
 msgstr ""
 
 #: admin/page/html/opcache.php:171
-#: admin/page/html/tools.php:42
+#: admin/page/html/tools.php:79
 msgid "Flush PHP OPcache"
 msgstr ""
 
 #: admin/page/html/opcache.php:175
-#: admin/page/html/tools.php:46
+#: admin/page/html/tools.php:83
 msgid "Set all cached files under the WordPress root directory to be invalid."
 msgstr ""
 
 #: admin/page/html/opcache.php:181
-#: admin/page/html/tools.php:52
+#: admin/page/html/tools.php:89
 msgid "Restart PHP OPcache"
 msgstr ""
 
@@ -1107,27 +1107,55 @@ msgstr ""
 msgid "Database"
 msgstr ""
 
-#: admin/page/html/tools.php:10
+#: admin/page/html/tools.php:11
 msgid "Analyze tables"
 msgstr ""
 
-#: admin/page/html/tools.php:13
+#: admin/page/html/tools.php:14
 msgid "Optimize tables"
 msgstr ""
 
-#: admin/page/html/tools.php:18
+#: admin/page/html/tools.php:20
+msgid "Export database"
+msgstr ""
+
+#: admin/page/html/tools.php:24
+msgid "Single row"
+msgstr ""
+
+#: admin/page/html/tools.php:26
+msgid "Insert one row at a time."
+msgstr ""
+
+#: admin/page/html/tools.php:27
+msgid "Inserting data one by one would take a lot of time."
+msgstr ""
+
+#: admin/page/html/tools.php:39
 msgid "Clear transient option"
 msgstr ""
 
-#: admin/page/html/tools.php:22
+#: admin/page/html/tools.php:43
 msgid "Transient option are safe to remove. They will be automatically regenerated when require it."
 msgstr ""
 
 #. translators: %: Number of transient option.
-#: admin/page/html/tools.php:26
+#: admin/page/html/tools.php:47
 #, php-format
 msgid "%s transient in your database."
 msgid_plural "%s transients in your database."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/page/html/tools.php:56
+msgid "Clear Action Scheduler complete log"
+msgstr ""
+
+#. translators: %: Number of complete log.
+#: admin/page/html/tools.php:62
+#, php-format
+msgid "%s complete log in your database."
+msgid_plural "%s complete logs in your database."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1140,20 +1168,20 @@ msgstr ""
 msgid "OPcache disabled."
 msgstr ""
 
-#: admin/page/opcache.php:63
+#: admin/page/opcache.php:70
 msgid "OPcache flushed successfully."
 msgstr ""
 
-#: admin/page/opcache.php:66
-#: admin/page/opcache.php:69
+#: admin/page/opcache.php:73
+#: admin/page/opcache.php:76
 msgid "OPcache flush failed."
 msgstr ""
 
-#: admin/page/opcache.php:80
+#: admin/page/opcache.php:87
 msgid "OPcache restarted successfully."
 msgstr ""
 
-#: admin/page/opcache.php:82
+#: admin/page/opcache.php:89
 msgid "OPcache restart failed."
 msgstr ""
 
@@ -1255,20 +1283,24 @@ msgid "Post type \"%s\""
 msgstr ""
 
 #: admin/page/tools.php:18
-#: admin/page/tools.php:41
+#: admin/page/tools.php:54
 msgid "Tools"
 msgstr ""
 
-#: admin/page/tools.php:84
+#: admin/page/tools.php:95
 msgid "Database tables analyzed successfully."
 msgstr ""
 
-#: admin/page/tools.php:125
+#: admin/page/tools.php:134
 msgid "Database tables optimized successfully."
 msgstr ""
 
-#: admin/page/tools.php:152
+#: admin/page/tools.php:420
 msgid "Clear transient option successfully."
+msgstr ""
+
+#: admin/page/tools.php:434
+msgid "Clear complete log successfully."
 msgstr ""
 
 #. translators: %s: Plugin name.
@@ -1294,11 +1326,11 @@ msgstr ""
 msgid "Sorry, cannot find the plugin."
 msgstr ""
 
-#: admin/plugins.php:99
+#: admin/plugins.php:100
 msgid "Unable to generate zip file."
 msgstr ""
 
-#: admin/plugins.php:102
+#: admin/plugins.php:103
 msgid "Unable to open zip file for writing."
 msgstr ""
 
