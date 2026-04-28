@@ -2,7 +2,7 @@
 
 class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
 {
-    protected static $page_type = 'ry-plugins';
+    protected static string $page_type = 'ry-plugins';
 
     protected function do_init(): void
     {

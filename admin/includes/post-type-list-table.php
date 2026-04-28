@@ -2,11 +2,11 @@
 
 class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
 {
-    protected $orderby;
+    protected string $orderby;
 
-    protected $order;
+    protected string $order;
 
-    private $wp_core_name = [
+    private array $wp_core_name = [
         'post',
         'page',
         'attachment',
@@ -40,7 +40,7 @@ class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
     public function prepare_items()
     {
         $all_items = get_post_types([], 'objects');
-        foreach ($all_items as $idx => $item) {
+        foreach ($all_items as $item) {
             $item->posts = array_sum((array) wp_count_posts($item->name));
         }
         usort($all_items, [$this, 'sort_post_types']);

@@ -2,7 +2,7 @@
 
 final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 {
-    protected static $page_type = 'cron';
+    protected static string $page_type = 'cron';
 
     protected $limit_event;
 
@@ -13,7 +13,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         add_action('ry-toolkit/add_page-ry-toolkit-cron', [__CLASS__, 'set_page_load']);
     }
 
-    public static function add_menu($menu_list)
+    public static function add_menu(array $menu_list): array
     {
         $menu_list[] = [
             'name' => __('Cron', 'ry-toolkit'),

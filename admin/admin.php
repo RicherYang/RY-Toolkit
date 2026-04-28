@@ -4,7 +4,7 @@ class RY_Toolkit_Admin
 {
     protected static $_instance = null;
 
-    private $instance = [];
+    private array $instance = [];
 
     public function __get(string $name)
     {

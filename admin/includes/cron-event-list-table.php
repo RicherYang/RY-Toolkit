@@ -2,19 +2,19 @@
 
 class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 {
-    protected $all_events;
+    protected array $all_events;
 
-    protected $search;
+    protected string $search;
 
-    protected $orderby;
+    protected string $orderby;
 
-    protected $order;
+    protected string $order;
 
-    protected $view_type;
+    protected string $view_type;
 
-    protected $schedules;
+    protected array $schedules;
 
-    private $wp_core_hook = [
+    private array $wp_core_hook = [
         'delete_expired_transients',
         'do_pings',
         'importer_scheduled_cleanup',

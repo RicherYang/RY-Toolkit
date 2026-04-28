@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/RicherYang
 Tags: tool
 Requires at least: 6.0
 Requires PHP: 7.4
-Tested up to: 6.8
+Tested up to: 6.9
 Stable tag: 1.4.8
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt

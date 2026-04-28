@@ -2,14 +2,14 @@
 
 final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
 {
-    protected static $page_type = 'tools';
+    protected static string $page_type = 'tools';
 
     public static function init_page(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu'], 1);
     }
 
-    public static function add_menu($menu_list)
+    public static function add_menu(array $menu_list): array
     {
         $menu_list[] = [
             'name' => __('Options', 'ry-toolkit'),

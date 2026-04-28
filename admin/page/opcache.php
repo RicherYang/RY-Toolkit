@@ -2,7 +2,7 @@
 
 final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
 {
-    protected static $page_type = 'opcache';
+    protected static string $page_type = 'opcache';
 
     public static function init_page(): void
     {
@@ -12,7 +12,7 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
         }
     }
 
-    public static function add_menu($menu_list)
+    public static function add_menu(array $menu_list): array
     {
         $menu_list[] = [
             'name' => __('OPcache', 'ry-toolkit'),

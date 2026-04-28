@@ -2,7 +2,7 @@
 
 abstract class RY_Toolkit_Admin_Page
 {
-    protected static $page_type;
+    protected static string $page_type;
 
     protected static $_instance = [];
 

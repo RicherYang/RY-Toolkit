@@ -4,7 +4,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 {
     public const TRANSIENT_KEYS = ['_transient_', '_site_transient_'];
 
-    protected static $page_type = 'tools';
+    protected static string $page_type = 'tools';
 
     public static function init_page(): void
     {
@@ -12,7 +12,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
         add_action('admin_post_ry-toolkit-action', [__CLASS__, 'admin_post_action']);
     }
 
-    public static function add_menu($menu_list)
+    public static function add_menu(array $menu_list): array
     {
         $menu_list[] = [
             'name' => __('Tools', 'ry-toolkit'),
