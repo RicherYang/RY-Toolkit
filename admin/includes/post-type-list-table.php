@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 class RY_Toolkit_Post_Type_List_Table extends WP_List_Table
 {
     protected string $orderby;

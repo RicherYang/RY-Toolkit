@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or exit; ?>
+
 <table id="ry-toolkit-options-wp-rocket." class="form-table ry-toolkit-options">
     <tr>
         <th scope="row"><?php esc_html_e('.htaccess', 'ry-toolkit'); ?></th>

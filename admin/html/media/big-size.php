@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or exit; ?>
+
 <fieldset>
     <legend class="screen-reader-text"><span><?php esc_html_e('Max size', 'ry-toolkit'); ?></span></legend>
     <label for="ry_big_size_"><?php esc_html_e('Max Width / Heigth', 'ry-toolkit'); ?></label>

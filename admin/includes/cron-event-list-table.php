@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 {
     protected array $all_events;

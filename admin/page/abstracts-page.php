@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 abstract class RY_Toolkit_Admin_Page
 {
     protected static string $page_type;

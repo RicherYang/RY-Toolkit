@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 class RY_Toolkit_Admin
 {
     protected static $_instance = null;

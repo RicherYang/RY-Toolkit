@@ -1,5 +1,6 @@
-<h2><?php esc_html_e('OPcache status', 'ry-toolkit'); ?></h2>
+<?php defined('ABSPATH') or exit; ?>
 
+<h2><?php esc_html_e('OPcache status', 'ry-toolkit'); ?></h2>
 <div class="ry-row ry-row-opcache">
     <div class="ry-col">
         <table class="widefat striped">

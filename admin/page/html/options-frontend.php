@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or exit; ?>
+
 <table id="ry-toolkit-options-frontend" class="form-table ry-toolkit-options">
     <tr>
         <th scope="row"><?php esc_html_e('WordPress version', 'ry-toolkit'); ?></th>

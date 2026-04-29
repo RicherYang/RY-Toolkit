@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 class RY_Toolkit_Admin_Post
 {
     protected static $_instance = null;
@@ -30,7 +32,7 @@ class RY_Toolkit_Admin_Post
             $add_index = array_search('title', array_keys($columns));
             $pre_array = array_splice($columns, 0, $add_index);
             return array_merge($pre_array, [
-                'ry-thumbnail' => get_post_type_labels(get_post_type_object($post_type))->featured_image,
+                'ry-thumbnail' => get_post_type_object($post_type)->labels->featured_image,
             ], $columns);
         }
 

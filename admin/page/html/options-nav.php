@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or exit; ?>
+
 <nav class="nav-tab-wrapper wp-clearfix">
     <?php
     foreach ($type_list as $option_type => $option_name) {
@@ -8,5 +10,5 @@
             esc_html($option_name)
         );
     }
-    ?>
+?>
 </nav>

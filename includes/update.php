@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 class RY_Toolkit_Update
 {
     public static function update(): void
@@ -41,8 +43,8 @@ class RY_Toolkit_Update
             RY_Toolkit::update_option('version', '1.4.7', true);
         }
 
-        if (version_compare($now_version, '1.4.8', '<')) {
-            RY_Toolkit::update_option('version', '1.4.8', true);
+        if (version_compare($now_version, '1.4.9', '<')) {
+            RY_Toolkit::update_option('version', '1.4.9', true);
         }
     }
 }

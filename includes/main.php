@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 class RY_Toolkit
 {
     public const OPTION_PREFIX = 'RY_Toolkit_';
@@ -27,8 +29,6 @@ class RY_Toolkit
 
     protected function do_init(): void
     {
-        load_plugin_textdomain('ry-toolkit', false, plugin_basename(RY_TOOLKIT_PLUGIN_DIR) . '/languages');
-
         add_action('init', [$this, 'ry_pre_init'], 9);
         add_action('init', [$this, 'ry_init']);
 
@@ -78,7 +78,7 @@ class RY_Toolkit
         return self::OPTION_PREFIX . $option;
     }
 
-    public static function get_option(string $option, $default = false): mixed
+    public static function get_option(string $option, mixed $default = false): mixed
     {
         return get_option(self::get_option_name($option), $default);
     }
@@ -88,7 +88,7 @@ class RY_Toolkit
         return update_option(self::get_option_name($option), $value, $autoload);
     }
 
-    public static function delete_option($option)
+    public static function delete_option(string $option)
     {
         return delete_option(self::get_option_name($option));
     }

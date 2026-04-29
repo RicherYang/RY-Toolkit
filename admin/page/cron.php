@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 {
     protected static string $page_type = 'cron';

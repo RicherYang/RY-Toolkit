@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or exit; ?>
+
 <?php $list_table->views(); ?>
 
 <form id="posts-filter" method="get">

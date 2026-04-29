@@ -1,5 +1,7 @@
 <?php
 
+defined('ABSPATH') or exit;
+
 final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 {
     public const TRANSIENT_KEYS = ['_transient_', '_site_transient_'];
@@ -168,7 +170,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             $export_data['exported'] = 0;
             $export_data['total'] = 0;
             foreach ($export_data['table'] as $table_name => $status) {
-                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 $export_data['total'] += $wpdb->get_var("SELECT COUNT(*) FROM `{$table_name}`");
             }
             $export_data['file'] = wp_tempnam('ry-toolkit-download');
@@ -184,7 +186,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
             $buffer = "-- ----------------------------------------\n";
             $buffer .= "-- WordPress database export\n";
-            $buffer .= '-- Date: ' . date('Y-m-d H:i:s') . "\n";
+            $buffer .= '-- Date: ' . date('Y-m-d H:i:s') . "\n"; // phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
             $buffer .= "-- Server: {$db_version}\n";
             $buffer .= "-- Database: {$current_db}\n";
             $buffer .= "-- Character Set: {$db_charset}\n";
@@ -208,7 +210,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 continue;
             }
 
-            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
+            // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
             $table_rows = (int) $wpdb->get_var("SELECT COUNT(*) FROM `{$table_name}`");
 
             if ($export_data['table'][$table_name] === false) {
@@ -221,7 +223,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 $buffer .= "-- ----------------------------------------\n\n";
 
                 // 取得建立資料表的語法
-                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 $create_table = $wpdb->get_var("SHOW CREATE TABLE `{$table_name}`", 1, 0);
                 if ($create_table) {
                     $buffer .= "DROP TABLE IF EXISTS `{$table_name}`;\n";
@@ -243,7 +245,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             }
 
             if ($table_rows > 0) {
-                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 $columns = $wpdb->get_results("SHOW COLUMNS FROM `{$table_name}`");
                 $column_types = [];
                 foreach ($columns as $column) {
@@ -252,7 +254,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 }
 
                 while (true) {
-                    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
+                    // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                     $rows = $wpdb->get_results($wpdb->prepare(
                         "SELECT * FROM `{$table_name}` LIMIT %d, %d",
                         $export_data['table'][$table_name],
@@ -387,7 +389,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                     delete_transient('ry_export_data');
 
                     ob_end_clean();
-                    readfile($tmp_zip_file);
+                    readfile($tmp_zip_file); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_readfile
                     wp_delete_file($export_data['file']);
                     wp_delete_file($tmp_zip_file);
                     exit;
@@ -431,7 +433,9 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
         check_ajax_referer('ry-toolkit-action/clear-complete-log', '_ry_toolkit_nonce');
 
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
         $wpdb->query("DELETE FROM {$wpdb->actionscheduler_actions} WHERE `status`='complete'");
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
         $wpdb->query("DELETE FROM {$wpdb->actionscheduler_logs} WHERE action_id NOT IN (SELECT action_id FROM {$wpdb->actionscheduler_actions})");
 
         RY_Toolkit()->admin->add_notice('success', __('Clear complete log successfully.', 'ry-toolkit'));

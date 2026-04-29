@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or exit; ?>
+
 <?php
 
 function ry_toolkit_get_cap_key_name($key)

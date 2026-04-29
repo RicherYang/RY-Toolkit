@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or exit; ?>
+
 <table id="ry-toolkit-options-core" class="form-table ry-toolkit-options">
     <tr>
         <th scope="row"><?php esc_html_e('XML-RPC', 'ry-toolkit'); ?></th>
@@ -37,10 +39,10 @@
         $post_types = array_filter(get_post_types([], 'names'), function ($post_type) {
             return post_type_supports($post_type, 'thumbnail');
         });
-        foreach ($post_types as $post_type) {
-            RY_Toolkit_Admin::the_bool_option_checkbox('show_thumbnails', get_post_type_labels(get_post_type_object($post_type))->name, $post_type);
-        } ?>
-            </select>
+foreach ($post_types as $post_type) {
+    RY_Toolkit_Admin::the_bool_option_checkbox('show_thumbnails', get_post_type_object($post_type)->label, $post_type);
+} ?>
+                </select>
         </td>
     </tr>
 </table>

@@ -1,3 +1,5 @@
+<?php defined('ABSPATH') or exit; ?>
+
 <fieldset>
     <legend class="screen-reader-text"><span><?php esc_html_e('Disable generated size', 'ry-toolkit'); ?></span></legend>
     <?php foreach ($all_sizes as $size_name => $size_data) { ?>
