@@ -2,7 +2,7 @@
 
 defined('ABSPATH') or exit;
 
-class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
+final class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
 {
     protected static string $page_type = 'ry-plugins';
 

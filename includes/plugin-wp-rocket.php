@@ -2,9 +2,9 @@
 
 defined('ABSPATH') or exit;
 
-class RY_Toolkit_Plugin_Wp_Rocket
+final class RY_Toolkit_Plugin_Wp_Rocket
 {
-    protected static $_instance = null;
+    protected static ?self $_instance = null;
 
     public static function instance(): RY_Toolkit_Plugin_Wp_Rocket
     {

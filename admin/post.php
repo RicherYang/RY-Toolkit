@@ -2,9 +2,9 @@
 
 defined('ABSPATH') or exit;
 
-class RY_Toolkit_Admin_Post
+final class RY_Toolkit_Admin_Post
 {
-    protected static $_instance = null;
+    protected static ?self $_instance = null;
 
     public static function instance(): RY_Toolkit_Admin_Post
     {

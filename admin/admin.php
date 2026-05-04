@@ -2,9 +2,9 @@
 
 defined('ABSPATH') or exit;
 
-class RY_Toolkit_Admin
+final class RY_Toolkit_Admin
 {
-    protected static $_instance = null;
+    protected static ?self $_instance = null;
 
     private array $instance = [];
 

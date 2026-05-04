@@ -2,7 +2,7 @@
 
 defined('ABSPATH') or exit;
 
-class RY_Toolkit_Update
+final class RY_Toolkit_Update
 {
     public static function update(): void
     {

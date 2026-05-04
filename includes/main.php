@@ -2,11 +2,11 @@
 
 defined('ABSPATH') or exit;
 
-class RY_Toolkit
+final class RY_Toolkit
 {
     public const OPTION_PREFIX = 'RY_Toolkit_';
 
-    protected static $_instance = null;
+    protected static ?self $_instance = null;
 
     private array $instance = [];
 
