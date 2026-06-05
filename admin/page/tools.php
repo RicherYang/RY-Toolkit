@@ -226,7 +226,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching , WordPress.DB.PreparedSQL.InterpolatedNotPrepared
                 $create_table = $wpdb->get_var("SHOW CREATE TABLE `{$table_name}`", 1, 0);
                 if ($create_table) {
-                    $buffer .= "DROP TABLE IF EXISTS `{$table_name}`;\n";
+                    $buffer .= "DROP TABLE IF EXISTS `{$table_name}`;\n"; // phpcs:ignore WordPress.DB.DirectDatabaseQuery.SchemaChange
                     $buffer .= $create_table . ";\n\n";
                 }
 
@@ -266,7 +266,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                     }
 
                     $buffer = '';
-                    $insert_sql = 'INSERT INTO `' . $table_name . '` VALUES ';
+                    $insert_sql = "INSERT INTO `{$table_name}` VALUES ";
                     foreach ($rows as $row) {
                         $values = [];
                         foreach ($row as $column_name => $value) {
@@ -320,9 +320,9 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                             continue;
                         }
                         $buffer .= $insert_sql . ";\n";
-                        $insert_sql = 'INSERT INTO `' . $table_name . '` VALUES ';
+                        $insert_sql = "INSERT INTO `{$table_name}` VALUES ";
                     }
-                    if ($insert_sql !== 'INSERT INTO `' . $table_name . '` VALUES ') {
+                    if ($insert_sql !== "INSERT INTO `{$table_name}` VALUES ") {
                         if (str_ends_with($insert_sql, ' ')) {
                             $insert_sql = substr($insert_sql, 0, -3);
                         }

@@ -16,6 +16,7 @@
                     <?php RY_Toolkit()->admin->the_action_form('tools', 'optimize-tables', __('Optimize tables', 'ry-toolkit')); ?>
                 </div>
             </div>
+
             <?php if (current_user_can('export') && class_exists('ZipArchive')) { ?>
             <fieldset class="ry-row">
                 <div class="ry-col-auto">
@@ -36,6 +37,7 @@
                 </div>
             </fieldset>
             <?php } ?>
+
             <div class="ry-row">
                 <div class="ry-col-auto ry-loading">
                     <?php RY_Toolkit()->admin->the_action_form('tools', 'clear-transient', __('Clear transient option', 'ry-toolkit')); ?>
@@ -52,6 +54,7 @@
                     </p>
                 </div>
             </div>
+
             <?php if ($as_counts >= 0) { ?>
             <div class="ry-row">
                 <div class="ry-col-auto ry-loading">
@@ -70,6 +73,7 @@
             <?php } ?>
         </td>
     </tr>
+    <?php if (function_exists('opcache_get_status')) { ?>
     <tr>
         <th>
             <strong><?php esc_html_e('PHP OPcache', 'ry-toolkit'); ?></strong>
@@ -93,6 +97,7 @@
             </div>
         </td>
     </tr>
+    <?php } ?>
 
     <?php do_action('ry-toolkit/tools_table'); ?>
 

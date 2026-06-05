@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-29T17:33:59+08:00\n"
+"POT-Creation-Date: 2026-05-25T17:11:36+08:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: ry-toolkit\n"
@@ -463,22 +463,22 @@ msgid "OPcache tool"
 msgstr ""
 
 #: admin/page/html/opcache.php:166
-#: admin/page/html/tools.php:75
+#: admin/page/html/tools.php:79
 msgid "PHP OPcache"
 msgstr ""
 
 #: admin/page/html/opcache.php:172
-#: admin/page/html/tools.php:81
+#: admin/page/html/tools.php:85
 msgid "Flush PHP OPcache"
 msgstr ""
 
 #: admin/page/html/opcache.php:176
-#: admin/page/html/tools.php:85
+#: admin/page/html/tools.php:89
 msgid "Set all cached files under the WordPress root directory to be invalid."
 msgstr ""
 
 #: admin/page/html/opcache.php:182
-#: admin/page/html/tools.php:91
+#: admin/page/html/tools.php:95
 msgid "Restart PHP OPcache"
 msgstr ""
 
@@ -1115,44 +1115,44 @@ msgstr ""
 msgid "Optimize tables"
 msgstr ""
 
-#: admin/page/html/tools.php:22
+#: admin/page/html/tools.php:23
 msgid "Export database"
 msgstr ""
 
-#: admin/page/html/tools.php:26
+#: admin/page/html/tools.php:27
 msgid "Single row"
 msgstr ""
 
-#: admin/page/html/tools.php:28
+#: admin/page/html/tools.php:29
 msgid "Insert one row at a time."
 msgstr ""
 
-#: admin/page/html/tools.php:29
+#: admin/page/html/tools.php:30
 msgid "Inserting data one by one would take a lot of time."
 msgstr ""
 
-#: admin/page/html/tools.php:41
+#: admin/page/html/tools.php:43
 msgid "Clear transient option"
 msgstr ""
 
-#: admin/page/html/tools.php:45
+#: admin/page/html/tools.php:47
 msgid "Transient option are safe to remove. They will be automatically regenerated when require it."
 msgstr ""
 
 #. translators: %: Number of transient option.
-#: admin/page/html/tools.php:49
+#: admin/page/html/tools.php:51
 #, php-format
 msgid "%s transient in your database."
 msgid_plural "%s transients in your database."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/page/html/tools.php:58
+#: admin/page/html/tools.php:61
 msgid "Clear Action Scheduler complete log"
 msgstr ""
 
 #. translators: %: Number of complete log.
-#: admin/page/html/tools.php:64
+#: admin/page/html/tools.php:67
 #, php-format
 msgid "%s complete log in your database."
 msgid_plural "%s complete logs in your database."
