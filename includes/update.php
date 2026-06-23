@@ -6,7 +6,7 @@ final class RY_Toolkit_Update
 {
     public static function update(): void
     {
-        $now_version = RY_Toolkit::get_option('version');
+        $now_version = RY_Toolkit::get_option('version', '0.0.0');
 
         if (RY_TOOLKIT_VERSION === $now_version) {
             return;
@@ -20,7 +20,7 @@ final class RY_Toolkit_Update
                 'sitemap_disable_taxonomy',
             ];
             if (!function_exists('wp_set_options_autoload')) {
-                wp_set_options_autoload(array_map(['RY_Toolkit', 'get_option_name'], $options), false);
+                wp_set_options_autoload(array_map(['RY_Toolkit', 'get_option_name'], $options), false); // phpcs:ignore wp_function_not_compatible_with_requires_wp
             } else {
                 foreach ($options as $name) {
                     $value = RY_Toolkit::get_option($name, null);

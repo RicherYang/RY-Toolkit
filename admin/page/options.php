@@ -61,7 +61,7 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
             ];
         }
 
-        $show_type = wp_unslash($_GET['type'] ?? ''); // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $show_type = wp_unslash($_GET['type'] ?? '');
         if (empty($show_type)) {
             $show_type = 'frontend';
         }

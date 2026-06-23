@@ -28,8 +28,8 @@ final class RY_Toolkit_Admin_Page_PostType extends RY_Toolkit_Admin_Page
 
     protected function do_init(): void
     {
-        if (isset($_GET['type'])) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-            $post_type = wp_unslash($_GET['type']); // phpcs:ignore WordPress.Security.NonceVerification.Recommended , WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        if (isset($_GET['type'])) {
+            $post_type = wp_unslash($_GET['type']);
             if ($post_type !== sanitize_key($post_type)) {
                 wp_die(esc_html__('The post type does not exist.', 'ry-toolkit'));
             }

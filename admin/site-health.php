@@ -26,7 +26,7 @@ final class RY_Toolkit_Admin_Site_Health
         global $wpdb;
 
         $table_info = [];
-        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery , WordPress.DB.DirectDatabaseQuery.NoCaching
+
         foreach ($wpdb->get_results('SHOW TABLE STATUS') as $row) {
             $table_info[$row->Name] = sprintf(
                 /* Translators: %1$s: Table size, %2$s: Index size, %3$s: Free size, %4$s Engine. */

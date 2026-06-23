@@ -65,7 +65,7 @@ final class RY_Toolkit_Admin_Page_Opcache extends RY_Toolkit_Admin_Page
 
                         if (time() - $start > 9) {
                             return RY_Toolkit()->admin->the_action_link('tools', 'flush-opcache', [
-                                '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))), // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+                                '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))),
                             ]);
                         }
                     }

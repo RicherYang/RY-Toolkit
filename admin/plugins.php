@@ -51,7 +51,7 @@ final class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
             wp_die(esc_html__('Sorry, you are not allowed to download plugin.', 'ry-toolkit'));
         }
 
-        $plugin_file = wp_unslash($_GET['plugin_file'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $plugin_file = wp_unslash($_GET['plugin_file'] ?? '');
         if (validate_file($plugin_file)) {
             wp_die(esc_html__('Invalid plugin path.', 'ry-toolkit'));
         }
@@ -95,7 +95,7 @@ final class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
                 header('Content-Type: application/zip');
                 header('Content-Disposition: attachment; filename="' . $file_name . '"');
                 header('Content-Length: ' . filesize($tmp_zip_file));
-                readfile($tmp_zip_file); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_readfile
+                readfile($tmp_zip_file);
                 wp_delete_file($tmp_zip_file);
                 exit;
             } else {

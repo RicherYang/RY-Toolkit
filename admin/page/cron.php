@@ -88,7 +88,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 
         $time = intval($_GET['time'] ?? '');
         $hook = sanitize_text_field(wp_unslash($_GET['hook'] ?? ''));
-        $sig = wp_unslash($_GET['sig'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $sig = wp_unslash($_GET['sig'] ?? '');
         if ($sig !== sanitize_key($sig)) {
             RY_Toolkit()->admin->add_notice('error', sprintf(
                 /* translators: Event hook name. */
@@ -166,7 +166,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 
         $time = intval($_GET['time'] ?? '');
         $hook = sanitize_text_field(wp_unslash($_GET['hook'] ?? ''));
-        $sig = wp_unslash($_GET['sig'] ?? ''); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $sig = wp_unslash($_GET['sig'] ?? '');
         if ($sig !== sanitize_key($sig)) {
             RY_Toolkit()->admin->add_notice('error', sprintf(
                 /* translators: Event hook name. */
