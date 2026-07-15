@@ -12,6 +12,11 @@ final class RY_Toolkit_Update
             return;
         }
 
+        if ($now_version === '0.0.0') {
+            RY_Toolkit::update_option('version', RY_TOOLKIT_VERSION, true);
+            return;
+        }
+
         if (version_compare($now_version, '1.3.0', '<')) {
             $options = [
                 'sitemap_urls_pre_file',

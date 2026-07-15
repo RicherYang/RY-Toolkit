@@ -6,7 +6,7 @@ final class RY_Toolkit
 {
     public const OPTION_PREFIX = 'RY_Toolkit_';
 
-    protected static ?self $_instance = null;
+    private static ?self $_instance = null;
 
     private array $instance = [];
 
@@ -30,7 +30,7 @@ final class RY_Toolkit
     protected function do_init(): void
     {
         add_action('init', [$this, 'ry_pre_init'], 9);
-        add_action('init', [$this, 'ry_init']);
+        add_action('init', [$this, 'ry_init'], 9);
 
         if (is_admin()) {
             include_once RY_TOOLKIT_PLUGIN_DIR . 'includes/update.php';

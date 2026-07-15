@@ -4,7 +4,7 @@ defined('ABSPATH') or exit;
 
 final class RY_Toolkit_Admin_Options
 {
-    protected static ?self $_instance = null;
+    private static ?self $_instance = null;
 
     public static function instance(): RY_Toolkit_Admin_Options
     {
