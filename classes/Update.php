@@ -50,8 +50,8 @@ final class Update
             Main::update_option('version', '1.4.7', true);
         }
 
-        if (version_compare($now_version, '2026.7.31', '<')) {
-            Main::update_option('version', '2026.7.31', true);
+        if (version_compare($now_version, '2026.7.31.2', '<')) {
+            Main::update_option('version', '2026.7.31.2', true);
         }
     }
 }
