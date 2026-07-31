@@ -1,6 +1,12 @@
 <?php defined('ABSPATH') or exit; ?>
 
 <?php
+use RY\Toolkit\Admin\Utils;
+use RY\Toolkit\Main;
+
+?>
+
+<?php
 $providers = wp_get_sitemap_providers();
 
 $post_types = get_post_types(['public' => true], 'objects');
@@ -24,9 +30,9 @@ if (class_exists('WooCommerce', false)) {
 
 <table id="ry-toolkit-options-sitemap" class="form-table ry-toolkit-options">
     <tr>
-        <th scope="row"><label for="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_urls_pre_file')); ?>"><?php esc_html_e('Maximum number of URLs for a sitemap', 'ry-toolkit'); ?></label></th>
+        <th scope="row"><label for="<?php echo esc_attr(Main::get_prefix_name('sitemap_urls_pre_file')); ?>"><?php esc_html_e('Maximum number of URLs for a sitemap', 'ry-toolkit'); ?></label></th>
         <td>
-            <input name="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_urls_pre_file')); ?>" type="number" step="1" min="1" max="50000" id="<?php echo esc_attr(RY_Toolkit::get_option_name('sitemap_urls_pre_file')); ?>" value="<?php echo esc_attr(RY_Toolkit::get_option('sitemap_urls_pre_file', 2000)); ?>" class="small-text" />
+            <input name="<?php echo esc_attr(Main::get_prefix_name('sitemap_urls_pre_file')); ?>" type="number" step="1" min="1" max="50000" id="<?php echo esc_attr(Main::get_prefix_name('sitemap_urls_pre_file')); ?>" value="<?php echo esc_attr(Main::get_option('sitemap_urls_pre_file', 2000)); ?>" class="small-text" />
             <?php esc_html_e('urls', 'ry-toolkit'); ?>
         </td>
     </tr>
@@ -36,7 +42,7 @@ if (class_exists('WooCommerce', false)) {
             <fieldset>
                 <legend class="screen-reader-text"><span><?php esc_html_e('Sitemap entry', 'ry-toolkit'); ?></span></legend>
                 <?php foreach ($providers as $provider_name => $type_object) {
-                    RY_Toolkit_Admin::the_bool_option_checkbox('sitemap_disable_provider', sprintf(
+                    Utils::the_bool_option_checkbox('sitemap_disable_provider', sprintf(
                         /* translators: %s: sitemap entry name. */
                         __('Disable generation "%s" entry sitemap', 'ry-toolkit'),
                         $sitemap_provider_name[$provider_name] ?? $provider_name
@@ -53,7 +59,7 @@ if (class_exists('WooCommerce', false)) {
             <fieldset>
                 <legend class="screen-reader-text"><span><?php esc_html_e('"Posts" entry sitemap', 'ry-toolkit'); ?></span></legend>
                 <?php foreach ($post_types as $post_type => $type_object) {
-                    RY_Toolkit_Admin::the_bool_option_checkbox('sitemap_disable_post_type', sprintf(
+                    Utils::the_bool_option_checkbox('sitemap_disable_post_type', sprintf(
                         /* translators: %s: sitemap entry name. */
                         __('Disable generation "%s" post type sitemap', 'ry-toolkit'),
                         $type_object->labels->name
@@ -69,7 +75,7 @@ if (class_exists('WooCommerce', false)) {
             <fieldset>
                 <legend class="screen-reader-text"><span><?php esc_html_e('"Page" post type sitemap', 'ry-toolkit'); ?></span></legend>
                 <?php foreach ($skip_pages as $page => $page_name) {
-                    RY_Toolkit_Admin::the_bool_option_checkbox('sitemap_skip_page', sprintf(
+                    Utils::the_bool_option_checkbox('sitemap_skip_page', sprintf(
                         /* translators: %s: page name. */
                         __('Skip "%s" page', 'ry-toolkit'),
                         $page_name
@@ -89,7 +95,7 @@ if (class_exists('WooCommerce', false)) {
             <fieldset>
                 <legend class="screen-reader-text"><span><?php esc_html_e('Taxonomies sitemap', 'ry-toolkit'); ?></span></legend>
                 <?php foreach ($taxonomies as $taxonomy => $type_object) {
-                    RY_Toolkit_Admin::the_bool_option_checkbox('sitemap_disable_taxonomy', sprintf(
+                    Utils::the_bool_option_checkbox('sitemap_disable_taxonomy', sprintf(
                         /* translators: %s: sitemap entry name. */
                         __('Disable generation "%s" taxonomy sitemap', 'ry-toolkit'),
                         $type_object->labels->name

@@ -1,8 +1,12 @@
 <?php
 
+namespace RY\Toolkit\Admin\ListTable;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
+use RY\General\V20260729\Utils;
+
+final class CronEvent extends \WP_List_Table
 {
     protected array $all_events;
 
@@ -25,6 +29,7 @@ final class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
         'update_network_counts',
         'upgrader_scheduled_cleanup',
 
+        'wp_delete_temp_updater_backups',
         'wp_https_detection',
         'wp_maybe_auto_update',
         'wp_privacy_delete_old_export_files',
@@ -303,7 +308,7 @@ final class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
         $actions['execute'] = sprintf(
             '<a href="%s" aria-label="%s">%s</a>',
-            esc_url(RY_Toolkit()->admin->the_action_link('cron', 'execute-cron', $url_args)),
+            esc_url(Utils::the_action_link('toolkit-cron', 'execute-cron', $url_args)),
             esc_attr(sprintf(
                 /* translators: %s: Event hook name. */
                 __('Execute %s', 'ry-toolkit'),
@@ -314,7 +319,7 @@ final class RY_Toolkit_Cron_Event_List_Table extends WP_List_Table
 
         $actions['delete'] = sprintf(
             '<a href="%s" class="delete" aria-label="%s">%s</a>',
-            esc_url(RY_Toolkit()->admin->the_action_link('cron', 'delete-cron', $url_args)),
+            esc_url(Utils::the_action_link('toolkit-cron', 'delete-cron', $url_args)),
             esc_attr(sprintf(
                 /* translators: %s: Event hook name. */
                 __('Delete %s', 'ry-toolkit'),

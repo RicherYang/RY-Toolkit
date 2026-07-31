@@ -1,4 +1,9 @@
 <?php defined('ABSPATH') or exit; ?>
 
-<input name="<?php echo esc_attr(RY_Toolkit::get_option_name('friendly_filename')); ?>" type="checkbox" id="<?php echo esc_attr(RY_Toolkit::get_option_name('friendly_filename')); ?>" value="1" <?php checked($friendly_filename); ?>>
-<label for="<?php echo esc_attr(RY_Toolkit::get_option_name('friendly_filename')); ?>"><?php esc_html_e('Change upload filename to only use system friendly characters.', 'ry-toolkit'); ?> ( A-Z, a-z, 0-9, _, -, . )</label>
+<?php
+use RY\Toolkit\Main;
+
+?>
+
+<input name="<?php echo esc_attr(Main::get_prefix_name('friendly_filename')); ?>" type="checkbox" id="<?php echo esc_attr(Main::get_prefix_name('friendly_filename')); ?>" value="1" <?php checked($friendly_filename); ?>>
+<label for="<?php echo esc_attr(Main::get_prefix_name('friendly_filename')); ?>"><?php esc_html_e('Change upload filename to only use system friendly characters.', 'ry-toolkit'); ?> ( A-Z, a-z, 0-9, _, -, . )</label>

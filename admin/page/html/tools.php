@@ -1,5 +1,10 @@
 <?php defined('ABSPATH') or exit; ?>
 
+<?php
+use RY\General\V20260729\Utils;
+
+?>
+
 <table class="widefat striped ry-tooltable">
     <tr>
         <th>
@@ -10,17 +15,17 @@
 
             <div class="ry-row">
                 <div class="ry-col-auto ry-loading">
-                    <?php RY_Toolkit()->admin->the_action_form('tools', 'analyze-tables', __('Analyze tables', 'ry-toolkit')); ?>
+                    <?php Utils::the_action_form('toolkit-tools', 'analyze-tables', __('Analyze tables', 'ry-toolkit')); ?>
                 </div>
                 <div class="ry-col-auto ry-loading">
-                    <?php RY_Toolkit()->admin->the_action_form('tools', 'optimize-tables', __('Optimize tables', 'ry-toolkit')); ?>
+                    <?php Utils::the_action_form('toolkit-tools', 'optimize-tables', __('Optimize tables', 'ry-toolkit')); ?>
                 </div>
             </div>
 
             <?php if (current_user_can('export') && class_exists('ZipArchive')) { ?>
             <fieldset class="ry-row">
                 <div class="ry-col-auto">
-                    <?php RY_Toolkit()->admin->the_action_form_button('export-db', __('Export database', 'ry-toolkit'), 'button'); ?>
+                    <?php Utils::the_action_form_button('toolkit-tools', 'export-db', __('Export database', 'ry-toolkit'), 'button'); ?>
                 </div>
                 <div class="ry-col">
                     <fieldset>
@@ -40,7 +45,7 @@
 
             <div class="ry-row">
                 <div class="ry-col-auto ry-loading">
-                    <?php RY_Toolkit()->admin->the_action_form('tools', 'clear-transient', __('Clear transient option', 'ry-toolkit')); ?>
+                    <?php Utils::the_action_form('toolkit-tools', 'clear-transient', __('Clear transient option', 'ry-toolkit')); ?>
                 </div>
                 <div class="ry-col">
                     <p class="description">
@@ -58,7 +63,7 @@
             <?php if ($as_counts >= 0) { ?>
             <div class="ry-row">
                 <div class="ry-col-auto ry-loading">
-                    <?php RY_Toolkit()->admin->the_action_form('tools', 'clear-complete-log', __('Clear Action Scheduler complete log', 'ry-toolkit')); ?>
+                    <?php Utils::the_action_form('toolkit-tools', 'clear-complete-log', __('Clear Action Scheduler complete log', 'ry-toolkit')); ?>
                 </div>
                 <div class="ry-col">
                     <p class="description">
@@ -82,7 +87,7 @@
         <td>
             <div class="ry-row">
                 <div class="ry-col-auto ry-loading">
-                    <?php RY_Toolkit()->admin->the_action_form('opcache', 'flush-opcache', __('Flush PHP OPcache', 'ry-toolkit')); ?>
+                    <?php Utils::the_action_form('toolkit-opcache', 'flush-opcache', __('Flush PHP OPcache', 'ry-toolkit')); ?>
                 </div>
                 <div class="ry-col">
                     <p class="description">
@@ -92,7 +97,7 @@
             </div>
             <div class="ry-row">
                 <div class="ry-col-auto ry-loading">
-                    <?php RY_Toolkit()->admin->the_action_form('opcache', 'restart-opcache', __('Restart PHP OPcache', 'ry-toolkit')); ?>
+                    <?php Utils::the_action_form('toolkit-opcache', 'restart-opcache', __('Restart PHP OPcache', 'ry-toolkit')); ?>
                 </div>
             </div>
         </td>

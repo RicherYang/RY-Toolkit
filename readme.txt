@@ -63,6 +63,9 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 
 == Changelog ==
 
+= 2026.7.31 =
+* Rewrite plugin architecture.
+
 = 1.4.9 - 2026/04/29 =
 * Add directly read file protection.
 

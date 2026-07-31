@@ -1,12 +1,14 @@
 <?php
 
+namespace RY\Toolkit;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Xmlrpc
+final class Xmlrpc
 {
     private static ?self $_instance = null;
 
-    public static function instance(): RY_Toolkit_Xmlrpc
+    public static function instance(): Xmlrpc
     {
         if (self::$_instance === null) {
             self::$_instance = new self();
@@ -18,7 +20,7 @@ final class RY_Toolkit_Xmlrpc
 
     protected function do_init(): void
     {
-        if (RY_Toolkit::get_option('disable_xmlrpc')) {
+        if (Main::get_option('disable_xmlrpc')) {
             if (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST) {
                 add_filter('xmlrpc_enabled', '__return_false');
             }

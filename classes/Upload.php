@@ -1,12 +1,14 @@
 <?php
 
+namespace RY\Toolkit;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Upload
+final class Upload
 {
     private static ?self $_instance = null;
 
-    public static function instance(): RY_Toolkit_Upload
+    public static function instance(): Upload
     {
         if (self::$_instance === null) {
             self::$_instance = new self();
@@ -22,7 +24,7 @@ final class RY_Toolkit_Upload
         add_filter('big_image_size_threshold', [$this, 'change_big_image_size'], 0);
         add_filter('intermediate_image_sizes_advanced', [$this, 'disable_subsize']);
 
-        if (RY_Toolkit::get_option('friendly_filename')) {
+        if (Main::get_option('friendly_filename')) {
             add_filter('sanitize_file_name', [$this, 'sanitize_file_name']);
         }
     }
@@ -41,12 +43,12 @@ final class RY_Toolkit_Upload
 
     public function change_big_image_size(int $threshold): int
     {
-        return (int) RY_Toolkit::get_option('big_image_size', $threshold);
+        return (int) Main::get_option('big_image_size', $threshold);
     }
 
     public function disable_subsize($new_sizes)
     {
-        $disable_subsize = RY_Toolkit::get_option('disable_subsize', []);
+        $disable_subsize = Main::get_option('disable_subsize', []);
         if (!is_array($disable_subsize)) {
             $disable_subsize = [];
         }

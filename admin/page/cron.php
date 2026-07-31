@@ -1,17 +1,21 @@
 <?php
 
+namespace RY\Toolkit\Admin\Page;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
-{
-    protected static string $page_type = 'cron';
+use RY\General\V20260729\AbstractAdminPage;
+use RY\Toolkit\Admin\Admin;
+use RY\Toolkit\Admin\ListTable\CronEvent as ListTableCronEvent;
 
+final class Cron extends AbstractAdminPage
+{
     protected $limit_event;
 
-    public static function init_page(): void
+    public static function init_menu(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu']);
-        add_action('admin_post_ry-toolkit-action', [__CLASS__, 'admin_post_action']);
+        add_action('admin_post_ry-toolkit-cron', [__CLASS__, 'admin_action']);
         add_action('ry-toolkit/add_page-ry-toolkit-cron', [__CLASS__, 'set_page_load']);
     }
 
@@ -28,9 +32,6 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 
     protected function do_init(): void
     {
-        include_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/includes/cron-event-list-table.php';
-
         add_screen_option('per_page', [
             'default' => 15,
             'option' => 'ry_toolkit_cron_event_per_page',
@@ -61,14 +62,14 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         }
     }
 
-    public function show_page(): void
+    public function output_page(): void
     {
-        $list_table = new RY_Toolkit_Cron_Event_List_Table();
+        $list_table = new ListTableCronEvent();
         $list_table->prepare_items();
 
         echo '<div class="wrap"><h1>' . esc_html__('Cron', 'ry-toolkit') . '</h1>';
 
-        include RY_TOOLKIT_PLUGIN_DIR . 'admin/page/html/cron-event.php';
+        include __DIR__ . '/html/cron-event.php';
 
         echo '</div>';
     }
@@ -78,9 +79,23 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         return $value;
     }
 
-    protected function execute_cron(): string
+    protected function do_admin_action(string $action, string $real_action): void
     {
-        check_ajax_referer('ry-toolkit-action/execute-cron', '_ry_toolkit_nonce');
+        if ('ry-toolkit-cron' !== $action) {
+            return;
+        }
+
+        if ($real_action !== '' && is_callable([$this, $real_action])) {
+            $this->$real_action();
+        }
+
+        wp_safe_redirect(admin_url('admin.php?page=ry-toolkit-cron'));
+        exit;
+    }
+
+    private function execute_cron(): void
+    {
+        check_ajax_referer('execute-cron', '_ajax_nonce');
 
         if (!current_user_can('manage_options')) {
             wp_die(esc_html__('You are not allowed to do that.', 'ry-toolkit'), 401);
@@ -90,7 +105,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         $hook = sanitize_text_field(wp_unslash($_GET['hook'] ?? ''));
         $sig = wp_unslash($_GET['sig'] ?? '');
         if ($sig !== sanitize_key($sig)) {
-            RY_Toolkit()->admin->add_notice('error', sprintf(
+            Admin::instance()->add_notice('error', sprintf(
                 /* translators: Event hook name. */
                 __('Cron event "%s" not found.', 'ry-toolkit'),
                 $hook
@@ -130,35 +145,33 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
 
                 $result = spawn_cron();
                 if ($result) {
-                    RY_Toolkit()->admin->add_notice('success', sprintf(
+                    Admin::instance()->add_notice('success', sprintf(
                         /* translators: Event hook name. */
                         __('Executed event "%s".', 'ry-toolkit'),
                         $hook
                     ));
                 } else {
-                    RY_Toolkit()->admin->add_notice('error', __('Failed to start cron job.', 'ry-toolkit'));
+                    Admin::instance()->add_notice('error', __('Failed to start cron job.', 'ry-toolkit'));
                 }
             } else {
-                RY_Toolkit()->admin->add_notice('error', sprintf(
+                Admin::instance()->add_notice('error', sprintf(
                     /* translators: Event hook name. */
                     __('Failed to schedule the cron event "%s".', 'ry-toolkit'),
                     $hook
                 ));
             }
         } else {
-            RY_Toolkit()->admin->add_notice('error', sprintf(
+            Admin::instance()->add_notice('error', sprintf(
                 /* translators: Event hook name. */
                 __('Cron event "%s" not found.', 'ry-toolkit'),
                 $hook
             ));
         }
-
-        return admin_url('admin.php?page=ry-toolkit-cron');
     }
 
-    protected function delete_cron(): string
+    private function delete_cron(): void
     {
-        check_ajax_referer('ry-toolkit-action/delete-cron', '_ry_toolkit_nonce');
+        check_ajax_referer('delete-cron', '_ajax_nonce');
 
         if (!current_user_can('manage_options')) {
             wp_die(esc_html__('You are not allowed to do that.', 'ry-toolkit'), 401);
@@ -168,7 +181,7 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         $hook = sanitize_text_field(wp_unslash($_GET['hook'] ?? ''));
         $sig = wp_unslash($_GET['sig'] ?? '');
         if ($sig !== sanitize_key($sig)) {
-            RY_Toolkit()->admin->add_notice('error', sprintf(
+            Admin::instance()->add_notice('error', sprintf(
                 /* translators: Event hook name. */
                 __('Cron event "%s" not found.', 'ry-toolkit'),
                 $hook
@@ -178,28 +191,24 @@ final class RY_Toolkit_Admin_Page_Cron extends RY_Toolkit_Admin_Page
         $wp_events = _get_cron_array();
         if (isset($wp_events[$time][$hook][$sig])) {
             if (wp_unschedule_event($time, $hook, $wp_events[$time][$hook][$sig]['args'])) {
-                RY_Toolkit()->admin->add_notice('success', sprintf(
+                Admin::instance()->add_notice('success', sprintf(
                     /* translators: Event hook name. */
                     __('Cron event "%s" has been deleted.', 'ry-toolkit'),
                     $hook
                 ));
             } else {
-                RY_Toolkit()->admin->add_notice('error', sprintf(
+                Admin::instance()->add_notice('error', sprintf(
                     /* translators: Event hook name. */
                     __('Failed to the delete the cron event "%s".', 'ry-toolkit'),
                     $hook
                 ));
             }
         } else {
-            RY_Toolkit()->admin->add_notice('error', sprintf(
+            Admin::instance()->add_notice('error', sprintf(
                 /* translators: Event hook name. */
                 __('Cron event "%s" not found.', 'ry-toolkit'),
                 $hook
             ));
         }
-
-        return admin_url('admin.php?page=ry-toolkit-cron');
     }
 }
-
-RY_Toolkit_Admin_Page_Cron::init_page();

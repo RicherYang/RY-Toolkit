@@ -1,5 +1,10 @@
 <?php defined('ABSPATH') or exit; ?>
 
+<?php
+use RY\General\V20260729\Utils;
+
+?>
+
 <h2><?php esc_html_e('OPcache status', 'ry-toolkit'); ?></h2>
 <div class="ry-row ry-row-opcache">
     <div class="ry-col">
@@ -169,7 +174,7 @@
         <td>
             <div class="ry-row">
                 <div class="ry-col-auto">
-                    <?php RY_Toolkit()->admin->the_action_form('opcache', 'flush-opcache', __('Flush PHP OPcache', 'ry-toolkit')); ?>
+                    <?php Utils::the_action_form('toolkit-opcache', 'flush-opcache', __('Flush PHP OPcache', 'ry-toolkit')); ?>
                 </div>
                 <div class="ry-col">
                     <p class="description">
@@ -179,7 +184,7 @@
             </div>
             <div class="ry-row">
                 <div class="ry-col-auto">
-                    <?php RY_Toolkit()->admin->the_action_form('opcache', 'restart-opcache', __('Restart PHP OPcache', 'ry-toolkit')); ?>
+                    <?php Utils::the_action_form('toolkit-opcache', 'restart-opcache', __('Restart PHP OPcache', 'ry-toolkit')); ?>
                 </div>
             </div>
         </td>

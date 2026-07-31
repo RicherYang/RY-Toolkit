@@ -1,22 +1,24 @@
 <?php
 
+namespace RY\Toolkit\Admin;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
-{
-    protected static string $page_type = 'ry-plugins';
+use RY\General\V20260729\AbstractAdminPage;
+use RY\General\V20260729\Utils;
 
+final class Plugins extends AbstractAdminPage
+{
     protected function do_init(): void
     {
         if (class_exists('ZipArchive')) {
             add_filter('network_admin_plugin_action_links', [$this, 'add_actions'], 10, 2);
             add_filter('plugin_action_links', [$this, 'add_actions'], 10, 3);
-
-            add_action('admin_post_ry-toolkit-action', [__CLASS__, 'admin_post_action']);
+            add_action('admin_post_ry-toolkit-plugin', [__CLASS__, 'admin_action']);
         }
     }
 
-    public function show_page(): void {}
+    public function output_page(): void {}
 
     public function add_actions(array $actions, string $plugin_file, ?array $plugin_data): array
     {
@@ -25,7 +27,7 @@ final class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
 
             $actions['ry_download'] = sprintf(
                 '<a href="%s" id="download-%s" class="edit" aria-label="%s" target="_blank">%s</a>',
-                esc_url(RY_Toolkit()->admin->the_action_link('ry-plugins', 'plugin-download', [
+                esc_url(Utils::the_action_link('toolkit-plugin', 'plugin-download', [
                     'plugin_file' => urlencode($plugin_file),
                 ])),
                 esc_attr($plugin_slug),
@@ -41,11 +43,25 @@ final class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
         return $actions;
     }
 
-    protected function plugin_download(): void
+    protected function do_admin_action(string $action, string $real_action): void
+    {
+        if ('ry-toolkit-plugin' !== $action) {
+            return;
+        }
+
+        if ($real_action !== '' && is_callable([$this, $real_action])) {
+            $this->$real_action();
+        }
+
+        wp_safe_redirect(admin_url('admin.php?page=ry-toolkit-plugins'));
+        exit;
+    }
+
+    private function plugin_download(): void
     {
         global $wp_filesystem;
 
-        check_ajax_referer('ry-toolkit-action/plugin-download', '_ry_toolkit_nonce');
+        check_ajax_referer('plugin-download', '_ajax_nonce');
 
         if (!$this->check_user_can()) {
             wp_die(esc_html__('Sorry, you are not allowed to download plugin.', 'ry-toolkit'));
@@ -74,8 +90,8 @@ final class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
 
         $tmp_zip_file = wp_tempnam('ry-toolkit-download');
         wp_delete_file($tmp_zip_file);
-        $zip = new ZipArchive();
-        if ($zip->open($tmp_zip_file, ZipArchive::CREATE) === true) {
+        $zip = new \ZipArchive();
+        if ($zip->open($tmp_zip_file, \ZipArchive::CREATE) === true) {
             if (strpos($plugin_file, '/') && $real_plugin_dir !== $plugins_dir) {
                 $plugin_name = pathinfo($real_plugin_dir, PATHINFO_BASENAME);
                 $this->add_dir_to_zip($zip, $real_plugin_dir, strlen($plugins_dir));
@@ -115,7 +131,7 @@ final class RY_Toolkit_Admin_Plugins extends RY_Toolkit_Admin_Page
         return current_user_can('activate_plugins') && current_user_can('install_plugins') && current_user_can('delete_plugins');
     }
 
-    private function add_dir_to_zip(ZipArchive &$zip, string $dir, int $cat_length): void
+    private function add_dir_to_zip(\ZipArchive &$zip, string $dir, int $cat_length): void
     {
         $file_list = list_files($dir, 1);
         foreach ($file_list as $file) {

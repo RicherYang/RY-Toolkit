@@ -1,12 +1,16 @@
 <?php
 
+namespace RY\Toolkit;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Cron
+use RY\Toolkit\Admin\Admin;
+
+final class Cron
 {
     private static ?self $_instance = null;
 
-    public static function instance(): RY_Toolkit_Cron
+    public static function instance(): Cron
     {
         if (self::$_instance === null) {
             self::$_instance = new self();
@@ -32,7 +36,7 @@ final class RY_Toolkit_Cron
                 if (isset($wp_events[$limit_time])) {
                     $crons[$limit_time] = $wp_events[$limit_time];
                 } else {
-                    RY_Toolkit()->admin->add_notice('error', __('Cron event not found.', 'ry-toolkit'));
+                    Admin::instance()->add_notice('error', __('Cron event not found.', 'ry-toolkit'));
                 }
             }
         }

@@ -1,17 +1,20 @@
 <?php
 
+namespace RY\Toolkit\Admin\Page;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
+use RY\General\V20260729\AbstractAdminPage;
+use RY\General\V20260729\Utils;
+
+final class Tools extends AbstractAdminPage
 {
     public const TRANSIENT_KEYS = ['_transient_', '_site_transient_'];
 
-    protected static string $page_type = 'tools';
-
-    public static function init_page(): void
+    public static function init_menu(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu'], 5);
-        add_action('admin_post_ry-toolkit-action', [__CLASS__, 'admin_post_action']);
+        add_action('admin_post_ry-toolkit-tools', [__CLASS__, 'admin_action']);
     }
 
     public static function add_menu(array $menu_list): array
@@ -27,7 +30,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
     protected function do_init(): void {}
 
-    public function show_page(): void
+    public function output_page(): void
     {
         global $wpdb;
 
@@ -41,29 +44,43 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
         $as_counts = -1;
         if (class_exists('ActionScheduler')) {
-            $store = ActionScheduler::store();
-            if ($store instanceof ActionScheduler_DBStore) {
+            $store = \ActionScheduler::store();
+            if ($store instanceof \ActionScheduler_DBStore) {
                 $as_counts = $store->action_counts()['complete'] ?? 0;
             }
         }
 
         wp_localize_script('ry-toolkit-tools', 'RyToolkitToolsParams', [
-            'exportUrl' => current_user_can('export') ? RY_Toolkit()->admin->the_action_link('tools', 'export-db') : '',
+            'exportUrl' => current_user_can('export') ? Utils::the_action_link('toolkit-tools', 'export-db') : '',
         ]);
         wp_enqueue_script('ry-toolkit-tools');
 
         echo '<div class="wrap"><h1>' . esc_html__('Tools', 'ry-toolkit') . '</h1>';
 
-        include RY_TOOLKIT_PLUGIN_DIR . 'admin/page/html/tools.php';
+        include __DIR__ . '/html/tools.php';
 
         echo '</div>';
     }
 
-    protected function analyze_tables(): string
+    protected function do_admin_action(string $action, string $real_action): void
+    {
+        if ('ry-toolkit-tools' !== $action) {
+            return;
+        }
+
+        if ($real_action !== '' && is_callable([$this, $real_action])) {
+            $this->$real_action();
+        }
+
+        wp_safe_redirect(admin_url('admin.php?page=ry-toolkit-tools'));
+        exit;
+    }
+
+    private function analyze_tables(): void
     {
         global $wpdb;
 
-        check_ajax_referer('ry-toolkit-action/analyze-tables', '_ry_toolkit_nonce');
+        check_ajax_referer('analyze-tables', '_ajax_nonce');
 
         $start = time();
 
@@ -84,23 +101,20 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             set_transient('ry_analyzed_table', $analyzed_table, 600);
 
             if (time() - $start > 9) {
-                return RY_Toolkit()->admin->the_action_link('tools', 'analyze-tables', [
-                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))),
-                ]);
+                wp_safe_redirect(Utils::the_action_link('toolkit-tools', 'analyze-tables'));
+                exit;
             }
         }
 
         delete_transient('ry_analyzed_table');
-        RY_Toolkit()->admin->add_notice('success', __('Database tables analyzed successfully.', 'ry-toolkit'));
-
-        return '';
+        $this->add_notice('success', __('Database tables analyzed successfully.', 'ry-toolkit'));
     }
 
-    protected function optimize_tables(): string
+    private function optimize_tables(): void
     {
         global $wpdb;
 
-        check_ajax_referer('ry-toolkit-action/optimize-tables', '_ry_toolkit_nonce');
+        check_ajax_referer('optimize-tables', '_ajax_nonce');
 
         $start = time();
 
@@ -121,33 +135,27 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
             set_transient('ry_optimized_table', $optimized_table, 600);
 
             if (time() - $start > 9) {
-                return RY_Toolkit()->admin->the_action_link('tools', 'optimize-tables', [
-                    '_wp_http_referer' => urlencode(sanitize_url(wp_unslash($_REQUEST['_wp_http_referer'] ?? ''))),
-                ]);
+                wp_safe_redirect(Utils::the_action_link('toolkit-tools', 'optimize-tables'));
+                exit();
             }
         }
 
         delete_transient('ry_optimized_table');
-        RY_Toolkit()->admin->add_notice('success', __('Database tables optimized successfully.', 'ry-toolkit'));
-
-        return '';
+        $this->add_notice('success', __('Database tables optimized successfully.', 'ry-toolkit'));
     }
 
-    protected function export_db()
+    private function export_db()
     {
         global $wpdb;
 
-        if (wp_doing_ajax()) {
-            wp_die(-1, 403);
-        }
+        check_ajax_referer('export-db', '_ajax_nonce');
+
         if (!current_user_can('export')) {
             wp_die(-1, 403);
         }
         if (!class_exists('ZipArchive')) {
             wp_die(-1, 403);
         }
-
-        check_ajax_referer('ry-toolkit-action/export-db', '_ry_toolkit_nonce');
 
         $start = time();
 
@@ -327,7 +335,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                         wp_send_json_success([
                             'continue' => true,
                             'progress' => round($export_data['exported'] / $export_data['total'] * 100, 2),
-                            'url' => RY_Toolkit()->admin->the_action_link('tools', 'export-db'),
+                            'url' => Utils::the_action_link('toolkit-tools', 'export-db'),
                         ]);
                     }
                 }
@@ -344,7 +352,7 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 wp_send_json_success([
                     'continue' => true,
                     'progress' => round($export_data['exported'] / $export_data['total'] * 100, 2),
-                    'url' => RY_Toolkit()->admin->the_action_link('tools', 'export-db'),
+                    'url' => Utils::the_action_link('toolkit-tools', 'export-db'),
                 ]);
             }
         }
@@ -360,18 +368,20 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
 
         wp_send_json_success([
             'continue' => false,
-            'url' => RY_Toolkit()->admin->the_action_link('tools', 'export-db-zip'),
+            'url' => Utils::the_action_link('toolkit-tools', 'export-db-zip'),
         ]);
     }
 
-    protected function export_db_zip()
+    private function export_db_zip()
     {
+        check_ajax_referer('export-db-zip', '_ajax_nonce');
+
         if (current_user_can('export') && class_exists('ZipArchive')) {
             $export_data = get_transient('ry_export_data');
             if (is_array($export_data) && isset($export_data['file'])) {
                 $tmp_zip_file = $export_data['file'] . '-zip';
-                $zip = new ZipArchive();
-                if ($zip->open($tmp_zip_file, ZipArchive::CREATE) === true) {
+                $zip = new \ZipArchive();
+                if ($zip->open($tmp_zip_file, \ZipArchive::CREATE) === true) {
                     $zip->addFile($export_data['file'], 'export-db.sql');
                     $zip->close();
 
@@ -385,15 +395,13 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 }
             }
         }
-
-        return '';
     }
 
-    protected function clear_transient(): string
+    private function clear_transient(): void
     {
         global $wpdb;
 
-        check_ajax_referer('ry-toolkit-action/clear-transient', '_ry_toolkit_nonce');
+        check_ajax_referer('clear-transient', '_ajax_nonce');
 
         foreach (self::TRANSIENT_KEYS as $transient_key) {
             $transients = $wpdb->get_col($wpdb->prepare(
@@ -410,25 +418,19 @@ final class RY_Toolkit_Admin_Page_Tools extends RY_Toolkit_Admin_Page
                 }
             }
         }
-        RY_Toolkit()->admin->add_notice('success', __('Clear transient option successfully.', 'ry-toolkit'));
-
-        return '';
+        $this->add_notice('success', __('Clear transient option successfully.', 'ry-toolkit'));
     }
 
-    protected function clear_complete_log(): string
+    private function clear_complete_log(): void
     {
         global $wpdb;
 
-        check_ajax_referer('ry-toolkit-action/clear-complete-log', '_ry_toolkit_nonce');
+        check_ajax_referer('clear-complete-log', '_ajax_nonce');
 
         $wpdb->query("DELETE FROM {$wpdb->actionscheduler_actions} WHERE `status`='complete'");
 
         $wpdb->query("DELETE FROM {$wpdb->actionscheduler_logs} WHERE action_id NOT IN (SELECT action_id FROM {$wpdb->actionscheduler_actions})");
 
-        RY_Toolkit()->admin->add_notice('success', __('Clear complete log successfully.', 'ry-toolkit'));
-
-        return '';
+        $this->add_notice('success', __('Clear complete log successfully.', 'ry-toolkit'));
     }
 }
-
-RY_Toolkit_Admin_Page_Tools::init_page();

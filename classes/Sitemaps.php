@@ -1,12 +1,14 @@
 <?php
 
+namespace RY\Toolkit;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Sitemaps
+final class Sitemaps
 {
     private static ?self $_instance = null;
 
-    public static function instance(): RY_Toolkit_Sitemaps
+    public static function instance(): Sitemaps
     {
         if (self::$_instance === null) {
             self::$_instance = new self();
@@ -28,9 +30,9 @@ final class RY_Toolkit_Sitemaps
 
     public function limit_the_provider($provider, string $name)
     {
-        $sitemap_disable_providers = RY_Toolkit::get_option('sitemap_disable_provider', []);
+        $sitemap_disable_providers = Main::get_option('sitemap_disable_provider', []);
         if (is_array($sitemap_disable_providers) && isset($sitemap_disable_providers[$name])) {
-            return new stdClass();
+            return new \stdClass();
         }
 
         return $provider;
@@ -48,7 +50,7 @@ final class RY_Toolkit_Sitemaps
 
     public function change_max_urls(int $max_urls): int
     {
-        $urls = (int) RY_Toolkit::get_option('sitemap_urls_pre_file', $max_urls);
+        $urls = (int) Main::get_option('sitemap_urls_pre_file', $max_urls);
         if ($urls > 0) {
             return $urls;
         }
@@ -58,7 +60,7 @@ final class RY_Toolkit_Sitemaps
 
     public function disable_post_type($post_types)
     {
-        $disable_post_types = RY_Toolkit::get_option('sitemap_disable_post_type', []);
+        $disable_post_types = Main::get_option('sitemap_disable_post_type', []);
         if (is_array($disable_post_types)) {
             $post_types = array_diff_key($post_types, $disable_post_types);
         }
@@ -68,7 +70,7 @@ final class RY_Toolkit_Sitemaps
 
     public function disable_taxonomy($taxonomies)
     {
-        $disable_taxonomies = RY_Toolkit::get_option('sitemap_disable_taxonomy', []);
+        $disable_taxonomies = Main::get_option('sitemap_disable_taxonomy', []);
         if (is_array($disable_taxonomies)) {
             $taxonomies = array_diff_key($taxonomies, $disable_taxonomies);
         }
@@ -79,7 +81,7 @@ final class RY_Toolkit_Sitemaps
     public function exclude_post($args, $post_type)
     {
         if ($post_type === 'page') {
-            $sitemap_skip_page = RY_Toolkit::get_option('sitemap_skip_page', []);
+            $sitemap_skip_page = Main::get_option('sitemap_skip_page', []);
             if (class_exists('WooCommerce', false)) {
                 foreach ($sitemap_skip_page as $page => $skiped) {
                     if (str_starts_with($page, 'wc_')) {

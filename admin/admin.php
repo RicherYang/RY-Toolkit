@@ -1,21 +1,21 @@
 <?php
 
+namespace RY\Toolkit\Admin;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Admin
+use RY\General\V20260729\AbstractAdmin;
+use RY\Toolkit\Admin\Page\Cron as PageCron;
+use RY\Toolkit\Admin\Page\Opcache as PageOpcache;
+use RY\Toolkit\Admin\Page\Options as PageOptions;
+use RY\Toolkit\Admin\Page\PostType as PagePostType;
+use RY\Toolkit\Admin\Page\Tools as PageTools;
+
+final class Admin extends AbstractAdmin
 {
     private static ?self $_instance = null;
 
-    private array $instance = [];
-
-    public function __get(string $name)
-    {
-        if (isset($this->instance[$name])) {
-            return $this->instance[$name];
-        }
-    }
-
-    public static function instance(): RY_Toolkit_Admin
+    public static function instance(): Admin
     {
         if (self::$_instance === null) {
             self::$_instance = new self();
@@ -27,21 +27,15 @@ final class RY_Toolkit_Admin
 
     protected function do_init(): void
     {
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/abstracts-page.php';
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/cron.php';
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/opcache.php';
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/options.php';
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/post-type.php';
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/page/tools.php';
+        PageCron::init_menu();
+        PageOpcache::init_menu();
+        PageOptions::init_menu();
+        PagePostType::init_menu();
+        PageTools::init_menu();
 
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/plugins.php';
-        $this->instance['plugins'] = RY_Toolkit_Admin_Plugins::instance();
-
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/post.php';
-        $this->instance['post'] = RY_Toolkit_Admin_Post::instance();
-
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/site-health.php';
-        $this->instance['site-health'] = RY_Toolkit_Admin_Site_Health::instance();
+        Plugins::instance();
+        Post::instance();
+        SiteHealth::instance();
 
         add_action('load-options.php', [$this, 'add_options']);
         add_action('load-options-media.php', [$this, 'add_options']);
@@ -57,8 +51,7 @@ final class RY_Toolkit_Admin
 
     public function add_options(): void
     {
-        include_once RY_TOOLKIT_PLUGIN_DIR . 'admin/options.php';
-        $this->instance['options'] = RY_Toolkit_Admin_Options::instance();
+        Options::instance();
     }
 
     public function show_notices(): void
@@ -103,7 +96,7 @@ final class RY_Toolkit_Admin
         $menu_list = apply_filters('ry-toolkit/menu_list', []);
 
         if (count($menu_list)) {
-            add_menu_page(__('RY Tool', 'ry-toolkit'), __('RY Tool', 'ry-toolkit'), 'manage_options', $menu_list[0]['slug'], '', 'dashicons-admin-tools');
+            add_menu_page(__('RY Tool', 'ry-toolkit'), __('RY Tool', 'ry-toolkit'), 'manage_options', $menu_list[0]['slug'], '', 'dashicons-admin-tools', 101);
             foreach ($menu_list as $menu_item) {
                 $hook_suffix = add_submenu_page($menu_list[0]['slug'], $menu_item['name'], $menu_item['name'], 'manage_options', $menu_item['slug'], $menu_item['function'], $menu_item['position'] ?? null);
                 do_action('ry-toolkit/add_page-' . $menu_item['slug'], $hook_suffix);
@@ -123,61 +116,5 @@ final class RY_Toolkit_Admin
         $notice[$status][] = $message;
 
         set_transient('ry-notice', $notice);
-    }
-
-    public function the_action_form(string $page, string $action, string $submit_text, array $hidden_value = []): void
-    {
-        $post_url = add_query_arg([
-            'ry-toolkit-page' => $page,
-        ], admin_url('admin-post.php'));
-
-        echo '<form method="post" action="' . esc_url($post_url) . '">';
-        foreach ($hidden_value as $name => $value) {
-            echo '<input type="hidden" name="' . esc_attr($name) . '" value="' . esc_attr($value) . '" />';
-        }
-        $this->the_action_form_button($action, $submit_text);
-        echo '</form>';
-    }
-
-    public function the_action_form_button(string $action, string $submit_text, string $type = 'submit'): void
-    {
-        echo '<input type="hidden" name="action" value="ry-toolkit-action" />';
-        echo '<input type="hidden" name="ry-toolkit-action" value="' . esc_attr($action) . '" />';
-        wp_nonce_field('ry-toolkit-action');
-        wp_nonce_field('ry-toolkit-action/' . $action, '_ry_toolkit_nonce', false);
-        echo '<button type="' . esc_attr($type) . '" name="submit" id="ry-' . esc_attr($action) . '" class="button" value="' . esc_attr($submit_text) . '">' . esc_html($submit_text) . '</button>';
-    }
-
-    public function the_action_link(string $page, string $action, array $add_args = []): string
-    {
-        $add_args = array_merge($add_args, [
-            'action' => 'ry-toolkit-action',
-            'ry-toolkit-page' => $page,
-            'ry-toolkit-action' => $action,
-            '_ry_toolkit_nonce' => wp_create_nonce('ry-toolkit-action/' . $action),
-            '_wpnonce' => wp_create_nonce('ry-toolkit-action'),
-        ]);
-
-        return add_query_arg($add_args, admin_url('admin-post.php'));
-    }
-
-    public static function the_bool_option_checkbox(string $option_name, string $label, string $sub_name = ''): void
-    {
-        $id = RY_Toolkit::get_option_name($option_name);
-        $name = RY_Toolkit::get_option_name($option_name);
-        if (empty($sub_name)) {
-            $value = RY_Toolkit::get_option($option_name);
-        } else {
-            $id .= '-' . $sub_name;
-            $name .= '[' . $sub_name . ']';
-            $value = RY_Toolkit::get_option($option_name)[$sub_name] ?? 0;
-        }
-        printf(
-            '<label for="%1$s"><input type="checkbox" id="%1$s" name="%2$s" value="1" %3$s /> %4$s</label>',
-            esc_attr($id),
-            esc_attr($name),
-            checked('1', $value, false),
-            esc_html($label)
-        );
     }
 }

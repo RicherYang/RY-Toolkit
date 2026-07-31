@@ -1,0 +1,21 @@
+{
+    "name": "ry/toolkit",
+    "version": "2026.7.31",
+    "require": {
+        "woocommerce/action-scheduler": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RY\\General\\V20260729\\": "includes/ry-general",
+            "RY\\Toolkit\\": "classes",
+            "RY\\Toolkit\\Admin\\": "admin"
+        }
+    },
+    "config": {
+        "vendor-dir": "includes/vendor",
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "8.2"
+        }
+    }
+}

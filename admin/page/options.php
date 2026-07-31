@@ -1,12 +1,14 @@
 <?php
 
+namespace RY\Toolkit\Admin\Page;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
-{
-    protected static string $page_type = 'tools';
+use RY\General\V20260729\AbstractAdminPage;
 
-    public static function init_page(): void
+final class Options extends AbstractAdminPage
+{
+    public static function init_menu(): void
     {
         add_filter('ry-toolkit/menu_list', [__CLASS__, 'add_menu'], 1);
     }
@@ -25,7 +27,7 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
 
     protected function do_init(): void {}
 
-    public function show_page(): void
+    public function output_page(): void
     {
         global $is_apache;
 
@@ -71,7 +73,7 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
         echo '<div class="wrap"><h1>' . esc_html__('Options', 'ry-toolkit') . '</h1>';
         require ABSPATH . 'wp-admin/options-head.php';
 
-        include RY_TOOLKIT_PLUGIN_DIR . 'admin/page/html/options-nav.php';
+        include __DIR__ . '/html/options-nav.php';
 
         if (!isset($type_list[$show_type])) {
             echo '</div>';
@@ -79,7 +81,7 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
             return;
         }
 
-        $load_file = RY_TOOLKIT_PLUGIN_DIR . "admin/page/html/options-{$show_type}.php";
+        $load_file = __DIR__ . "/html/options-{$show_type}.php";
         if (!is_file($load_file)) {
             echo '</div>';
 
@@ -96,5 +98,3 @@ final class RY_Toolkit_Admin_Page_Options extends RY_Toolkit_Admin_Page
         echo '</div>';
     }
 }
-
-RY_Toolkit_Admin_Page_Options::init_page();

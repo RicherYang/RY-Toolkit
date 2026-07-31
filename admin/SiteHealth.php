@@ -1,12 +1,14 @@
 <?php
 
+namespace RY\Toolkit\Admin;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Admin_Site_Health
+final class SiteHealth
 {
     private static ?self $_instance = null;
 
-    public static function instance(): RY_Toolkit_Admin_Site_Health
+    public static function instance(): SiteHealth
     {
         if (self::$_instance === null) {
             self::$_instance = new self();

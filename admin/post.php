@@ -1,12 +1,16 @@
 <?php
 
+namespace RY\Toolkit\Admin;
+
 defined('ABSPATH') or exit;
 
-final class RY_Toolkit_Admin_Post
+use RY\Toolkit\Main;
+
+final class Post
 {
     private static ?self $_instance = null;
 
-    public static function instance(): RY_Toolkit_Admin_Post
+    public static function instance(): Post
     {
         if (self::$_instance === null) {
             self::$_instance = new self();
@@ -27,7 +31,7 @@ final class RY_Toolkit_Admin_Post
 
     public function add_columns($columns, $post_type = 'page')
     {
-        $post_types = RY_Toolkit::get_option('show_thumbnails', []);
+        $post_types = Main::get_option('show_thumbnails', []);
         if (isset($post_types[$post_type])) {
             $add_index = array_search('title', array_keys($columns));
             $pre_array = array_splice($columns, 0, $add_index);
