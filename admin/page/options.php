@@ -4,7 +4,7 @@ namespace RY\Toolkit\Admin\Page;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260729\AbstractAdminPage;
+use RY\General\V20260801\AbstractAdminPage;
 
 final class Options extends AbstractAdminPage
 {
