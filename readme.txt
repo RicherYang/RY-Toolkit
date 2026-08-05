@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 8.2
 Tested up to: 7.0
-Stable tag: 2026.7.31.2
+Stable tag: 2026.8.5
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -62,6 +62,8 @@ or my [website page](https://ry-plugin.com/ry-toolkit/forum).
 6. OPcache info page.
 
 == Changelog ==
+
+= 2026.8.5 =
 
 = 2026.7.31.2 =
 * Rewrite plugin architecture.
