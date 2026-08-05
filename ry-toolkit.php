@@ -4,7 +4,7 @@
  * Plugin Name: RY Toolkit
  * Plugin URI: https://ry-plugin.com/ry-toolkit
  * Description: Useful tools for more control over your website
- * Version: 2026.8.1
+ * Version: 2026.8.5
  * Requires at least: 6.0
  * Requires PHP: 8.2
  * Author: Richer Yang

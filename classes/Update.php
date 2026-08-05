@@ -54,7 +54,7 @@ final class Update
             Main::update_option('version', '2026.7.31.2', true);
         }
 
-        if (version_compare($now_version, '2026.8.1', '<')) {
+        if (version_compare($now_version, '2026.8.5', '<')) {
             add_action('init', function () {
                 if (class_exists('\RY\General\V20260801\Logs')) {
                     $file_dir = \RY\General\V20260801\Logs::get_log_directory();
@@ -76,7 +76,7 @@ final class Update
                         }
                     }
 
-                    Main::update_option('version', '2026.8.1', true);
+                    Main::update_option('version', '2026.8.5', true);
                 }
             });
         }
