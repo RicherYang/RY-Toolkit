@@ -4,7 +4,7 @@ namespace RY\Toolkit\Admin\Page;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260801\AbstractAdminPage;
+use RY\General\V20260810\AbstractAdminPage;
 use RY\Toolkit\Admin\Admin;
 use RY\Toolkit\Admin\ListTable\CronEvent as ListTableCronEvent;
 

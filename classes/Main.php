@@ -4,7 +4,7 @@ namespace RY\Toolkit;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260801\AbstractBasic;
+use RY\General\V20260810\AbstractBasic;
 use RY\Toolkit\Admin\Admin;
 use RY\Toolkit\Third\WpRocket;
 

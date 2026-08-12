@@ -4,7 +4,7 @@ namespace RY\Toolkit\Admin;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260801\AbstractAdmin;
+use RY\General\V20260810\AbstractAdmin;
 use RY\Toolkit\Admin\Page\Cron as PageCron;
 use RY\Toolkit\Admin\Page\Opcache as PageOpcache;
 use RY\Toolkit\Admin\Page\Options as PageOptions;
