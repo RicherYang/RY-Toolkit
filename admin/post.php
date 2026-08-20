@@ -29,7 +29,7 @@ final class Post
         add_filter('manage_posts_custom_column', [$this, 'show_columns'], 10, 2);
     }
 
-    public function add_columns($columns, $post_type = 'page')
+    public function add_columns($columns = [], $post_type = 'page')
     {
         $post_types = Main::get_option('show_thumbnails', []);
         if (isset($post_types[$post_type])) {
