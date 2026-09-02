@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 2026.8.5\n"
+"Project-Id-Version: RY Toolkit 2026.9.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,8 +38,12 @@ msgstr ""
 msgid "https://richer.tw/"
 msgstr ""
 
-#: admin/Admin.php:99
+#: admin/Admin.php:102
 msgid "RY Tool"
+msgstr ""
+
+#: admin/Dashboard/ActionScheduler.php:15
+msgid "Scheduled Actions Status"
 msgstr ""
 
 #: admin/html/media/big-size.php:9
@@ -1427,7 +1431,8 @@ msgstr ""
 msgid "Allow usage of RY Plugin to be tracked"
 msgstr ""
 
-#: includes/ry-general/Page/html/options.php:18
+#. translators: %s: link to usage tracking information
+#: includes/ry-general/Page/html/options.php:19
 #, php-format
 msgid "Read about what usage data is tracked at: %s ."
 msgstr ""

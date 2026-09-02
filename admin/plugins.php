@@ -111,7 +111,7 @@ final class Plugins extends AbstractAdminPage
                 header('Content-Type: application/zip');
                 header('Content-Disposition: attachment; filename="' . $file_name . '"');
                 header('Content-Length: ' . filesize($tmp_zip_file));
-                readfile($tmp_zip_file);
+                readfile($tmp_zip_file); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_readfile
                 wp_delete_file($tmp_zip_file);
                 exit;
             } else {

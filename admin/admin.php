@@ -5,6 +5,7 @@ namespace RY\Toolkit\Admin;
 defined('ABSPATH') or exit;
 
 use RY\General\V20260810\AbstractAdmin;
+use RY\Toolkit\Admin\Dashboard\ActionScheduler as DashboardActionScheduler;
 use RY\Toolkit\Admin\Page\Cron as PageCron;
 use RY\Toolkit\Admin\Page\Opcache as PageOpcache;
 use RY\Toolkit\Admin\Page\Options as PageOptions;
@@ -47,6 +48,8 @@ final class Admin extends AbstractAdmin
         add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts']);
 
         add_action('admin_menu', [$this, 'admin_menu']);
+
+        add_action('wp_dashboard_setup', [DashboardActionScheduler::class, 'instance']);
     }
 
     public function add_options(): void

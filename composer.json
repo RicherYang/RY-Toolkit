@@ -1,6 +1,6 @@
 {
     "name": "ry/toolkit",
-    "version": "2026.8.10",
+    "version": "2026.9.1",
     "require": {
         "woocommerce/action-scheduler": "^4.0"
     },

@@ -50,10 +50,6 @@ final class Update
             Main::update_option('version', '1.4.7', true);
         }
 
-        if (version_compare($now_version, '2026.7.31.2', '<')) {
-            Main::update_option('version', '2026.7.31.2', true);
-        }
-
         if (version_compare($now_version, '2026.8.5', '<')) {
             add_action('init', function () {
                 if (class_exists('\RY\General\V20260801\Logs')) {
@@ -69,7 +65,7 @@ final class Update
                                     $handle = implode('-', array_slice($parts, 0, -3));
                                     if (wp_hash($handle) === $hash_suffix) {
                                         $file_name = sanitize_file_name(implode('-', [$handle, $date_suffix, wp_hash($handle . $date_suffix)]) . '.log');
-                                        rename($file->getPathname(), $file_dir . '/' . $file_name);
+                                        rename($file->getPathname(), $file_dir . '/' . $file_name); // phpcs:ignore WordPress.WP.AlternativeFunctions.rename_rename
                                     }
                                 }
                             }
@@ -81,8 +77,8 @@ final class Update
             });
         }
 
-        if (version_compare($now_version, '2026.8.12', '<')) {
-            Main::update_option('version', '2026.8.12', true);
+        if (version_compare($now_version, '2026.9.1', '<')) {
+            Main::update_option('version', '2026.9.1', true);
         }
     }
 }
