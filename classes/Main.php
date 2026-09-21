@@ -55,6 +55,15 @@ final class Main extends AbstractBasic
         }
     }
 
+    public static function usage_tracking(): void
+    {
+        if (get_option('RY_General_tracking', 'yes') !== 'yes') {
+            return;
+        }
+
+        LinkServer::instance()->send_tracking();
+    }
+
     public static function plugin_activation(): void
     {
         $defauts = [
