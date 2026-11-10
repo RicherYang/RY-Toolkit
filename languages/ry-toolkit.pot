@@ -2,7 +2,7 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: RY Toolkit 2026.9.4\n"
+"Project-Id-Version: RY Toolkit 2026.11.7\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ry-toolkit\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1372,6 +1372,10 @@ msgstr ""
 
 #: classes/Upload.php:39
 msgid "WooCommerce gallery thumbnail"
+msgstr ""
+
+#: includes/ry-general/AbstractAdmin.php:32
+msgid "Please check your server time setting. Server time is differs from NTP more than one minute."
 msgstr ""
 
 #: includes/ry-general/ActionScheduler/ListTable.php:30

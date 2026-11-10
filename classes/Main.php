@@ -4,7 +4,7 @@ namespace RY\Toolkit;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20260810\AbstractBasic;
+use RY\General\V20261107\AbstractBasic;
 use RY\Toolkit\Admin\Admin;
 use RY\Toolkit\Third\WpRocket;
 
@@ -57,7 +57,7 @@ final class Main extends AbstractBasic
 
     public static function usage_tracking(): void
     {
-        if (get_option('RY_General_tracking', 'yes') !== 'yes') {
+        if (get_option('RY_GENERAL_tracking', 'yes') !== 'yes') {
             return;
         }
 
@@ -66,6 +66,8 @@ final class Main extends AbstractBasic
 
     public static function plugin_activation(): void
     {
+        parent::plugin_activation();
+
         $defauts = [
             'big_image_size' => 2560,
             'disable_subsize' => [],
@@ -101,5 +103,8 @@ final class Main extends AbstractBasic
         }
     }
 
-    public static function plugin_deactivation(): void {}
+    public static function plugin_deactivation(): void
+    {
+        parent::plugin_deactivation();
+    }
 }
