@@ -4,8 +4,8 @@ namespace RY\Toolkit\Admin;
 
 defined('ABSPATH') or exit;
 
-use RY\General\V20261107\AbstractAdminPage;
-use RY\General\V20261107\Utils;
+use RY\General\V20261116\AbstractAdminPage;
+use RY\General\V20261116\Utils;
 
 final class Plugins extends AbstractAdminPage
 {

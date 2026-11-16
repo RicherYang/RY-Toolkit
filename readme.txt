@@ -5,7 +5,7 @@ Tags: tool
 Requires at least: 6.0
 Requires PHP: 8.2
 Tested up to: 7.1
-Stable tag: 2026.11.7
+Stable tag: 2026.11.16
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -63,7 +63,7 @@ or my [website page](https://ry-plugin.com/forum/ry-toolkit).
 
 == Changelog ==
 
-= 2026.11.7 =
+= 2026.11.16 =
 * Add check server time from Google NTP.
 
 = 2026.9.4 =
